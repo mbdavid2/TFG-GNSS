@@ -1,0 +1,29 @@
+ESPECIALITAT COMPUTACIÓ
+CCO1
+Tenir un coneixement profund dels principis fonamentals i dels models de la computació i saber-los aplicar per a interpretar, seleccionar, valorar, modelar i crear nous conceptes, teories, usos i desenvolupaments tecnològics, relacionats amb la informàtica.
+CCO1.1
+Avaluar la complexitat computacional d'un problema, conèixer estratègies algorísmiques que puguin dur a la seva resolució, i recomanar, desenvolupar i implementar la que garanteixi el millor rendiment d'acord amb els requisits establerts.
+CCO1.2
+Demostrar coneixement dels fonaments teòrics dels llenguatges de programació i les tècniques de processament lèxic, sintàctic i semàntic associades, i saber aplicar-les per a la creació, el disseny i el processament de llenguatges.
+CCO1.3
+Definir, avaluar i seleccionar plataformes de desenvolupament i producció hardware i software per al desenvolupament d'aplicacions i serveis informàtics de diversa complexitat.
+CCO2
+Desenvolupar de forma efectiva i eficient els algorismes i el software apropiats per a resoldre problemes complexos de computació.
+CCO2.1
+Demostrar coneixement dels fonaments, dels paradigmes i de les tècniques pròpies dels sistemes intel·ligents, i analitzar, dissenyar i construir sistemes, serveis i aplicacions informàtiques que utilitzin aquestes tècniques en qualsevol àmbit d'aplicació.
+CCO2.2
+Capacitat per a adquirir, obtenir, formalitzar i representar el coneixement humà d'una forma computable per a la resolució de problemes mitjançant un sistema informàtic en qualsevol àmbit d'aplicació, particularment en els que estan relacionats amb aspectes de computació, percepció i actuació en ambients o entorns intel·ligents.
+CCO2.3
+Desenvolupar i avaluar sistemes interactius i de presentació d'informació complexa, i la seva aplicació a la resolució de problemes de disseny d'interacció persona computador.
+CCO2.4
+Demostrar coneixement i desenvolupar tècniques d'aprenentatge computacional; dissenyar i implementar aplicacions i sistemes que les utilitzin, incloent les que es dediquen a l'extracció automàtica d'informació i coneixement a partir de grans volums de dades.
+CCO2.5
+Implementar software de cerca d'informació (information retrieval).
+CCO2.6
+Dissenyar i implementar aplicacions gràfiques, de realitat virtual, de realitat augmentada i videojocs.
+CCO3
+Desenvolupar les solucions informàtiques que, considerant l'entorn d'execució i l'arquitectura del computador sobre el qual s'executen, aconsegueixin el millor rendiment.
+CCO3.1
+Implementar codi crític seguint criteris de temps d'execució, eficiència i seguretat.
+CCO3.2
+Programar considerant l'arquitectura hardware, tant en asemblador com en alt nivell.
