@@ -2,23 +2,23 @@
 \contentsline {section}{\numberline {2}Scope of the project}{4}
 \contentsline {subsection}{\numberline {2.1}Objectives}{4}
 \contentsline {subsection}{\numberline {2.2}Scope}{4}
-\contentsline {subsection}{\numberline {2.3}Methodology and rigor}{5}
-\contentsline {paragraph}{Development tools}{5}
-\contentsline {paragraph}{Progress monitoring}{6}
-\contentsline {paragraph}{Validation of the results}{6}
-\contentsline {subsection}{\numberline {2.4}Obstacles and risks of the project}{6}
-\contentsline {paragraph}{Understanding of the problem}{6}
+\contentsline {subsection}{\numberline {2.3}Methodology and rigor}{4}
+\contentsline {paragraph}{Development tools}{4}
+\contentsline {paragraph}{Progress monitoring}{5}
+\contentsline {paragraph}{Validation of the results}{5}
+\contentsline {subsection}{\numberline {2.4}Obstacles and risks of the project}{5}
+\contentsline {paragraph}{Understanding of the problem}{5}
 \contentsline {paragraph}{Unfeasibility of the solution}{6}
-\contentsline {paragraph}{Interferences with the Sun}{7}
-\contentsline {paragraph}{Understanding previous algorithms}{7}
-\contentsline {paragraph}{Bugs}{7}
-\contentsline {paragraph}{Computational power}{7}
-\contentsline {section}{\numberline {3}Contextualization}{8}
-\contentsline {subsection}{\numberline {3.1}Areas of interest}{8}
-\contentsline {subsection}{\numberline {3.2}Stakeholders}{8}
-\contentsline {paragraph}{Developers}{8}
-\contentsline {paragraph}{Directors}{8}
-\contentsline {paragraph}{Benefited Actors}{9}
-\contentsline {subsection}{\numberline {3.3}State of the art}{9}
-\contentsline {paragraph}{Far-away stars}{9}
-\contentsline {paragraph}{Solar Flares}{9}
+\contentsline {paragraph}{Interferences with the Sun}{6}
+\contentsline {paragraph}{Understanding previous algorithms}{6}
+\contentsline {paragraph}{Bugs}{6}
+\contentsline {paragraph}{Computational power}{6}
+\contentsline {section}{\numberline {3}Contextualization}{7}
+\contentsline {subsection}{\numberline {3.1}Areas of interest}{7}
+\contentsline {subsection}{\numberline {3.2}Stakeholders}{7}
+\contentsline {paragraph}{Developers}{7}
+\contentsline {paragraph}{Directors}{7}
+\contentsline {paragraph}{Benefited Actors}{7}
+\contentsline {subsection}{\numberline {3.3}State of the art}{8}
+\contentsline {paragraph}{Far-away stars}{8}
+\contentsline {paragraph}{Solar Flares}{8}
