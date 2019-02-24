@@ -1,0 +1,51 @@
+GRB	Time [UT]	Trigger Number	BAT RA (J2000)	BAT Dec (J2000)	BAT T90 [sec]	BAT Fluence (15-150 keV) [10^-7 erg/cm^2]	XRT RA (J2000)	XRT Dec (J2000)	XRT Time to First Observation [sec]	XRT Early Flux (0.3-10 keV) [10^-11 erg/cm^2/s]	UVOT RA (J2000)	UVOT Dec (J2000)	UVOT Time to First Observation [sec]	UVOT Magnitude	Other Observatory Detections	Redshift	Host Galaxy	Comments	References
+190220A	02:59:34	889785	330.128	-76.669	10.0	8.9	22:00:39.30	-76:40:52.5	80.84	161	22:00:39.14	-76:40:50.4	86	n/a
+190219A	19:38:58	889748	189.686	76.606	167.8	39	12:38:30.44	76:36:44.9	100.91	1380	n/a	n/a	109	n/a	NOT (2.56m)
+190211A	16:54:44	888648	196.652	41.976	12.48	6.5	13:06:38.10	41:58:01.5	196.40	n/a	13:06:38.45	41:58:04.9	203	n/a	NEXT (0.6m), BOOTES-4/MET (0.6m), NOT (2.56m), MITSuME (50cm), DOAO (1m), Tautenburg, GROWTH-India (0.7m)
+190204A	05:46:01	887579|887580	351.491	54.884	26.4	130	23:25:54.72	54:52:34.8	75.03	572	23:25:54.58	54:52:35.1	84	V=18.30	MAXI/GSC, AstroSat CZTI, COATLI (50cm), SAO RAS Zeiss-1000, Konus-Wind, CALET			This GRB resulted in two BAT triggers in the on-board processing (#887579 at 05:46:01 and #887580 at 05:46:06).  We adopt the first trigger number and time as T0.
+190203A	15:44:08	887512	22.603	55.736	96	150	01:30:23.25	55:43:20.4	115.65	446	01:30:23.21	55:43:20.6	121	V>19.2	SAO RAS Zeiss-1000, MASTER-Amur, Konus-Wind, AstroSat CZTI, AZT-33IK
+190202A	01:39:30	887217	166.506	9.393	19.4	60	11:06:00.59	09:22:36.8	163.18	75	11:06:00.63	09:22:36.7	173	V=17.94	Koshka Zeiss-1000 (1m), GOTO, AGILE, Fermi (GBM), LCO (1m), McDonald (0.8m), NOT, TSHAO Zeiss-1000 (1m), SAO RAS Zeiss-1000, HCT (2m), Xinglong (2.16m), GROWTH-India (0.7m), AstroSat CZTI, Terskol Zeiss-2000 (2m)
+190129B	12:15:34	IPN	117.285	1.257	n/a	n/a	07:49:50.77	00:56:04.9	45000	n/a	n/a	n/a	44980	n/a				IPN: GCN 23808|XRT: candidate detection|UVOT: no detection
+190123A	12:19:13	885314	53.175	45.505	24.4	8.4	03:32:52.93	45:31:31.1	117.29	71.2	n/a	n/a	124	V>20.3	Fermi (GBM)			UVOT: no detection
+190114C	20:57:03	883832	54.503	-26.938	361.5	830	03:38:01.18	-26:56:47.8	63.95	7390	03:38:01.16	-26:56:46.9	74	V=16.28	MASTER-IAC, MASTER-SAAO, NOT (2.5m), OASDG (0.5m), MAGIC, MPG (2.2m), Fermi (GBM & LAT). GTC (10.4m), ESO-VLT UT2, AGILE/MCAL, INTEGRAL, Insight-HXMT/HE, McDonald Observatory, VLA @ 33.5 GHz, ALMA @ 90 GHz, REM (60cm), LSGT (0.42m), GROWTH-India (0.7m), KMTnet (1.6m), Konus-Wind, UKIRT, CHILESCOPE RC-1000, HCT (2m), ATCA @ 5.5, 9, 17 and 19 GHz, ePESSTO NTT, COATLI (50cm), RT-22 @ 36.8 GHz, HJT (1.5m), MeerKAT @ 1.3 GHz, GMRT @ 1.26 GHz, RTT150 (1.5m), HCT (2m)	0.42 (NOT: absorption)|0.4245 (GTC)|0.4250 (ESO-VLT UT2: absorption & emission)	r'=21.229, i'=21.574, z'=20.994 Pan-STARRS (possible host)
+190114B	19:31:12	883818	174.868	18.882	26.5	5.1	11:39:29.81	18:53:26.9	157.53	n/a	n/a	n/a	158	V>18.5	BOOTES-4/MET (0.6m), AZT-33IK, NOT (2.5m), Abastumani Observatory (0.7m), Liverpool (2m)			UVOT: no detection
+190114A	03:10:49	883600	65.543	2.196	66.6	8.0	04:22:10.54	02:11:29.1	246.63	118	04:22:10.55	02:11:29.6	258	V=18.33	VLT, MPG (2.2m), OSN T150, NOT (2.5m), AZT-33IK, NOEMA @ 76, 92, 136 and 152 GHz	3.3765 (VLT: absorption)		UVOT: possible UVOT detection
+190110A	17:24:48	883012	276.939	-53.643	9.3	25	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	Fermi (GBM), Konus-Wind, Insight-HXMT/HE			Due to a Sun observing constraint, Swift cannot slew to the BAT position until 16:10 UT on 2019 February 01.
+190109B	11:56:09	882809	55.563	63.592	5.92	4.8	03:41:56.94	63:35:31.3	87.10	n/a	n/a	n/a	91	V>20.4	Fermi (GBM)			UVOT: no detection
+190109A	05:12:41	882747	33.213	38.111	115.0	55	02:12:48.56	38:06:29.7	168.86	206	n/a	n/a	181	V>16.8	Fermi (GBM)			UVOT: no detection
+190106A	13:34:44	882252	29.877	23.839	76.8	60	01:59:31.23	23:50:43.8	81.79	1980	01:59:31.16	23:50:43.9	90	V=16.54	MASTER-Amur, MITSuME (50cm), GMG (2.4m), TSHAO Zeiss-1000 (1m), GWAC-F60B, Xinglong (2.16m), Bassano Bresciano Observatory (250mm), BOOTES-4/MET (0.6m), OASDG (0.5m), VLT, IERCOO/ICSP (0.61m), NEXT (0.6m), Konus-Wind, AZT-33IK, Liverpool (2m), OSN T150, DCT (4.3m)	1.86 (Xinglong: absorption)| 1.86 (GMG: absorption)|1.859 (VLT: absorption)
+190103B	21:03:51	881709	212.561	35.254	19.5	120	14:10:16.57	35:15:39.7	93.31	742	n/a	n/a	103	V>20.6	Konus-Wind, CALET (CGBM)			UVOT: no detection
+181228A	02:53:17	879909	49.831	13.212	257.3	100	03:19:14.94	13:12:07.4	82.54	54.6	n/a	n/a	93	V>19.1	REM (60cm), MASTER-OAFA, Fermi (GBM)			UVOT: no detection
+181224A	13:36:51	878911	125.949	6.194	12.5	4.9	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a				Due to a Moon observing constraint, Swift cannot slew to the BAT position until 08:10 UT on 2018 December 26.
+181213A	12:57:38	876016	248.210	78.500	15.31	15	16:33:04.83	78:29:49.1	2342.83	n/a	16:33:04.86	78:29:48.7	2352	V>17.35	MASTER-Net, BOOTES-5/JGT  (60cm), TSHAO (1m), NOT (2.5m), Gao-Ya-Zi HMT-0.5m, Abastumani Observatory AS-32 (0.7m), Insight-HXMT/HE, AZT-33IK	<2.4 (NOT: inferred)		Due to an observing constraint, Swift did not slew until T0+33.8 minutes.
+181203A	12:08:47	874475	108.341	-39.783	15.30	7.8	07:13:23.62	-39:48:06.7	73.27	160	n/a	n/a	79	V>18.6	BOOTES-3/YA (60cm), MPG (2.2m)			UVOT: no detection
+181202A	06:36:24	874334	280.737	27.976	6.56	2.5	18:42:56.40	27:57:34.5	85.36	n/a	18:42:56.38	27:57:35.0	86	V>18.7
+181201A	02:38:00	INTEGRAL	n/a	n/a	n/a	n/a	21:17:11.20	-12:37:50.9	14300	n/a	21:17:11.17	-12:37:51.0	14300	V=17.70				INTEGRAL: GCN 23469
+181126A	09:54:08	873539	152.350	-29.698	2.09	3.1	10:09:23.68	-29:41:12.7	75.00	n/a	n/a	n/a	80	V>18.0	Fermi (GBM)			UVOT: no detection
+181125A	08:54:39	873433	268.391	-2.634	10.5	3.3	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	Fermi (GBM)			Due to a Sun observing constraint, Swift cannot slew to the BAT position until 15:18 UT on 2019 January 31.
+181123B	05:33:03	873186	184.354	14.619	0.26	1.2	12:17:28.02	14:35:52.7	80.25	n/a	n/a	n/a	84	V>19.8	Insight-HXMT/HE			UVOT: no detection
+181110A	08:43:31	871316	302.330	-36.878	138.4	99	20:09:16.32	-36:53:48.2	63.99	5820	20:09:16.27	-36:53:47.9	72	V=16.09	Kanata (1.5m), MITSuME (50cm), iTelescope SSO (0.43m), VLT, MPG (2.2m), Chilescope RC-1000, Konus-Wind	1.505 (VLT: absorption)
+181103A	04:22:30	870201	197.093	52.220	8.38	2.8	13:08:27.78	52:13:32.5	90.46	n/a	n/a	n/a	92	V>18.21
+181030A	01:27:22	869494	146.916	14.657	304.7	62	09:47:42.27	14:39:26.3	142.09	525	n/a	n/a	152	V>18.9	SAO RAS (Zeiss-1000), MASTER Net
+181027A	01:48:59	868984	225.361	30.937	81.16	28	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	Fermi (GBM)			Due to a Sun observing constraint, Swift cannot slew to the BAT position until 03:50 UT on 2018 November 06.
+181023A	02:04:02	868427	248.322	19.581	58.0	13	16:33:18.97	19:34:13.7	195.68	n/a	n/a	n/a	200	V>19.4				UVOT: no detection
+181022A	17:30:13	868312	56.808	-29.374	6.74	1.9	03:47:10.09	-29:22:47.2	96.82	n/a	n/a	n/a	78	V>19.8				UVOT: no detection
+181020A	19:00:33	867987	13.987	-47.372	238.0	81	00:55:55.78	-47:22:50.4	55.57	604	00:55:55.77	-47:22:51.9	122	V=14.89	Fermi (LAT & GBM), VLT, LCO (1m), MASTER-SAAO, REM (60cm), Konus-Wind	2.938 (VLT: absorption)
+181016A	00:55:00	867252	231.273	-35.307	111.6	19	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a				Due to a Sun observing constraint, Swift cannot slew to the BAT position until 09:03 UT on 2019 January 03.
+181013A	02:39:29	866783	207.661	40.107	104.1	3.0	13:50:36.43	40:06:29.5	103.10	n/a	n/a	n/a	106	n/a				UVOT: no detection
+181010A	05:55:51	866434	52.574	-23.023	16.4	6.9	03:30:16.82	-23:02:16.6	93.05	n/a	03:30:16.89	-23:02:15.4	96	V>19.4	MASTER-OAFA, LCO (1m), HJT (1.5m), VLT, ESO NTT (La Silla), Fermi (GBM), REM (60cm), MPG (2.2m)	1.39 (VLT: absorption & emission)
+181003A	05:11:03	865179	52.481	-33.991	21.5	4.2	03:30:06.89	-33:57:52.8	3089.42	n/a	n/a	n/a	3095	V>19.79				Due to an observing constraint, Swift did not slew until T0+46.3 minutes.|UVOT: no detection
+181002A	11:26:43	865036	64.739	15.248	63.4	8.8	04:18:59.19	15:12:46.4	136.01	74.1	n/a	n/a	144	V>17.9	Konus-Wind			UVOT: no detection
+180930A	12:43:49	864584	76.894	-25.124	6.80	2.1	05:07:27.16	-25:07:01.0	208.35	n/a	n/a	n/a	211	V>20.1				UVOT: no detection
+180925A	14:37:31	863421	315.212	-64.450	81.70	41	21:00:48.71	-64:27:23.8	108.93	319	21:00:48.70	-64:27:24.82	119	V>19.66	Insight-HXMT/HE, VLT, Astrosat (CZTI)
+180924A	15:22:22	863186	49.207	-58.524	95.1	14	03:16:47.85	-58:31:57.1	76.75	135	n/a	n/a	83	V>17.1				UVOT: no detection
+180914B	18:23:02.22	AGILE	n/a	n/a	n/a	n/a	22:09:25.56	25:03:47.3	82800	n/a	22:09:25.53	25:03:43.8	83500	n/a				AGILE: GCN 23226
+180905A	13:57:46	859421	91.038	-4.592	165.3	42	06:04:15.04	-04:34:12.5	145.91	203	n/a	n/a	154	V>19.1				UVOT: no detection
+180904A	21:28:32	859282	274.260	46.640	5.40	2.4	18:16:59.96	46:37:47.3	122.95	44.7	n/a	n/a	131	V>20.1				UVOT: no detection
+180828A	18:57:34	856977	268.704	-25.791	14.0	88	17:54:52.35	-25:47:52.6	115.58	79.9	n/a	n/a	124	V>20.3	Fermi (GBM), AstroSat (CZTI), Konus-Wind			UVOT: no detection
+180823A	19:04:32	855434	210.358	14.901	80.3	78	14:01:25.39	14:53:33.0	89.20	310	n/a	n/a	381	V>19.2				UVOT: no detection
+180821A	16:40:34	854578	7.739	-38.612	64.00	14	00:31:09.64	-38:37:37.7	210.33	36.7	n/a	n/a	219	V>17.7				UVOT: no detection
+180818B	12:30:18	853882	104.227	39.310	134.4	23	06:56:53.89	39:18:56.4	203.84	130	n/a	n/a	212	V>19.8	Fermi (GBM), OSN (1.5m)			UVOT: no detection
+180818A	03:12:04	853824	169.698	-48.344	13.7	2.6	11:18:32.76	-48:20:40.3	74.04	128	n/a	n/a	83	V>19.8				UVOT: no detection
+180812A	08:22:30	852903	245.839	74.674	16.51	8.0	16:23:20.33	74:39:52.7	107.46	n/a	16:23:20.45	74:39:52.9	112	V>18.9	BOOTES-5/JGT (60cm), COATLI (50cm), Fermi (GBM)
+180809B	20:28:48	852553	299.712	-15.293	233.2	730	19:58:47.99	-15:17:56.1	n/a	1510	19:58:47.96	-15:17:57.1	82	V>19.8	MASTER-SAAO, MPG (2.2m), LCO Sutherland (1m), MASTER-Tavrida, MASTER-IAC, CALET (CGBM), CrAO (2.6m), Konus-Wind, La Silla (NTT), AstroSat (CZTI)
