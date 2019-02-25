@@ -3,11 +3,11 @@
 \contentsline {subsection}{\numberline {2.1}Objectives}{4}
 \contentsline {subsection}{\numberline {2.2}Scope}{4}
 \contentsline {subsection}{\numberline {2.3}Methodology and rigor}{4}
-\contentsline {paragraph}{Development tools}{4}
+\contentsline {paragraph}{Development tools}{5}
 \contentsline {paragraph}{Progress monitoring}{5}
 \contentsline {paragraph}{Validation of the results}{5}
 \contentsline {subsection}{\numberline {2.4}Obstacles and risks of the project}{5}
-\contentsline {paragraph}{Understanding of the problem}{5}
+\contentsline {paragraph}{Understanding of the problem}{6}
 \contentsline {paragraph}{Unfeasibility of the solution}{6}
 \contentsline {paragraph}{Interferences with the Sun}{6}
 \contentsline {paragraph}{Understanding previous algorithms}{6}
