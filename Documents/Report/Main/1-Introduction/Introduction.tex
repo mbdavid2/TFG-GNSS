@@ -1,0 +1,226 @@
+\documentclass[12pt]{article}
+
+%%% Packages %%%
+
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{graphicx}
+
+%%% Styles %%%
+
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\it}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\bibliographystyle{abbrv}
+
+%%% Document information %%%
+
+\title{
+	{\textbf{Context and scope of the project} \\
+	\large New real-time GNSS algorithms for detection and measurement of potential geoeffective stellar flares}
+\author{\textbf{Author}\\
+	David Moreno Borr\`as
+	\\ \\
+	\textbf{Supervisor}\\
+	 Manuel Hernández-Pajares}
+\date{\today}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Start of document %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+\pagenumbering{arabic}
+\clearpage
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Introduction %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+Solar flares are sudden electromagnetic emissions on the Sun’s surface that release large amounts of magnetic energy. These flares emit radiation that has an effect on Earth’s ionosphere electron content and therefore the many satellites orbiting it.\cite{hernandez2012gnss}\\
+
+Several NASA missions that aim to detect these and other flares from far-away stars exist, like the Swift and Fermi missions, these satellites, however, perform this by using their instruments to study the gamma-ray, x-ray and ultraviolet radiation bands. \cite{gehrels2013gamma}\\
+
+The aforementioned ionosphere electron content variation, however, makes it possible to detect these flares with a more indirect approach: using data from the satellites belonging to global positioning systems.\\
+
+As the sudden increase of electron content in the ionosphere has an effect on the signals these satellites receive and send, this data can be used to detect flares by using the appropriate algorithms. Parameters such as the angle between the Sun and the zenith of the Earth, or the Total Electron Content (TEC) in the air have to be taken into consideration for them to work. \\
+
+This is already feasible with flares that have the Sun as a source, so our goal is to, first of all, expand on that by detecting these flares without knowing the location of the Sun, and then apply that to study if it is possible to detect flares from far-away stars by developing the appropriate algorithms.\\
+
+Therefore, the main objective of our project is to study the feasibility of the detection of these stellar flares using Global Navigation Satellite System (GNSS) or Global Positioning System (GPS) measurements without knowing the location of the source. If this is possible, it could be extended to real-time detection.\\
+
+The aim of this document is to give a detailed description of the project, its scope and context.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Scope of the project %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{Scope of the project}
+
+Now that we have defined the problem that we want to solve, we proceed to define the scope of our project: how are we going to tackle it, and what could be some obstacles that might arise during its development.
+
+\subsection{Objectives}
+
+For a possible progression we could present the objectives of the project as follows:
+
+\begin{itemize}
+  \item To understand how the already existing algorithms for solar flare detection work, and see how we can apply them to the challenging scenario of far-away stars.
+  \item Be able to work with GNSS data in order to use it as the input for our algorithms and compare that to flares registered by satellites like Swift or Fermi.
+  \item Using this data, developing new algorithms that can perform the detection using solar flares first but without knowing the origin of the source, that is, not only detecting the solar flare, but the position of the Sun relative to the Earth.
+  \item Applying this to the challenging scenario of far-away stars without knowing the position of the potential ionizing source.
+  \item Prepare these algorithms to be applied for real-time data.
+\end{itemize}
+
+\subsection{Scope}
+
+We need to study the impact of stellar flares on the Earth’s ionosphere by adapting the already existing algorithms that work with the Sun, but without knowing the source of the flare to see if we can apply this method to the scenario of far-away stars.\\
+
+And finally, if possible, using the result to adapt the solution to run in real-time.
+
+\subsection{Methodology and rigor}
+
+The project has been planned to assure that it’s developed in a bottom-up style, from the less to the most challenging objectives because every step of the development relies on the previous one to work.\\ 
+
+Therefore, as we have specified before, the project is going to start by working with a less-challenging scenario: the Sun. If this works we will extend it to far-away stars and finally adapt it to run in real-time.
+
+\paragraph{Development tools}
+
+Git and GitHub are going to be the tools used for version control and code maintenance.\\
+
+The platform we will be developing on will be Linux, and regarding programming languages, C-Shell will be used for scripts, AWK for the pre-processing of data and Fortran for the main algorithms. \\
+
+Fortran was used for computing the relation between the Sun’s angle with the Earth’s zenith and the VTEC given by the data of a satellite, but a new part of our algorithm that didn’t have to be considered with the previous ones is how to traverse the set of GNSS satellites of the whole globe and decide which ones should compute this relation, that is, efficiently consider which satellites could possibly lead us to results, instead of checking that for all of them with a brute force algorithm.
+
+We will consider if there’s any alternative that may bring us more benefits than using Fortran for this part. \\
+
+Others tools might be used in the process, for example we could use something like Python to scrap the website of the Swift satellite for the data we want or download it and process it with C-shell or Bash.\\
+
+Regarding the GNSS data we are going to be using, this is made available by the  International GNSS Service (IGS). These voluntary federation offers open access GNSS data that can be used to obtain ionospheric information.\cite{hernandez2009igs}\\
+
+\paragraph{Progress monitoring}
+
+In order to track the progress and comment on the results, a weekly meeting with the project director is organized, where we set several “Action Items” to be done during the week prior to our next meeting.
+
+\paragraph{Validation of the results}
+
+Data from the Swift or Fermi missions is going to be used for the validation of our results. Using past GNSS data, we will develop algorithms that use it to detect flares and the location of the source. 
+
+Swift and Fermi data will have information about the flares, so we will compare our results to see if we really detected a flare. This will also be done for the scenario of far-away stars.
+
+Regarding the last phase, the algorithms running in real time, the only way to validate the results is to wait for any matching data from the Swift and Fermi databases.
+
+\subsection{Obstacles and risks of the project}
+
+Although we have stated the objectives that we aim to follow in our project, its development may be hampered by some common problems that appear when developing software and algorithms, and others that may arise due to the nature of our problem.
+
+\paragraph{Understanding of the problem}
+
+The problem has a considerable physics background that I, as a Computer Science student, lack the knowledge to completely understand it. Although a basic knowledge in the field will suffice for developing the algorithms, not having a background in physics might lead to confusion at some point.
+
+\paragraph{Unfeasibility of the solution}
+
+The problem that we want to solve is clear: detecting stellar flares from far-away stars. The feasibility has been studied for some cases \cite{martinez2016first}, concluding that we face the possibility that the proposed solution is not totally feasible due to the nature of the problem: flares from far-away stars will not have an impact on the ionosphere as noticeable as the one from the sun, so it may be difficult, or even impossible, for them to be detected in some cases.
+
+\paragraph{Interferences with the Sun}
+
+With the Sun, only the daylight hemisphere is studied for the detection of flares using GPS data (it is the only one flares' effects can reach)
+
+In our case we don’t have a fixed source, but rather aim to find it. Flares could be having an effect on any part of the ionosphere so it may not be possible to study their effect on the daylight hemisphere because of the Sun’s (presumably) higher effect on it. 
+
+Because of this factor we might have to focus only on the night hemisphere and we would be missing on possible flares.
+
+\paragraph{Understanding previous algorithms}
+
+It is often difficult to understand code that has not been written by oneself, let alone understanding complex algorithms without any previous knowledge. This could be another possible obstacle, as the study of the previously developed algorithms will play an important role in the development of ours.
+
+\paragraph{Bugs}
+
+As we will be writing code it is clearly possible that we face problems with bugs that may appear in the process.
+
+\paragraph{Computational power}
+
+Taking into consideration we may be dealing with large volumes of data, its processing may be another challenge for the project, we will have to find efficient ways to do so and think about which strategies will work best in our algorithms.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Contextualization %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Contextualization}
+
+In this section we aim to give a brief description of the area of interest of the project and present which actors are going to be involved in its development.
+
+\subsection{Areas of interest}
+
+The problem has a clear background in the field of \textbf{physics} and \textbf{astronomy}. I wanted to work on a project related to astronomy to see how computer science could be applied to this field. 
+
+Although there’s an important theory part behind, the weight of the project lies in developing the \textbf{algorithms}.\\
+
+On the other hand, the \textbf{study of large sets of data} is another area of interest of the project, and how we can use all the GNSS data efficiently in order to generate new information.\\
+
+If successful, it could also be expanded with other interesting fields like AI or Machine Learning to aid in the detection or classification of these flares, for example.
+
+\subsection{Stakeholders}
+
+\paragraph{Developers}
+
+The project is being developed by myself, David Moreno Borràs. Computer Science student at the Barcelona School Of Informatics (FIB).\\
+
+I will be writing the documentation and working on the project but as I lack the knowledge of the more theoretical part of the project, the director, Manuel Hernández-Pajares, will aid me with these aspects, as this is his area of expertise.
+
+\paragraph{Directors}
+
+The director of the project is Manuel Hernández-Pajares, professor from the department of Applied Mathematics at the Technical University of Catalonia (UPC). 
+
+He has conducted several studies related to the field of this project (ionospheric sounding and GNSS navigation) and is the creator of the already existing algorithms used for detecting solar flares, so he can assist me when understanding how they work and how can they be used to develop the new ones.
+
+\paragraph{Benefited Actors}
+
+The mainly benefited actors would be astronomers because this technique would allow to use GPS as an astronomical instrument for the measurement of the Sun’s EUV radiaton.\\
+
+This would be a ground system with zero cost to detect stellar flares by using free, publicly available GNSS data.
+
+\subsection{State of the art}
+
+In this section we will discuss the situation of the project regarding previous studies on the field, and what does it aim to extend upon.          
+
+\paragraph{Far-away stars}
+
+A first-study of this topic was done in the Master Thesis \textit{“First study on the feasibility of Stellar Flares detection with GPS”} \cite{martinez2016first} written by David Martinez Cid and also directed by Manuel Hernández-Pajares.\\
+
+The project concluded by stating that more stellar flares should be studied in order to determine whether the solar flare detection algorithms are able to detect stellar flares, which is what we intend to do with new algorithms that don’t rely on the location of the source.
+
+\paragraph{Solar Flares}
+
+As mentioned before, the project director, Manuel Hernández-Pajares has conducted several studies on this topic and presented different solutions as can be seen in \textit{“GNSS measurement of EUV photons flux rate during strong and mid solar flares”} \cite{hernandez2012gnss} where a detailed explanation of the case is presented and \textit{“GPS as a solar observational instrument: Real-time estimation of EUV photons flux rate during strong, medium, and weak solar flares”} \cite{singh2015gps}, in collaboration with the Indian Institute of Technology.\\
+
+In both of these papers the use of GPS measurements is presented as an accurate Solar observational tool using the GNSS solar flare activity indicator (GSFLAI) algorithm.\\
+
+The project would be expanding on this topic by presenting a solution that does not consider the source of the flare, that is, detecting it without knowing the position of the Sun relative to the Earth. This would be a tool able to determine the position of the Sun and the event of a solar flare without a dedicated satellite, using only free, open-source data.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% References %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\bibliography{references}
+
+\end{document}
