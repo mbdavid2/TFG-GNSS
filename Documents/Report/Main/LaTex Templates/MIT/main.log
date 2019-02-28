@@ -1,0 +1,285 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.5)  27 FEB 2019 16:19
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
+(./mitthesis.cls
+Document Class: mitthesis 1999/10/20
+\vithesis=\count79
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+Thesis document copyright MIT unless otherwise (manually) specified
+\@titlesupervisor=\box26
+\@abstractsupervisor=\box27
+\c@savepage=\count89
+) (./lgrind.sty
+Package: lgrind 1997/01/30 v3.4 LGrind environment and supporting stuff
+\lc@unt=\count90
+\ln@xt=\count91
+\LGnuminterval=\count92
+\LGindent=\skip43
+\LGsloppy=\skip44
+\procbox=\box28
+\ls@far=\box29
+\tb@x=\box30
+\TBw@d=\dimen103
+\@ts=\dimen104
+) (/usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty
+Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+)<<t1.cmap>>)
+(./main.aux (./cover.aux) (./contents.aux) (./chap1.aux) (./appa.aux)
+(./appb.aux) (./biblio.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+\openout2 = `cover.aux'.
+
+ (./cover.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
+<<oms.cmap>> [1
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+] (./abstract.tex) [3
+
+] [4
+
+])
+\openout2 = `contents.aux'.
+
+
+(./contents.tex (./main.toc<<ot1.cmap>><<oml.cmap>>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+<<omx.cmap>>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [5
+
+
+
+] [6
+
+]
+(./main.lof)
+\tf@lof=\write4
+\openout4 = `main.lof'.
+
+ [7] [8
+
+] (./main.lot)
+\tf@lot=\write5
+\openout5 = `main.lot'.
+
+) [9]
+\openout2 = `chap1.aux'.
+
+ (./chap1.tex [10
+
+
+
+]
+Chapter 1.
+
+LaTeX Warning: Citation `patterson:risc' on page 11 undefined on input line 32.
+
+
+
+LaTeX Warning: Citation `rad83' on page 11 undefined on input line 32.
+
+
+LaTeX Warning: Citation `ellis:bulldog' on page 11 undefined on input line 40.
+
+
+LaTeX Warning: Citation `pet87' on page 11 undefined on input line 40.
+
+
+LaTeX Warning: Citation `coutant:precision-compilers' on page 11 undefined on i
+nput line 40.
+
+
+LaTeX Warning: Citation `gib86' on page 11 undefined on input line 44.
+
+[11]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 76.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 76.
+
+
+LaTeX Warning: Reference `exponent-format' on page 12 undefined on input line 7
+6.
+
+
+LaTeX Warning: Reference `mantissa-format' on page 12 undefined on input line 7
+6.
+
+
+LaTeX Warning: Reference `unnorm-math' on page 12 undefined on input line 77.
+
+[12]
+
+LaTeX Warning: Citation `thornton:cdc6600' on page 13 undefined on input line 9
+2.
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 92.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [13]
+
+LaTeX Warning: Reference `opt:be' on page 14 undefined on input line 131.
+
+
+LaTeX Warning: Reference `range-tracking' on page 14 undefined on input line 16
+0.
+
+[14]
+Underfull \vbox (badness 1389) has occurred while \output is active []
+
+ [15]
+
+LaTeX Warning: Citation `magenheimer:precision' on page 16 undefined on input l
+ine 204.
+
+
+LaTeX Warning: Citation `byte:i860' on page 16 undefined on input line 214.
+
+
+LaTeX Warning: Citation `ellis:bulldog' on page 16 undefined on input line 227.
+
+
+
+LaTeX Warning: Citation `colwell:vliw' on page 16 undefined on input line 227.
+
+[16]
+
+LaTeX Warning: Citation `gib86' on page 17 undefined on input line 248.
+
+) [17]
+\openout2 = `appa.aux'.
+
+ (./appa.tex [18
+
+
+
+]
+Appendix A.
+[19])
+\openout2 = `appb.aux'.
+
+ (./appb.tex [20
+
+
+
+
+]
+Appendix B.
+[21] [22])
+\openout2 = `biblio.aux'.
+
+ (./biblio.tex (./main.bbl
+
+LaTeX Warning: Empty `thebibliography' environment on input line 5.
+
+)) [23
+
+
+
+
+
+] (./main.aux (./cover.aux) (./contents.aux) (./chap1.aux) (./appa.aux)
+(./appb.aux) (./biblio.aux))
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 855 strings out of 494923
+ 9291 string characters out of 6180743
+ 56728 words of memory out of 5000000
+ 4106 multiletter control sequences out of 15000+600000
+ 17644 words of font info for 39 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 28i,8n,23p,223b,249s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.
+600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1
+000.600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/e
+cbx1000.600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecrm1000.600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecrm0700.600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecrm0800.600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecbx1200.600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/
+ljfour/jknappen/ec/ecbx2488.600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/mbdavid2/.texlive2017/texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/mbdavid2/.texlive2017/texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/mbdavid2/.texlive2017/tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/mbdavid2/.texlive2017
+/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (23 pages, 195361 bytes).
+PDF statistics:
+ 505 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+

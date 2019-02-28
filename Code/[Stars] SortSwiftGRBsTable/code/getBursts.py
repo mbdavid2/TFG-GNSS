@@ -157,5 +157,6 @@ def main():
 	soup = loadContentSwift()
 	listGRBs = traverseTableAndSort(soup, sort)
 	prettyPrintList(listGRBs)
-
+	## TODO: Automatically write it to ../results/ when we're sure it works properly
+	## TODO: remove log file created by planets_v2 script
 main()
