@@ -1,18 +1,14 @@
-\contentsline {section}{\numberline {1}Planning and scheduling}{3}
-\contentsline {section}{\numberline {2}Task description}{3}
-\contentsline {paragraph}{Introduction to the problem}{3}
-\contentsline {paragraph}{GEP}{3}
-\contentsline {paragraph}{Feasibility of the detection of flares from far-away stars}{4}
-\contentsline {paragraph}{Detection of solar flares with no information about the location of the Sun}{4}
-\contentsline {paragraph}{Detection of stellar flares in real-time}{4}
-\contentsline {paragraph}{Writing the report}{4}
-\contentsline {paragraph}{Final presentation}{4}
-\contentsline {section}{\numberline {3}Time table}{4}
-\contentsline {section}{\numberline {4}Scheduling: Gantt chart}{5}
-\contentsline {section}{\numberline {5}Action plan}{6}
-\contentsline {paragraph}{Understanding of the problem}{6}
-\contentsline {paragraph}{Unfeasibility of the solution}{6}
-\contentsline {paragraph}{Interferences with the Sun}{6}
-\contentsline {paragraph}{Understanding previous algorithms}{6}
-\contentsline {paragraph}{Bugs}{6}
-\contentsline {paragraph}{Computational power}{7}
+\contentsline {section}{\numberline {1}Cost estimation}{3}
+\contentsline {subsection}{\numberline {1.1}Software resources}{3}
+\contentsline {paragraph}{Common resources}{3}
+\contentsline {paragraph}{Developing the algorithms}{3}
+\contentsline {paragraph}{GEP and writing the report}{4}
+\contentsline {subsection}{\numberline {1.2}Hardware resources}{4}
+\contentsline {subsection}{\numberline {1.3}Human resources}{4}
+\contentsline {subsection}{\numberline {1.4}Indirect costs}{5}
+\contentsline {subsection}{\numberline {1.5}Total budget}{5}
+\contentsline {subsection}{\numberline {1.6}Budget control}{5}
+\contentsline {section}{\numberline {2}Sustainability}{6}
+\contentsline {subsection}{\numberline {2.1}Environmental sustainability}{6}
+\contentsline {subsection}{\numberline {2.2}Economic sustainability}{7}
+\contentsline {subsection}{\numberline {2.3}Social sustainability}{7}

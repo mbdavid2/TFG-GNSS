@@ -6,6 +6,8 @@
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage[margin=1in]{geometry}
+\usepackage{eurosym}
+\usepackage{makecell}
 
 %%% Styles %%%
 
@@ -24,7 +26,7 @@
 	{
 	\includegraphics[width=0.7\linewidth]{logo-fib.png}	
 	\vspace{1cm}
-	\textbf{\\Project planning} \\
+	\textbf{\\Budget and sustainability} \\
 	\large New real-time GNSS algorithms for detection and measurement of potential geoeffective stellar flares}
 \author{\textbf{Author}\\
 	David Moreno Borr\`as
@@ -53,171 +55,249 @@
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%% Planning and scheduling %%%%%%%%%
+%%%%%%% Cost estimation %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Planning and scheduling}
+\section{Cost estimation}
 
-The aim of this document is to present the tasks and stages of the project and how are they going to be planned and scheduled so the project meets its objectives within the given deadlines.
+In the following sections, an estimation of the cost is presented. These are going to be divided in four major sections: hardware, software, human resources and indirect costs. Because  some of the tasks will use the same resources, they have been grouped, but those that use different resources will be studied in a different section.
 
-Because we rely on some stages of the project to work before we begin to tackle others, this planning might be updated as the project progresses, perhaps because a part took longer to develop than expected or (luckily) less.
+\subsection{Software resources}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%% Task description %%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Task description}
-
-In this section a description of each task is presented in a similar order to that which will be seen later in the planning section.
-
-\paragraph{Introduction to the problem}
-
-Study past research papers related to the problem to gain some background on the project, this includes the following topics:
-
-\begin{itemize}
-  \item The use of GNSS data as a solar flare meter. Some research papers about this topic were discussed in the State of the Art section, most of them written by the director, Manuel Hernández-Pajares. \cite{hernandez2012gnss}
-  \item Solar and stellar bursts and their effect on Earth’s ionosphere. The aforementioned papers give a brief introduction to the topic, although others can be found that cover the topic with more depth. \cite{mitra1974ionospheric}
-\end{itemize}
-
-\paragraph{GEP}
-
-The GEP course is done early in the project to help with the documentation of the thesis, understanding the scope and context of the project, and its planning. Its different stages are:
-
-\begin{itemize}
-	\item Context and Scope of the project
-	\item Project planning
-	\item Budget and sustainability
-\end{itemize}
-
-This also involves a final deliverable that includes the previously listed parts but taking into consideration the feedback of the professors of the course.
-
-Finally, an oral presentation will be done describing the work done during this course, which will also be a starting point of the final presentation of the thesis.
-
-\paragraph{Feasibility of the detection of flares from far-away stars}
-
-Before developing the algorithms to be able to perform this without knowing the source of the flare, a study should be done with the already existing algorithms. This is one of the most challenging problems of the project as it is not clear yet if this is possible.
-
-To do this, we will use open-source data from missions like Swift or Fermi (satellites that are able to detect flares or burst) and see if there is any correlation between that data and the results given by the algorithms that detect solar flares.
-
-\paragraph{Detection of solar flares with no information about the location of the Sun}
-
-This task will be done in parallel to the previous one. The current algorithms are able to, knowing the position of the Sun, study if any flares have had an effect on the ionosphere, detectable by the satellites belonging to GNSS. 
-
-We aim to do the same, but assuming we don’t have any information about the position of the Sun relative to the Earth. This is an important task for the project, because it will be necessary when expanding it to far-away stars, of which we ignore the location.
-
-\paragraph{Detection of stellar flares in real-time}
-
-If the previous systems work, instead of studying flares using past GNSS data and checking that the results match detections by satellites like Swift or Fermi, we will use the latest available data to detect them in real-time, without knowing the location of the ionizing source. For this to work the detection of far-away stars using this system and the detection of solar flares without knowing the location of the Sun have to work properly.
-
-\paragraph{Writing the report}
-
-This task will be done in parallel to the rest. As we perform the other tasks a memory of the project will be written giving a detailed explanation of all the phases, the methodology and development of the solutions, problems or obstacles that might have appeared, and the final results of each of them. 
-
-\paragraph{Final presentation}
-
-The final task, once the report of the project is finished, is to prepare an oral presentation for the defense of the thesis. This will try to cover all the progress of the work done during the last months as concisely as possible, presenting the results, obstacles that may have appeared and solutions presented for the problems.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%% Time table %%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Time table}
-
-Table 1 shows the estimation of the amount of hours that will have to be dedicated for the completion of each task. The expected amount of dedicated hours to the project is 18 ECTS x 30h/ECTS = 540 hours, of which 3x30 = 90 hours are dedicated to the GEP course.
+\paragraph{Common resources}
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{||c c||} 
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c|} 
 		\hline
-		Task & Dedication Time (hours) \\ [0.5ex] 
+		Product & Units & Price & Useful life (years) & Amortization \\ [0.5ex] 
 		\hline\hline
-		Introduction & 20  \\ 
+		Ubuntu 18.04 & 1 & 0 \euro & - & 0 \euro \\ 
 		\hline
-		GEP & 90  \\
+		Google Chrome & 1 & 0 \euro & - & 0 \euro \\
 		\hline
-		Study of flares from far-away stars & 120 \\
-		\hline
-		Detection of solar flares & 120  \\
-		\hline
-		Detection in real-time & 100  \\ 
-		\hline
-		Writing report & 90  \\ 
-		\hline
-		Final presentation & 4 \\
+		Evince & 1 & 0 \euro & - & 0 \euro \\
 		\hline\hline
-		Total & 544  \\
+		Total &  & 0 \euro &  & 0 \euro \\
 		\hline
 	\end{tabular}
-	\caption{Dedication time to each of the tasks}
-	\label{table:1}
+	\caption{Software costs}
 \end{table}
 
-Taking into consideration the project will span 14 weeks, a weekly dedication of 34 hours is possible for the project planning to work as scheduled.
+\paragraph{Developing the algorithms}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%% Scheduling %%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Scheduling: Gantt chart}
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c|} 
+		\hline
+		Product & Units & Price & Useful life (years) & Amortization \\
+		\hline\hline
+		Git & 1 & 0 \euro & - & 0 \euro \\ 
+		\hline
+		GitHub & 1 & 0 \euro & - & 0 \euro \\
+		\hline
+		Sublime Text 3 & 1 & 0 \euro & - & 0 \euro \\
+		\hline
+		Python & 1 & 0 \euro & - & 0 \euro \\
+		\hline
+		GNSS Data & 1 & 0 \euro & - & 0 \euro \\
+		\hline
+		GFortran & 1 & 0 \euro & - & 0 \euro \\
+		\hline\hline
+		Total &   & 0 \euro &  & 0 \euro \\
+		\hline
+	\end{tabular}
+	\caption{Software costs}
+\end{table}
 
-Having started mid-February, the development of the project will span between 4 or 5 months as the oral presentations are scheduled for the first week of July. 
+\clearpage
 
-The report should be handed in one week prior to the lectures, so for the planning, our objective is to finish the project a week before: Friday, 21th of June, so that there is enough time to revise it and make any convenient changes.
+\paragraph{GEP and writing the report}
 
-To visually represent the schedule of the planning, a Gantt chart is shown below in Figure 1. This chart has been generated using the online tool teamgantt.com: 
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c|} 
+		\hline
+		Product & Units & Price & Useful life (years) & Amortization \\
+		\hline\hline
+		LibreOffice & 1 & 0 \euro & - & 0 \euro \\ 
+		\hline
+		LaTeX & 1 & 0 \euro & - & 0 \euro \\
+		\hline
+		TeamGantt & 1 & 0 \euro & - & 0 \euro \\
+		\hline\hline
+		Total &   & 0 \euro &  & 0 \euro \\
+		\hline
+	\end{tabular}
+	\caption{Software costs}
+\end{table}
 
-\vspace{0.25cm}
+\subsection{Hardware resources}
 
-\begin{figure}[ht]
-	\centering	
-	\includegraphics[width=0.9\linewidth]{gantt.png}
-	\caption{Gantt chart with the planning of the project }
-\end{figure}
-	
+The following table contains the costs of the hardware that is going to be used for the project. These resources are common to all phases.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%% Action plan %%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Action plan}
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c|} 
+		\hline
+		Product & Units & Price & Useful life (years) & Amortization \\
+		\hline\hline
+		Asus X555L & 1 & 750 \euro & 6 & 60 \euro \\ 
+		\hline
+		PC devices & 1 & 200 \euro & 6 & 20 \euro \\
+		\hline\hline
+		Total &   & 950 \euro &  & 80 \euro \\
+		\hline
+	\end{tabular}
+	\caption{Hardware costs}
+\end{table}
 
-Our idea is to work in the presented order as planned in the the previous sections, some tasks depend on previous ones to be finished to continue, and others are going to be done in parallel, like writing the report. 
+\subsection{Human resources}
 
-Time is limited and many problems might appear that will force us to reschedule the project planning, some of which could be:
+The project is going to be developed by one person, which will have to be the project manager, software developer and tester. 
 
-\paragraph{Understanding of the problem}
+We estimated in the planning section a total dedication time for the project of 550 hours, so here we present an estimation of the distribution of those hours between the roles and the cost of each.
 
-The problem has a considerable physics background that I, as a Computer Science student, lack the knowledge to completely understand it. Although a basic knowledge in the field will suffice for developing the algorithms, not having a background in physics might lead to confusion at some point.
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c |} 
+		\hline
+		Role & \euro/hour & Hours & Cost \\
+		\hline\hline
+		Project manager & 45 & 100 & 4500 \\
+		\hline
+		Software developer & 40 & 300 & 12000 \\
+		\hline
+		Tester & 30 & 150 & 4500 \\
+		\hline\hline
+		Total &  & 550 & 21000 \\
+		\hline
+	\end{tabular}
+	\caption{Human resources costs}
+\end{table}
 
-\paragraph{Unfeasibility of the solution}
+\subsection{Indirect costs}
 
-The problem that we want to solve is clear: detecting stellar flares from far-away stars. This has been studied for some cases \cite{martinez2016first}, concluding that we face the possibility that the proposed solution is not totally feasible due to the nature of the problem: flares from far-away stars will not have an impact on the ionosphere as noticeable as the one from the sun, so it may be difficult, or even impossible, for them to be detected in some cases.
+Indirect costs of elements that will be needed in order to use the previous hardware are shown in table 6:
 
-\paragraph{Interferences with the Sun}
+We can estimate the energy expenditure during the project assuming the computer consumes an average of 200 watts per hour. If we plan to use it during the 550 hours of the project, we cam estimate a total of 110 kW spent.
 
-With the Sun, only the daylight hemisphere is studied for the detection of flares using GPS data (it is the only one flares' effects can reach)
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c|} 
+		\hline
+		Product & Use & Price & Estimated cost \\
+		\hline\hline
+		ADSL & 4 months & 40 \euro/month & 160 \euro\\
+		\hline
+		Electricity & 110 kWh & 0.1067 \euro/kWh & 11.7 \euro\\
+		\hline\hline
+		Total &  &  & 172 \euro\\
+		\hline
+	\end{tabular}
+	\caption{Indirect costs}
+\end{table}
 
-In our case we don’t have a fixed source, but rather aim to find it. Flares could be having an effect on any part of the ionosphere so it may not be possible to study their effect on the daylight hemisphere because of the Sun’s (presumably) higher effect on it. 
+\subsection{Total budget}
 
-Because of this factor we might have to focus only on the night hemisphere and we would be missing on possible flares.
+In the following table, the total cost of the project can be seen, estimated using data seen in the previous tables.
 
-\paragraph{Understanding previous algorithms}
+As we can see, there is no software cost because only open-source or free tools have been used.
 
-It is often difficult to understand code that has not been written by oneself, let alone understanding complex algorithms without any previous knowledge. This could be another possible obstacle, as the study of the previously developed algorithms will play an important role in the development of ours.
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c|} 
+		\hline
+		Resource & Estimated cost\\
+		\hline\hline
+		Software & 0 \euro\\
+		\hline
+		Hardware & 950 \euro\\
+		\hline
+		Human resources & 21000 \euro\\
+		\hline
+		Indirect costs & 172 \euro\\
+		\hline\hline
+		Total & 22122 \euro\\
+		\hline
+	\end{tabular}
+	\caption{Total cost of the project}
+\end{table}
 
-\paragraph{Bugs}
+\subsection{Budget control}
 
-As we will be writing code it is clearly possible that we face problems with bugs that may appear in the process.
+As seen in the planning section, some of the tasks may take longer than estimated because of unexpected difficulties, which would in turn increase the total cost of the project. So we have to consider the fact that these delays could lead to an increase in the total cost of the project.
 
-\paragraph{Computational power}
+Although unlikely, hardware faults might occur that would require more resources, but the main factor that might influence the budget during the project is time, which would increase the amount of work hours done by either the project manager, the software developer or the tester.
 
-Taking into consideration we may be dealing with large volumes of data, its processing may be another challenge for the project, we will have to find efficient ways to do so and think about which strategies will work best in our algorithms.  \\ 
+\section{Sustainability}
 
-Despite this possible obstacles, with the previous planning and a weekly dedication of 34 hours we think the project is feasible.
+In this section we will focus on evaluating the impact of our project by studying its sustainability in three different aspects: environmental, economical and social.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%% References %%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The analysis is going to be based on the application of the following sustainability matrix:
 
-\newpage
+\begin{table}[h!]
+\begin{center}
+	\def\arraystretch{2.2}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\thead{} & \thead{\textbf{PPP}} & \thead{\textbf{Exploitation}} & \thead{\textbf{Risks}} \\
+		\hline
+		\textbf{Environmental} & \makecell{Low design \\ consumption} & \makecell{Low ecological\\ footprint} & \makecell{Low environmental\\ risks}\\
+		\hline
+		\textbf{Economic} & \makecell{Medium \\ resources needed} & Low cost & \makecell{High cost, more\\human resources}\\
+		\hline
+		\textbf{Social} & \makecell{High personal \\ impact} & \makecell{Medium social  \\ impact} & \makecell{Low social risks}\\
+		\hline
+	\end{tabular}
+\caption{Sustainability matrix}
+\end{center}
+\end{table}
 
-\bibliography{references}
+\subsection{Environmental sustainability}
+
+During the project we are going to use the minimum amount of resources possible, which have been presented in the Cost estimation section. Because what we are going to use is mainly software, the resource from the project which will have an environmental impact is going to be the energy spent by the devices running during the project (the computer).
+
+Furthermore, if the project is successful, it would present an alternative to currently working satellites that detect Gamma-Ray Bursts (GRB), like the Gamma-ray Large Area Space Telescope (GLAST) or weather satellites like the Geostationary Operational Environmental Satellite (GOES).
+
+As seen in its specification manual (https://www.nasa.gov/pdf/221503main\_GLAST-041508.pdf) GLAST needs about 1500 watts average over an orbit, which is significantly more than the consumption of the computer that we have estimated before: 110 kWh. The telescope, however, is equipped with solar panels that can supply up to 3122 watts in sunlight. 
+
+While our alternative would not obtain results with the precision and information that these missions aim to achieve, some results would be similar, so we can also consider the difference in environmental impact between both.
+
+The larger environmental impact of the GLAST mission, however, lies in the design, build and launch of the telescope. While information about the cost of the previous factors is available and will be studied in the next section, there is no information provided regarding its environmental impact, although we can say that it likely has a considerably larger one than that of our project, in which only a computer is used.
+
+In conclusion, the project’s resources are mainly software and the factor with the biggest environmental impact will be the energy expenditure of the computer, which is significantly lower than that of the currently existing alternatives.
+
+\subsection{Economic sustainability}
+
+In previous sections we have studied the cost of our project (hardware, software and human resources). From an economical point of view, our project presents an alternative to telescopes like GLAST or GOES. Albeit less precise and equipped, some of its aspects and purposes are shared.
+
+The  cost to design, build and launch GLAST, for example, had a total international contribution of 690 US dollars. Considering our project relies only on free or open-source data and software, it would be offering an alternative with a lower economical impact. 
+
+It would be difficult to do this project with a lower cost, considering the only resource that has an economical impact besides the human work is the hardware (a computer). It would be difficult to lower the costs of this area considering a computer is needed for most computer science projects.
+
+\subsection{Social sustainability}
+
+Personally, the project is very relevant to me. I wanted to work on a project to see how computer science could be applied to a field like astronomy or physics. I think the project and algorithms we are developing are a good example of the place CS has in this fields and the role it plays.
+
+It has also helped me gaining experience in terms of information retrieval and research. Both writing reports like this one, planning projects and researching information from reputable sources that can be used in our project.
+
+If the project is successful, it could turn into a useful tool for astronomers that could be used as an astronomical instrument to measure the Sun’s EUV using only open-source GPS data, rather than a dedicated telescope, which would be a useful, less expensive alternative.
+
+
+
+
+
+
+
+
 
 \end{document}
+

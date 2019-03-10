@@ -1,0 +1,31 @@
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{||c c c c c||} 
+		\hline
+		Product & Units & Price (\euro) & Useful life (years) & Amortization (\euro) \\ [0.5ex] 
+		\hline\hline
+		Ubuntu 18.04 & 1 & 0 \euro & - & 0 \euro \\ 
+		\hline
+		Google Chrome & 1 & 0 \euro & - & 0 \euro \\
+		\hline
+		Evince & 1 & 0 \euro & - & 0 \euro \\
+		\hline\hline
+		Total &  & 0 \euro &  & 0 \euro \\
+		\hline
+		\hline
+	\end{tabular}
+	\caption{Software costs}
+\end{table}
+
+\begin{itemize}
+	\item Context and Scope of the project
+	\item Project planning
+	\item Budget and sustainability
+\end{itemize}
+
+\begin{figure}[ht]
+	\centering	
+	\includegraphics[width=0.9\linewidth]{gantt.png}
+	\caption{Gantt chart with the planning of the project }
+\end{figure}
