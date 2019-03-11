@@ -12,7 +12,7 @@
 12 8.34710265			xlatsat			Transmitter latitude / deg
 13 0.926394917815924E+01	xli			Geometry-free carrier phase combination LI=L1-L2 / m
 14 TI-CLASSIC4			"label"
-15 2				narch2
+15 2				narch2						if narch2 and nextnarch2 are different: cycleslip
 16 0.117440961167000E+09	carrier1
 17 0.915123992530000E+08	carrier2
 18 22348271.785			pseudorange1
