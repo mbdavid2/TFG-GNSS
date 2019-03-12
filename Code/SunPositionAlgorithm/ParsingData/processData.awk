@@ -25,7 +25,7 @@ END{
 }
 
 # Small set for debugging
-NR==10000{
+NR==maxRecords{
 	# print "\nTotal number of rows parsed: " NR;
  	printSpecificPair("11petp");
  	# printSpecificPair("6braz");
