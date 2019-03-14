@@ -1,0 +1,5 @@
+http://lowrank.net/gnuplot/plot3d2-e.html
+
+3d: splot "fortranResults" using 1:2:3 with points
+	splot "fortranResults" using 1:2:3 with lines
+2d: plot [10.5:11.5] "fortranResults" using 1:2 with point
