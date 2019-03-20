@@ -9,8 +9,8 @@ NR==1 {
  	groupByTime();
 }
 
-END{7
-	printSpecificTime("11.033333333333");
+END{
+	# printSpecificTime("11.033333333333");
 	# printSpecificTime("11.041666666667");
  	printSpecificTime("11.050000000000");
  	# printSpecificTime("11.058333333333");

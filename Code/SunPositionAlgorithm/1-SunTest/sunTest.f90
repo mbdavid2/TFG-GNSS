@@ -50,7 +50,7 @@ program sunTest
  			do while (1 == 1)
 				read (1, *, end = 240) raIPP, decIPP, mapIon, d2Li
 				cosX = computeSolarZenithAngle(raIPP, decIPP)
-				vtec = estimateVTEC(mapIon, d2Li)
+				vtec = d2Li/mapIon !estimateVTEC(mapIon, d2Li)
 				write (*, 350) cosX, vtec
 		    end do
 		  	240 continue ! Jumps here when read reaches EOF

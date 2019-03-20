@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Abstract}{3}
+\contentsline {section}{\numberline {2}Introduction}{4}
+\contentsline {subsection}{\numberline {2.1}Global Navigation Satellite Systems}{4}
+\contentsline {subsection}{\numberline {2.2}Ionosphere}{4}
+\contentsline {subsection}{\numberline {2.3}Stellar flares}{5}
+\contentsline {subsection}{\numberline {2.4}Gamma-Ray Bursts}{5}

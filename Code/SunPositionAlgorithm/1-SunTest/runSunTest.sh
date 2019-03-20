@@ -3,6 +3,7 @@
 # Hardcoded files for now
 showOutput=1
 tiDataFile="../data/ti.2003.301.10h30m-11h30m.gz"
+# tiDataFile="/home/mbdavid2/Documents/WrongTi/ti.2003.301.09-10.gz"
 
 echo "-> Running AWK script"
 zcat "$tiDataFile" | gawk -f processDataSun.awk  > outputTi.out
