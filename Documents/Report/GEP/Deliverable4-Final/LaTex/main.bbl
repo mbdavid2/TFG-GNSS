@@ -1,0 +1,40 @@
+\begin{thebibliography}{1}
+
+\bibitem{gehrels2013gamma}
+N.~Gehrels and S.~Razzaque.
+\newblock Gamma-ray bursts in the swift-fermi era.
+\newblock {\em Frontiers of Physics}, 8(6):661--678, 2013.
+
+\bibitem{hernandez2012gnss}
+M.~Hern{\'a}ndez-Pajares, A.~Garc{\'\i}a-Rigo, J.~M. Juan, J.~Sanz, E.~Monte,
+  and A.~Arag{\'o}n-{\`A}ngel.
+\newblock {GNSS} measurement of {EUV} photons flux rate during strong and mid
+  solar flares.
+\newblock {\em Space Weather}, 10(12):1--16, 2012.
+
+\bibitem{hernandez2009igs}
+M.~Hern{\'a}ndez-Pajares, J.~Juan, J.~Sanz, R.~Orus, A.~Garcia-Rigo,
+  J.~Feltens, A.~Komjathy, S.~Schaer, and A.~Krankowski.
+\newblock The igs vtec maps: a reliable source of ionospheric information since
+  1998.
+\newblock {\em Journal of Geodesy}, 83(3-4):263--275, 2009.
+
+\bibitem{martinez2016first}
+D.~Mart{\'\i}nez~Cid.
+\newblock First study on the feasibility of stellar flares detection with gps.
+\newblock {B.S.} thesis, Universitat Polit{\`e}cnica de Catalunya, 2016.
+
+\bibitem{mitra1974ionospheric}
+A.~P. Mitra.
+\newblock Ionospheric effects of solar flares.
+\newblock In {\em Astrophysics and space science library}, volume~46, 1974.
+
+\bibitem{singh2015gps}
+T.~Singh, M.~Hernandez-Pajares, E.~Monte, A.~Garcia-Rigo, and
+  G.~Olivares-Pulido.
+\newblock {GPS} as a solar observational instrument: {Real-time} estimation of
+  {EUV} photons flux rate during strong, medium, and weak solar flares.
+\newblock {\em Journal of Geophysical Research: Space Physics},
+  120(12):10--840, 2015.
+
+\end{thebibliography}

@@ -1,0 +1,58 @@
+\contentsline {section}{\numberline {1}Introduction}{4}
+\contentsline {section}{\numberline {2}Scope of the project}{5}
+\contentsline {subsection}{\numberline {2.1}Objectives}{5}
+\contentsline {subsection}{\numberline {2.2}Scope}{5}
+\contentsline {subsection}{\numberline {2.3}Methodology and rigor}{5}
+\contentsline {paragraph}{Development tools}{6}
+\contentsline {paragraph}{Progress monitoring}{6}
+\contentsline {paragraph}{Validation of the results}{6}
+\contentsline {subsection}{\numberline {2.4}Obstacles and risks of the project}{7}
+\contentsline {paragraph}{Understanding of the problem}{7}
+\contentsline {paragraph}{Unfeasibility of the solution}{7}
+\contentsline {paragraph}{Interferences with the Sun}{7}
+\contentsline {paragraph}{Understanding previous algorithms}{7}
+\contentsline {paragraph}{Bugs}{8}
+\contentsline {paragraph}{Computational power}{8}
+\contentsline {section}{\numberline {3}Contextualization}{9}
+\contentsline {subsection}{\numberline {3.1}Areas of interest}{9}
+\contentsline {subsection}{\numberline {3.2}Stakeholders}{9}
+\contentsline {paragraph}{Developers}{9}
+\contentsline {paragraph}{Directors}{9}
+\contentsline {paragraph}{Benefited Actors}{9}
+\contentsline {subsection}{\numberline {3.3}State of the art}{10}
+\contentsline {paragraph}{Far-away stars}{10}
+\contentsline {paragraph}{Solar Flares}{10}
+\contentsline {section}{\numberline {4}Planning and scheduling}{11}
+\contentsline {subsection}{\numberline {4.1}Task description}{11}
+\contentsline {paragraph}{1 Introduction to the problem}{11}
+\contentsline {paragraph}{2 GEP}{11}
+\contentsline {paragraph}{3 Feasibility of the detection of flares from far-away stars}{12}
+\contentsline {paragraph}{4 Detection of solar flares with no information about the location of the Sun}{12}
+\contentsline {paragraph}{5 Detection of stellar flares in real-time}{12}
+\contentsline {paragraph}{6 Writing the report}{12}
+\contentsline {paragraph}{7 Final presentation}{12}
+\contentsline {subsection}{\numberline {4.2}Time table}{12}
+\contentsline {subsection}{\numberline {4.3}Scheduling: Gantt chart}{13}
+\contentsline {subsection}{\numberline {4.4}Action plan}{13}
+\contentsline {paragraph}{Understanding of the problem}{14}
+\contentsline {paragraph}{Understanding previous algorithms}{14}
+\contentsline {paragraph}{Bugs}{14}
+\contentsline {subsection}{\numberline {4.5}Resources}{14}
+\contentsline {paragraph}{Software resources}{14}
+\contentsline {paragraph}{Hardware resources}{15}
+\contentsline {paragraph}{Human resources}{15}
+\contentsline {section}{\numberline {5}Cost estimation}{15}
+\contentsline {subsection}{\numberline {5.1}Software resources}{15}
+\contentsline {paragraph}{Common resources}{15}
+\contentsline {paragraph}{Developing the algorithms}{16}
+\contentsline {paragraph}{GEP and writing the report}{16}
+\contentsline {subsection}{\numberline {5.2}Hardware resources}{16}
+\contentsline {subsection}{\numberline {5.3}Human resources}{16}
+\contentsline {subsection}{\numberline {5.4}Indirect costs}{17}
+\contentsline {subsection}{\numberline {5.5}Budget per task}{17}
+\contentsline {subsection}{\numberline {5.6}Total budget}{18}
+\contentsline {subsection}{\numberline {5.7}Budget control}{18}
+\contentsline {section}{\numberline {6}Sustainability}{19}
+\contentsline {subsection}{\numberline {6.1}Environmental sustainability}{19}
+\contentsline {subsection}{\numberline {6.2}Economic sustainability}{20}
+\contentsline {subsection}{\numberline {6.3}Social sustainability}{20}
