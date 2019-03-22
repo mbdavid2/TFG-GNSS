@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+\begin{document}
+	
+\section{Study on the feasibility of stellar flare detection}
+
+Flares from far-away stars and Gamma-ray Bursts, albeit more powerful than flares that have the Sun as their source, may not be possible to detect due to the large distances that separate them from our measurement tool: the ionosphere.
+
+Before starting to adapt the algorithm for detecting solar flares to this scenario, a study was conducted parallel to its development, to see if the energy from flares originating in far-away stars could be detected using the already existing method, namely the GNSS Solar Flare Activity Indicator (GSFLAI) algorithms \cite{hernandez2012gnss}.
+
+To study if this was feasible, the algorithms were run on certain candidates of flares and GRBs to see if they could be detected.
+
+The project supervisor, Manuel Hernández-Pajares, who as mentioned before has previously performed several studies on the subject, provided the GSFLAI algorithm to test the candidates. The GSFLAI algorithm takes into consideration the location of the source (the Sun) to see if there's a relation between an increase in the VTEC of the ionosphere and the solar-zenith angle to determine if this increase is caused by a solar flare. [GNSS measurement of EUV photons flux rate
+during strong and mid solar flares]
+
+However, its execution may take up to 2 hours, because of this the aim was to:
+
+\begin{itemize}
+	\item Find a database for possible candidates, several online archives with information about previously recorded Gamma Ray Bursts were considered.
+	\item Select an appropriate source of this pool of candidates by writing a quick script that yielded an ordered list of the best candidates based on certain factors, instead of selecting a random source.
+\end{itemize}
+
+\subsection{Sources of data and possible candidates}
+
+The three main databases we considered for the study were:
+
+\begin{itemize}
+\item The GRB collection website of Jochen Greiner, scientist at the Max-Planck-Institute for extraterrestrial Physics (MPE) \cite{greinergrb},  which offers a collection of detected GRBs by different telescopes and observatories.
+\item The Magnetar Outburst Online Catalog (MOOC), developed by the Institute of Space Sciences (CSIC-IEEC, Barcelona) \cite{moocgrbs}. We also had the pleasure to meet one of the leaders of this project, Nanda Rea, and discuss
+\item The Neil Gehrels Swift Observatory website and archive by the National Aeronautics and Space Administration (NASA), Goddard Space Flight Center \cite{swiftnasa} which contains an archive of detected GRBs by the Swift observatory and is constantly updated.
+\end{itemize}
+
+Because of the layout of the website and how the data could be accessed, the option with which we started was the Swift Database, as the data could be visualized in an HTML table and was easily accessible.
+
+\subsection{The Neil Gehrels Swift Observatory and its data }
+
+The Swift Observatory is a NASA mission with international participation, designed to observe GRBs and their afterglows to study topics such as the origins of GRBs or what they can reveal about the early stages of the universe \cite{roming2005swift}. The observatory is equipped with three main instruments that work with each other to study GRBs \cite{gehrels2004swift} \cite{swiftnasa}:
+
+\begin{itemize}
+\item The \textbf{Burst Alert Telescope (BAT)}, tasked with detecting the GRBs and computing their positions. This triggers the spacecraft to point the other telescopes to the burst so it can be studied in more detail. 
+\item The \textbf{X-ray Telescope (XRT)}, used for studying the X-ray radiation and taking images of the bursts which in turn help increase the accuracy of the location estimation.
+\item The \textbf{UV/Optical Telescope (UVOT)}, which serves a similar purpose to the XRT, but studies the ultraviolet band of the spectrum. 
+\end{itemize}
+
+For each detected GRB, the data obtained by the different telescopes is given. The parameters that are relevant to our study and determine the fitness of each of the candidates are:
+
+\begin{itemize}
+\item The \textbf{name of the burst}, given by the date it was detected. For example, the GRB named 190220A was detected the 20th of February of 2019.
+\item The \textbf{Universal Time (UT)} of the detection, that is, hh:mm:ss of the day given by the name.
+\item The fluence detected by the BAT component, in units of keV. that is.
+\item The \textbf{UVOT magnitude}, measured by the UV Telescope.
+\item The location that triggered the detection, given as  \textbf{Right Ascension (Ra)} and \textbf{Declination (Dec)}.
+\end{itemize}
+
+Right Ascension and Declination are two concepts similar to longitude and latitude, respectively, used to describe the location of objects in the sky, in particular in a sphere of infinite radius that with the Earth as its center called the \textbf{celestial sphere}.
+
+Taking this into account, Right Ascension is the equivalent of longitude, expressed in degrees (or more commonly in hours, minutes and seconds) and Declination, the equivalent of latitude, is expressed in degrees between the two poles: +90º and -90º. \cite{nasareferencesystem}
+
+This reference system is used to describe the position of objects in the sky, and it is the one used by the Swift telescope to specify the location of the sources. Afterwards these concepts will play an important role when computing the angle formed between the source and the Sun.
+
+\subsection{Objective function}
+
+Our main goal in this section was to obtain a list of GRB candidates ordered from more to less probable to be detected by the algorithm, that is, their fitness. To obtain this score we had to define an objective function, taking into consideration two factors:
+
+\begin{itemize}
+
+\item The \textbf{strength} of the burst, given by the UVOT magnitude. If this value was not available (as it was the case with many of the candidates) the BAT fluence was considered as its strength. This values were already given by the archive and no additional computations were required.
+
+\item The \textbf{angle between the burst and the Sun}, this was an important factor because bursts having an effect on the night hemisphere should be more noticeable than those hitting the day one, where the Sun has bigger influence.
+
+\end{itemize}
+
+\paragraph{Computing the angle}
+
+As mentioned before, the Swift archive gives us the Right Ascension (Ra) and Declination (Dec) where the source is thought to be located.
+
+The location of the Sun, on the other hand, is unknown. But we do know the time when the burst was detected.
+
+The supervisor, Manuel Hernández-Pajares, provided me an algorithm which takes date (year, month, day and UT) and a planet of the Solar System (or the Sun, our case) as the input and returns its location in the celestial sphere, that is, its Ra and Dec. 
+
+This algorithm belongs to the \textbf{Starlink Project} (Rutherford Appleton Laboratory), which provided open-source software like the one at hand to astronomical institutions. Although it was shut down in 2005, the code still remains and we could use it for our study \cite{starlinkproject}.
+
+Knowing both the location of the burst and the Sun, the angle between both can be computed and used as a parameter for the objective function.
+
+This computation is done by performing the dot product of the two unit vectors that can be obtained from the Ra and Dec of the objects. These are the unit vectors of
+
+The unit vectors are given by: 
+
+	coordSun = [math.cos(sunDec)*math.cos(sunRa), math.cos(sunDec)*math.sin(sunRa), math.sin(sunDec)]
+coordGRB = [math.cos(dec)*math.cos(ra), math.cos(dec)*math.sin(ra), math.sin(dec)]
+
+angle = math.acos(coordSun[0]*coordGRB[0] + coordSun[1]*coordGRB[1] + coordSun[2]*coordGRB[2])
+angle = angle*180/math.pi
+
+%%\begin{bmatrix}
+%%	\cos\delta & 22 \\ 
+%%	\cos\alpha & 34
+%%\end{bmatrix}
+
+\begin{equation} \label{eq:1}
+\sum_{i=0}^{\infty} a_i x^i
+\end{equation}
+
+The dot product of the two unit vectors obtained from gave us the angle between the burst and the Sun.
+
+
+
+
+
+\subsection{Obtaining the data}
+
+Regarding the scrapping of the website to parse the data and obtain this ordered list, \textbf{Python} was chosen because the problem required a quick implementation, and Python’s libraries offered a great tool to develop a simple solution as quick as possible.
+
+In the script, the website with the table of bursts (see figure x) is scrapped using Python’s \textbf{BeautifulSoup} library, which has an HTML and XML parser that allows us to easily select and obtain data from a given website.
+
+Insertion sort was used so we could insert every considered GRB into a list of sorted candidates as we were traversing the table. 
+
+
+
+Regarding the distribution of weight between both factors, strength and angle, we ….
+
+The best 10 candidates of the resulting sorted table (pie de pagina: bursts registered up to the 26th of February of 2019), is shown here:
+
+We proceeded to study these bursts
+
+\subsection{Results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% References %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\bibliography{../references}
+
+\end{document}

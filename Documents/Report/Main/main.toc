@@ -1,6 +1,14 @@
-\contentsline {section}{\numberline {1}Abstract}{3}
-\contentsline {section}{\numberline {2}Introduction}{4}
-\contentsline {subsection}{\numberline {2.1}Global Navigation Satellite Systems}{4}
-\contentsline {subsection}{\numberline {2.2}Ionosphere}{4}
-\contentsline {subsection}{\numberline {2.3}Stellar flares}{5}
-\contentsline {subsection}{\numberline {2.4}Gamma-Ray Bursts}{5}
+\contentsline {chapter}{\numberline {1}GEP}{2}
+\contentsline {subsection}{\numberline {1.0.1}Global Navigation Satellite Systems}{2}
+\contentsline {chapter}{\numberline {2}Background}{3}
+\contentsline {subsection}{\numberline {2.0.1}Global Navigation Satellite Systems}{3}
+\contentsline {subsection}{\numberline {2.0.2}Ionosphere}{3}
+\contentsline {subsection}{\numberline {2.0.3}Stellar flares}{4}
+\contentsline {subsection}{\numberline {2.0.4}Gamma-Ray Bursts}{4}
+\contentsline {section}{\numberline {2.1}Study on the feasibility of stellar flare detection}{5}
+\contentsline {subsection}{\numberline {2.1.1}Sources of data and possible candidates}{5}
+\contentsline {subsection}{\numberline {2.1.2}The Neil Gehrels Swift Observatory and its data}{6}
+\contentsline {subsection}{\numberline {2.1.3}Objective function}{7}
+\contentsline {paragraph}{Computing the angle}{7}
+\contentsline {subsection}{\numberline {2.1.4}Obtaining the data}{8}
+\contentsline {subsection}{\numberline {2.1.5}Results}{8}

@@ -1,21 +1,3 @@
-\begin{thebibliography}{1}
-
-\bibitem{swiftnasa}
-{Goddard Space Flight Center, NASA}.
-\newblock {The Neil Gehrels Swift Observatory}.
-\newblock \url{https://swift.gsfc.nasa.gov/}.
-\newblock [Online; accessed 3-March-2019].
-
-\bibitem{hernandez2009igs}
-M.~Hern{\'a}ndez-Pajares, J.~Juan, J.~Sanz, R.~Orus, A.~Garcia-Rigo,
-  J.~Feltens, A.~Komjathy, S.~Schaer, and A.~Krankowski.
-\newblock The igs vtec maps: a reliable source of ionospheric information since
-  1998.
-\newblock {\em Journal of Geodesy}, 83(3-4):263--275, 2009.
-
-\bibitem{martinez2016first}
-D.~Mart{\'\i}nez~Cid.
-\newblock First study on the feasibility of stellar flares detection with gps.
-\newblock {B.S.} thesis, Universitat Polit{\`e}cnica de Catalunya, 2016.
+\begin{thebibliography}{}
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.5)  21 MAR 2019 16:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.5)  22 MAR 2019 21:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,19 +6,20 @@ entering extended mode
 (./main.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
-\c@section=\count80
-\c@subsection=\count81
-\c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -390,9 +391,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count87
-\Gm@cntv=\count88
-\c@Gm@tempcnt=\count89
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
 \Gm@bindingoffset=\dimen110
 \Gm@wd@mp=\dimen111
 \Gm@odd@mp=\dimen112
@@ -406,36 +407,288 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (./main.aux
-(./chap1Abstract.aux) (./chap2Introduction.aux))
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
+Package: glossaries 2017/11/14 v4.35 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks19
+\XKV@tempa@toks=\toks20
+)
+\XKV@depth=\count91
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
+Package: mfirstuc 2017/11/14 v2.06 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count92
+)
+\@glsmfirst=\toks21
+\@glsmrest=\toks22
+)
+(/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xfor/xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-base.sty
+Package: datatool-base 2017/11/12 v2.29 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip45
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks23
+\ex@=\dimen118
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen119
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count93
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count94
+\leftroot@=\count95
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count96
+\DOTSCASE@=\count97
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen120
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count98
+\c@MaxMatrixCols=\count99
+\dotsspace@=\muskip11
+\c@parentequation=\count100
+\dspbrk@lvl=\count101
+\tag@help=\toks24
+\row@=\count102
+\column@=\count103
+\maxfields@=\count104
+\andhelp@=\toks25
+\eqnshift@=\dimen121
+\alignsep@=\dimen122
+\tagshift@=\dimen123
+\tagwidth@=\dimen124
+\totwidth@=\dimen125
+\lineht@=\dimen126
+\@envbody=\toks26
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks27
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/substr/substr.sty
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-fp.sty
+Package: datatool-fp 2017/11/12 v2.29 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp.sty
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count106
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count107
+\FP@xia=\count108
+\FP@xib=\count109
+\FP@xfa=\count110
+\FP@xfb=\count111
+\FP@rega=\count112
+\FP@regb=\count113
+\FP@regs=\count114
+\FP@times=\count115
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count116
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
+Package: fp-eval 1995/04/03
+)))
+\@dtl@toks=\toks28
+\@dtl@tmpcount=\count117
+\dtl@tmplength=\skip48
+\dtl@sortresult=\count118
+\@dtl@numgrpsepcount=\count119
+\@dtl@datatype=\count120
+\dtl@codeA=\count121
+\dtl@codeB=\count122
+\@dtl@foreach@level=\count123
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries-compatible-
+307.sty
+Package: glossaries-compatible-307 2017/11/14 v4.35 (NLCT)
+)
+\gls@level=\count124
+\@gls@tmpb=\toks29
+\gls@tmplen=\skip49
+\glskeylisttok=\toks30
+\glslabeltok=\toks31
+\glsshorttok=\toks32
+\glslongtok=\toks33
+
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.st
+y
+Package: glossary-hypernav 2017/11/14 v4.35 (NLCT)
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
+Package: glossary-list 2017/11/14 v4.35 (NLCT)
+\glslistdottedwidth=\skip50
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
+Package: glossary-long 2017/11/14 v4.35 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip51
+\LTright=\skip52
+\LTpre=\skip53
+\LTpost=\skip54
+\LTchunksize=\count125
+\LTcapwidth=\dimen127
+\LT@head=\box29
+\LT@firsthead=\box30
+\LT@foot=\box31
+\LT@lastfoot=\box32
+\LT@cols=\count126
+\LT@rows=\count127
+\c@LT@tables=\count128
+\c@LT@chunks=\count129
+\LT@p@ftn=\toks34
+)
+\glsdescwidth=\skip55
+\glspagelistwidth=\skip56
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
+Package: glossary-super 2017/11/14 v4.35 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/supertabular/supertabular.sty
+Package: supertabular 2004/02/20 v4.1e the supertabular environment
+\c@tracingst=\count130
+\ST@wd=\dimen128
+\ST@rightskip=\skip57
+\ST@leftskip=\skip58
+\ST@parfillskip=\skip59
+\ST@pageleft=\dimen129
+\ST@headht=\dimen130
+\ST@tailht=\dimen131
+\ST@pagesofar=\dimen132
+\ST@pboxht=\dimen133
+\ST@lineht=\dimen134
+\ST@stretchht=\dimen135
+\ST@prevht=\dimen136
+\ST@toadd=\dimen137
+\ST@dimen=\dimen138
+\ST@pbox=\box33
+))
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
+Package: glossary-tree 2017/11/14 v4.35 (NLCT)
+\glstreeindent=\skip60
+))
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip61
+\f@nch@O@elh=\skip62
+\f@nch@O@erh=\skip63
+\f@nch@O@olh=\skip64
+\f@nch@O@orh=\skip65
+\f@nch@O@elf=\skip66
+\f@nch@O@erf=\skip67
+\f@nch@O@olf=\skip68
+\f@nch@O@orf=\skip69
+)
+\glswrite=\write3
+\glo@main@file=\write4
+\openout4 = `main.glo'.
+
+Package glossaries Info: Writing glossary file main.glo on input line 33.
+\glo@acronym@file=\write5
+\openout5 = `main.acn'.
+
+Package glossaries Info: Writing glossary file main.acn on input line 33.
+
+(./sections/glossaries.tex) (./main.aux (./sections/cover.aux)
+(./sections/abstract.aux) (./sections/ch1GEP.aux) (./sections/ch2Background.aux
+) (./sections/ch3StellarFlares.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count90
-\scratchdimen=\dimen118
-\scratchbox=\box27
-\nofMPsegments=\count91
-\nofMParguments=\count92
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count93
-\MPscratchDim=\dimen119
-\MPnumerator=\count94
-\makeMPintoPDFobject=\count95
-\everyMPtoPDFconversion=\toks20
+\scratchcounter=\count131
+\scratchdimen=\dimen139
+\scratchbox=\box34
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count134
+\MPscratchDim=\dimen140
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks36
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -522,66 +775,157 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\openout2 = `sections/cover.aux'.
+
+(./sections/cover.tex
 <images/logo-fib.png, id=1, 1003.75pt x 150.5625pt>
 File: images/logo-fib.png Graphic file (type png)
 <use images/logo-fib.png>
-Package pdftex.def Info: images/logo-fib.png  used on input line 53.
+Package pdftex.def Info: images/logo-fib.png  used on input line 20.
 (pdftex.def)             Requested size: 328.82707pt x 49.32507pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 53.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 53.
-[1
+ [1
+
+\openout3 = `main.ist'.
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/logo-fib.png>]
-(./main.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/logo-fib.png>])
+\openout2 = `sections/abstract.aux'.
+
+ (./sections/abstract.tex [1
+
+
+
+]) (./main.toc)
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+ [1
+
+
+
+]
+\openout2 = `sections/ch1Gep.aux'.
+
+
+(./sections/ch1Gep.tex
+Chapter 1.
+) [2
+
+
+
+]
+\openout2 = `sections/ch2Background.aux'.
+
+ (./sections/ch2Background.tex
+Chapter 2.
+[3
+
+
+
+]) [4]
+\openout2 = `sections/ch3StellarFlares.aux'.
+
+ (./sections/ch3StellarFlares.tex
+
+LaTeX Warning: Citation `hernandez2012gnss' on page 5 undefined on input line 5
+.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-\tf@toc=\write3
-\openout3 = `main.toc'.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
 
- [2
+
+LaTeX Warning: Citation `greinergrb' on page 5 undefined on input line 24.
+
+
+LaTeX Warning: Citation `moocgrbs' on page 5 undefined on input line 25.
+
+
+LaTeX Warning: Citation `swiftnasa' on page 5 undefined on input line 26.
+
+
+LaTeX Warning: Citation `roming2005swift' on page 5 undefined on input line 33.
+
+
+
+LaTeX Warning: Citation `gehrels2004swift' on page 5 undefined on input line 33
+.
+
+
+LaTeX Warning: Citation `swiftnasa' on page 5 undefined on input line 33.
+
+[5
+
 
 ]
-\openout2 = `chap1Abstract.aux'.
 
- (./chap1Abstract.tex) [3
+LaTeX Warning: Citation `nasareferencesystem' on page 6 undefined on input line
+ 53.
 
+[6]
+
+LaTeX Warning: Citation `starlinkproject' on page 7 undefined on input line 77.
+
+
+
+Overfull \hbox (78.21437pt too wide) in paragraph at lines 88--90
+[]\OT1/cmr/m/n/12 angle = math.acos(coordSun[0]*coordGRB[0] + co-ord-Sun[1]*coo
+rdGRB[1] + co-ord-Sun[2]*coordGRB[2])
+ []
+
+[7]) [8]
+
+LaTeX Warning: Citation `hernandez2009igs' on page 9 undefined on input line 53
+.
+
+
+LaTeX Warning: Citation `martinez2016first' on page 9 undefined on input line 5
+3.
+
+
+LaTeX Warning: Citation `swiftnasa' on page 9 undefined on input line 54.
+
+[9
 
 ]
-\openout2 = `chap2Introduction.aux'.
+No file main.acr.
+[10] (./main.bbl
 
- (./chap2Introduction.tex [4
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
+) [11
 
-])
-[5] [6
+] (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
+(./sections/ch1Gep.aux) (./sections/ch2Background.aux)
+(./sections/ch3StellarFlares.aux))
 
-] (./main.bbl) [7] (./main.aux (./chap1Abstract.aux)
-(./chap2Introduction.aux)) ) 
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2612 strings out of 494923
- 35052 string characters out of 6180743
- 98502 words of memory out of 5000000
- 5880 multiletter control sequences out of 15000+600000
- 9631 words of font info for 34 fonts, out of 8000000 for 9000
+ 7442 strings out of 494923
+ 106015 string characters out of 6180743
+ 230151 words of memory out of 5000000
+ 10549 multiletter control sequences out of 15000+600000
+ 11198 words of font info for 40 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,7n,32p,500b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.p
-fb>
-Output written on main.pdf (7 pages, 82728 bytes).
+ 45i,7n,43p,1990b,276s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (13 pages, 136347 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
+ 86 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

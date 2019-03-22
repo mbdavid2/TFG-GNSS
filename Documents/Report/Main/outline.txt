@@ -1,0 +1,30 @@
+- Cover
+- ListOfContents
+- ListOfFigures???
+- Abstract/Resumen/Resum
+
+%%%%%%%%%%%%% 
+
+- ch1 GEP
+- ch2 Background/Introduction
+	- Global Navigation Satellite Systems
+	- Ionosphere
+	- Stellar flares
+	- Gamma-Ray Bursts
+- ch3 Study on the feasiblity of stellar flare detection (far-away stars)
+	- Sources of data and possible candidates
+	- The Neil Gehrels Swift Observatory and its data 
+	- Objective function
+	- Obtaining the data
+	- Results
+- ch4 Sun Algorithm (poner un nombre o algo al algoritmo de siglas para que sea el titulo)
+	- First approach
+	- Hill Climbing bla bla
+
+%%%%%%%%%%%%% 
+
+- Glossary
+	- Acronyms
+	- ?????
+- References
+

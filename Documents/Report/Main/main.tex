@@ -1,72 +1,68 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{report}
 
 %%% Packages %%%
-
 \usepackage[utf8]{inputenc}
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage[margin=1in]{geometry}
 \usepackage{url}
+\usepackage[acronym]{glossaries}
+\usepackage{fancyhdr}
 
 %%% Styles %%%
+\bibliographystyle{abbrv}
 
-\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\it}
+%\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{24pt}{\huge\it}
 
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-\bibliographystyle{abbrv}
+%%% Headings %%%
+%\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\fancyhf{}
+%\rhead{David Moreno}
+%\lhead{\leftmark}
+%\rfoot{\thepage}
+ \pagestyle{headings}
+% Normal one:  \pagestyle{headings}
 
-%%% Document information %%%
-
-\title{
-	{
-	\includegraphics[width=0.7\linewidth]{images/logo-fib.png}	
-	\vspace{1cm}
-	\textbf{\\Project planning} \\
-	\large New real-time GNSS algorithms for detection and measurement of potential geoeffective stellar flares}
-\author{\textbf{Author}\\
-	David Moreno Borr\`as
-	\\ \\
-	\textbf{Supervisor}\\
-	 Manuel Hernández-Pajares
-	 \\ \\
-	\textbf{Specialization}\\
-	Computing
-} 
-	\vspace{1.3cm}
-	%% \includegraphics[width=0.2\linewidth]{images/upc.png}
-\date{\today}
-}
-
+%%% Load glossaries %%%
+\makeglossaries
+\loadglsentries{sections/glossaries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Start of document %%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	
 \pagenumbering{arabic}
+\include{sections/cover}
 \clearpage
-\maketitle
-\thispagestyle{empty}
+\include{sections/abstract}
 \clearpage
 \tableofcontents
 \thispagestyle{empty}
 \clearpage
-\include{chap1Abstract}
-\include{chap2Introduction}
+\include{sections/ch1Gep}
+\include{sections/ch2Background}
+\include{sections/ch3StellarFlares}
 
 testing \cite{hernandez2009igs} \cite{martinez2016first}
 \cite{swiftnasa}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Glossaries %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\printglossary[type=\acronymtype]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% References %%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \newpage
-
 \bibliography{references}
 
 \end{document}

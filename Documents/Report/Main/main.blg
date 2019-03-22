@@ -2,47 +2,66 @@ This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: abbrv.bst
-A level-1 auxiliary file: chap1Abstract.aux
-A level-1 auxiliary file: chap2Introduction.aux
-Database file #1: references.bib
-You've used 3 entries,
+A level-1 auxiliary file: sections/cover.aux
+A level-1 auxiliary file: sections/abstract.aux
+A level-1 auxiliary file: sections/ch1GEP.aux
+A level-1 auxiliary file: sections/ch2Background.aux
+A level-1 auxiliary file: sections/ch3StellarFlares.aux
+I couldn't open database file references.bib
+---line 18 of file main.aux
+ : \bibdata{references
+ :                    }
+I'm skipping whatever remains of this command
+I found no database files---while reading file main.aux
+Warning--I didn't find a database entry for "hernandez2012gnss"
+Warning--I didn't find a database entry for "greinergrb"
+Warning--I didn't find a database entry for "moocgrbs"
+Warning--I didn't find a database entry for "swiftnasa"
+Warning--I didn't find a database entry for "roming2005swift"
+Warning--I didn't find a database entry for "gehrels2004swift"
+Warning--I didn't find a database entry for "nasareferencesystem"
+Warning--I didn't find a database entry for "starlinkproject"
+Warning--I didn't find a database entry for "hernandez2009igs"
+Warning--I didn't find a database entry for "martinez2016first"
+You've used 0 entries,
             2118 wiz_defined-function locations,
-            519 strings with 4332 characters,
-and the built_in function-call counts, 980 in all, are:
-= -- 91
-> -- 62
+            512 strings with 3962 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
 < -- 0
-+ -- 26
-- -- 22
-* -- 69
-:= -- 182
-add.period$ -- 10
-call.type$ -- 3
-change.case$ -- 21
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 26
-empty$ -- 64
-format.name$ -- 22
-if$ -- 189
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 1
-newline$ -- 19
-num.names$ -- 6
-pop$ -- 24
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
 preamble$ -- 1
-purify$ -- 17
+purify$ -- 0
 quote$ -- 0
-skip$ -- 17
+skip$ -- 1
 stack$ -- 0
-substring$ -- 41
-swap$ -- 2
+substring$ -- 0
+swap$ -- 0
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 0
 warning$ -- 0
-while$ -- 8
-width$ -- 4
-write$ -- 35
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There were 2 error messages)
