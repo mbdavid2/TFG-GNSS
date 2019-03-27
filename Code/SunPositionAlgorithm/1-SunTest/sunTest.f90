@@ -21,9 +21,7 @@ program sunTest
    	! Check if the open was successful
    	! We should check the other too!!!
    	fileopen: if (status == 0) then 
-
    		call traverseFile()
-
 	else fileopen
 		! Open failed
 		write (*, 1040) status
@@ -39,7 +37,8 @@ program sunTest
 	!*******************************
  	contains
 		subroutine traverseFile ()
- 			real :: raIPP, decIPP, mapIon, d2Li, cosX, vtec
+ 			real :: raIPP, decIPP, mapIon, d2Li, raSun, decSun, cosX, vtec
+ 			integer :: i
 
  			200 format (F10.8, F12.8, F12.8)
  			100 format (I3, F10.4, F24.2)
@@ -47,11 +46,19 @@ program sunTest
  			320 format  (I3, F20.10, F20.10)
  			350 format  (F10.4, F10.4, F15.10, F15.10)
 
+ 			i = 0
  			do while (1 == 1)
-				read (1, *, end = 240) raIPP, decIPP, mapIon, d2Li
-				cosX = computeSolarZenithAngle(raIPP, decIPP)
+				read (1, *, end = 240) raIPP, decIPP, mapIon, d2Li, raSun, decSun
+				cosX = computeSolarZenithAngle(raIPP, decIPP, raSun, decSun)
 				vtec = d2Li/mapIon !estimateVTEC(mapIon, d2Li)
-				write (*, 350) cosX, vtec
+				if (vtec < 20 .and. vtec > -0.4) then
+					write (*, 350) cosX, vtec
+				end if
+				
+				! if (vtec < 20 .and. vtec > -0.4) then
+				! 	print *, i, vtec
+				! end if
+				i = i + 1
 		    end do
 		  	240 continue ! Jumps here when read reaches EOF
    		end subroutine traverseFile
@@ -66,15 +73,15 @@ program sunTest
 
    		end function estimateVTEC
 
-		real function computeSolarZenithAngle (raIPP, decIPP)
+		real function computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
 			implicit none
 
 			! Parameters
-			real, intent(in) :: raIPP, decIPP
+			real, intent(in) :: raIPP, decIPP, raSun, decSun
 			
 			! Hardcoded Sun unit vector
-			real :: raSun = 212.338
-			real :: decSun = -13.059
+			! real :: raSun = 212.338
+			! real :: decSun = -13.059
 
 			real, dimension(0:2) :: unitVecIPP, unitVecSun
 
@@ -88,8 +95,9 @@ program sunTest
 			unitVecSun(1) = cos(decSun) * sin(raSun)
 			unitVecSun(2) = sin(decSun)
 
-			solarZenithAngle = unitVecIPP(0)*unitVecSun(0) + unitVecIPP(1)*unitVecSun(1) + unitVecIPP(2)*unitVecSun(2)
+			! solarZenithAngle = unitVecIPP(0)*unitVecSun(0) + unitVecIPP(1)*unitVecSun(1) + unitVecIPP(2)*unitVecSun(2)
 
+			solarZenithAngle = sin(decIPP)*sin(decSun) + cos(decIPP)*cos(decSun)*cos(raIPP - raSun)
 		end function computeSolarZenithAngle
 
 		! real function computeUnitVector(ra, dec)

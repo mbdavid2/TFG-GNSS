@@ -1,3 +1,64 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{starlinkproject}
+{(Archived website) The Starlink Project}.
+\newblock
+  \url{https://web.archive.org/web/20120123062045/http://starlink.jach.hawaii.edu/starlink/WelcomePage}.
+\newblock [Online; accessed 10-March-2019].
+
+\bibitem{gehrels2004swift}
+N.~Gehrels, G.~Chincarini, P.~Giommi, K.~Mason, J.~Nousek, A.~Wells, N.~White,
+  S.~Barthelmy, D.~Burrows, L.~Cominsky, et~al.
+\newblock The swift gamma-ray burst mission.
+\newblock {\em The Astrophysical Journal}, 611(2):1005, 2004.
+
+\bibitem{hernandez2012gnss}
+M.~Hern{\'a}ndez-Pajares, A.~Garc{\'\i}a-Rigo, J.~M. Juan, J.~Sanz, E.~Monte,
+  and A.~Arag{\'o}n-{\`A}ngel.
+\newblock {GNSS} measurement of {EUV} photons flux rate during strong and mid
+  solar flares.
+\newblock {\em Space Weather}, 10(12):1--16, 2012.
+
+\bibitem{hernandez2009igs}
+M.~Hern{\'a}ndez-Pajares, J.~Juan, J.~Sanz, R.~Orus, A.~Garcia-Rigo,
+  J.~Feltens, A.~Komjathy, S.~Schaer, and A.~Krankowski.
+\newblock The igs vtec maps: a reliable source of ionospheric information since
+  1998.
+\newblock {\em Journal of Geodesy}, 83(3-4):263--275, 2009.
+
+\bibitem{greinergrb}
+{Institute of Space Sciences (CSIC-IEEC}.
+\newblock {Magnetar Outburst Online Catalog}.
+\newblock \url{http://magnetars.ice.csic.es/#/parameters}.
+\newblock [Online; accessed 3-March-2019].
+
+\bibitem{moocgrbs}
+{Institute of Space Sciences (CSIC-IEEC}.
+\newblock {Magnetar Outburst Online Catalog}.
+\newblock \url{http://magnetars.ice.csic.es/#/parameters}.
+\newblock [Online; accessed 3-March-2019].
+
+\bibitem{swiftnasa}
+{Jochen Greiner, Max-Planck-Institute for extraterrestrial Physics}.
+\newblock {GRB collection}.
+\newblock \url{http://www.mpe.mpg.de/ ~jcg/grbgen.html}.
+\newblock [Online; accessed 3-March-2019].
+
+\bibitem{martinez2016first}
+D.~Mart{\'\i}nez~Cid.
+\newblock First study on the feasibility of stellar flares detection with gps.
+\newblock {B.S.} thesis, Universitat Polit{\`e}cnica de Catalunya, 2016.
+
+\bibitem{roming2005swift}
+P.~W. Roming, T.~E. Kennedy, K.~O. Mason, J.~A. Nousek, L.~Ahr, R.~E. Bingham,
+  P.~S. Broos, M.~J. Carter, B.~K. Hancock, H.~E. Huckle, et~al.
+\newblock The swift ultra-violet/optical telescope.
+\newblock {\em Space Science Reviews}, 120(3-4):95--142, 2005.
+
+\bibitem{nasareferencesystem}
+{Solar System Exploration, NASA Science}.
+\newblock {Reference Systems}.
+\newblock \url{https://solarsystem.nasa.gov/basics/chapter2-2/}.
+\newblock [Online; accessed 5-March-2019].
 
 \end{thebibliography}

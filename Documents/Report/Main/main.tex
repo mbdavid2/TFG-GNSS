@@ -9,6 +9,14 @@
 \usepackage[acronym]{glossaries}
 \usepackage{fancyhdr}
 
+%%% Algorithms/Pseudocode %%%
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
 %%% Styles %%%
 \bibliographystyle{abbrv}
 
@@ -46,9 +54,9 @@
 \tableofcontents
 \thispagestyle{empty}
 \clearpage
-\include{sections/ch1Gep}
 \include{sections/ch2Background}
 \include{sections/ch3StellarFlares}
+\include{sections/ch4SolarFlareAlgorithm}
 
 testing \cite{hernandez2009igs} \cite{martinez2016first}
 \cite{swiftnasa}
@@ -63,6 +71,6 @@ testing \cite{hernandez2009igs} \cite{martinez2016first}
 %%%%%%% References %%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\bibliography{references}
+\bibliography{sections/references}
 
 \end{document}

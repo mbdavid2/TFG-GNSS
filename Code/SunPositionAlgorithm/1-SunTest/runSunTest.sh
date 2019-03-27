@@ -8,7 +8,7 @@ tiDataFile="../data/ti.2003.301.10h30m-11h30m.gz"
 echo "-> Running AWK script"
 zcat "$tiDataFile" | gawk -f processDataSun.awk  > outputTi.out
 # if [ "$1" != "plot" ];then
-	# cat outputTi.out
+# cat outputTi.out
 # fi
 echo "-> Compiling sunTest.f90"
 gfortran sunTest.f90
@@ -22,5 +22,7 @@ else
 	./a.out
 	rm a.out
 fi
+rm resultsToPlot
+rm outputTi.out
 
 # plot [10.5:11.5] "test" using 1:2 with point

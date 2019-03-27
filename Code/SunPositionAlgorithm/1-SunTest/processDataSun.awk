@@ -33,14 +33,17 @@ function groupByPair() {
 function groupByTime() {
 	infoType = 3;
 	timeIndex = $3;
-	if (arrayInfo[timeIndex][0] == "") {
-		info = getInfo(timeIndex, infoType, currentLength);
-		arrayInfo[timeIndex][0] = info;
-	}
-	else {
-		currentLength = length(arrayInfo[timeIndex])
-		info = getInfo(timeIndex, infoType, currentLength);
-		arrayInfo[timeIndex][currentLength] = info;
+	filter = false;
+	if (filter == flase || $4 == "vill") {
+		if (arrayInfo[timeIndex][0] == "") {
+			info = getInfo(timeIndex, infoType, currentLength);
+			arrayInfo[timeIndex][0] = info;
+		}
+		else {
+			currentLength = length(arrayInfo[timeIndex])
+			info = getInfo(timeIndex, infoType, currentLength);
+			arrayInfo[timeIndex][currentLength] = info;
+		}
 	}
 }
 
@@ -62,9 +65,9 @@ function getInfo(identifier, infoType, indexIPP) {
 	}
 	else if (infoType == 3) {
 		# 44 xra 45 xlat 47 rasun 48decsun 21 d2li
-		# xmapping_ion | d2li | raReceiver | latReceiver | raSun | decSun | cycleslip2
+		# 44-raReceiver | 45-latReceiver | 43-xmapping_ion | 22-d2li | 47-raSun | 48-decSun | cycleslip2
 		# info = $44 " " $45 " " $47 " " $48 " " $43 " " $21 Sun info too
-		info = $44 " " $45 " " $43 " " $21
+		info = $44 " " $45 " " $43 " " $21 " " $47 " " $48
 	}
 	return info
 }
