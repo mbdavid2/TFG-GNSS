@@ -1,6 +1,7 @@
 - Cover
 - ListOfContents
 - ListOfFigures???
+- ListOfListings???
 - Abstract/Resumen/Resum
 
 %%%%%%%%%%%%% 
@@ -18,7 +19,7 @@
 	- Obtaining the data
 	- Results
 - ch4 Sun Algorithm (poner un nombre o algo al algoritmo de siglas para que sea el titulo)
-	- First approach
+	- First approach: Brute force
 	- Hill Climbing bla bla
 
 %%%%%%%%%%%%% 

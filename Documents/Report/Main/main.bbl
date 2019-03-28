@@ -6,11 +6,33 @@
   \url{https://web.archive.org/web/20120123062045/http://starlink.jach.hawaii.edu/starlink/WelcomePage}.
 \newblock [Online; accessed 10-March-2019].
 
+\bibitem{igswebsite}
+{International GNSS Service Website}.
+\newblock \url{http://www.igs.org/about}.
+\newblock [Online; accessed 8-March-2019].
+
+\bibitem{dow2009international}
+J.~M. Dow, R.~E. Neilan, and C.~Rizos.
+\newblock {The international GNSS service in a changing landscape of global
+  navigation satellite systems}.
+\newblock {\em Journal of geodesy}, 83(3-4):191--198, 2009.
+
 \bibitem{gehrels2004swift}
 N.~Gehrels, G.~Chincarini, P.~Giommi, K.~Mason, J.~Nousek, A.~Wells, N.~White,
   S.~Barthelmy, D.~Burrows, L.~Cominsky, et~al.
 \newblock The swift gamma-ray burst mission.
 \newblock {\em The Astrophysical Journal}, 611(2):1005, 2004.
+
+\bibitem{swiftnasa}
+{Goddard Space Flight Center (NASA)}.
+\newblock {Swift GRBs Archive}.
+\newblock \url{https://swift.gsfc.nasa.gov/archive/grb_table.html/}.
+\newblock [Online; accessed 1-March-2019].
+
+\bibitem{hegarty2008evolution}
+C.~J. Hegarty and E.~Chatre.
+\newblock {Evolution of the Global Navigation Ssatellite System (GNSS)}.
+\newblock {\em Proceedings of the IEEE}, 96(12):1902--1917, 2008.
 
 \bibitem{hernandez2012gnss}
 M.~Hern{\'a}ndez-Pajares, A.~Garc{\'\i}a-Rigo, J.~M. Juan, J.~Sanz, E.~Monte,
@@ -26,11 +48,18 @@ M.~Hern{\'a}ndez-Pajares, J.~Juan, J.~Sanz, R.~Orus, A.~Garcia-Rigo,
   1998.
 \newblock {\em Journal of Geodesy}, 83(3-4):263--275, 2009.
 
-\bibitem{greinergrb}
-{Institute of Space Sciences (CSIC-IEEC}.
-\newblock {Magnetar Outburst Online Catalog}.
-\newblock \url{http://magnetars.ice.csic.es/#/parameters}.
-\newblock [Online; accessed 3-March-2019].
+\bibitem{hernandez2011ionosphere}
+M.~Hern{\'a}ndez-Pajares, J.~M. Juan, J.~Sanz, {\`A}.~Arag{\'o}n-{\`A}ngel,
+  A.~Garc{\'\i}a-Rigo, D.~Salazar, and M.~Escudero.
+\newblock The ionosphere: effects, gps modeling and the benefits for space
+  geodetic techniques.
+\newblock {\em Journal of Geodesy}, 85(12):887--907, 2011.
+
+\bibitem{hofmann2007gnss}
+B.~Hofmann-Wellenhof, H.~Lichtenegger, and E.~Wasle.
+\newblock {\em {GNSS--global navigation satellite systems: GPS, GLONASS,
+  Galileo, and more}}.
+\newblock Springer Science \& Business Media, 2007.
 
 \bibitem{moocgrbs}
 {Institute of Space Sciences (CSIC-IEEC}.
@@ -38,7 +67,7 @@ M.~Hern{\'a}ndez-Pajares, J.~Juan, J.~Sanz, R.~Orus, A.~Garcia-Rigo,
 \newblock \url{http://magnetars.ice.csic.es/#/parameters}.
 \newblock [Online; accessed 3-March-2019].
 
-\bibitem{swiftnasa}
+\bibitem{greinergrb}
 {Jochen Greiner, Max-Planck-Institute for extraterrestrial Physics}.
 \newblock {GRB collection}.
 \newblock \url{http://www.mpe.mpg.de/ ~jcg/grbgen.html}.
@@ -49,11 +78,32 @@ D.~Mart{\'\i}nez~Cid.
 \newblock First study on the feasibility of stellar flares detection with gps.
 \newblock {B.S.} thesis, Universitat Polit{\`e}cnica de Catalunya, 2016.
 
+\bibitem{noaa2ionosphere}
+S.~W. P. C.~N. Oceanic and A.~Administration).
+\newblock {Ionosphere}.
+\newblock \url{https://www.swpc.noaa.gov/phenomena/ionosphere}.
+\newblock [Online; accessed 25-March-2019].
+
 \bibitem{roming2005swift}
 P.~W. Roming, T.~E. Kennedy, K.~O. Mason, J.~A. Nousek, L.~Ahr, R.~E. Bingham,
   P.~S. Broos, M.~J. Carter, B.~K. Hancock, H.~E. Huckle, et~al.
 \newblock The swift ultra-violet/optical telescope.
 \newblock {\em Space Science Reviews}, 120(3-4):95--142, 2005.
+
+\bibitem{singh2015gps}
+T.~Singh, M.~Hernandez-Pajares, E.~Monte, A.~Garcia-Rigo, and
+  G.~Olivares-Pulido.
+\newblock {GPS} as a solar observational instrument: {Real-time} estimation of
+  {EUV} photons flux rate during strong, medium, and weak solar flares.
+\newblock {\em Journal of Geophysical Research: Space Physics},
+  120(12):10--840, 2015.
+
+\bibitem{ionospherestandford}
+S.~Solar~Center.
+\newblock {The Earth's Ionosphere}.
+\newblock
+  \url{http://solar-center.stanford.edu/SID/activities/ionosphere.html}.
+\newblock [Online; accessed 13-March-2019].
 
 \bibitem{nasareferencesystem}
 {Solar System Exploration, NASA Science}.

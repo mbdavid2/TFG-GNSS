@@ -9,7 +9,34 @@
 \usepackage[acronym]{glossaries}
 \usepackage{fancyhdr}
 
-%%% Algorithms/Pseudocode %%%
+%%% Code %%%
+\usepackage{listings}
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+%%% Algorithms/Pseudocode %%% 
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
@@ -28,18 +55,18 @@
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 %%% Headings %%%
-%\pagestyle{fancy}
-%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-%\fancyhf{}
-%\rhead{David Moreno}
-%\lhead{\leftmark}
-%\rfoot{\thepage}
- \pagestyle{headings}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhf{}
+\rhead{David Moreno}
+\lhead{\leftmark}
+\rfoot{\thepage}
+% \pagestyle{headings}
 % Normal one:  \pagestyle{headings}
 
 %%% Load glossaries %%%
-\makeglossaries
-\loadglsentries{sections/glossaries}
+%\makeglossaries
+%\loadglsentries{sections/glossaries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Start of document %%%%%%%%%
@@ -54,6 +81,13 @@
 \tableofcontents
 \thispagestyle{empty}
 \clearpage
+\lstlistoflistings
+\thispagestyle{empty}
+\clearpage
+\listoffigures
+\thispagestyle{empty}
+\clearpage
+\include{sections/ch1ProjectManagement}
 \include{sections/ch2Background}
 \include{sections/ch3StellarFlares}
 \include{sections/ch4SolarFlareAlgorithm}
@@ -64,8 +98,9 @@ testing \cite{hernandez2009igs} \cite{martinez2016first}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Glossaries %%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\printglossary[type=\acronymtype]
+%\newpage
+%\printglossary[type=\acronymtype]
+%\printglossary
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% References %%%%%%%%%

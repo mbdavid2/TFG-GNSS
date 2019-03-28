@@ -1,4 +1,4 @@
-\section{Study on the feasibility of stellar flare detection}
+\chapter{Study on the feasibility of stellar flare detection}
 
 Flares from far-away stars and Gamma-ray Bursts, albeit more powerful than flares that have the Sun as their source, may not be possible to detect due to the large distances that separate them from our measurement tool: the ionosphere.
 
@@ -16,7 +16,7 @@ However, its execution may take up to 2 hours, because of this the aim was to:
 	\item Select an appropriate source of this pool of candidates by writing a quick script that yielded an ordered list of the best candidates based on certain factors, instead of selecting a random source.
 \end{itemize}
 
-\subsection{Sources of data and possible candidates}
+\section{Sources of data and possible candidates}
 
 The three main databases we considered for the study were:
 
@@ -28,7 +28,7 @@ The three main databases we considered for the study were:
 
 Because of the layout of the website and how the data could be accessed, the option with which we started was the Swift Database, as the data could be visualized in an HTML table and was easily accessible.
 
-\subsection{The Neil Gehrels Swift Observatory and its data}
+\section{The Neil Gehrels Swift Observatory and its data}
 
 The Swift Observatory is a NASA mission with international participation, designed to observe GRBs and their afterglows to study topics such as the origins of GRBs or what they can reveal about the early stages of the universe \cite{roming2005swift}. The observatory is equipped with three main instruments that work with each other to study GRBs \cite{gehrels2004swift} \cite{swiftnasa}:
 
@@ -54,7 +54,7 @@ Taking this into account, Right Ascension is the equivalent of longitude, expres
 
 This reference system is used to describe the position of objects in the sky, and it is the one used by the Swift telescope to specify the location of the sources. Afterwards these concepts will play an important role when computing the angle formed between the source and the Sun.
 
-\subsection{Objective function}
+\section{Objective function}
 
 Our main goal in this section was to obtain a list of GRB candidates ordered from more to less probable to be detected by the algorithm, that is, their fitness. To obtain this score we had to define an objective function, taking into consideration two factors:
 
@@ -76,34 +76,64 @@ The supervisor, Manuel Hernández-Pajares, provided me an algorithm which takes 
 
 This algorithm belongs to the \textbf{Starlink Project} (Rutherford Appleton Laboratory), which provided open-source software like the one at hand to astronomical institutions. Although it was shut down in 2005, the code still remains and we could use it for our study \cite{starlinkproject}.
 
-Knowing both the location of the burst and the Sun, the angle between both can be computed and used as a parameter for the objective function.
+Knowing the location of the GRB: ($\delta_{g}, \alpha_{g}$), declination and right ascension, respectively. And that of the Sun: ($\delta_{s}, \alpha_{s}$), the angle between both can be computed and used as a parameter for the objective function.
 
-This computation is done by performing the dot product of the two unit vectors that can be obtained from the Ra and Dec of the objects. These are the unit vectors of
+This computation is done by performing the dot product of the two unit vectors that can be obtained from the Ra and Dec of the objects.
 
 The unit vectors are given by: 
 
-	coordSun = [math.cos(sunDec)*math.cos(sunRa), math.cos(sunDec)*math.sin(sunRa), math.sin(sunDec)]
-coordGRB = [math.cos(dec)*math.cos(ra), math.cos(dec)*math.sin(ra), math.sin(dec)]
-
-angle = math.acos(coordSun[0]*coordGRB[0] + coordSun[1]*coordGRB[1] + coordSun[2]*coordGRB[2])
-angle = angle*180/math.pi
-
-%%\begin{bmatrix}
-%%	\cos\delta & 22 \\ 
-%%	\cos\alpha & 34
-%%\end{bmatrix}
-
 \begin{equation} \label{eq:1}
-\sum_{i=0}^{\infty} a_i x^i
+	unitVectorGRB =	
+	\begin{bmatrix}
+	\cos\delta_{g} * \cos\alpha_{g} \\ 
+	\cos\delta_{g} * \sin\alpha_{g} \\
+	\sin\delta_{g}
+	\end{bmatrix}
 \end{equation}
 
-The dot product of the two unit vectors obtained from gave us the angle between the burst and the Sun.
+\begin{equation} \label{eq:2}
+	unitVectorSun =	
+	\begin{bmatrix}
+	\cos\delta_{s} * \cos\alpha_{s} \\ 
+	\cos\delta_{s} * \sin\alpha_{s} \\
+	\sin\delta_{s}
+	\end{bmatrix}
+\end{equation}
+
+\begin{equation} \label{eq:3}
+	angleSunGRB = unitVectorGRB \cdot unitVectorSun
+\end{equation}\\
+
+The code for the previous computation is shown here:\\
+
+\begin{lstlisting}[language=Python, caption=Python function for computing the angle]
+def scorePosition(sunRa, sunDec, ra, dec):
+	# If Ra and/or Dec are n/a, return 0, else, compute the dotProduct
+	if ra == 0 or dec == 0:
+		return 0
+	
+	coordSun = [math.cos(sunDec)*math.cos(sunRa),
+	math.cos(sunDec)*math.sin(sunRa), 
+	math.sin(sunDec)]
+	
+	coordGRB = [math.cos(dec)*math.cos(ra),
+	 math.cos(dec)*math.sin(ra),
+	  math.sin(dec)]
+	
+	angle = math.acos(coordSun[0]*coordGRB[0] +
+	coordSun[1]*coordGRB[1] +
+	coordSun[2]*coordGRB[2])
+	
+	angle = angle*180/math.pi
+	
+	return angle
+\end{lstlisting} 
 
 
 
 
 
-\subsection{Obtaining the data}
+\section{Obtaining the data}
 
 Regarding the scrapping of the website to parse the data and obtain this ordered list, \textbf{Python} was chosen because the problem required a quick implementation, and Python’s libraries offered a great tool to develop a simple solution as quick as possible.
 
@@ -119,4 +149,4 @@ The best 10 candidates of the resulting sorted table (pie de pagina: bursts regi
 
 We proceeded to study these bursts
 
-\subsection{Results}
+\section{Results}

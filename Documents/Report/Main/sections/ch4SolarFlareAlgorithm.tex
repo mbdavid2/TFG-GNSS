@@ -2,7 +2,33 @@
 
 Before starting to write the main solar flare detection algorithm a first program was developed in which the location of the sun was known and we knew when the solar flare had taken place.
 
-To test this, the data used was that of the called "Hallowen Storm, in whi
+To test this, the data used was that of the called "Hallowen Storm, in whi \\
+
+
+Halloween storm, poner ejemplos, citar al texto, porque esta tormenta
+Fichero ti, sampling 30s
+formato
+explicar que vamos a hacer – IPPs, hill climbing y buscar si una vez en un pico, hay relacion lineal entre VTEC I coseno. En lugar de eso, subir mirando
+
+primer paso, ver datos de un IPP
+Awk prepocesado de datos
+fortran
+gnu plot para empezar a ver
+
+
+
+
+
+
+Try algorithm knowing the location of the source, sun. Show first distribution of VTEC thtough the day (vill), then for the specific moment in time
+
+After that, talk about proposals for the main algorithm
+
+
+
+
+
+
 \section{Pseudocode}
 
 \begin{algorithm}
@@ -28,4 +54,35 @@ To test this, the data used was that of the called "Hallowen Storm, in whi
 	\end{algorithmic}
 \end{algorithm}
 
+\begin{lstlisting}[language=Python, caption=Python example]
+import numpy as np
+
+def incmatrix(genl1,genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None #to become the incidence matrix
+	VT = np.zeros((n*m,1), int)  #dummy variable
+	
+	#compute the bitwise xor matrix
+	M1 = bitxormatrix(genl1)
+	M2 = np.triu(bitxormatrix(genl2),1) 
+	
+	for i in range(m-1):
+	for j in range(i+1, m):
+	[r,c] = np.where(M2 == M1[i,j])
+	for k in range(len(r)):
+	VT[(i)*n + r[k]] = 1;
+	VT[(i)*n + c[k]] = 1;
+	VT[(j)*n + r[k]] = 1;
+	VT[(j)*n + c[k]] = 1;
+	
+	if M is None:
+	M = np.copy(VT)
+	else:
+	M = np.concatenate((M, VT), 1)
+	
+	VT = np.zeros((n*m,1), int)
+	
+	return M
+\end{lstlisting}
 
