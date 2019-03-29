@@ -6,6 +6,7 @@ program sunTest
 
 	! Constants
 	real, parameter :: ALPHA = 0.105E-17
+	real, parameter :: PI = atan(1.0)*4
 
 	! Formats
 	200 format (F10.8, F12.8, F12.8)
@@ -70,15 +71,15 @@ program sunTest
    			real :: vtec
 
    			vtec = d2Li/mapIon
-
+   			return
    		end function estimateVTEC
 
 		real function computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
 			implicit none
 
 			! Parameters
-			real, intent(in) :: raIPP, decIPP, raSun, decSun
-			
+			real :: raIPP, decIPP, raSun, decSun
+
 			! Hardcoded Sun unit vector
 			! real :: raSun = 212.338
 			! real :: decSun = -13.059
@@ -86,6 +87,11 @@ program sunTest
 			real, dimension(0:2) :: unitVecIPP, unitVecSun
 
 			real :: solarZenithAngle
+
+			raIPP = degreeToRadian(raIPP)
+			decIPP = degreeToRadian(decIPP)
+			raSun = degreeToRadian(raSun)
+			decSun = degreeToRadian(decSun)
 
 			unitVecIPP(0) = cos(decIPP) * cos(raIPP)
 			unitVecIPP(1) = cos(decIPP) * sin(raIPP)
@@ -98,7 +104,16 @@ program sunTest
 			! solarZenithAngle = unitVecIPP(0)*unitVecSun(0) + unitVecIPP(1)*unitVecSun(1) + unitVecIPP(2)*unitVecSun(2)
 
 			solarZenithAngle = sin(decIPP)*sin(decSun) + cos(decIPP)*cos(decSun)*cos(raIPP - raSun)
+			return
 		end function computeSolarZenithAngle
+
+		real function degreeToRadian(degree)
+			real, intent(in) :: degree
+			real :: radians
+
+			radians = (degree*PI)/180
+			return
+		end function degreeToRadian
 
 		! real function computeUnitVector(ra, dec)
 		! 	implicit none

@@ -64,9 +64,7 @@ function getInfo(identifier, infoType, indexIPP) {
 		info = "(Time, ID): (" identifier ", " txRec ") | (M, Li): (" $43 ", " $13 ") | Ra/Lat: (" $8 ", " $9 ") " $20;
 	}
 	else if (infoType == 3) {
-		# 44 xra 45 xlat 47 rasun 48decsun 21 d2li
-		# 44-raReceiver | 45-latReceiver | 43-xmapping_ion | 22-d2li | 47-raSun | 48-decSun | cycleslip2
-		# info = $44 " " $45 " " $47 " " $48 " " $43 " " $21 Sun info too
+		# 44-raion | 45-xlation | 43-xmapping_ion | 21-d2li | 47-raSun | 48-decSun
 		info = $44 " " $45 " " $43 " " $21 " " $47 " " $48
 	}
 	return info
