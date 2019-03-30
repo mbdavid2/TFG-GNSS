@@ -23,6 +23,7 @@ else
 	rm a.out
 fi
 rm resultsToPlot
-rm outputTi.out
+rm *.out
+rm *.mod
 
 # plot [10.5:11.5] "test" using 1:2 with point

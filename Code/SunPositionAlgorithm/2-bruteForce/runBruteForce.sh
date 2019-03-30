@@ -10,10 +10,10 @@ zcat "$tiDataFile" | gawk -f processDataSun.awk  > outputTi.out
 # if [ "$1" != "plot" ];then
 # cat outputTi.out
 # fi
-gfortran bruteForce2.f90
+gfortran createPlot.f90 bruteForce.f90
 rm -r results
 mkdir -p results/
-echo "-> Running bruteForce2.f90"
+echo "-> Running bruteForce.f90"
 if [ "$1" == "plot" ];then
 	./a.out
 	rm a.out
@@ -23,12 +23,18 @@ if [ "$1" == "plot" ];then
         # ./MyProgram.exe "$filename" "Logs/$(basename "$filename" .txt)_Log$i.txt"
         gnuplot -e "set terminal png; set output '$filename.png'; plot '$filename' using 1:2 with point;"
 	done
-	find results -type f ! -regex ".*\.\(jpg\|png\)" -delete
+	# find results -type f ! -regex ".*\.\(jpg\|png\)" -delete
 	nautilus results
 else
 	echo "-> NOT Plotting the results"
 	./a.out
 	rm a.out
 fi
+
+rm *.out
+rm *.mod
+
+diff results/ra210_dec000 results/ra030_dec180 > diffData.diff
+compare results/ra210_dec000.png results/ra030_dec180.png -compose src diff.png
 
 # plot [10.5:11.5] "test" using 1:2 with point
