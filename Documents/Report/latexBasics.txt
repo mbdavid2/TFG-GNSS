@@ -26,8 +26,30 @@
 
 \begin{figure}[ht]
 	\centering	
-	\includegraphics[width=0.9\linewidth]{gantt.png}
-	\caption{Gantt chart with the planning of the project }
+	\includegraphics[width=0.9\linewidth]{images/ch4/vtecDistributionGeneral.png}
+	\caption{VTEC distribution throughout the day for all IPPs}
+	\label{fig:vtecDistributionGeneral}
+\end{figure}
+
+\ref{fig:vtecDistributionGeneral}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{a.png}
+        \caption{Caption 1a} 
+        \label{fig:1:a}
+    \end{subfigure}
+    \hspace{0.05\textwidth}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{b.png}
+        \caption{Caption 1b} 
+        \label{fig:1:b}
+    \end{subfigure}
+    \caption{Caption 1}
+    \label{fig:1}
 \end{figure}
 
 

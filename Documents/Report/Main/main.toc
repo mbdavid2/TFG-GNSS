@@ -1,18 +1,29 @@
-\contentsline {chapter}{\numberline {1}GEP}{4}
-\contentsline {chapter}{\numberline {2}Background}{5}
-\contentsline {section}{\numberline {2.1}Global Navigation Satellite Systems}{5}
-\contentsline {paragraph}{GNSS and GPS}{5}
-\contentsline {paragraph}{Positioning}{5}
-\contentsline {paragraph}{The International GNSS Service}{5}
-\contentsline {section}{\numberline {2.2}Ionosphere}{6}
-\contentsline {section}{\numberline {2.3}Stellar flares}{6}
-\contentsline {section}{\numberline {2.4}Gamma-Ray Bursts}{7}
-\contentsline {chapter}{\numberline {3}Study on the feasibility of stellar flare detection}{8}
-\contentsline {section}{\numberline {3.1}Sources of data and possible candidates}{8}
-\contentsline {section}{\numberline {3.2}The Neil Gehrels Swift Observatory and its data}{9}
-\contentsline {section}{\numberline {3.3}Objective function}{10}
-\contentsline {paragraph}{Computing the angle}{10}
-\contentsline {section}{\numberline {3.4}Obtaining the data}{11}
-\contentsline {section}{\numberline {3.5}Results}{12}
-\contentsline {chapter}{\numberline {4}Solar flare detection}{13}
-\contentsline {section}{\numberline {4.1}Pseudocode}{13}
+\contentsline {chapter}{\numberline {1}GEP}{5}
+\contentsline {chapter}{\numberline {2}Background}{6}
+\contentsline {section}{\numberline {2.1}Global Navigation Satellite Systems}{6}
+\contentsline {paragraph}{GNSS and GPS}{6}
+\contentsline {paragraph}{Positioning}{6}
+\contentsline {paragraph}{Ionospheric Piercing Points}{6}
+\contentsline {paragraph}{The International GNSS Service}{7}
+\contentsline {section}{\numberline {2.2}Ionosphere}{7}
+\contentsline {section}{\numberline {2.3}Stellar flares}{7}
+\contentsline {section}{\numberline {2.4}Gamma-Ray Bursts}{8}
+\contentsline {chapter}{\numberline {3}Study on the feasibility of stellar flare detection}{9}
+\contentsline {section}{\numberline {3.1}Sources of data and possible candidates}{9}
+\contentsline {section}{\numberline {3.2}The Neil Gehrels Swift Observatory and its data}{10}
+\contentsline {section}{\numberline {3.3}Objective function}{11}
+\contentsline {paragraph}{Computing the angle}{11}
+\contentsline {section}{\numberline {3.4}Obtaining the data}{12}
+\contentsline {section}{\numberline {3.5}Results}{13}
+\contentsline {chapter}{\numberline {4}Solar flare detection}{14}
+\contentsline {section}{\numberline {4.1}Data}{14}
+\contentsline {subsection}{\numberline {4.1.1}The Halloween Storm}{14}
+\contentsline {subsection}{\numberline {4.1.2}Formatting}{14}
+\contentsline {subsection}{\numberline {4.1.3}AWK}{14}
+\contentsline {section}{\numberline {4.2}VTEC distribution}{14}
+\contentsline {subsection}{\numberline {4.2.1}Computing the VTEC}{14}
+\contentsline {subsection}{\numberline {4.2.2}The solar flare}{15}
+\contentsline {section}{\numberline {4.3}Algorithm}{16}
+\contentsline {subsection}{\numberline {4.3.1}VTEC value}{16}
+\contentsline {subsection}{\numberline {4.3.2}Solar-zenith angle}{16}
+\contentsline {section}{\numberline {4.4}Pseudocode}{16}

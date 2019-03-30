@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  28 MAR 2019 22:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  29 MAR 2019 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -648,24 +648,44 @@ s
 \f@nch@O@olf=\skip68
 \f@nch@O@orf=\skip69
 )
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip70
+\subfigcapskip=\skip71
+\subfigcaptopadj=\dimen139
+\subfigbottomskip=\skip72
+\subfigcapmargin=\dimen140
+\subfiglabelskip=\skip73
+\c@subfigure=\count131
+\c@lofdepth=\count132
+\c@subtable=\count133
+\c@lotdepth=\count134
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip74
+\subfig@bottom=\skip75
+)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count131
+\lst@mode=\count135
 \lst@gtempboxa=\box34
 \lst@token=\toks35
-\lst@length=\count132
-\lst@currlwidth=\dimen139
-\lst@column=\count133
-\lst@pos=\count134
-\lst@lostspace=\dimen140
-\lst@width=\dimen141
-\lst@newlines=\count135
-\lst@lineno=\count136
-\lst@maxwidth=\dimen142
+\lst@length=\count136
+\lst@currlwidth=\dimen141
+\lst@column=\count137
+\lst@pos=\count138
+\lst@lostspace=\dimen142
+\lst@width=\dimen143
+\lst@newlines=\count139
+\lst@lineno=\count140
+\lst@maxwidth=\dimen144
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count137
-\lst@skipnumbers=\count138
+\c@lstnumber=\count141
+\lst@skipnumbers=\count142
 \lst@framebox=\box35
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
@@ -687,14 +707,14 @@ nment
 
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count139
+\c@float@type=\count143
 \float@exts=\toks36
 \float@box=\box36
 \@float@everytoks=\toks37
 \@floatcapt=\box37
 )
 \@float@every@algorithm=\toks38
-\c@algorithm=\count140
+\c@algorithm=\count144
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -703,48 +723,49 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count141
-\c@ALG@rem=\count142
-\c@ALG@nested=\count143
-\ALG@tlm=\skip70
-\ALG@thistlm=\skip71
-\c@ALG@Lnr=\count144
-\c@ALG@blocknr=\count145
-\c@ALG@storecount=\count146
-\c@ALG@tmpcounter=\count147
-\ALG@tmplength=\skip72
+\c@ALG@line=\count145
+\c@ALG@rem=\count146
+\c@ALG@nested=\count147
+\ALG@tlm=\skip76
+\ALG@thistlm=\skip77
+\c@ALG@Lnr=\count148
+\c@ALG@blocknr=\count149
+\c@ALG@storecount=\count150
+\c@ALG@tmpcounter=\count151
+\ALG@tmplength=\skip78
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
-(./sections/ch1ProjectManagement.aux) (./sections/ch2Background.aux)
-(./sections/ch3StellarFlares.aux) (./sections/ch4SolarFlareAlgorithm.aux))
+(./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
+(./sections/ch2Background.aux) (./sections/ch3StellarFlares.aux)
+(./sections/ch4SolarFlareAlgorithm.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count148
-\scratchdimen=\dimen143
+\scratchcounter=\count152
+\scratchdimen=\dimen145
 \scratchbox=\box38
-\nofMPsegments=\count149
-\nofMParguments=\count150
+\nofMPsegments=\count153
+\nofMParguments=\count154
 \everyMPshowfont=\toks39
-\MPscratchCnt=\count151
-\MPscratchDim=\dimen144
-\MPnumerator=\count152
-\makeMPintoPDFobject=\count153
+\MPscratchCnt=\count155
+\MPscratchDim=\dimen146
+\MPnumerator=\count156
+\makeMPintoPDFobject=\count157
 \everyMPtoPDFconversion=\toks40
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -832,19 +853,20 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count154
+\c@lstlisting=\count158
 \openout2 = `sections/cover.aux'.
 
 (./sections/cover.tex
-<images/logo-fib.png, id=1, 1003.75pt x 150.5625pt>
-File: images/logo-fib.png Graphic file (type png)
-<use images/logo-fib.png>
-Package pdftex.def Info: images/logo-fib.png  used on input line 20.
+<images/cover/logo-fib.png, id=1, 1003.75pt x 150.5625pt>
+File: images/cover/logo-fib.png Graphic file (type png)
+<use images/cover/logo-fib.png>
+Package pdftex.def Info: images/cover/logo-fib.png  used on input line 20.
 (pdftex.def)             Requested size: 328.82707pt x 49.32507pt.
  [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/logo-fib.png>])
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/cover/logo-fib.pn
+g>])
 \openout2 = `sections/abstract.aux'.
 
  (./sections/abstract.tex [1
@@ -855,12 +877,12 @@ Package pdftex.def Info: images/logo-fib.png  used on input line 20.
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [1
+
+[1
 
 
 
-]
-(./main.lol)
+] (./main.lol)
 \tf@lol=\write4
 \openout4 = `main.lol'.
 
@@ -875,11 +897,32 @@ Package pdftex.def Info: images/logo-fib.png  used on input line 20.
 
 
 ]
+\openout2 = `sections/outline.aux'.
+
+ (./sections/outline.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 2.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4
+
+
+]
 \openout2 = `sections/ch1ProjectManagement.aux'.
 
  (./sections/ch1ProjectManagement.tex
 Chapter 1.
-) [4
+) [5
 
 
 
@@ -888,33 +931,20 @@ Chapter 1.
 
  (./sections/ch2Background.tex
 Chapter 2.
-[5
+[6
 
 
 
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[6]) [7]
+] [7]) [8]
 \openout2 = `sections/ch3StellarFlares.aux'.
 
  (./sections/ch3StellarFlares.tex
 Chapter 3.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
- [8
+[9
 
 
 
-] [9] [10]
+] [10] [11]
 Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
@@ -929,22 +959,50 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
- [11]) [12]
+ [12]) [13]
 \openout2 = `sections/ch4SolarFlareAlgorithm.aux'.
 
 
 (./sections/ch4SolarFlareAlgorithm.tex
 Chapter 4.
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-[13
+[14
 
 
 
-]) [14] [15
+] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 57.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 57.
+<images/ch4/vtecDistributionGeneral.png, id=66, 481.8pt x 361.35pt>
+File: images/ch4/vtecDistributionGeneral.png Graphic file (type png)
+<use images/ch4/vtecDistributionGeneral.png>
+Package pdftex.def Info: images/ch4/vtecDistributionGeneral.png  used on input 
+line 66.
+(pdftex.def)             Requested size: 281.85587pt x 211.39717pt.
+<images/ch4/vtecDistributionVill.png, id=67, 481.8pt x 361.35pt>
+File: images/ch4/vtecDistributionVill.png Graphic file (type png)
+<use images/ch4/vtecDistributionVill.png>
+Package pdftex.def Info: images/ch4/vtecDistributionVill.png  used on input lin
+e 73.
+(pdftex.def)             Requested size: 281.85587pt x 211.39717pt.
+ [15 <./images/ch4/vtecDistributionGeneral.png>] [16 <./images/ch4/vtecDistribu
+tionVill.png>])
+[17] [18
 
 ] (./main.bbl
 Underfull \hbox (badness 7397) in paragraph at lines 4--8
@@ -952,36 +1010,38 @@ Underfull \hbox (badness 7397) in paragraph at lines 4--8
  https : / / web . archive . org / web /
  []
 
-[16
+[19
 
-]) [17] (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
-(./sections/ch1ProjectManagement.aux) (./sections/ch2Background.aux)
-(./sections/ch3StellarFlares.aux) (./sections/ch4SolarFlareAlgorithm.aux)) ) 
+]) [20] (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
+(./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
+(./sections/ch2Background.aux) (./sections/ch3StellarFlares.aux)
+(./sections/ch4SolarFlareAlgorithm.aux)) ) 
 Here is how much of TeX's memory you used:
- 9785 strings out of 494847
- 137214 string characters out of 6179080
- 339140 words of memory out of 5000000
- 12856 multiletter control sequences out of 15000+600000
+ 10135 strings out of 494847
+ 142459 string characters out of 6179080
+ 341220 words of memory out of 5000000
+ 13179 multiletter control sequences out of 15000+600000
  12591 words of font info for 45 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 45i,12n,76p,1990b,1735s stack positions out of 5000i,500n,10000p,200000b,80000s
-</u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (19 pages, 204696 bytes).
+ 51i,12n,96p,1990b,1814s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (22 pages, 240271 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 138 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
