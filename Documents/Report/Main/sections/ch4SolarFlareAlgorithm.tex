@@ -11,7 +11,7 @@ To test this, the data used was that of the called "Hallowen Storm, in which
 
 \subsection{The Halloween Storm}
 
-Halloween storm, poner ejemplos, citar al texto, porque esta tormenta otros papers de la storm tambien, decir que usaremos el momento exacto
+Halloween storm, poner ejemplos, citar al texto, porque esta tormenta otros papers de la storm tambien, decir que usaremos el momento exacto 11.05
 
 \subsection{Formatting}
 hablar de los datos, el formato, relevant to this algorithm: mappingion, d2li, etc
@@ -35,21 +35,19 @@ The Vtec...formulas...d2li/mappingio
 
 \subsection{The solar flare}
 
-Because the only operation that had to be performed was the previous division, a simple AWK script was used to filter out the two necessary fields from the data file (d2li and ) and print the resulting value and the time. 
+Because the only operation that had to be performed was the previous division, a simple AWK script was used to filter out the two necessary fields from the data file (d2li and  mapping ) and print the resulting value and the time. 
 
 \begin{lstlisting}[language=Awk, caption=process]
 {
 	/a/
-	if ("vill" == $4) {
-		d2li = $21;
-		mappingFunc = $43;
-		vtec = d2li/mappingFunc;
-		print $3 " " vtec
-	}
+	d2li = $21;
+	mappingFunc = $43;
+	vtec = d2li/mappingFunc;
+	print $3 " " vtec
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=Bash, caption=process]
+\begin{lstlisting}[language=Bash, caption=Bash script to execute the procedures]
 #!/bin/bash
 tiDataFile="../data/ti.2003.301.10h30m-11h30m.gz"
 filename=vtecDistribution
@@ -58,22 +56,28 @@ zcat "$tiDataFile" | gawk -f previewVTECDistribution.awk > vtecValues
 gnuplot -e "set terminal png; set output 'vtecDistribution.png'; set title 'VTEC Distribution'; set xlabel 'Time of the day (hours)'; set ylabel 'VTEC'; set grid; plot \"vtecValues\" using 1:2 with point"
 rm vtecValues
 \end{lstlisting}
+\clearpage
 
-The result can be seen in figure \ref{fig:vtecDistributionGeneral}
+\subsection{Results}
 
-\begin{figure}[ht]
-	\centering	
-	\includegraphics[width=0.6\linewidth]{images/ch4/vtecDistributionGeneral.png}
-	\caption{VTEC distribution throughout the day for all IPPs}
-	\label{fig:vtecDistributionGeneral}
+The bash script executes the AWK process with the data as the input and outputs n rows with two columns: the time of the day and the calculated VTEC, and plots the results using Gnuplot.
+This can be seen in figure \ref{fig:vtecDistribution}, we're we can see how the VTEC value evolves throught the day. Visually, a spike can be seen between 11 and 11.2 hours.
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch4/vtecDistributionGeneral.png}
+		\caption{All IPPs}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch4/vtecDistributionVill.png}
+		\caption{Vill}
+	\end{subfigure}
+	\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
+	\label{fig:vtecDistribution}
 \end{figure}
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.6\linewidth]{images/ch4/vtecDistributionVill.png}
-	\caption{VTEC distribution throughout the day for vVill}
-	\label{fig:vtecDistributionVill}
-\end{figure}
+To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Vill station, which at that time of the day would be under the sun, we obtain the following plot, in which the spike can be seen more clearly. As mentioned before, the flare took place at 11.05.
 
 
 primer paso, ver datos de un IPP
@@ -81,7 +85,9 @@ Awk prepocesado de datos
 fortran
 gnu plot para empezar a ver
 
-\section{Algorithm}
+
+
+\section{Algorithm, here or new chapter?}
 
 \subsection{VTEC value}
 

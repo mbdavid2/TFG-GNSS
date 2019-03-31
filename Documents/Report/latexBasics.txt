@@ -24,6 +24,7 @@
 	\item Budget and sustainability
 \end{itemize}
 
+basic::
 \begin{figure}[ht]
 	\centering	
 	\includegraphics[width=0.9\linewidth]{images/ch4/vtecDistributionGeneral.png}
@@ -33,6 +34,7 @@
 
 \ref{fig:vtecDistributionGeneral}
 
+oriol::
 \begin{figure}[ht]
     \centering
     \begin{subfigure}{0.45\textwidth}
@@ -50,6 +52,21 @@
     \end{subfigure}
     \caption{Caption 1}
     \label{fig:1}
+\end{figure}
+
+Stack, funciona:::
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch4/vtecDistributionGeneral.png}
+		\caption{All IPPs}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch4/vtecDistributionVill.png}
+		\caption{Vill}
+	\end{subfigure}
+	\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
+	\label{fig:vtecDistribution}
 \end{figure}
 
 

@@ -16,11 +16,11 @@ def loadContentSwift():
 
 def prettyPrintList(listToPrint):
 	#print(["Name", "TotalScore", "[Year, Month, Day, DecTime]", "dotProduct", "Ra", "Dec", "SunRa", "SunDec", "UVOT", "BAT"])
-	print("Name Ra Dec UVOT BAT Date Angle")
+	print("Name Ra Dec UVOT BAT Date Angle Score")
 	listToPrint.pop()
 	for x in listToPrint:
 		date = str(x[2][0]) + " " + str(x[2][1]) + " " + str(x[2][2]) + " " + str(x[2][3])
-		print(x[0], x[4], x[5], x[8], x[9], date, x[3])
+		print(x[0], x[4], x[5], x[8], x[9], date, x[3], x[1])
 
 def traverseTableAndSort(soup, sort):
 	listGRBs = [["Name", 0, "Date", 0, "Ra", "Dec", "SunRa", "SunDec", "UVOT magnitude", "BAT fluence"]]
@@ -71,7 +71,7 @@ def computeNecessaryInfo(dataGRB):
 	sunPosition = planetsV2(year, month, day, decTime)
 
 	# Compare the results of the sun to those of the burst, dotProduct
-	scorePos = scorePosition(sunPosition[0], sunPosition[1], newRA, newDec)
+	scorePos = scorePosition([sunPosition[0], sunPosition[1], newRA, newDec])
 
 	# Take into consideration the "power" as well
 	scorePow = scorePower(dataGRB[14], dataGRB[6])
@@ -106,29 +106,21 @@ def scorePower(magnitudeUVOT, fluenceBAT):
 	# Another possibility: combination of both:
 	# return magnitudeUVOT + fluenceBAT
 	
-def scorePosition(sunRa, sunDec, ra, dec):
+def scorePosition(listOfCoords):
 	# If Ra and/or Dec are n/a, return 0, else, compute the dotProduct
-	if ra == 0 or dec == 0:
+	if listOfCoords[2] == 0 or listOfCoords[3] == 0:
 		return 0
 
-	coordSun = [math.cos(sunDec)*math.cos(sunRa), math.cos(sunDec)*math.sin(sunRa), math.sin(sunDec)]
-	coordGRB = [math.cos(dec)*math.cos(ra), math.cos(dec)*math.sin(ra), math.sin(dec)]
+	# [sunRa, sunDec, grbRa, grbDec] -> all to radian
+	coords = list(map((lambda degree: degree*math.pi/180), listOfCoords))
+
+	coordSun = [math.cos(coords[1])*math.cos(coords[0]), math.cos(coords[1])*math.sin(coords[0]), math.sin(coords[1])]
+	coordGRB = [math.cos(coords[3])*math.cos(coords[2]), math.cos(coords[3])*math.sin(coords[2]), math.sin(coords[3])]
 
 	angle = math.acos(coordSun[0]*coordGRB[0] + coordSun[1]*coordGRB[1] + coordSun[2]*coordGRB[2])
 	angle = angle*180/math.pi
 
 	return angle
-
-	# Compute unit vectors
-	# modSun = math.sqrt(sunRa*sunRa + sunDec*sunDec)
-	# modGRB = math.sqrt(ra*ra + dec*dec)
-	
-	# unitVecSun = list(map((lambda x: x / modSun), [sunRa, sunDec]))
-	# unitVecGRB = list(map((lambda x: x / modGRB), [ra, dec]))
-
-	# # Compute dot product/scalar product: "angle" between the Sun and the GRB
-	# dotProduct = unitVecSun[0]*unitVecGRB[0] + unitVecSun[1]*unitVecGRB[1]
-	# return dotProduct
 
 def planetsV2(year, month, day, decTime):
 	bashCommand = ("echo \"" 
@@ -160,13 +152,13 @@ def insertNewGRB(listGRBs, newEle, sort):
 			break
 	
 def main():
-	# ans = input("Sort only by angle? [y/n]: ")
-	# if ans == "y" or ans == "Y":
-	# 	sort = 1
-	# else:
-	# 	sort = 0
+	ans = input("Sort only by angle? [y/n]: ")
+	if ans == "y" or ans == "Y":
+		sort = 1
+	else:
+		sort = 0
 	soup = loadContentSwift()
-	listGRBs = traverseTableAndSort(soup, 1)
+	listGRBs = traverseTableAndSort(soup, sort)
 	prettyPrintList(listGRBs)
 	## TODO: Automatically write it to ../results/ when we're sure it works properly
 	## TODO: remove log file created by planets_v2 script
