@@ -1,15 +1,20 @@
 \chapter{Solar flare detection}
 
-Before starting to write the main solar flare detection algorithm a first program was developed in which the location of the sun was known and we knew when the solar flare had taken place.
+Before starting to write the main solar flare detection algorithm a first program was developed in which the location of the sun was known and we knew when a powerful solar flare had taken place.
 
 Try algorithm knowing the location of the source, sun. Show first distribution of VTEC thtough the day (vill), then for the specific moment in time
 
-
 \section{Data}
 
-To test this, the data used was that of the called "Hallowen Storm, in which 
+\subsection{GPS Data}
+
+Hablar de donde salen, el fichero ti me lo ha dado manuel. El fichero ti es el resultado de "pre-procesar" los datos Raw que hay en la web de ftp://cddis.nasa.gov/.
+
+Explicar que es cddis, como se procesan los datos, link al \cite{hernandez2009igs}, ahi esta explicado como los procesa
 
 \subsection{The Halloween Storm}
+
+To test this, the data used was that of the called "Hallowen Storm, in which 
 
 Halloween storm, poner ejemplos, citar al texto, porque esta tormenta otros papers de la storm tambien, decir que usaremos el momento exacto 11.05
 
@@ -30,6 +35,20 @@ Fisrt we wanted to obtain VTEC distribution throughout the day, to see if any sp
 
 \subsection{Computing the VTEC}
 
+Although the VTEC can be computed, it can be estimated using another approach.
+
+bla bla bla justify the following equation
+
+\begin{equation} \label{eq:1}
+	\frac{d^{2}V}{dt^{2}} = \frac{d^{2}Li}{M}
+\end{equation}
+
+Where $M=\frac{1}{\cos Z}$ is the "ionospheric mapping function", given by the inverted cosine of the satellite-zenith angle that we have for each IPP. \cite{hernandez2012gnss}
+
+Therefore, we can estimate the VTEC of an IPP by dividing two of the given fields in the data file:
+\begin{equation} \label{eq:2}
+	VTEC \approx \frac{d^{2}Li}{M}
+\end{equation}
 The Vtec...formulas...d2li/mappingio
 
 

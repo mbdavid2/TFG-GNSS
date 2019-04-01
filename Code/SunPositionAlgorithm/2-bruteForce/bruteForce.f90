@@ -4,7 +4,7 @@ program bruteForce
 
 	! Variables
 	integer :: status ! I/O status: 0 for success
-	integer, parameter :: STEP = 30
+	integer, parameter :: STEP = 60
 
    	open (unit = 1, file = 'outputTi.out', status = 'old', action='read', iostat=status)
 
@@ -23,24 +23,23 @@ program bruteForce
  	contains
 	 	subroutine checkAllAngles ()
  			real :: raSun, decSun
- 			integer :: i, j
+ 			integer :: ra, dec
  			character(len=4) :: iString, jString
- 			! character(len=20)
 
- 			do 20 i = 0, 360, STEP
-         		! write(*,*) 'i =', i
-         		do 30 j = 0, 180, STEP
-         			! write(*,*) '	j =', j
-         			raSun = i
-         			decSun = j
-         			raSun = toRadian(raSun)
-         			decSun = toRadian(decSun)
-         			write(iString, '(I3.3)') i
-         			write(jString, '(I3.3)') j
-         			open(34, file = 'results/ra' // trim(iString) // '_dec' // trim(jString), status = 'new') 
-         			call traverseFile(raSun, decSun) 
-         			close(34)
-  				30  continue
-  			20  continue
+ 			do dec = -90, 90, STEP
+ 				if (dec /= -90 .and. dec /= 90) then
+	 				do ra = -180, 180, STEP
+	         			raSun = ra
+	         			decSun = dec
+	         			raSun = toRadian(raSun)
+	         			decSun = toRadian(decSun)
+	         			write(iString, '(I4.3)') ra
+	         			write(jString, '(I4.3)') dec
+	         			open(34, file = 'results/ra' // trim(iString) // '_dec' // trim(jString), status = 'new') 
+	         			call traverseFile(raSun, decSun) 
+	         			close(34)
+	  				end do
+	  			end if
+  			end do
 	   	end subroutine checkAllAngles
 end program bruteForce
