@@ -4,6 +4,8 @@ Before starting to write the main solar flare detection algorithm a first progra
 
 Try algorithm knowing the location of the source, sun. Show first distribution of VTEC thtough the day (vill), then for the specific moment in time
 
+This sections also provides an introduction to how the data is used and how the main parameters are computed.
+
 \section{Data}
 
 \subsection{GPS Data}
@@ -27,11 +29,12 @@ Usaremos awk, como va, muy breve
 
 
 
-\section{VTEC distribution}
+
+With this data we can obtain the two parameters that will yield the previously shown plot: the VTEC value and the cosine of the solar-zenith angle
+
+\section{VTEC}
 
 Fisrt we wanted to obtain VTEC distribution throughout the day, to see if any spikes appeared confirming that the moment we were going to study was correct.
-
-
 
 \subsection{Computing the VTEC}
 
@@ -52,9 +55,9 @@ Therefore, we can estimate the VTEC of an IPP by dividing two of the given field
 The Vtec...formulas...d2li/mappingio
 
 
-\subsection{The solar flare}
+\subsection{Distribution throughout the day}
 
-Because the only operation that had to be performed was the previous division, a simple AWK script was used to filter out the two necessary fields from the data file (d2li and  mapping ) and print the resulting value and the time. 
+Because the only operation that had to be performed was the previous division, a simple AWK script was used to filter out the two necessary fields from the data file (d2li and  mapping) and print the resulting value and the time. 
 
 \begin{lstlisting}[language=Awk, caption=process]
 {
@@ -77,8 +80,6 @@ rm vtecValues
 \end{lstlisting}
 \clearpage
 
-\subsection{Results}
-
 The bash script executes the AWK process with the data as the input and outputs n rows with two columns: the time of the day and the calculated VTEC, and plots the results using Gnuplot.
 This can be seen in figure \ref{fig:vtecDistribution}, we're we can see how the VTEC value evolves throught the day. Visually, a spike can be seen between 11 and 11.2 hours.
 
@@ -99,18 +100,44 @@ This can be seen in figure \ref{fig:vtecDistribution}, we're we can see how the 
 To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Vill station, which at that time of the day would be under the sun, we obtain the following plot, in which the spike can be seen more clearly. As mentioned before, the flare took place at 11.05.
 
 
-primer paso, ver datos de un IPP
-Awk prepocesado de datos
-fortran
-gnu plot para empezar a ver
+\section{Solar-zenith angle}
+
+\subsection{Computing the solar-zenith angle}
+
+Obtaining the angle between two celestial objects has been shown in the previous section by means of equations \ref{eq:1}, \ref{eq:2} and \ref{eq:3}, when calculating the angle between the Sun and a detected GRB.
+
+\begin{equation} \label{eq:1}
+unitVectorGRB =	
+\begin{bmatrix}
+\cos\delta_{g} * \cos\alpha_{g} \\ 
+\cos\delta_{g} * \sin\alpha_{g} \\
+\sin\delta_{g}
+\end{bmatrix}
+\end{equation}
+
+\begin{equation} \label{eq:2}
+unitVectorSun =	
+\begin{bmatrix}
+\cos\delta_{s} * \cos\alpha_{s} \\ 
+\cos\delta_{s} * \sin\alpha_{s} \\
+\sin\delta_{s}
+\end{bmatrix}
+\end{equation}
+
+\begin{equation} \label{eq:3}
+angleSunGRB = unitVectorGRB \cdot unitVectorSun
+\end{equation}\\
+
+In this case, however,
+
+\section{The solar flare}
+
+results
+
+ -> like the halloween storm, compare two images
 
 
 
-\section{Algorithm, here or new chapter?}
-
-\subsection{VTEC value}
-
-\subsection{Solar-zenith angle}
 
 
 
@@ -120,69 +147,5 @@ gnu plot para empezar a ver
 
 
 
-After that, talk about proposals for the main algorithm
 
-explicar que vamos a hacer – IPPs, hill climbing y buscar si una vez en un pico, hay relacion lineal entre VTEC I coseno. En lugar de eso, subir mirando
-
-
-
-
-
-
-\section{Pseudocode}
-
-\begin{algorithm}
-	\caption{My algorithm}\label{euclid}
-	\begin{algorithmic}[1]
-		\Procedure{MyProcedure}{}
-		\State $\textit{stringlen} \gets \text{length of }\textit{string}$
-		\State $i \gets \textit{patlen}$
-		\BState \emph{top}:
-		\If {$i > \textit{stringlen}$} \Return false
-		\EndIf
-		\State $j \gets \textit{patlen}$
-		\BState \emph{loop}:
-		\If {$\textit{string}(i) = \textit{path}(j)$}
-		\State $j \gets j-1$.
-		\State $i \gets i-1$.
-		\State \textbf{goto} \emph{loop}.
-		\State \textbf{close};
-		\EndIf
-		\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
-		\State \textbf{goto} \emph{top}.
-		\EndProcedure
-	\end{algorithmic}
-\end{algorithm}
-
-\begin{lstlisting}[language=Python, caption=Python example]
-import numpy as np
-
-def incmatrix(genl1,genl2):
-	m = len(genl1)
-	n = len(genl2)
-	M = None #to become the incidence matrix
-	VT = np.zeros((n*m,1), int)  #dummy variable
-	
-	#compute the bitwise xor matrix
-	M1 = bitxormatrix(genl1)
-	M2 = np.triu(bitxormatrix(genl2),1) 
-	
-	for i in range(m-1):
-	for j in range(i+1, m):
-	[r,c] = np.where(M2 == M1[i,j])
-	for k in range(len(r)):
-	VT[(i)*n + r[k]] = 1;
-	VT[(i)*n + c[k]] = 1;
-	VT[(j)*n + r[k]] = 1;
-	VT[(j)*n + c[k]] = 1;
-	
-	if M is None:
-	M = np.copy(VT)
-	else:
-	M = np.concatenate((M, VT), 1)
-	
-	VT = np.zeros((n*m,1), int)
-	
-	return M
-\end{lstlisting}
 
