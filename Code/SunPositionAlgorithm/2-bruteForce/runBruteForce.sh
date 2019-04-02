@@ -8,10 +8,9 @@ zcat "$tiDataFile" | gawk -f processDataSun.awk  > outputTi.out
 # if [ "$1" != "plot" ];then
 # cat outputTi.out
 # fi
-make all
 rm -r results
 mkdir -p results/
-echo "-> Running bruteForce.f90"
+echo "-> Running bruteForce algorithm"
 if [ "$1" == "plot" ];then
 	./a.out
 	rm a.out
@@ -21,11 +20,15 @@ if [ "$1" == "plot" ];then
         gnuplot -e "set terminal png; set output '$filename.png'; plot '$filename' using 1:2 with point;"
 	done
 	find results -type f ! -regex ".*\.\(jpg\|png\)" -delete
+	nautilus -q
 	nautilus results
 else
-	echo "-> NOT Plotting the results"
 	./a.out
 	rm a.out
+	echo "-> NOT Plotting the results: only data"
+	nautilus -q
+	nautilus results
 fi
 
-make clean
+rm *.out *.o
+
