@@ -16,7 +16,9 @@ class SpikeFinder {
 public:
 	priority_queue<candidate> candidates;
 
-	void getTopNCandidates(int n);
+	float getBestEpoch();
+
+	void printTopNCandidates(int n);
 
 	void printAllCandidates();
 

@@ -1,6 +1,9 @@
 SHELL := /bin/bash
 
-compile: fortranFunctions bruteForce
+compile: preProcessAWK fortranFunctions bruteForce
+
+preProcessAWK:
+	@cd SpikeFinder && make
 
 fortranFunctions: fortranFunctions.f90
 	gfortran fortranFunctions.f90 -c -o functions.o
@@ -9,7 +12,10 @@ bruteForce: fortranFunctions bruteForce.cc
 	g++ functions.o SpikeFinder/SpikeFinder.cc bruteForce.cc -o bruteForce.x -lgfortran
 
 run: compile
-	./runBruteForce.sh
+	@rm -r results
+	@mkdir -p results/
+	./bruteForce.x
+	# ./runBruteForce.sh
 
 plot: compile
 	./runBruteForce.sh plot

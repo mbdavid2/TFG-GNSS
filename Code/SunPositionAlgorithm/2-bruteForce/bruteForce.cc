@@ -8,8 +8,12 @@ extern "C" float testsun_(int* ra, int* dec);
 
 const unsigned short int STEP = 60;
 
-void findPearsonCoefficients() {
-	cout << endl << "[Finding the Person coefficients for possible Suns]" << endl;
+void system(std::string const &s) { 
+    std::system(s.c_str());
+}
+
+void findPearsonCoefficients(float epoch) {
+	cout << endl << "[C++ -> Fortran: Finding the Person coefficients for possible Suns | Epoch = " + to_string(epoch) + "]" << endl;
 	float pearsonCoefficient;
 	for (int dec = -90; dec <= 90; dec += STEP) {
 		if (dec != -90 and dec != 90) {
@@ -27,17 +31,25 @@ void findPearsonCoefficients() {
 	}
 }
 
-void findSpike() {
-	cout << endl << "[Finding a spike in the VTEC distribution]" << endl;
+float findSpike() {
+	cout << endl << "[C++: Finding a spike in the VTEC distribution]" << endl;
 	ifstream inputFile;
-	inputFile.open("./SpikeFinder/vtecAllDay.out", ifstream::in);
+	inputFile.open("./SpikeFinder/processedVTEC.out", ifstream::in);
 	SpikeFinder spikeFinder;
 	spikeFinder.generateCandidates(inputFile);
-	spikeFinder.getTopNCandidates(5);
+	spikeFinder.printTopNCandidates(5); //Only debug
+	float bestEpoch = spikeFinder.getBestEpoch();
 	inputFile.close();
 }
 
+void filterDataByEpoch(float epoch) {
+	cout << endl << "[AWK: Filtering all data by epoch: " << epoch << "]" << endl;
+	string command = "zcat ../data/ti.2003.301.10h30m-11h30m.gz | gawk -v flareTime=" + to_string(epoch) + " -f processDataSun.awk  > outputTi.out";
+	system(command); 
+}
+
 int main() {
-	findSpike();
-	findPearsonCoefficients();
+	float epoch = findSpike();
+	filterDataByEpoch(epoch);
+	findPearsonCoefficients(epoch);
 }

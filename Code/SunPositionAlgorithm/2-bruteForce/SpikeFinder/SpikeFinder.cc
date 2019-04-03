@@ -11,7 +11,8 @@ bool operator<(candidate a, candidate b) {
 	return a.meanVTEC < b.meanVTEC ? true : false; 
 }
 
-void SpikeFinder::getTopNCandidates(int n) {
+void SpikeFinder::printTopNCandidates(int n) {
+	cout << endl << "[WARNING: PRINTING THE CANDIDATES POPS THEM]" << endl;
 	int i = 0;
 	if (n == 0) {
 		printAllCandidates();
@@ -21,6 +22,10 @@ void SpikeFinder::getTopNCandidates(int n) {
 		cout << i << ": " << candidates.top().epoch << " " << candidates.top().meanVTEC << endl;
 		candidates.pop();
 	}
+}
+
+float SpikeFinder::getBestEpoch() {
+	return candidates.top().epoch;
 }
 
 void SpikeFinder::printAllCandidates() {
@@ -38,14 +43,14 @@ void SpikeFinder::insertCandidate (float epoch, float meanVTEC) {
 }
 
 void SpikeFinder::generateCandidates (ifstream& data) {
-	float epoch, vtec;
+	float epoch, vtec, raIPP, latIPP;
 	float previousEpoch = -1;
 	float totalEpochVTEC = 0;
 	int n = 0;
-	data >> epoch >> vtec;
+	data >> epoch >> vtec >> raIPP >> latIPP;
 	totalEpochVTEC += vtec;
 	previousEpoch = epoch;
-	while (data >> epoch >> vtec) {
+	while (data >> epoch >> vtec >> raIPP >> latIPP) {
 		totalEpochVTEC += vtec;
 		n++;
 		if (previousEpoch != epoch) {
