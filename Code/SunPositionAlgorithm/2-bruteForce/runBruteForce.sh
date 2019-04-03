@@ -12,22 +12,20 @@ rm -r results
 mkdir -p results/
 echo "-> Running bruteForce algorithm"
 if [ "$1" == "plot" ];then
-	./a.out
-	rm a.out
+	./bruteForce.x
 	rm outputTi.out
 	echo "-> Plotting the results"
 	for filename in results/*; do
         gnuplot -e "set terminal png; set output '$filename.png'; plot '$filename' using 1:2 with point;"
 	done
 	find results -type f ! -regex ".*\.\(jpg\|png\)" -delete
-	nautilus -q
-	nautilus results
+	# nautilus -q
+	# nautilus results
 else
-	./a.out
-	rm a.out
+	./bruteForce.x
 	echo "-> NOT Plotting the results: only data"
-	nautilus -q
-	nautilus results
+	# nautilus -q
+	# nautilus results
 fi
 
 rm *.out *.o

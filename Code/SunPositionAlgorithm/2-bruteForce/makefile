@@ -1,19 +1,23 @@
-compile: functions.o a.out
+SHELL := /bin/bash
 
-functions.o: fortranFunctions.f90
-		gfortran fortranFunctions.f90 -c -o functions.o
+compile: fortranFunctions bruteForce
 
-a.out: functions.o bruteForce.cc
-		g++ functions.o bruteForce.cc -o a.out -lgfortran
+fortranFunctions: fortranFunctions.f90
+	gfortran fortranFunctions.f90 -c -o functions.o
 
-removeResults:
-		rm -r results
+bruteForce: fortranFunctions bruteForce.cc
+	g++ functions.o SpikeFinder/SpikeFinder.cc bruteForce.cc -o bruteForce.x -lgfortran
 
 run: compile
-		./runBruteForce.sh
+	./runBruteForce.sh
 
 plot: compile
-		./runBruteForce.sh plot
+	./runBruteForce.sh plot
 
-clean : 
-		rm *.out *.o -r results/
+cleanResults:
+	@rm -rf results
+
+cleanObjects:
+	@rm -f *.out *.o 
+
+clean: cleanObjects cleanResults
