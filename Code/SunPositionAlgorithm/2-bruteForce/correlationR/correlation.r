@@ -5,10 +5,18 @@
 # cor(data$cosx, data$vtec, method = c("pearson", "kendall", "spearman"))
 
 files <- list.files(path="results/", pattern="*", full.names=TRUE, recursive=FALSE)
+maxname = "empty"
+max = -23;
 for (i in files) {
     data <- read.delim(file=i, sep = "")
-    cat(i, " ||   Correlation:", cor(data$cosx, data$vtec, method = c("pearson", "kendall", "spearman")), "\n")
+    correlation = cor(data$cosx, data$vtec, method = c("pearson", "kendall", "spearman"))
+    if (correlation > max) {
+    	max = correlation
+    	maxname = i
+    }
+    cat(i, " ||   Correlation:", correlation, "\n")
 }
+cat("TOP", maxname, " ||   Correlation:", max, "\n")
 
 
 # > data <- read.delim(file='ra360_dec-030', sep = "")
