@@ -76,7 +76,7 @@ The supervisor, Manuel Hernández-Pajares, provided me an algorithm which takes 
 
 This algorithm belongs to the \textbf{Starlink Project} (Rutherford Appleton Laboratory), which provided open-source software like the one at hand to astronomical institutions. Although it was shut down in 2005, the code still remains and we could use it for our study \cite{starlinkproject}.
 
-Knowing the location of the GRB: ($\delta_{g}, \alpha_{g}$), declination and right ascension, respectively. And that of the Sun: ($\delta_{s}, \alpha_{s}$), the angle between both can be computed and used as a parameter for the objective function.
+Knowing the location of the GRB: ($\delta_{g}, \alpha_{g}$), declination and right ascension, respectively. And that of the Sun: ($\delta_{s}, \alpha_{s}$), the cosine of the angle between both can be computed and used as a parameter for the objective function.
 
 This computation is done by performing the dot product of the two unit vectors that can be obtained from the Ra and Dec of the objects.
 
@@ -101,7 +101,7 @@ The unit vectors are given by:
 \end{equation}
 
 \begin{equation} \label{eq:3}
-	angleSunGRB = unitVectorGRB \cdot unitVectorSun
+	\cos angleSunGRB = unitVectorGRB \cdot unitVectorSun
 \end{equation}\\
 
 The code for the previous computation is shown here:\\

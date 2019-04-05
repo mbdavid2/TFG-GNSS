@@ -1,8 +1,6 @@
 \chapter{Sun flare detection algorithm}
 
-Before starting to write the main solar flare detection algorithm a first program was developed in which the location of the sun was known and we knew when the solar flare had taken place.
-
-Try algorithm knowing the location of the source, sun. Show first distribution of VTEC thtough the day (vill), then for the specific moment in time
+Explain why brute force aproach
 
 
 \section{Key elements}
@@ -15,7 +13,9 @@ explain R and compare to show the computation is correct
 
 \subsection{Moment of the flare}
 
-Altough this a brute force approach, we first wanted to detect a spike in the VTEC content throughout the day in a simple way. For this we inserted, for each epoch \footnote{In our data set the epochs ranged from 10.5 to 11.5, that it is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} compute the mean VTEC of all IPPs and insert it into a priority queue using C++.
+The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content in general, for any IPP.
+
+A first approach to detecting thiswe first wanted to detect a spike in the VTEC content throughout the day in a simple way. For each epoch \footnote{In our data set the epochs ranged from 10.5 to 11.5, that it is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and inserted it into a priority queue. We did this because we wanted to see thbut a simple single-pass max-value finder would work
 
 explicar buscar pico por hill climbing o algo asi usando la grafica de la distribucion. Al encontrar un momento exacto en el que centrarnos empezar a estudiar ahi
 
