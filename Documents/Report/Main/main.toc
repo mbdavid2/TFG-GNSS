@@ -18,19 +18,19 @@
 \contentsline {chapter}{\numberline {4}Solar flare detection}{14}
 \contentsline {section}{\numberline {4.1}Data}{14}
 \contentsline {subsection}{\numberline {4.1.1}GPS Data}{14}
-\contentsline {subsection}{\numberline {4.1.2}The Halloween Storm}{14}
-\contentsline {subsection}{\numberline {4.1.3}Formatting}{14}
-\contentsline {subsection}{\numberline {4.1.4}AWK}{14}
-\contentsline {section}{\numberline {4.2}VTEC}{15}
-\contentsline {subsection}{\numberline {4.2.1}Computing the VTEC}{15}
-\contentsline {subsection}{\numberline {4.2.2}Distribution throughout the day}{15}
-\contentsline {section}{\numberline {4.3}Solar-zenith angle}{16}
-\contentsline {subsection}{\numberline {4.3.1}Computing the solar-zenith angle}{16}
-\contentsline {section}{\numberline {4.4}The solar flare}{17}
-\contentsline {chapter}{\numberline {5}Sun flare detection algorithm}{18}
-\contentsline {section}{\numberline {5.1}Key elements}{18}
-\contentsline {subsection}{\numberline {5.1.1}Correlation}{18}
-\contentsline {subsection}{\numberline {5.1.2}Moment of the flare}{18}
-\contentsline {section}{\numberline {5.2}Brute force approach}{18}
-\contentsline {subsection}{\numberline {5.2.1}Pseudocode}{18}
-\contentsline {subsection}{\numberline {5.2.2}Linking C++ and Fortran}{19}
+\contentsline {subsection}{\numberline {4.1.2}The Halloween Storm}{15}
+\contentsline {subsection}{\numberline {4.1.3}Formatting}{15}
+\contentsline {subsection}{\numberline {4.1.4}AWK}{16}
+\contentsline {section}{\numberline {4.2}VTEC}{16}
+\contentsline {subsection}{\numberline {4.2.1}Computing the VTEC}{16}
+\contentsline {subsection}{\numberline {4.2.2}Distribution throughout the day}{16}
+\contentsline {section}{\numberline {4.3}Solar-zenith angle}{18}
+\contentsline {section}{\numberline {4.4}Results}{20}
+\contentsline {chapter}{\numberline {5}Sun flare detection algorithm}{21}
+\contentsline {section}{\numberline {5.1}Key elements}{21}
+\contentsline {subsection}{\numberline {5.1.1}Correlation}{21}
+\contentsline {subsection}{\numberline {5.1.2}Moment of the flare}{21}
+\contentsline {section}{\numberline {5.2}Brute force approach}{21}
+\contentsline {subsection}{\numberline {5.2.1}Pseudocode}{21}
+\contentsline {subsection}{\numberline {5.2.2}Linking C++ and Fortran}{22}
+\contentsline {subsection}{\numberline {5.2.3}Results}{23}

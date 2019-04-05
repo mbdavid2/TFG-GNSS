@@ -1,6 +1,6 @@
 \chapter{Solar flare detection}
 
-Before starting to write the main solar flare detection algorithm a first program was developed that would target a powerful solar flare for which we know the time of the event and therefore, the location of the Sun.
+Before starting to develop the main solar flare detection algorithm a first program was developed that would target a powerful solar flare for which we know the time of the event and therefore, the location of the Sun.
 
 Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this first approach was done to understand how the inner part of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC content.
 
@@ -124,13 +124,13 @@ The results can be seen in figure \ref{fig:vtecDistribution}, where we can see h
 	\label{fig:vtecDistribution}
 \end{figure}
 
-To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill), we obtain the plot from figure \ref{fig:vtecDistribution:b}. At this time of day around 11:00h the Sun would have a greater effect on the IPPs of this station, so the spike can be seen more clearly. 
+To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill), we obtain the plot from figure \ref{fig:vtecDistribution}(b). At this time of the day around 11:00h the Sun would have a greater effect on the IPPs of this station, so the spike can be seen more clearly. 
 
-As mentioned before the flare took place at 11.05, so we could proceed using this data range and this epoch in particular.
+As mentioned before, the flare took place at 11.05, so we could proceed using the studied data range and this epoch in particular.
 
 \section{Solar-zenith angle}
 
-The solar-zenith angle (which will be denoted \chi from now onwards) plays a major role when studying this event: it is the angle formed by the Sun and the Earth's zenith and indicates the effect the flare is having on a particular IPP. It is expected that this variable presents a correlation with the increase in VTEC, which is what we aim to observe in this chapter.
+The solar-zenith angle (denoted $\chi$ from now onward) plays a major role when studying this event: it is the angle formed by the Sun and the Earth's zenith and indicates the effect the flare is having on a particular IPP. It is expected that this variable presents a correlation with the increase in VTEC, which is what we aim to observe in this chapter.
 
 Figure \ref{fig:solar-zenith-angle}, at the end of the chapter, provides a visual representation of this variable that along with the results depicts how it can affect the VTEC value. 
 
@@ -145,8 +145,8 @@ unitVectorObjectA =
 \end{bmatrix}
 \end{equation}
 
-\begin{unitVectorObjectB} \label{eq:2}
-unitVectorSun =	
+\begin{equation} \label{eq:2}
+unitVectorObjectB =	
 \begin{bmatrix}
 \cos\delta_{s} * \cos\alpha_{s} \\ 
 \cos\delta_{s} * \sin\alpha_{s} \\
@@ -155,7 +155,7 @@ unitVectorSun =
 \end{equation}
 
 \begin{equation} \label{eq:3}
-\cos \chi = unitVectorObjectA \cdot unitVectorObjectB
+\cos \beta = unitVectorObjectA \cdot unitVectorObjectB
 \end{equation}\\
 
 For this case, though, the angle is computed using the IPP's Right Ascension and Latitude (equivalent to declination), yielding the cosine of $\chi$, the \textbf{solar-zenith angle}.
@@ -164,7 +164,7 @@ USING THE OTHER EQUIATION explain
 
 The previous computation is done for every IPP (every line outputed by the AWK script) as shown in the following Fortran code:
 
-\begin{lstlisting}[language=Fortran, caption=Reading the content of the file and storing the computations for plotting
+\begin{lstlisting}[language=Fortran, caption=Reading the content of the file and storing the computations for plotting]
 subroutine traverseFile (raSun, decSun)
 implicit none
 	real :: raIPP, decIPP, mapIon, d2Li, cosX, vtec
@@ -178,7 +178,7 @@ implicit none
 		decIPP = toRadian(decIPP)
 		cosX = computeSolarZenithAngle(raIPP, decIPP, raSun, decSun)
 		vtec = estimateVTEC(mapIon, d2Li)
-		if (vtec < 20 .and. vtec > -0.4) then
+		if (vtec < 0.4 .and. vtec > -0.4) then
 			write (*, 350) cosX, vtec
 		end if
 	end do
@@ -186,7 +186,11 @@ implicit none
 end subroutine traverseFile
 \end{lstlisting}
 
-\begin{lstlisting}[language=Fortran, caption=Computation of the solar-zenith a angle
+We can also see in the previous code that VTEC values not inside the (-0.4, 0.4) range are discarded. This is a first, simple approach to discarding outliers, because we could visually see from the plots that most values stayed between those numbers.
+
+The following code is the function that implements the equations \ref{eq:1}, \ref{eq:2} and \ref{eq:3}:
+
+\begin{lstlisting}[language=Fortran, caption=Computation of the solar-zenith a angle]
 real function computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
 			implicit none
 
@@ -200,27 +204,35 @@ real function computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
 
 \section{Results}
 
-Taking $212.338º$ and $-13.060º$ as the Sun's right ascension and declination, respectively, and the measurements of all IPPs at 11.05 hours, figure \ref{comparison} shows both the result obtained in the paper "GNSS measurement of EUV photons flux rate during strong and mid solar flares" \ref{hernandez2012gnss} (left) and the result of plotting the output of our program (right).
+Taking $212.338º$ and $-13.060º$ as the Sun's right ascension and declination, respectively, and the measurements of all IPPs at 11.05 hours, figure \ref{fig:results} shows the plot of the output of our program.
 
 \begin{figure}[!htb]
-	\begin{subfigure}[b]{0.5\textwidth}
-		\includegraphics[width=\linewidth]{images/ch4/vtecDistributionGeneral.png}
-		\caption{Result from GNSS measurement of EUV photons flux rate during strong and mid solar flares}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.5\textwidth}
-		\includegraphics[width=\linewidth]{images/ch4/vtecDistributionVill.png}
-		\caption{Our result}
-	\end{subfigure}
-	\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
-	\label{fig:comparison}
+\begin{centering}
+	\includegraphics[width=0.5\linewidth]{images/ch4/resultSunTest.png}
+	\caption{VTEC value as a function of the solar-zenith angle cosine}
+	\label{fig:results}
+\end{centering}
 \end{figure}
 
-As we can observe, there is a strong relation between the cosine of the solar-zenith angle and theVTEC content, which increases from \cos\chi = 0 (90º) to \cos\chi = 1 (0º) and it doesn't seem to affect it from \cos\chi = -1 (180º) to \cos\chi = 1 (0º).
+As we can observe, there is a strong relation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90º) to $\cos\chi = 1$ (0º) and it doesn't seem to affect it from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º). \\
+
+Visually this can be seen as follows:
+
+\begin{figure}[!htb]
+	\begin{centering}
+		\includegraphics[width=0.5\linewidth]{images/ch4/resultSunTest.png}
+		\caption{VTEC value as a function of the solar-zenith angle cosine}
+		\label{fig:comparison}
+	\end{centering}
+\end{figure}
+
+When the Sun is vertically on the sun
 
 
 
-In conclusion, we can see that there appears to be correlation between the two variables. This correlation will be studied more in detail in the following section, where a first approach of the algorithm will be presented to detect the flare without knowing its location.
+
+
+In conclusion, we can see that there appears to be correlation between the two variables. This correlation will be studied in more detail in the following section, where a first approach of the algorithm will be presented to detect the flare without knowing its location.
 
 
 

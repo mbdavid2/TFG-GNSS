@@ -4,52 +4,54 @@ The top-level auxiliary file: main.aux
 The style file: abbrv.bst
 A level-1 auxiliary file: sections/cover.aux
 A level-1 auxiliary file: sections/abstract.aux
+A level-1 auxiliary file: sections/outline.aux
 A level-1 auxiliary file: sections/ch1ProjectManagement.aux
 A level-1 auxiliary file: sections/ch2Background.aux
 A level-1 auxiliary file: sections/ch3StellarFlares.aux
 A level-1 auxiliary file: sections/ch4SolarFlareAlgorithm.aux
+A level-1 auxiliary file: sections/ch5SunDetectionAlgorithm.aux
 Database file #1: sections/references.bib
 Warning--to sort, need author or key in igswebsite
 Warning--to sort, need author or key in starlinkproject
-You've used 18 entries,
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            610 strings with 7596 characters,
-and the built_in function-call counts, 5926 in all, are:
-= -- 554
-> -- 369
+            625 strings with 7993 characters,
+and the built_in function-call counts, 6456 in all, are:
+= -- 609
+> -- 383
 < -- 0
-+ -- 152
-- -- 130
-* -- 428
-:= -- 1022
-add.period$ -- 60
-call.type$ -- 18
-change.case$ -- 117
++ -- 159
+- -- 134
+* -- 457
+:= -- 1109
+add.period$ -- 67
+call.type$ -- 20
+change.case$ -- 125
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 164
-empty$ -- 425
-format.name$ -- 130
-if$ -- 1190
+cite$ -- 22
+duplicate$ -- 182
+empty$ -- 476
+format.name$ -- 134
+if$ -- 1302
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 10
-newline$ -- 99
-num.names$ -- 32
-pop$ -- 155
+int.to.str$ -- 20
+missing$ -- 11
+newline$ -- 110
+num.names$ -- 36
+pop$ -- 167
 preamble$ -- 1
-purify$ -- 99
+purify$ -- 105
 quote$ -- 0
-skip$ -- 110
+skip$ -- 122
 stack$ -- 0
-substring$ -- 272
-swap$ -- 17
+substring$ -- 314
+swap$ -- 19
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 70
+type$ -- 78
 warning$ -- 2
-while$ -- 47
-width$ -- 20
-write$ -- 195
+while$ -- 53
+width$ -- 22
+write$ -- 217
 (There were 2 warnings)

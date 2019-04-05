@@ -14,9 +14,12 @@ for (i in files) {
     	max = correlation
     	maxname = i
     }
-    cat(i, " ||   Correlation:", correlation, "\n")
+    # cat(i, " ||   Correlation:", correlation, "\n")
 }
-cat("TOP", maxname, " ||   Correlation:", max, "\n")
+cat("[R: RESULTS]", "\n")
+cat("   -> Largest correlation coefficient:", max, "\n")
+radec = substr(maxname, 10, nchar(maxname))
+cat("   -> Estimated Sun's location: ", radec, "\n")
 
 
 # > data <- read.delim(file='ra360_dec-030', sep = "")

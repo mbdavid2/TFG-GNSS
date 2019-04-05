@@ -1,4 +1,50 @@
 SHELL := /bin/bash
+tiDataFile := ../data/ti.2003.301.10h30m-11h30m.gz
+.PHONY: filterByBestEpochAWK
+
+
+filterByBestEpochAWK:
+	zcat $(tiDataFile) | gawk -f filterByBestEpochAWK/filterByBestEpoch.awk > preProcessedVTEC.out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 main: compile run
 

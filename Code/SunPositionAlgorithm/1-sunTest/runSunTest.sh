@@ -17,7 +17,7 @@ if [ "$1" == "plot" ];then
 	./a.out > resultsToPlot
 	rm a.out
 	echo "-> Plot the results"
-	gnuplot -e "plot \"resultsToPlot\" using 1:2 with point; pause -1"
+	gnuplot -e "set terminal png; set output 'result.png'; set title 'Time=11.05h || ra=212.338 || dec=-13.060'; set xlabel 'Cosine of solar-zenith angle'; set ylabel 'VTEC'; set grid; plot \"resultsToPlot\" using 1:2 with point"
 else
 	./a.out
 	rm a.out

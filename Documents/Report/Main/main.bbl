@@ -11,6 +11,12 @@
 \newblock \url{http://www.igs.org/about}.
 \newblock [Online; accessed 8-March-2019].
 
+\bibitem{cddisnasa}
+N.~Crustal Dynamics Data Information System~(CDDIS).
+\newblock {Archive of Space Geodesy Data}.
+\newblock \url{https://cddis.nasa.gov/}.
+\newblock [Online; accessed 29-March-2019].
+
 \bibitem{dow2009international}
 J.~M. Dow, R.~E. Neilan, and C.~Rizos.
 \newblock {The international GNSS service in a changing landscape of global
@@ -77,6 +83,12 @@ B.~Hofmann-Wellenhof, H.~Lichtenegger, and E.~Wasle.
 D.~Mart{\'\i}nez~Cid.
 \newblock First study on the feasibility of stellar flares detection with gps.
 \newblock {B.S.} thesis, Universitat Polit{\`e}cnica de Catalunya, 2016.
+
+\bibitem{noll2010crustal}
+C.~E. Noll.
+\newblock The crustal dynamics data information system: A resource to support
+  scientific analysis using space geodesy.
+\newblock {\em Advances in Space Research}, 45(12):1421--1440, 2010.
 
 \bibitem{noaa2ionosphere}
 S.~W. P. C.~N. Oceanic and A.~Administration).

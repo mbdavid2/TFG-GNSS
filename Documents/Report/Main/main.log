@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  2 APR 2019 22:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  5 APR 2019 23:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -971,13 +971,18 @@ Chapter 3.
 
 
 
-] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
+] [10]
+
+LaTeX Warning: Citation `de donde salen las formulas' on page 11 undefined on i
+nput line 81.
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
@@ -985,7 +990,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--108
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
  [12]) [13]
 \openout2 = `sections/ch4SolarFlareAlgorithm.aux'.
 
@@ -996,7 +1001,7 @@ Chapter 4.
 
 
 
-] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+] [15] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1008,65 +1013,101 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 77.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 104.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 77.
- [15]
-<images/ch4/vtecDistributionGeneral.png, id=70, 481.8pt x 361.35pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 104.
+ [16] [17]
+<images/ch4/vtecDistributionGeneral.png, id=77, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionGeneral.png Graphic file (type png)
 <use images/ch4/vtecDistributionGeneral.png>
 Package pdftex.def Info: images/ch4/vtecDistributionGeneral.png  used on input 
-line 88.
+line 115.
 (pdftex.def)             Requested size: 234.8775pt x 176.1588pt.
-<images/ch4/vtecDistributionVill.png, id=71, 481.8pt x 361.35pt>
+<images/ch4/vtecDistributionVill.png, id=78, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionVill.png Graphic file (type png)
 <use images/ch4/vtecDistributionVill.png>
 Package pdftex.def Info: images/ch4/vtecDistributionVill.png  used on input lin
-e 93.
+e 120.
 (pdftex.def)             Requested size: 234.8775pt x 176.1588pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 87--96
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 114--123
 [][]  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
-
- []
-
-[16
-
- <./images/ch4/vtecDistributionGeneral.png> <./images/ch4/vtecDistributionVill.
-png>]) [17]
-\openout2 = `sections/ch5SunDetectionAlgorithm.aux'.
-
- (./sections/ch5SunDetectionAlgorithm.tex
-Chapter 5.
-<images/ch4/ra180_dec-090.png, id=81, 481.8pt x 361.35pt>
-File: images/ch4/ra180_dec-090.png Graphic file (type png)
-<use images/ch4/ra180_dec-090.png>
-Package pdftex.def Info: images/ch4/ra180_dec-090.png  used on input line 60.
-(pdftex.def)             Requested size: 234.8775pt x 176.1588pt.
-<images/ch4/ra000_dec-090.png, id=82, 481.8pt x 361.35pt>
-File: images/ch4/ra000_dec-090.png Graphic file (type png)
-<use images/ch4/ra000_dec-090.png>
-Package pdftex.def Info: images/ch4/ra000_dec-090.png  used on input line 65.
-(pdftex.def)             Requested size: 234.8775pt x 176.1588pt.
-
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 59--68
-[][]  [] 
- []
+LaTeX Warning: Reference `fig:solar-zenith-angle' on page 18 undefined on input
+ line 135.
 
 [18
 
+ <./images/ch4/vtecDistributionGeneral.png> <./images/ch4/vtecDistributionVill.
+png>]
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
+
+ []
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 207
+.
 
 
-] [19 <./images/ch4/ra180_dec-090.png> <./images/ch4/ra000_dec-090.png>])
-[20] [21
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 207
+.
+
+[19]
+<images/ch4/resultSunTest.png, id=87, 481.8pt x 361.35pt>
+File: images/ch4/resultSunTest.png Graphic file (type png)
+<use images/ch4/resultSunTest.png>
+Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 211.
+(pdftex.def)             Requested size: 234.8775pt x 176.1588pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
+
+ []
+
+File: images/ch4/resultSunTest.png Graphic file (type png)
+<use images/ch4/resultSunTest.png>
+Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 223.
+(pdftex.def)             Requested size: 234.8775pt x 176.1588pt.
+) [20 <./images/ch4/resultSunTest.png>]
+\openout2 = `sections/ch5SunDetectionAlgorithm.aux'.
+
+
+(./sections/ch5SunDetectionAlgorithm.tex
+Chapter 5.
+[21
+
+
+
+]
+<images/ch4/ra180_dec-090.png, id=95, 481.8pt x 361.35pt>
+File: images/ch4/ra180_dec-090.png Graphic file (type png)
+<use images/ch4/ra180_dec-090.png>
+Package pdftex.def Info: images/ch4/ra180_dec-090.png  used on input line 62.
+(pdftex.def)             Requested size: 234.8775pt x 176.1588pt.
+<images/ch4/ra000_dec-090.png, id=96, 481.8pt x 361.35pt>
+File: images/ch4/ra000_dec-090.png Graphic file (type png)
+<use images/ch4/ra000_dec-090.png>
+Package pdftex.def Info: images/ch4/ra000_dec-090.png  used on input line 67.
+(pdftex.def)             Requested size: 234.8775pt x 176.1588pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 61--70
+[][]  [] 
+ []
+
+[22 <./images/ch4/ra180_dec-090.png> <./images/ch4/ra000_dec-090.png>])
+[23] [24
 
 ] (./main.bbl
 Underfull \hbox (badness 7397) in paragraph at lines 4--8
@@ -1074,25 +1115,28 @@ Underfull \hbox (badness 7397) in paragraph at lines 4--8
  https : / / web . archive . org / web /
  []
 
-[22
+[25
 
-]) [23] (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
+]) [26] (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
 (./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
 (./sections/ch2Background.aux) (./sections/ch3StellarFlares.aux)
 (./sections/ch4SolarFlareAlgorithm.aux)
 (./sections/ch5SunDetectionAlgorithm.aux))
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11132 strings out of 494847
- 161458 string characters out of 6179080
- 349506 words of memory out of 5000000
- 14162 multiletter control sequences out of 15000+600000
+ 11466 strings out of 494847
+ 165607 string characters out of 6179080
+ 397948 words of memory out of 5000000
+ 14491 multiletter control sequences out of 15000+600000
  12891 words of font info for 46 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 53i,12n,96p,1990b,1810s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,12n,101p,2146b,1852s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
@@ -1106,10 +1150,10 @@ ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (25 pages, 262614 bytes).
+Output written on main.pdf (28 pages, 289359 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
+ 164 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
