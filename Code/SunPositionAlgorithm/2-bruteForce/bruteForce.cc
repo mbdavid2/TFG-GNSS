@@ -8,7 +8,7 @@ extern "C" double testsun_(int* ra, int* dec);
 
 const unsigned short int STEP = 10;
 
-const bool output = false;
+const bool outputEachFile = false;
 
 const string spikeFinderFolder = "spikeFinder";
 
@@ -17,22 +17,38 @@ void system(std::string const &s) {
 }
 
 void findPearsonCoefficients(float epoch) {
-	cout << "[C++ -> Fortran: Finding the Person coefficients for possible Suns | Epoch = " + to_string(epoch) + "]" << endl;
+	cout << "[C++ -> Fortran: Finding the Person coefficients for possible Suns]" << endl; // | Epoch = " + to_string(epoch) + "]" << endl;
 	double pearsonCoefficient;
+	double maxCoefficient = -23;
+	string location = "salu2";
+	int i = 0;
 	for (int dec = -90; dec <= 90; dec += STEP) {
 		if (dec != -90 and dec != 90) {
 			for (int ra = 0; ra <= 360; ra += STEP) {
 				pearsonCoefficient = testsun_(&ra, &dec);
-				if (output) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
+				++i;
+				if (pearsonCoefficient > maxCoefficient) {
+					maxCoefficient = pearsonCoefficient;
+					location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
+				}
+				if (outputEachFile) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
 			}
 		}
 		else {
 			//Do only once
 			int ra = 0;
 			pearsonCoefficient = testsun_(&ra, &dec);
-			if (output) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
+			++i;
+			if (pearsonCoefficient > maxCoefficient) {
+				maxCoefficient = pearsonCoefficient;
+				location = to_string(ra) + to_string(dec);
+			}
+			if (outputEachFile) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
 		}
 	}
+	cout << "[C++: Results, " << i << " possible Suns considered]" << endl;
+	cout << "   -> Largest correlation coefficient: " << maxCoefficient << endl;
+	cout << "   -> Estimated Sun's location: " << location << endl;
 }
 
 float findSpike() {
@@ -43,7 +59,9 @@ float findSpike() {
 	spikeFinder.generateCandidates(inputFile);
 	//spikeFinder.printTopNCandidates(5); //Only debug, it pops the candidates
 	float bestEpoch = spikeFinder.getBestEpoch();
+	cout << "   -> Spike found: " << bestEpoch << endl;
 	inputFile.close();
+	return bestEpoch;
 }
 
 void filterDataByEpoch(float epoch) {
@@ -52,10 +70,15 @@ void filterDataByEpoch(float epoch) {
 	system(command); 
 }
 
+void computeCorrelationCoefficientsUsingR() {
+	cout << "[C++ -> R: Computing correlation coefficient for each possible Sun with R]" << endl;
+	system("Rscript correlationR/correlation.r"); 
+}
+
 int main() {
+	cout << endl << "#### Brute force algorithm ####" << endl;
 	float epoch = findSpike();
 	filterDataByEpoch(epoch);
 	findPearsonCoefficients(epoch);
-	cout << "[C++ -> R: Computing correlation coefficient for each possible Sun with R]" << endl;
-	system("Rscript correlationR/correlation.r"); 
+	//computeCorrelationCoefficientsUsingR();
 }

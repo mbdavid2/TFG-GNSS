@@ -9,12 +9,14 @@ maxname = "empty"
 max = -23;
 for (i in files) {
     data <- read.delim(file=i, sep = "")
+    # # cat(i, "    ", sum(data$cosx), "  ", sum(data$vtec), "  ", sum(data$cosx*data$vtec), "  ", sum(data$cosx^2), "  ", sum(data$vtec^2), "  ", sum(data$cosx), "  ")
+    # # cat("\n")
     correlation = cor(data$cosx, data$vtec, method = c("pearson", "kendall", "spearman"))
     if (correlation > max) {
     	max = correlation
     	maxname = i
     }
-    # cat(i, " ||   Correlation:", correlation, "\n")
+    cat(i, " ||   Correlation:", correlation, "\n")
 }
 cat("[R: RESULTS]", "\n")
 cat("   -> Largest correlation coefficient:", max, "\n")
