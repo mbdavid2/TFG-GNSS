@@ -26,7 +26,7 @@ void findPearsonCoefficients(float epoch) {
 		if (dec != -90 and dec != 90) {
 			for (int ra = 0; ra <= 360; ra += STEP) {
 				pearsonCoefficient = testsun_(&ra, &dec);
-				++i;
+				cout << "\r" << "[" << ++i << " possible Suns considered]";
 				if (pearsonCoefficient > maxCoefficient) {
 					maxCoefficient = pearsonCoefficient;
 					location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
@@ -38,7 +38,7 @@ void findPearsonCoefficients(float epoch) {
 			//Do only once
 			int ra = 0;
 			pearsonCoefficient = testsun_(&ra, &dec);
-			++i;
+			cout << "\r" << "[" << ++i << " possible Suns considered]";
 			if (pearsonCoefficient > maxCoefficient) {
 				maxCoefficient = pearsonCoefficient;
 				location = to_string(ra) + to_string(dec);
@@ -46,7 +46,7 @@ void findPearsonCoefficients(float epoch) {
 			if (outputEachFile) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
 		}
 	}
-	cout << "[C++: Results, " << i << " possible Suns considered]" << endl;
+	cout << endl << "[C++: Results]" << endl;
 	cout << "   -> Largest correlation coefficient: " << maxCoefficient << endl;
 	cout << "   -> Estimated Sun's location: " << location << endl;
 }
