@@ -14,19 +14,22 @@ As we have seen in previous sections, the International GNSS Service (IGS) has m
 
 Figure \ref{fig:exampleCDDIS} shows how data is stored in de CDDIS server (\url{ftp://cddis.nasa.gov/gps/data/hourly/}).
 
+The files in this server contain raw GPS data that is then pre-processed to obtain VTEC maps in the form of \textbf{ti} files. An example diagram of this complex, several step process is shown in figure \ref{fig:diagramIGS}, extracted from the paper "The IGS VTEC maps: a reliable source of ionospheric information since 1998" \cite{hernandez2009igs} by Manuel Hernández-Pajares, which offers a detailed explanation of this process. 
+
 \begin{figure}[!htb]
-	\includegraphics[width=0.5\linewidth]{images/ch4/FTPNASA.png}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\linewidth]{images/ch4/FTPNASA.png}
+		\caption{Files}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch4/DataFlowIGS.png}
+		\caption{Data flow}
+	\end{subfigure}
 	\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
 	\label{fig:exampleCDDIS}
 \end{figure}
 
-The files in this server contain raw GPS data that is then pre-processed to obtain VTEC maps in the form of \textbf{ti} files. An example diagram of this complex, several step process is shown in figure \ref{fig:diagramIGS}, extracted from the paper "The IGS VTEC maps: a reliable source of ionospheric information since 1998" \cite{hernandez2009igs} by Manuel Hernández-Pajares, which offers a detailed explanation of this process. 
-
-\begin{figure}[!htb]
-	\includegraphics[width=0.5\linewidth]{images/ch4/DataFlowIGS.png}
-	\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
-	\label{fig:diagramIGS}
-\end{figure}
 
 However, for this and the following section, only the pre-processed ti files of past dates were needed, as detecting the flares in real time is a task that will be discussed later in the project, in which this pre-processing will have to be taken into consideration. The project supervisor, Manuel Hernández-Pajares, provided me with some of these maps to use as input data for the algorithms, along with information about the formatting of this files.
 
@@ -49,29 +52,22 @@ For each of these rows/IPPs, several parameters are relevant for our computation
 \item The \textbf{Receiver Id.}
 \item The \textbf{Transmitter Id.}
 \item The \textbf{double derivate of LI} (d2li) TODO: explicar bien esto
-\item The \textbf{xmapping_ion} function, TODO: este tambien
+\item The \textbf{xmappingion} function, TODO: este tambien
 \item The \textbf{right ascension} and \textbf{declination} of the IPP
 \end{itemize}
 
-The following is the format of the ti, which indicates: 
-
-\begin{itemize}
-\item The field number within the row.
-\item An example value.
-\item A description of the field
-\end{itemize}
-
-\begin{lstlisting}[language=txt, caption=Format of the ti file]
+\begin{lstlisting}[caption=Format of the ti file]
+Field number | Example value | Description
 [...]
-3 0.008333333333		GPS time/hours (tsecdayobs/3600.d0)
-4 cand					Receiver Id.
-5 3						Transmitter Id.
+3 		0.008333333333		GPS time/hours (tsecdayobs/3600.d0)
+4 		cand							Receiver Id.
+5 		3									Transmitter Id.
 [...]
-21 -0.5131586E-02		d2li
+21 		-0.5131586E-02		d2li
 [...]
-43 0.1565765332E+01		xmapping_ion
-44 334.449				xraion
-45 33.092				xlation
+43 		0.1565765332E+01		xmapping_ion
+44 		334.449							xraion
+45 		33.092							xlation
 [...]
 \end{lstlisting}
 

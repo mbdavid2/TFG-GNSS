@@ -18,12 +18,12 @@
 \contentsline {chapter}{\numberline {4}Solar flare detection}{14}
 \contentsline {section}{\numberline {4.1}Data}{14}
 \contentsline {subsection}{\numberline {4.1.1}GPS Data}{14}
-\contentsline {subsection}{\numberline {4.1.2}The Halloween Storm}{15}
-\contentsline {subsection}{\numberline {4.1.3}Formatting}{15}
-\contentsline {subsection}{\numberline {4.1.4}AWK}{16}
+\contentsline {subsection}{\numberline {4.1.2}Formatting}{15}
+\contentsline {subsection}{\numberline {4.1.3}AWK}{16}
+\contentsline {subsection}{\numberline {4.1.4}The Halloween Solar Storm: X17.2 flare}{16}
 \contentsline {section}{\numberline {4.2}VTEC}{16}
-\contentsline {subsection}{\numberline {4.2.1}Computing the VTEC}{16}
-\contentsline {subsection}{\numberline {4.2.2}Distribution throughout the day}{16}
+\contentsline {subsection}{\numberline {4.2.1}Computing the VTEC}{17}
+\contentsline {subsection}{\numberline {4.2.2}Distribution throughout the day}{17}
 \contentsline {section}{\numberline {4.3}Solar-zenith angle}{18}
 \contentsline {section}{\numberline {4.4}Results}{20}
 \contentsline {chapter}{\numberline {5}Sun flare detection algorithm}{21}

@@ -9,6 +9,7 @@ extern "C" double testsun_(int* ra, int* dec);
 const unsigned short int STEP = 10;
 
 const bool outputEachFile = false;
+const bool userStep = true;
 
 const string spikeFinderFolder = "spikeFinder";
 
@@ -22,9 +23,17 @@ void findPearsonCoefficients(float epoch) {
 	double maxCoefficient = -23;
 	string location = "salu2";
 	int i = 0;
-	for (int dec = -90; dec <= 90; dec += STEP) {
+	int step = 10;
+	if (userStep) {
+		cout << "   -> Input degree step: ";
+		cin >> step;
+	}
+	else  {
+		step = STEP;
+	}
+	for (int dec = -90; dec <= 90; dec += step) {
 		if (dec != -90 and dec != 90) {
-			for (int ra = 0; ra <= 360; ra += STEP) {
+			for (int ra = 0; ra <= 360; ra += step) {
 				pearsonCoefficient = testsun_(&ra, &dec);
 				cout << "\r" << "[" << ++i << " possible Suns considered]";
 				if (pearsonCoefficient > maxCoefficient) {
