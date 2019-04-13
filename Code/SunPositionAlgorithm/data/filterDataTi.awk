@@ -1,6 +1,6 @@
 BEGIN {
-	upperLimitVTEC = 3;
-	lowerLimitVTEC = -0.3;
+	upperLimitVTEC = 0.5;
+	lowerLimitVTEC = -0.5;
 }
 {
 	/a/

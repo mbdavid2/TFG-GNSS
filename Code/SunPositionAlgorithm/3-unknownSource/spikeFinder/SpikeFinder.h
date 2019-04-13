@@ -4,27 +4,45 @@
 
 using namespace std;
 
+// struct infoIPP {
+// 	float epoch;
+// 	float vtec;
+// 	float ra;
+// 	float dec;
+// };
+
 struct candidate { 
 	float epoch; 
-	float meanVTEC; 
+	float maxMeanVTEC;
+	float maxIndividialVTEC;
+	float bestRa;
+	float bestDec;
+	// vector<infoIPP> infoAllRows;
 };
 
 bool operator<(candidate a, candidate b);
 
 class SpikeFinder {
 
-public:
-	priority_queue<candidate> candidates;
+	private: 
+		// void saveInfo(vector<infoIPP>& infoVec, float epoch, float vtec, float ra, float lat);
 
-	float getBestEpoch();
+		void insertCandidate(priority_queue<candidate>& candidates, float epoch, float meanVTEC);
 
-	void printTopNCandidates(int n);
+	public:
+		priority_queue<candidate> candidates;
 
-	void printAllCandidates();
+		float getBestEpoch();
 
-	void insertCandidate (float epoch, float meanVTEC);
+		void printTopNCandidates(int n);
 
-	void generateCandidates (ifstream& data);
+		void printAllCandidates();
+
+		priority_queue<candidate> findQueueBestCandidates (ifstream& data);
+
+		candidate findSingleBestCandidate (ifstream& data);
+
+		candidate getInfoBestCandidate (string fileName, int type);
 };
 
 

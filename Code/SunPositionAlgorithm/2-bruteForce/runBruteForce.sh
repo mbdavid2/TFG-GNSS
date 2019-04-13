@@ -8,8 +8,8 @@
 # if [ "$1" != "plot" ];then
 # cat outputTi.out
 # fi
-# rm -r results
-# mkdir -p results/
+rm -r results
+mkdir -p results/
 # echo "-> Running bruteForce algorithm"
 if [ "$1" == "plot" ];then
 	# ./bruteForce.x
