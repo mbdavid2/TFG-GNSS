@@ -5,8 +5,10 @@
 
 using namespace std;
 
-const string FILTERED_FILE = "filterTi.2003.301.10h30m-11h30m.out";
-const string AWK_SCRIPT = "filterDataByTime.awk";
+const string ORIGINAL_FILE = "ti.2003.301.10h30m-11h30m.gz";
+const string FILTERED_FILE_TIME = "filterTi.2003.301.10h30m-11h30m.out";
+const string ORIGINAL_AWK_SCRIPT = "filterDataTi.awk";
+const string AWK_SCRIPT_TIME = "filterDataByTime.awk";
 const string DATA_FOLDER = "../data/";
 
 void system(std::string const &s) { 
@@ -24,19 +26,26 @@ void printCandidate(candidate c) {
 candidate findSpike() {
 	cout << "[C++: Finding a spike in the VTEC distribution]" << endl;
 	SpikeFinder spikeFinder;
-	string fileName = DATA_FOLDER + FILTERED_FILE;
+	string fileName = DATA_FOLDER + FILTERED_FILE_TIME;
 	candidate bestCandidate = spikeFinder.getInfoBestCandidate(fileName, 0);
 	return bestCandidate;
 }
 
 void filterByTime(float time) {
-	string command = "cat " + DATA_FOLDER + FILTERED_FILE + " | gawk -f " + DATA_FOLDER + AWK_SCRIPT + " -v flareTime=" + to_string(time) + " > spikeData.out";
+	string command = "cat " + DATA_FOLDER + FILTERED_FILE_TIME + " | gawk -f " + DATA_FOLDER + AWK_SCRIPT_TIME + " -v flareTime=" + to_string(time) + " > spikeData.out";
+	// cout << command << endl;
+	system(command); 
+}
+
+void reFilterTiFile() {
+	string command = "zcat " + DATA_FOLDER + ORIGINAL_FILE + " | gawk -f " + DATA_FOLDER + ORIGINAL_AWK_SCRIPT + " > " + DATA_FOLDER + "filterTi.2003.301.10h30m-11h30m.out";
 	// cout << command << endl;
 	system(command); 
 }
 
 int main() {
 	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl;
+	reFilterTiFile();
 	candidate bestCandidate = findSpike();
 	printCandidate(bestCandidate);
 	filterByTime(bestCandidate.epoch);
