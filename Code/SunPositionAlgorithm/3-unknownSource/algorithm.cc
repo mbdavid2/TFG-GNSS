@@ -33,30 +33,21 @@ candidate findSpike() {
 
 void filterByTime(float time) {
 	string command = "cat " + DATA_FOLDER + FILTERED_FILE_TIME + " | gawk -f " + DATA_FOLDER + AWK_SCRIPT_TIME + " -v flareTime=" + to_string(time) + " > spikeData.out";
-	// cout << command << endl;
 	system(command); 
 }
 
 void reFilterTiFile() {
 	string command = "zcat " + DATA_FOLDER + ORIGINAL_FILE + " | gawk -f " + DATA_FOLDER + ORIGINAL_AWK_SCRIPT + " > " + DATA_FOLDER + "filterTi.2003.301.10h30m-11h30m.out";
-	// cout << command << endl;
 	system(command); 
 }
 
 int main() {
 	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl;
-	reFilterTiFile();
+	// reFilterTiFile();
 	candidate bestCandidate = findSpike();
 	printCandidate(bestCandidate);
 	filterByTime(bestCandidate.epoch);
 	TraverseGlobe traverseGlobe;
 	traverseGlobe.test(bestCandidate.epoch);
-	cout << endl << "!!! Real Sun's location [ra=212.338, dec=-13.060] !!!" << endl;
-	
-
-
-
-	// findPearsonCoefficients(epoch);
-	// cout << "[C++ -> R: Computing correlation coefficient for each possible Sun with R]" << endl;
-	// system("Rscript correlationR/correlation.r"); 
+	cout << endl << "### Real Sun's location [ra=212.338, dec=-13.060] ###" << endl;
 }

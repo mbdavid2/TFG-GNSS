@@ -1,77 +1,57 @@
+.PHONY: pristine clean cleanResults correlation spikeFinder traverseGlobe
 SHELL := /bin/bash
 CFLAGS = -Wall
 FFLAGS = -lgfortran
-tiDataFile := ../../data/ti.2003.301.10h30m-11h30m.gz
-spikeFolder = spikeFinder
+
 algorithmName = algorithm
-.PHONY: filterByBestEpochAWK
 
-spikeFinder = spikeFinder/SpikeFinder.cc
-traverseGlobe = traverseGlobe/TraverseGlobe.cc
+# ----------
+# DATA FILES
+# ----------
+tiOriginalFile = ti.2003.301.10h30m-11h30m.gz
+tiFilteredFile = filterTi.2003.301.10h30m-11h30m.out
+tiDataFolder = ../data/
 
-main: compile 
+# ----------
+# CLASSES
+# ----------
+spikeFinder = spikeFinder/SpikeFinder
+traverseGlobe = traverseGlobe/TraverseGlobe
+correlation = computeCorrelation/computeCorrelation
 
-compile: fortranFunctions $(algorithmName).cc $(spikeFolder)/SpikeFinder.cc
-	g++ $(CFLAGS) functions.o $(spikeFinder) $(traverseGlobe) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
+main: run 
 
-fortranFunctions: fortranFunctions/fortranFunctions.f90
-	gfortran fortranFunctions/fortranFunctions.f90 -c -o functions.o
+compile: correlation spikeFinder traverseGlobe
+	g++ $(CFLAGS) $(correlation).o $(spikeFinder).o $(traverseGlobe).o $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
 
-run: compile
+correlation: $(correlation).f90
+	gfortran $(correlation).f90 -c -o $(correlation).o
+
+spikeFinder: $(spikeFinder).cc
+	g++ $(spikeFinder).cc -c -o $(spikeFinder).o
+
+traverseGlobe: $(traverseGlobe).cc
+	g++ $(traverseGlobe).cc -c -o $(traverseGlobe).o
+
+run: $(tiDataFolder)$(tiFilteredFile) $(algorithmName).x 
 	./$(algorithmName).x
 
-plot:
-	@./runBruteForce.sh plot
 
+
+preProcessDataAWK: $(tiDataFolder)$(tiOriginalFile) $(tiDataFolder)filterDataTi.awk
+	zcat $(tiDataFolder)$(tiOriginalFile) | gawk -f $(tiDataFolder)filterDataTi.awk > $(tiDataFolder)$(tiFilteredFile)
+
+# plot:
+# 	@./runBruteForce.sh plot
+
+# ----------
+# CLEANING
+# ----------
 clean:
+	@rm -rf */*.out */*.o */*.x
 	@rm -f *.out *.o *.x
 
 cleanResults:
 	@rm -rf results
 
 pristine: clean cleanResults
-
-
-
-
-
-
-
-
-
-
-
-# preProcessDataAWK:
-# 	zcat $(tiDataFile) | gawk -f preProcessDataAWK/preProcessData.awk
-
-# filterByBestEpochAWK:
-# 	zcat $(tiDataFile) | gawk -f filterByBestEpochAWK/filterByBestEpoch.awk
-
-
-# ee: compile run
-
-# # run:
-# # 	@mkdir -p results/
-# # 	@rm -r results
-# # 	@mkdir -p results/
-# # 	@./bruteForce.x
-
-# # compile: preProcessAWK fortranFunctions bruteForce
-
-# preProcessAWK:
-# 	@cd spikeFinder && make
-
-# fortranFunctions: fortranFunctions/fortranFunctions.f90
-# 	gfortran fortranFunctions/fortranFunctions.f90 -c -o functions.o
-
-# bruteForce: fortranFunctions bruteForce.cc spikeFinder/SpikeFinder.cc
-# 	g++ functions.o spikeFinder/SpikeFinder.cc bruteForce.cc -o bruteForce.x -lgfortran
-	
-# plot:
-# 	@./runBruteForce.sh plot
-
-# cleanResults:
-# 	@rm -rf results
-
-# pristine: clean
-# 	@cd spikeFinder && make clean
