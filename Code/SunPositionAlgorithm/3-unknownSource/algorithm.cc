@@ -51,6 +51,7 @@ int main() {
 	filterByTime(bestCandidate.epoch);
 	TraverseGlobe traverseGlobe;
 	traverseGlobe.test(bestCandidate.epoch);
+	cout << endl << "!!! Real Sun's location [ra=212.338, dec=-13.060] !!!" << endl;
 	
 
 

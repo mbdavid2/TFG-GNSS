@@ -8,13 +8,13 @@
 # if [ "$1" != "plot" ];then
 # cat outputTi.out
 # fi
-# rm -r results;
-# mkdir -p results/
+echo "[Fortran flag for writing file!!]"
+rm -r results;
+mkdir -p results/
 # echo "-> Running bruteForce algorithm"
 if [ "$1" == "plot" ];then
 	# ./bruteForce.x
 	# rm outputTi.out
-	echo "[Bash: Plotting the results]"
 	for filename in results/*; do
         gnuplot -e "set terminal png; set output '$filename.png'; plot '$filename' using 1:2 with point;"
 	done

@@ -29,7 +29,7 @@ clean:
 cleanResults:
 	@rm -rf results
 
-pristine: clean cleanObjects
+pristine: clean cleanResults
 
 
 
