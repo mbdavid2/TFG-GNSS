@@ -1,0 +1,58 @@
+### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###
+[C++: Finding a spike in the VTEC distribution]
+  -> Epoch: 11.05
+  -> Mean VTEC of epoch: 0.0583378
+  -> Max VTEC of epoch: 0.21871
+  -> Ra of max candidate: 267.556
+  -> Dec of max candidate: 54.198
+
+[C++ -> Fortran: Computing Person coefficients | Possible Suns with step=100]
+[5 possible Suns considered]
+[C++: Results]
+   -> Largest correlation coefficient: 0.694721
+   -> Estimated Sun's location: [ra=200, dec=10]
+   -> Execution Time: 85ms 
+
+[C++ -> Fortran: Computing Person coefficients | Possible Suns with step=60]
+[16 possible Suns considered]
+[C++: Results]
+   -> Largest correlation coefficient: 0.537736
+   -> Estimated Sun's location: [ra=240, dec=30]
+   -> Execution Time: 979ms 
+
+[C++ -> Fortran: Computing Person coefficients | Possible Suns with step=30]
+[67 possible Suns considered]
+[C++: Results]
+   -> Largest correlation coefficient: 0.863706
+   -> Estimated Sun's location: [ra=210, dec=0]
+   -> Execution Time: 676ms 
+
+[C++ -> Fortran: Computing Person coefficients | Possible Suns with step=10]
+[631 possible Suns considered]
+[C++: Results]
+   -> Largest correlation coefficient: 0.926376
+   -> Estimated Sun's location: [ra=210, dec=-10]
+   -> Execution Time: 354ms 
+
+[C++ -> Fortran: Computing Person coefficients | Possible Suns with step=5]
+[2557 possible Suns considered]
+[C++: Results]
+   -> Largest correlation coefficient: 0.938268
+   -> Estimated Sun's location: [ra=215, dec=-10]
+   -> Execution Time: 1s 688ms 
+
+[C++ -> Fortran: Computing Person coefficients | Possible Suns with step=2]
+[16111 possible Suns considered]
+[C++: Results]
+   -> Largest correlation coefficient: 0.938295
+   -> Estimated Sun's location: [ra=214, dec=-10]
+   -> Execution Time: 11s 965ms 
+
+[C++ -> Fortran: Computing Person coefficients | Possible Suns with step=1]
+[64621 possible Suns considered]
+[C++: Results]
+   -> Largest correlation coefficient: 0.938424
+   -> Estimated Sun's location: [ra=214, dec=-11]
+   -> Execution Time: 47s 95ms 
+
+!!! Real Sun's location [ra=212.338, dec=-13.060] !!!

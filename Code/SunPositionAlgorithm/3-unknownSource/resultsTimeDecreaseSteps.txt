@@ -1,0 +1,86 @@
+### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###
+[C++: Finding a spike in the VTEC distribution]
+  -> Epoch: 11.05
+  -> Mean VTEC of epoch: 0.0583378
+  -> Max VTEC of epoch: 0.21871
+  -> Ra of max candidate: 267.556
+  -> Dec of max candidate: 54.198
+
+[C++ -> Fortran: Computing Person coefficients]
+[Parameters]
+   -> Possible Suns with step = 100
+   -> Right ascension range = [0, 360]
+   -> Declination range = [-180, 180]
+[Computing: 16 possible Suns considered]
+[Results]
+   -> Largest correlation coefficient: 0.614222
+   -> Estimated Sun's location: [ra=200, dec=20]
+   -> Execution Time: 601ms 
+
+[C++ -> Fortran: Computing Person coefficients]
+[Parameters]
+   -> Possible Suns with step = 60
+   -> Right ascension range = [190, 210]
+   -> Declination range = [10, 30]
+[Computing: 1 possible Suns considered]
+[Results]
+   -> Largest correlation coefficient: 0.615121
+   -> Estimated Sun's location: [ra=190, dec=10]
+   -> Execution Time: 998ms 
+
+[C++ -> Fortran: Computing Person coefficients]
+[Parameters]
+   -> Possible Suns with step = 30
+   -> Right ascension range = [180, 200]
+   -> Declination range = [0, 20]
+[Computing: 1 possible Suns considered]
+[Results]
+   -> Largest correlation coefficient: 0.60675
+   -> Estimated Sun's location: [ra=180, dec=0]
+   -> Execution Time: 344ms 
+
+[C++ -> Fortran: Computing Person coefficients]
+[Parameters]
+   -> Possible Suns with step = 10
+   -> Right ascension range = [170, 190]
+   -> Declination range = [-10, 10]
+[Computing: 9 possible Suns considered]
+[Results]
+   -> Largest correlation coefficient: 0.714204
+   -> Estimated Sun's location: [ra=190, dec=-10]
+   -> Execution Time: 814ms 
+
+[C++ -> Fortran: Computing Person coefficients]
+[Parameters]
+   -> Possible Suns with step = 5
+   -> Right ascension range = [180, 200]
+   -> Declination range = [-20, 0]
+[Computing: 25 possible Suns considered]
+[Results]
+   -> Largest correlation coefficient: 0.840963
+   -> Estimated Sun's location: [ra=200, dec=-10]
+   -> Execution Time: 101ms 
+
+[C++ -> Fortran: Computing Person coefficients]
+[Parameters]
+   -> Possible Suns with step = 2
+   -> Right ascension range = [190, 210]
+   -> Declination range = [-20, 0]
+[Computing: 121 possible Suns considered]
+[Results]
+   -> Largest correlation coefficient: 0.926376
+   -> Estimated Sun's location: [ra=210, dec=-10]
+   -> Execution Time: 398ms 
+
+[C++ -> Fortran: Computing Person coefficients]
+[Parameters]
+   -> Possible Suns with step = 1
+   -> Right ascension range = [200, 220]
+   -> Declination range = [-20, 0]
+[Computing: 441 possible Suns considered]
+[Results]
+   -> Largest correlation coefficient: 0.938424
+   -> Estimated Sun's location: [ra=214, dec=-11]
+   -> Execution Time: 941ms 
+
+!!! Real Sun's location [ra=212.338, dec=-13.060] !!!
