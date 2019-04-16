@@ -1,6 +1,6 @@
 \chapter{Solar flare detection}
 
-Before starting to develop the main solar flare detection algorithm a first program was developed that would target a powerful solar flare for which we know the time of the event and therefore, the location of the Sun.
+Before starting to develop the main solar flare detection algorithm a first program was developed that would target a powerful solar flare for which we knew the time of the event and therefore, the location of the Sun.
 
 Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this first approach was done to understand how the inner part of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC content.
 
@@ -71,21 +71,19 @@ Field number | Example value | Description
 [...]
 \end{lstlisting}
 
-\subsection{AWK}
-
-Usaremos awk, como va, muy breve
-
 \subsection{The Halloween Solar Storm: X17.2 flare}
 
 The data set we used was that of so-called Halloween Storm, a powerful solar storm that took place from October to early November. In particular, we will try to replicate the results shown in figure \ref{fig:halloweenPaper}, obtained in the paper "GNSS measurement of EUV photons flux rate during strong and mid solar flares" for a poweful flare that took place in October 28th, 2003 \cite{hernandez2012gnss}.
 
 \begin{figure}[!htb]
-	\includegraphics[width=0.5\linewidth]{images/ch4/halloweenPaper.png}
-	\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
-	\label{fig:halloweenPaper}
+	\begin{centering}
+		\includegraphics[width=0.5\linewidth]{images/ch4/halloweenPaper.png}
+		\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
+		\label{fig:halloweenPaper}
+	\end{centering}
 \end{figure}
 
-As we can see the plot of the flare called X17.2, took place exactly at 2003.301.39777 (year.day.seconds of GPS time). 39777 seconds of a day, in hours, is $39777s * 1h/3600s = 11.049...h$, around 11AM. 
+As we can see the plot of the flare called X17.2 took place exactly at 2003.301.39777 (year.day.seconds of GPS time). In hours, 39777 seconds of a day is $39777s * 1h/3600s = 11.049...h$, around 11AM. 
 
 The ti files provided contained data from 10.5h to 11.5h (with a sampling rate of 30 seconds), so that we could see the VTEC distribution through the day.
 
@@ -99,9 +97,9 @@ For each epoch in our data set (from 10.5 to 11.5 with a sampling rate of 30 sec
 
 \subsection{Computing the VTEC}
 
-The VTEC can be estimated using the following approach:
+As we have mentioned before, one of the main paramenters relevant to the computation is the \textbf{double derivate of LI (d2li)}. Because this is a derivative it is the increment in VTEC, this will be seen in a moment in figure \ref{fig:vtecDistribution}.
 
-bla bla bla justify the following equation
+The VTEC can be estimated using the following approach:
 
 \begin{equation} \label{eq:1}
 	\frac{d^{2}V}{dt^{2}} = \frac{d^{2}Li}{M}
@@ -141,7 +139,9 @@ rm vtecValues
 \clearpage
 
 The bash script executes the AWK process with the data as the input and outputs n rows with two columns: the time of the day and the calculated VTEC, plotting the results using Gnuplot.
-The results can be seen in figure \ref{fig:vtecDistribution}, where we can see how the VTEC value evolves throught the day. Visually, a spike can be seen between 11 and 11.2 hours.
+The results can be seen in figure \ref{fig:vtecDistribution}, where we can see how the VTEC value evolves throught the day. Visually, a spike can be seen between 11 and 11.2 hours. 
+
+As mentioned before this value is estimated using the derivative of li, because this is the increment in VTEC, we can see that the value becomes negative after the spike, due to the VTEC value decreasing (negative gain).
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -191,39 +191,15 @@ unitVectorObjectB =
 \cos \beta = unitVectorObjectA \cdot unitVectorObjectB
 \end{equation}\\
 
-For this case, though, the angle is computed using the IPP's Right Ascension and Latitude (equivalent to declination), yielding the cosine of $\chi$, the \textbf{solar-zenith angle}.
+For this case, though, the angle is computed using the IPP's Right Ascension and Latitude (equivalent to declination), yielding the cosine of $\chi$, the \textbf{solar-zenith angle}. The previous dot product can be simplified to:
 
-USING THE OTHER EQUIATION explain
+\begin{equation} \label{eq:4}
+\cos \chi = \sin\delta_{IPP}*\sin\delta_{Sun} + \cos\delta_{IPP}*\cos\delta_{Sun}*\cos(\alpha_{IPP} - \alpha_{Sun})
+\end{equation}\\
 
-The previous computation is done for every IPP (every line outputed by the AWK script) as shown in the following Fortran code:
+The following code is the function that implements equation \ref{eq:4} and returns $\cos \chi$:
 
-\begin{lstlisting}[language=Fortran, caption=Reading the content of the file and storing the computations for plotting]
-subroutine traverseFile (raSun, decSun)
-implicit none
-	real :: raIPP, decIPP, mapIon, d2Li, cosX, vtec
-	real, intent(in) :: raSun, decSun
-
-	350 format  (F10.4, F10.4, F15.10, F15.10)
-	
-	do while (1 == 1)
-		read (1, *, end = 240) raIPP, decIPP, mapIon, d2Li
-		raIPP = toRadian(raIPP)
-		decIPP = toRadian(decIPP)
-		cosX = computeSolarZenithAngle(raIPP, decIPP, raSun, decSun)
-		vtec = estimateVTEC(mapIon, d2Li)
-		if (vtec < 0.4 .and. vtec > -0.4) then
-			write (*, 350) cosX, vtec
-		end if
-	end do
-	240 continue
-end subroutine traverseFile
-\end{lstlisting}
-
-We can also see in the previous code that VTEC values not inside the (-0.4, 0.4) range are discarded. This is a first, simple approach to discarding outliers, because we could visually see from the plots that most values stayed between those numbers.
-
-The following code is the function that implements the equations \ref{eq:1}, \ref{eq:2} and \ref{eq:3}:
-
-\begin{lstlisting}[language=Fortran, caption=Computation of the solar-zenith a angle]
+\begin{lstlisting}[language=Fortran, caption=Computation of the solar-zenith a angle's cosine]
 real function computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
 			implicit none
 
@@ -247,7 +223,7 @@ Taking $212.338º$ and $-13.060º$ as the Sun's right ascension and declination,
 \end{centering}
 \end{figure}
 
-As we can observe, there is a strong relation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90º) to $\cos\chi = 1$ (0º) and it doesn't seem to affect it from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º). \\
+As we can observe, the resulting plot, similar to the one from figure \ref{fig:halloweenPaper}, shows a strong relation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90º) to $\cos\chi = 1$ (0º) and it doesn't seem to affect it from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º). \\
 
 Visually this can be seen as follows:
 

@@ -1,7 +1,6 @@
-\chapter{Sun flare detection algorithm}
+\chapter{Brute Force Approach}
 
-Explain why brute force aproach
-
+Explain why brute force aproach, here brute force, in the following chapter algorithm with optimizations will be presented
 
 \section{Key elements}
 
@@ -18,59 +17,6 @@ The first part of the algorithm was, without going into the actual computations 
 A first approach to detecting thiswe first wanted to detect a spike in the VTEC content throughout the day in a simple way. For each epoch \footnote{In our data set the epochs ranged from 10.5 to 11.5, that it is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and inserted it into a priority queue. We did this because we wanted to see thbut a simple single-pass max-value finder would work
 
 explicar buscar pico por hill climbing o algo asi usando la grafica de la distribucion. Al encontrar un momento exacto en el que centrarnos empezar a estudiar ahi
-
-
-
-
-
-\section{Brute force approach}
-
-explicar que es para entender que debemos hacer
-
-\subsection{Pseudocode}
-
-primero pseudocodigo, explicar for each dec for each ra
-
-
-\begin{algorithm}
-	\caption{My algorithm}\label{euclid}
-	\begin{algorithmic}[1]
-		\Procedure{MyProcedure}{}
-		\State $\textit{stringlen} \gets \text{length of }\textit{string}$
-		\State $i \gets \textit{patlen}$
-		\BState \emph{top}:
-		\If {$i > \textit{stringlen}$} \Return false
-		\EndIf
-		\State $j \gets \textit{patlen}$
-		\BState \emph{loop}:
-		\If {$\textit{string}(i) = \textit{path}(j)$}
-		\State $j \gets j-1$.
-		\State $i \gets i-1$.
-		\State \textbf{goto} \emph{loop}.
-		\State \textbf{close};
-		\EndIf
-		\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
-		\State \textbf{goto} \emph{top}.
-		\EndProcedure
-	\end{algorithmic}
-\end{algorithm}
-
-entonces explicar aqui lo de los polos, in a first approach to this in which to visually see ourselves the differences between possible Sun positions we obtained a plot for each possibility (figure \ref{fig:poles}), we could see this happening:
-
-\begin{figure}[!htb]
-	\begin{subfigure}[b]{0.5\textwidth}
-		\includegraphics[width=\linewidth]{images/ch4/ra180_dec-090.png}
-		\caption{ra180 and dec-090}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.5\textwidth}
-		\includegraphics[width=\linewidth]{images/ch4/ra000_dec-090.png}
-		\caption{ra000 and dec-090}
-	\end{subfigure}
-	\caption{dasdasdasda}
-	\label{fig:poles}
-\end{figure}
-
 
 \subsection{Linking C++ and Fortran}
 
@@ -109,7 +55,66 @@ return M
 \end{lstlisting}
 
 
+
+
+\section{Brute force approach}
+
+explicar que es para entender que debemos hacer
+
+\subsection{Pseudocode}
+
+primero pseudocodigo, explicar for each dec for each ra
+
+
+\begin{algorithm}
+	\caption{My algorithm}\label{euclid}
+	\begin{algorithmic}[1]
+		\Procedure{bruteForceAlgorithm}{}
+		\State $\textit{stringlen} \gets \text{length of }\textit{string}$
+		\State $i \gets \textit{patlen}$
+		\BState \emph{top}:
+		\If {$i > \textit{stringlen}$} \Return false
+		\EndIf
+		\State $j \gets \textit{patlen}$
+		\BState \emph{loop}:
+		\If {$\textit{string}(i) = \textit{path}(j)$}
+		\State $j \gets j-1$.
+		\State $i \gets i-1$.
+		\State \textbf{goto} \emph{loop}.
+		\State \textbf{close};
+		\EndIf
+		\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+		\State \textbf{goto} \emph{top}.
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+entonces explicar aqui lo de los polos, in a first approach to this in which to visually see ourselves the differences between possible Sun positions we obtained a plot for each possibility (figure \ref{fig:poles}), we could see this happening:
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch4/ra180_dec-090.png}
+		\caption{ra180 and dec-090}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch4/ra000_dec-090.png}
+		\caption{ra000 and dec-090}
+	\end{subfigure}
+	\caption{dasdasdasda}
+	\label{fig:poles}
+\end{figure}
+
+
+
+
+
 \subsection{Results}
+
+Comparison of precision and time here
+
+
+
 \begin{lstlisting}[caption=Brute force approach algorithm output]
 [C++: Finding a spike in the VTEC distribution]
 [AWK: Filtering all data by best epoch: 11.05]

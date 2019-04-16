@@ -19,7 +19,7 @@ spikeFinder = spikeFinder/SpikeFinder
 traverseGlobe = traverseGlobe/TraverseGlobe
 correlation = computeCorrelation/computeCorrelation
 
-main: run 
+main: compile run 
 
 compile: correlation spikeFinder traverseGlobe
 	g++ $(CFLAGS) $(correlation).o $(spikeFinder).o $(traverseGlobe).o $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)

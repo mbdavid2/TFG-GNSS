@@ -1,8 +1,8 @@
-double precision function mainFortran (raSunIn, decSunIn, writeData)
+double precision function mainFortran (raSunIn, decSunIn, sumy, sumy2, writeData)
 	implicit none
-	integer, intent(in) :: raSunIn, decSunIn, writeData
+	double precision, intent(in) :: raSunIn, decSunIn, sumy, sumy2, writeData
 
-	double precision, parameter :: CORRELATION_THRESHOLD = -0.1
+	double precision, parameter :: CORRELATION_THRESHOLD = -0.5
 
 	double precision :: rxyPearsonCoefficient
 
@@ -43,20 +43,20 @@ double precision function mainFortran (raSunIn, decSunIn, writeData)
 
 		subroutine openFileForWriting (raSunIn, decSunIn)
 			implicit none
-			integer, intent(in) :: raSunIn, decSunIn
+			double precision, intent(in) :: raSunIn, decSunIn
 			character(len=4) :: iString, jString
 
-			write(iString, '(I3.3)') raSunIn
-			write(jString, '(I4.3)') decSunIn
+			write(iString, '(F3.3)') raSunIn
+			write(jString, '(F4.3)') decSunIn
 
 			open(34, file = 'results/ra' // trim(iString) // '_dec' // trim(jString), status = 'new')
 		end subroutine openFileForWriting
 
 		double precision function traverseFile (raSunIn, decSunIn)
 			implicit none
-			integer, intent(in) :: raSunIn, decSunIn
+			double precision, intent(in) :: raSunIn, decSunIn
 			double precision :: raIPP, decIPP, raSun, decSun, cosX, vtec
-			double precision :: sumx = 0, sumy = 0, sumxy = 0, sumx2 = 0, sumy2 = 0
+			double precision :: sumx = 0, sumxy = 0, sumx2 = 0, sumy = 0, sumy2 = 0
 			double precision :: rxyPearson
 			
 			integer :: i = 0
@@ -74,10 +74,8 @@ double precision function mainFortran (raSunIn, decSunIn, writeData)
 				call openFileForWriting(raSunIn, decSunIn)
 			end if
 
-			raSun = raSunIn
-			decSun = decSunIn
-			raSun = toRadian(raSun)
-			decSun = toRadian(decSun)
+			raSun = toRadian(raSunIn)
+			decSun = toRadian(decSunIn)
 
 			do while (1 == 1)
 				read (1, *, end = 240) vtec, raIPP, decIPP
@@ -98,7 +96,7 @@ double precision function mainFortran (raSunIn, decSunIn, writeData)
 				close(34)
 			end if
 			close(1)
-			
+			! print *, "Fortran:", sumy, sumy2
 			rxyPearson = computePearsonCoefficient(i, sumx, sumy, sumxy, sumx2, sumy2)
 			return
 		end function traverseFile
@@ -106,7 +104,7 @@ double precision function mainFortran (raSunIn, decSunIn, writeData)
 		subroutine updateCorrelationParameters (x, y, sumx, sumy, sumxy, sumx2, sumy2)
 			implicit none
 			double precision, intent(in) :: x, y
-			double precision :: sumx, sumy, sumxy, sumx2, sumy2
+			double precision :: sumy, sumy2, sumxy, sumx2, sumx
 
 			sumx = sumx + x
 			sumy = sumy + y

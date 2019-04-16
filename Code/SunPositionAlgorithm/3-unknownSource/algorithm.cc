@@ -15,7 +15,7 @@ void system(std::string const &s) {
     std::system(s.c_str());
 }
 
-void printCandidate(candidate c) {
+void printSpikeCandidate(candidate c) {
 	cout << "  -> Epoch: " << c.epoch << endl;
 	cout << "  -> Mean VTEC of epoch: " << c.maxMeanVTEC << endl;
 	cout << "  -> Max VTEC of epoch: " << c.maxIndividialVTEC << endl;
@@ -45,9 +45,8 @@ int main() {
 	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl;
 	// reFilterTiFile();
 	candidate bestCandidate = findSpike();
-	printCandidate(bestCandidate);
+	printSpikeCandidate(bestCandidate);
 	filterByTime(bestCandidate.epoch);
 	TraverseGlobe traverseGlobe;
-	traverseGlobe.test(bestCandidate.epoch);
-	cout << endl << "### Real Sun's location [ra=212.338, dec=-13.060] ###" << endl;
+	traverseGlobe.test(bestCandidate.epoch, bestCandidate.sumyFortran, bestCandidate.sumy2Fortran);
 }

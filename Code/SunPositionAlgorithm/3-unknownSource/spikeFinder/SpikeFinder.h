@@ -17,6 +17,8 @@ struct candidate {
 	float maxIndividialVTEC;
 	float bestRa;
 	float bestDec;
+	double sumyFortran;
+	double sumy2Fortran;
 	// vector<infoIPP> infoAllRows;
 };
 

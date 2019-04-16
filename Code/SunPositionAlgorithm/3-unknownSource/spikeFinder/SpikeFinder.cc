@@ -40,6 +40,8 @@ void SpikeFinder::insertCandidate (priority_queue<candidate>& candidates, float 
 	c.maxIndividialVTEC = -1;
 	c.bestRa = -1;
 	c.bestDec = -1;
+	c.sumyFortran = -1;
+	c.sumy2Fortran = -1;
 	candidates.push(c);
 }
 
@@ -87,12 +89,16 @@ candidate SpikeFinder::findSingleBestCandidate (ifstream& data) {
 	bestCandidate.maxIndividialVTEC = 0;
 	bestCandidate.bestRa = 0;
 	bestCandidate.bestDec = 0;
+	double sumyFortran = 0;
+	double sumy2Fortran = 0;
 
 	//Loop
 	data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn;
 	totalEpochVTEC += vtecIn;
 	previousEpoch = epochIn;
 	while (data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
+		sumyFortran += vtecIn;
+		sumy2Fortran += vtecIn*vtecIn;
 		totalEpochVTEC += vtecIn;
 		n++;
 		if (previousEpoch != epochIn) {
@@ -112,6 +118,8 @@ candidate SpikeFinder::findSingleBestCandidate (ifstream& data) {
 			bestCandidate.maxIndividialVTEC = vtecIn;
 		}
 	}
+	bestCandidate.sumy2Fortran = sumy2Fortran;
+	bestCandidate.sumyFortran = sumyFortran;
 	return bestCandidate;
 }
 
