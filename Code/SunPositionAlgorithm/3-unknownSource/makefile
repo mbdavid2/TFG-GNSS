@@ -48,8 +48,8 @@ preProcessDataAWK: $(tiDataFolder)$(tiOriginalFile) $(tiDataFolder)filterDataTi.
 # CLEANING
 # ----------
 clean:
-	@rm -rf */*.out */*.o */*.x
-	@rm -f *.out *.o *.x
+	@rm -rf */*.out */*.in */*.o */*.x 
+	@rm -f *.out *.in *.o *.x 
 
 cleanResults:
 	@rm -rf results

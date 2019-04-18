@@ -3,3 +3,12 @@ http://lowrank.net/gnuplot/plot3d2-e.html
 3d: splot "fortranResults" using 1:2:3 with points
 	splot "fortranResults" using 1:2:3 with lines
 2d: plot [10.5:11.5] "fortranResults" using 1:2 with point
+
+set title 'Time=11.05h || ra=212.338 || dec=-13.060'; set xlabel 'Cosine of solar-zenith angle'; set ylabel 'VTEC'; set grid; plot \"resultsToPlot\" using 1:2 with point"
+
+set terminal png; set output '$filename.png'; plot.... para guardarlo en png
+
+[...]; pause -1; para que se quede
+
+
+set xrange [-10:10]

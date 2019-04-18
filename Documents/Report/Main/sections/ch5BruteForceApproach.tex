@@ -1,6 +1,6 @@
 \chapter{Brute Force Approach}
 
-Explain why brute force aproach, here brute force, in the following chapter algorithm with optimizations will be presented
+In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was seen. In ths section we aim to provide a first, brute force approach, for an algorithm able to estimate the Sun's location based on this study. This first approach is done as a first approximation to be problem to see more clearly how the algorithm will work, regarless of the performance.
 
 \section{Key elements}
 
@@ -12,7 +12,7 @@ explain R and compare to show the computation is correct
 
 \subsection{Moment of the flare}
 
-The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content in general, for any IPP.
+The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content in general, for any IPP. In the previous chapter we knew the specific moment of the flare (11.05h), but the algorithm has to determine which moment is going to be studied.
 
 A first approach to detecting thiswe first wanted to detect a spike in the VTEC content throughout the day in a simple way. For each epoch \footnote{In our data set the epochs ranged from 10.5 to 11.5, that it is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and inserted it into a priority queue. We did this because we wanted to see thbut a simple single-pass max-value finder would work
 
@@ -105,6 +105,7 @@ entonces explicar aqui lo de los polos, in a first approach to this in which to 
 	\label{fig:poles}
 \end{figure}
 
+The two images are equivalent using the diff
 
 
 
@@ -124,3 +125,5 @@ Comparison of precision and time here
 Largest correlation coefficient: 0.9073422 
 Estimated Sun's location:  ra210_dec-010
 \end{lstlisting}
+
+As we can see this approach provides the expected results, but has a large computational complexity that increases with the precision we want to obtain in our results. In the next chapter, an algorithm is presented to perform this computations with several optimizations to reduce its complexity.

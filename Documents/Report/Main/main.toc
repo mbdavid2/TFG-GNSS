@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {2.1}Global Navigation Satellite Systems}{8}
 \contentsline {paragraph}{GNSS and GPS}{8}
 \contentsline {paragraph}{Positioning}{8}
-\contentsline {paragraph}{Ionospheric Piercing Points}{9}
+\contentsline {paragraph}{Ionospheric Pierce Points}{9}
 \contentsline {paragraph}{The International GNSS Service}{9}
 \contentsline {section}{\numberline {2.2}Ionosphere}{9}
 \contentsline {section}{\numberline {2.3}Stellar flares}{10}
@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {4.1.1}GPS Data}{16}
 \contentsline {subsection}{\numberline {4.1.2}Formatting}{17}
 \contentsline {subsection}{\numberline {4.1.3}The Halloween Solar Storm: X17.2 flare}{18}
-\contentsline {section}{\numberline {4.2}VTEC}{19}
+\contentsline {section}{\numberline {4.2}Vertical Total Electron Content (VTEC)}{19}
 \contentsline {subsection}{\numberline {4.2.1}Computing the VTEC}{19}
 \contentsline {subsection}{\numberline {4.2.2}Distribution throughout the day}{19}
 \contentsline {section}{\numberline {4.3}Solar-zenith angle}{21}
