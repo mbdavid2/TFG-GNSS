@@ -108,6 +108,19 @@ Therefore, we can estimate the VTEC of an IPP by dividing the two given paramete
 	VTEC \approx \frac{d^{2}Li}{M}
 \end{equation}
 
+\paragraph{Implementation}
+
+\begin{lstlisting}[language=Fortran, caption=Simple Fortran function to compute the VTEC value]
+double precision function estimateVTEC (mapIon, d2Li)
+	implicit none
+	double precision, intent(in) :: mapIon, d2Li
+	double precision :: vtec
+	
+	vtec = d2Li/mapIon
+	return
+end function estimateVTEC
+\end{lstlisting}
+
 \subsection{Distribution throughout the day}
 
 Because the only operation that had to be performed was the previous division, a simple AWK script was used to filter out the two necessary fields from the data file and print the resulting value as a function of time. 
@@ -163,6 +176,8 @@ Figure \ref{fig:solar-zenith-angle}, at the end of the chapter, provides a visua
 
 Obtaining the angle between two celestial objects has been shown in the previous section by means of equations \ref{eq:1}, \ref{eq:2} and \ref{eq:3}, when calculating the angle between the Sun and a detected GRB.
 
+\textbf{TODO: JUSTIFICAR ESTAS DOS EQUACIONES!!!}
+
 \begin{equation} \label{eq:1}
 unitVectorObjectA =	
 \begin{bmatrix}
@@ -194,15 +209,14 @@ For this case, though, the angle is computed using the IPP's Right Ascension and
 The following Fortran code is the function that implements equation \ref{eq:4} and returns $\cos \chi$:
 
 \begin{lstlisting}[language=Fortran, caption=Computation of the solar-zenith a angle's cosine]
-real function computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
-			implicit none
-
-			real, intent(in) :: raIPP, decIPP, raSun, decSun
-			real :: solarZenithAngle
-			
-			solarZenithAngle = sin(decIPP)*sin(decSun) + cos(decIPP)*cos(decSun)*cos(raIPP - raSun)
-			return
-		end function computeSolarZenithAngle
+double precision function computeAngle (raIPP, decIPP, raSun, decSun)
+	implicit none
+	double precision, intent(in) :: raIPP, decIPP, raSun, decSun
+	double precision :: solarZenithAngle
+	
+	solarZenithAngle = sin(decIPP)*sin(decSun) + cos(decIPP)*cos(decSun)*cos(raIPP - raSun)
+	return
+end function computeAngle
 \end{lstlisting}
 
 \section{Results}
@@ -217,7 +231,7 @@ Taking $212.338º$ and $-13.060º$ as the Sun's right ascension and declination,
 \end{centering}
 \end{figure}
 
-As we can observe, the resulting plot, similar to the one from figure \ref{fig:halloweenPaper}, shows a strong corelation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90º) to $\cos\chi = 1$ (0º) and it doesn't seem to affect it from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º). \\
+As we can observe, the resulting plot, similar to the one from figure \ref{fig:halloweenPaper}, shows a strong corelation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90º) to $\cos\chi = 1$ (0º) and it doesn't seem to be affected from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º). \\
 
 Visually, this can be seen as follows:
 

@@ -55,8 +55,6 @@ void SpikeFinder::generateCandidates (ifstream& data) {
 		n++;
 		if (previousEpoch != epoch) {
 			insertCandidate (previousEpoch, totalEpochVTEC/n);
-
-			//New one
 			previousEpoch = epoch;
 			totalEpochVTEC = 0;
 			n = 0;

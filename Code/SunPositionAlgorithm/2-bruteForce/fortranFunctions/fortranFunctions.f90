@@ -75,8 +75,8 @@ double precision function testSun (raSunIn, decSunIn)
 			write(iString, '(I3.3)') raSunIn
 			write(jString, '(I4.3)') decSunIn
 			call openFile()
-			open(34, file = 'results/ra' // trim(iString) // '_dec' // trim(jString), status = 'new') 
-			write(34,*) "cosx vtec"
+			! open(34, file = 'results/ra' // trim(iString) // '_dec' // trim(jString), status = 'new') 
+			! write(34,*) "cosx vtec"
 			do while (1 == 1)
 				read (1, *, end = 240) raIPP, decIPP, mapIon, d2Li
 				raIPP = toRadian(raIPP)
@@ -85,14 +85,14 @@ double precision function testSun (raSunIn, decSunIn)
 				cosx = computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
 				if (vtec < VTEC_UPPER_LIMIT .and. vtec > VTEC_LOWER_LIMIT) then
 					if (cosx > CORRELATION_THRESHOLD) then
-						write(34,*) cosx, vtec
+						! write(34,*) cosx, vtec
 						call updateCorrelationParameters (cosx, vtec, sumx, sumy, sumxy, sumx2, sumy2)
 						i = i + 1
 					end if
 				end if	
 			end do
 			240 continue
-			close(34)
+			! close(34)
 			close(1)
 			rxyPearson = computePearsonCoefficient(i, sumx, sumy, sumxy, sumx2, sumy2)
 			return

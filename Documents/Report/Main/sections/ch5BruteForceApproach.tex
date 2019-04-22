@@ -1,129 +1,276 @@
 \chapter{Brute Force Approach}
 
-In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was seen. In ths section we aim to provide a first, brute force approach, for an algorithm able to estimate the Sun's location based on this study. This first approach is done as a first approximation to be problem to see more clearly how the algorithm will work, regarless of the performance.
+In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was studied. In this section we aim to provide a first, brute force approach, for an algorithm able to estimate the Sun's location based on this study. This approach is done as a first approximation to be problem to see more clearly how the algorithm will work, regardless of the performance.
+
+This brute force approach considers possible Sun locations (with a certain degree of precision) and checks the fitness of each to consider which could be the real location.
 
 \section{Key elements}
 
+\subsection{Moment of the flare}
+
+The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content throughout the provided data range. 
+In the previous chapter we already knew the specific moment of the flare: 11.05h, and could work based on this information, but the first step of the algorithm has to determine which moment is going to be studied.
+
+For each epoch\footnote{In our data set the epochs ranged from 10.5 to 11.5, that is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and returned the epoch which had the highest VTEC mean.
+
+An alternative which performs an insertion sort (by inserting the epoch candidates into a priority queue) was also considered and implemented, but for this chapter we only used the epoch with the largest mean.
+
 \subsection{Correlation}
+
+As seen in the previous chapter, there exists a correlation between the VTEC value and the cosine of the solar-zenith angle. 
+
+Once the moment of the flare is found, the aim of the algorithm is to study the correlation for each of the possible Suns and yield a fitness indicator for them. 
+
+The main idea for the algorithm is that the higher the correlation, the more accurate the estimated location should be, compared to the real one of the Sun. 
+
+The results will be discussed in the last section of this chapter to see if the previous expectations are true.
+
+\paragraph{Computation}
+
+The correlation between two independent variables is computed as follows:
+
+TODO: IMAGES HERE!!!
+
+Although optimization is not the aim of this section, the previous formula can also be expressed as follows:
+
+
+
+With which a single pass algorithm can be implemented, as opposed to the former. Because of this we decided to initially start with this one.
+
+Formulas
 
 explain, formulas, references, etc
 
 explain R and compare to show the computation is correct
 
-\subsection{Moment of the flare}
+\section{Algorithm}
 
-The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content in general, for any IPP. In the previous chapter we knew the specific moment of the flare (11.05h), but the algorithm has to determine which moment is going to be studied.
+The algorithm works as follows: the spike of VTEC value throughout the day is found by finding the epoch with the maximum mean VTEC of all IPPs for that epoch.
+The data is then filtered by that epoch (only IPPs for that epoch will be used for the computations) and the algorithm starts considering possible Suns.
 
-A first approach to detecting thiswe first wanted to detect a spike in the VTEC content throughout the day in a simple way. For each epoch \footnote{In our data set the epochs ranged from 10.5 to 11.5, that it is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and inserted it into a priority queue. We did this because we wanted to see thbut a simple single-pass max-value finder would work
+There are $360 * 180 = 64800$ possible Sun's. Thus, in order to test the algorithm the factor \textit{STEP} is used which defines the step between the angles of possible Suns. The smaller the step, the more Suns will be considered. 
 
-explicar buscar pico por hill climbing o algo asi usando la grafica de la distribucion. Al encontrar un momento exacto en el que centrarnos empezar a estudiar ahi
+For each of these possible Suns, the VTEC value and the cosine of the solar-zenith angle ($\cos \chi$) are computed for every IPP in that epoch, but the $\cos \chi$ is computed using the location of the IPP and the one of the possible Sun. Each of this Suns yields a data set with the aforementioned variables that can be plotted to obtain images such as the one studied at the end of the previous section. This two variables are used for computing the correlation coefficient for every considered Sun.
 
-\subsection{Linking C++ and Fortran}
-
-explicar aqui que la logica se hace con c++ y la computacion numerica con Fortran
-
-\begin{lstlisting}[language=Python, caption=Python example]
-import numpy as np
-
-def incmatrix(genl1,genl2):
-m = len(genl1)
-n = len(genl2)
-M = None #to become the incidence matrix
-VT = np.zeros((n*m,1), int)  #dummy variable
-
-#compute the bitwise xor matrix
-M1 = bitxormatrix(genl1)
-M2 = np.triu(bitxormatrix(genl2),1) 
-
-for i in range(m-1):
-for j in range(i+1, m):
-[r,c] = np.where(M2 == M1[i,j])
-for k in range(len(r)):
-VT[(i)*n + r[k]] = 1;
-VT[(i)*n + c[k]] = 1;
-VT[(j)*n + r[k]] = 1;
-VT[(j)*n + c[k]] = 1;
-
-if M is None:
-M = np.copy(VT)
-else:
-M = np.concatenate((M, VT), 1)
-
-VT = np.zeros((n*m,1), int)
-
-return M
-\end{lstlisting}
-
-
-
-
-\section{Brute force approach}
-
-explicar que es para entender que debemos hacer
-
-\subsection{Pseudocode}
-
-primero pseudocodigo, explicar for each dec for each ra
-
+The following is the pseudocode for the brute force approach of the algorithm. Which returns the Sun that has yielded the highest correlation coefficient.
 
 \begin{algorithm}
-	\caption{My algorithm}\label{euclid}
+	\caption{Brute Force Approach}\label{pseudocodeBruteForce}
 	\begin{algorithmic}[1]
-		\Procedure{bruteForceAlgorithm}{}
-		\State $\textit{stringlen} \gets \text{length of }\textit{string}$
-		\State $i \gets \textit{patlen}$
-		\BState \emph{top}:
-		\If {$i > \textit{stringlen}$} \Return false
+		\Procedure{main}{}
+		\State $\textit{epoch} \gets \text{findSpikeInData()}$ 
+		\State $\text{filterDataByEpoch(\textit{epoch})}$
+		\State $bestSun \gets nil$
+		\For {$ra = 0;\ ra <= 360;\ ra += STEP$}
+		\For {$dec = -90;\ dec <= 90;\ dec += STEP$}
+		\State $currentSun \gets computeCorrelationPossibleSun(ra, dec)$
+		\If {$currentSun.correlation > bestSun.correlation$} 
+		\State $bestSun \gets currentSun$
 		\EndIf
-		\State $j \gets \textit{patlen}$
-		\BState \emph{loop}:
-		\If {$\textit{string}(i) = \textit{path}(j)$}
-		\State $j \gets j-1$.
-		\State $i \gets i-1$.
-		\State \textbf{goto} \emph{loop}.
-		\State \textbf{close};
-		\EndIf
-		\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
-		\State \textbf{goto} \emph{top}.
+		\EndFor
+		\EndFor
+		\\
+		\Return $bestSun$
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
 
-entonces explicar aqui lo de los polos, in a first approach to this in which to visually see ourselves the differences between possible Sun positions we obtained a plot for each possibility (figure \ref{fig:poles}), we could see this happening:
+\clearpage
+
+One thing that has to be taken into consideration is that all possible locations that have a declination of 90º or -90º yield the same results. Figure \ref{fig:poles} shows the results as seen in the previous chapter but in this case we have a different plot because of the different Sun position. 
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/ch4/ra180_dec-090.png}
-		\caption{ra180 and dec-090}
+		\caption{ra=180º, dec=-90º}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/ch4/ra000_dec-090.png}
-		\caption{ra000 and dec-090}
+		\caption{ra=0º, dec=-90º}
 	\end{subfigure}
-	\caption{dasdasdasda}
+	\caption{Two examples of possible Sun locations}
 	\label{fig:poles}
 \end{figure}
 
-The two images are equivalent using the diff
+Using a \textit{diff} tool we can observe that although the data files used to plot the results \footnote{$cos\chi$ as the X axis and VTEC as the Y axis} have different values, the resulting plots are exactly the same image.
 
+This is due to the fact that declinations 90º and -90º correspond to the poles, when the Sun is directly on top or below the Earth, and therefore all possible right ascensions are exactly the same position.
 
+\subsection{Implementation}
 
+\paragraph{Finding the epoch}
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=c, caption=Finding a VTEC spike]
+for (int dec = -90; dec <= 90; dec += step) {
+	if (dec != -90 and dec != 90) {
+		for (int ra = 0; ra <= 360; ra += step) {
+			pearsonCoefficient = testsun_(&ra, &dec);
+			cout << "\r" << "[" << ++i << " possible Suns considered]";
+			if (pearsonCoefficient > maxCoefficient) {
+				maxCoefficient = pearsonCoefficient;
+				location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
+			}
+			if (outputEachFile) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
+		}
+	}
+	else {
+		//Do only once
+		int ra = 0;
+		pearsonCoefficient = testsun_(&ra, &dec);
+		cout << "\r" << "[" << ++i << " possible Suns considered]";
+		if (pearsonCoefficient > maxCoefficient) {
+			maxCoefficient = pearsonCoefficient;
+			location = to_string(ra) + to_string(dec);
+		}
+		if (outputEachFile) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
+	}
+}
+\end{lstlisting}
+\end{minipage}
+
+\paragraph{Iterating over the possible Suns}
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=c, caption=Main loops]
+for (int dec = -90; dec <= 90; dec += step) {
+	if (dec != -90 and dec != 90) {
+		for (int ra = 0; ra <= 360; ra += step) {
+			pearsonCoefficient = testsun_(&ra, &dec);
+			if (pearsonCoefficient > maxCoefficient) {
+				maxCoefficient = pearsonCoefficient;
+				location = "[" + to_string(ra) + ", " + to_string(dec) + "]";
+			}
+		}
+	}
+	else {
+		int ra = 0;
+		pearsonCoefficient = testsun_(&ra, &dec);
+		if (pearsonCoefficient > maxCoefficient) {
+			maxCoefficient = pearsonCoefficient;
+			location = "[" + to_string(ra) + ", " + to_string(dec) + "]";
+		}
+	}
+}
+\end{lstlisting}
+\end{minipage}
+
+\paragraph{Computing the correlation}
+
+This is the Fortran function \textit{testsun\_()} called for every possible pair \textit{(ra, dec)} (a "virtual" Sun) considered in the previous loop.
+
+It reads every line of the file (every line corresponds to an IPP) and computes both the solar-zenith angle and the VTEC as seen in the previous chapter.
+
+Given these results, the necessary values for computing the correlation are updated each iteration as shown in the next listing, using equations \textbf{TODO: LAS EQUACIONES DE CORRELACION} and finally uses them to compute de Pearson Correlation Coefficient.
+
+\begin{lstlisting}[language=Fortran, caption=Correlation computation]
+double precision function traverseFile (raSunIn, decSunIn)
+	implicit none
+	integer, intent(in) :: raSunIn, decSunIn
+	double precision :: raIPP, decIPP, raSun, decSun, mapIon, d2Li, cosX, vtec
+	double precision :: sumx = 0, sumy = 0, sumxy = 0, sumx2 = 0, sumy2 = 0
+	double precision :: rxyPearson
+	integer :: i = 0
+	
+	sumx = 0
+	sumy = 0
+	sumxy = 0
+	sumx2 = 0
+	sumy2 = 0
+	i = 0
+	
+	raSun = raSunIn
+	decSun = decSunIn
+	raSun = toRadian(raSun)
+	decSun = toRadian(decSun)
+	call openFile()
+	do while (1 == 1)
+		read (1, *, end = 240) raIPP, decIPP, mapIon, d2Li
+		raIPP = toRadian(raIPP)
+		decIPP = toRadian(decIPP)
+		vtec = estimateVTEC(mapIon, d2Li)
+		cosx = computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
+		if (vtec < VTEC_UPPER_LIMIT .and. vtec > VTEC_LOWER_LIMIT) then
+			if (cosx > CORRELATION_THRESHOLD) then
+				write(34,*) cosx, vtec
+				call updateCorrelationParameters (cosx, vtec, sumx, sumy, sumxy, sumx2, sumy2)
+				i = i + 1
+			end if
+		end if	
+	end do
+	240 continue
+	close(1)
+	rxyPearson = computePearsonCoefficient(i, sumx, sumy, sumxy, sumx2, sumy2)
+	return
+end function traverseFile
+\end{lstlisting}
+
+As can be seen in the code, the line (IPP) is only considered if:
+
+\begin{itemize}
+	\item The VTEC value is within a given lower and upper bounds, in this case -0.3 and 0,3, respectively, to discard outliers.
+	\item $\cos\chi$ is higher than a \textit{"correlation threshold"} (-0.1º in this case). This is done because we want to study the only the "part" of the plot where the Sun is having an effect. This can be seen in figure \ref{fig:solar-zenith-angle}, where we observed that the VTEC value remained the same from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º).
+\end{itemize}
+
+\paragraph{Compiling}
+
+The C++ and Fortran compilers allow us to compile both languages and their libraries together. With this, the main part of the algorithm can be implemented using C++ which can then call Fortran for the parts that require heavy numerical computation.
+
+This can be done by compiling the object of the Fortran code using the $-c$ flag, and then linking it with the C++ code using the $-lgfortran$ flag so that the standard Fortran libraries are included: \\
+
+\textit{gfortran fortranFunctions.f90 -c -o functions.o}
+	
+\textit{g++ functions.o bruteForce.cc -o bruteForce.x -lgfortran}
 
 \subsection{Results}
 
-Comparison of precision and time here
-
-
+Executing the algorithm with a STEP of 10º, this is the output of the execution:
 
 \begin{lstlisting}[caption=Brute force approach algorithm output]
+#### Brute force algorithm ####
 [C++: Finding a spike in the VTEC distribution]
+	-> Spike found: 11.05
 [AWK: Filtering all data by best epoch: 11.05]
-[C++ -> Fortran: Finding the Person coefficients for possible Suns | Epoch = 11.050000]
-[C++ -> R: Computing correlation coefficient for each possible Sun with R]
-[R: RESULTS] 
-Largest correlation coefficient: 0.9073422 
-Estimated Sun's location:  ra210_dec-010
+[C++ -> Fortran: Finding the Person coefficients for possible Suns]
+	-> Input degree step: 10
+[631 possible Suns considered]
+[C++: Results]
+	-> Largest correlation coefficient: 0.926959
+	-> Estimated Sun's location: [ra=210, dec=-10]
 \end{lstlisting}
 
-As we can see this approach provides the expected results, but has a large computational complexity that increases with the precision we want to obtain in our results. In the next chapter, an algorithm is presented to perform this computations with several optimizations to reduce its complexity.
+As we can see, the possible Sun with the highest correlation coefficient (0.9269) has a location with a right ascension of 210º and a declination of -10º. Considering that for the epoch we are working with the Sun position was $212.338º$ and $-13.060º$ as the right ascension and declination, respectively, we can see that the estimated Sun's location returned by the algorithm is close to the real one, using a step of 10º.
+
+It can be interesting to see how the computation time grows as more precision is demanded from the algorithm, and if the precision of the results does as well. The following table shows this relation for some input cases:
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c|} 
+		\hline
+		Step & Considered Suns & Correlation coefficient & Estimated location & Execution time \\ [0.5ex] 
+		\hline\hline
+		100 & 5 & 0.695358 & [ra=200, dec=10] & 867ms \\
+		\hline 
+		50 & 25 & 0.695358 & [ra=200, dec=10] & 303ms \\
+			\hline 
+		25 & 106 & 0.866293 & [ra=225, dec=-15] & 820ms \\
+			\hline 
+		12 & 436 & 0.92287 & [ra=216, dec=-6] & 956ms \\
+			\hline 
+		6 & 1771 & 0.934663 & [ra=216, dec=-12] & 1s 385ms \\
+			\hline 
+		3 & 7141 & 0.937349 & [ra=213, dec=-12] & 7s 169ms \\
+			\hline 
+		1 & 64621 & 0.939114 & [ra=214, dec=-11] & 1m 9s 564ms \\
+		\hline 
+		\hline 
+	\end{tabular}
+	\caption{Results}
+\end{table}
+
+Albeit simple and providing good results, this brute force approach has a large computational complexity that increases with the precision we demand. 
+
+Furthermore, we can see that a problem appears: in the last two cases there is an increase in the correlation coefficient as expected, but the estimated Sun location does not improve, it is actually less accurate than the previous one.
+
+In the next chapter, an algorithm is presented to perform this computations with several optimizations to reduce its complexity and certain special cases are studied, like the aforementioned one.
