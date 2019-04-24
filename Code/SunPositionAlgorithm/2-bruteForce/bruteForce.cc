@@ -15,8 +15,8 @@ clockTime startTime;
 
 const unsigned short int STEP = 10;
 
-const bool outputEachFile = false;
-const bool userStep = false;
+const bool outputEachFile = true;
+const bool userStep = true;
 
 const string spikeFinderFolder = "spikeFinder";
 
@@ -60,14 +60,13 @@ void findPearsonCoefficients(float epoch, int step) {
 	double maxCoefficient = -23;
 	string location = "salu2";
 	int i = 0;
-	// int step = 10;
-	// if (userStep) {
-	// 	cout << "   -> Input degree step: ";
-	// 	cin >> step;
-	// }
-	// else  {
-	// 	step = STEP;
-	// }
+	if (userStep) {
+		cout << "   -> Input degree step: ";
+		cin >> step;
+	}
+	else  {
+		step = STEP;
+	}
 	for (int dec = -90; dec <= 90; dec += step) {
 		if (dec != -90 and dec != 90) {
 			for (int ra = 0; ra <= 360; ra += step) {
@@ -134,8 +133,8 @@ int main() {
 	cout << endl << "#### Brute force algorithm ####" << endl;
 	float epoch = findSpike();
 	filterDataByEpoch(epoch);
-	// findPearsonCoefficients(epoch);
-	chronoDifferentSteps(epoch);
+	findPearsonCoefficients(epoch, 60);
+	// chronoDifferentSteps(epoch);
 
 	//computeCorrelationCoefficientsUsingR();
 }

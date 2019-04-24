@@ -65,16 +65,15 @@ void chronoStart() {
 
 void chronoEnd() {
 	clockTime now = high_resolution_clock::now();
-	printExecutionTime (startTime, now);
+	// printExecutionTime (startTime, now);
 }
 
 void printCorrelationResults(possibleSunInfo bestSun) {
 	double correctRa = 212.338;
 	double correctDec = -13.060;
 	cout << "[Results]" << endl;
-	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << endl;
+	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
 	cout << "   -> Estimated Sun's location: " << bestSun.location << endl;
-	cout << "   -> Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
 }
 
 void printRealSun() {
@@ -91,11 +90,11 @@ void printRealSun() {
 }
 
 void printCorrelationParameters(double step, searchRange range){
-	cout << endl << "[C++ -> Fortran: Computing Person coefficients]" << endl; 
+	cout << endl << "-----------------------------------------------" << endl << endl;
+	cout << "[C++ -> Fortran: Computing Person coefficients]" << endl; 
 	cout << "[Parameters]" << endl; 
 	cout << "   -> Angle step precision = " + to_string(step) << endl;
-	cout << "   -> Right ascension range = [" + to_string(range.lowerRa) + ", " + to_string(range.upperRa) + "]" << endl;
-	cout << "   -> Declination range = [" + to_string(range.lowerDec) + ", " + to_string(range.upperDec) + "]" << endl;
+	cout << "   -> RightAscension = [" + to_string(range.lowerRa) + ", " + to_string(range.upperRa) + " || Declination = [" + to_string(range.lowerDec) + ", " + to_string(range.upperDec) + "]" << endl;
 }
 
 possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange range) {
@@ -123,7 +122,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 			//Do only once
 			double ra = 0;
 			pearsonCoefficient = mainfortran_(&ra, &dec, &sumy, &sumy2, &writeData);
-			if (output) cout << "\r" << "[" << ++i << " possible Suns considered]";
+			if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 			if (pearsonCoefficient > bestSun.coefficient) {
 				bestSun.coefficient = pearsonCoefficient;
 				bestSun.location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
@@ -131,7 +130,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 			// cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
 		}
 	}
-	
+	if (output) cout << endl;
 	return bestSun;
 }
 
@@ -140,8 +139,8 @@ searchRange TraverseGlobe::setRange(possibleSunInfo sun, bool defaultRange, doub
 	if (defaultRange) {
 		range.lowerRa = 0;
 		range.upperRa = 360;
-		range.lowerDec = -180;
-		range.upperDec = 180;
+		range.lowerDec = -90;
+		range.upperDec = 90;
 	}
 	else {
 		//TODO: esto deberia haber una mejor logica detras, quizas intentar que siempre haya el mismo numero de soles estudiados???
@@ -149,10 +148,16 @@ searchRange TraverseGlobe::setRange(possibleSunInfo sun, bool defaultRange, doub
 		// double decRange = step;
 		double raRange = step*rangeSize;
 		double decRange = step*rangeSize;
-		range.lowerRa = sun.ra - raRange >= 0 ? sun.ra - raRange : 360 - raRange;
-		range.upperRa = sun.ra + raRange <= 360 ? sun.ra + raRange : raRange - 360;
-		range.lowerDec = sun.dec - decRange >= -180 ? sun.dec - decRange : 180 - decRange;
-		range.upperDec = sun.dec + decRange <= 180 ? sun.dec + decRange : decRange - 180;
+
+		// range.lowerRa = sun.ra - raRange >= 0 ? sun.ra - raRange : 360 - (sun.ra - raRange);
+		// range.upperRa = sun.ra + raRange <= 360 ? sun.ra + raRange : (sun.ra + raRange) - 360;
+		// range.lowerDec = sun.dec - decRange >= -180 ? sun.dec - decRange : 180 - (sun.dec - decRange);
+		// range.upperDec = sun.dec + decRange <= 180 ? sun.dec + decRange : (sun.dec + decRange) - 180;
+
+		range.lowerRa = sun.ra - raRange >= 0 ? sun.ra - raRange : 0;
+		range.upperRa = sun.ra + raRange <= 360 ? sun.ra + raRange : 360;
+		range.lowerDec = sun.dec - decRange >= -90 ? sun.dec - decRange : -90;
+		range.upperDec = sun.dec + decRange <= 90 ? sun.dec + decRange : 90;
 
 		// range.lowerRa = range.lowerRa < 0 ? 0 : range.lowerRa;
 		// range.upperRa = range.upperRa > 360 ? 360 : range.upperRa;
@@ -163,11 +168,11 @@ searchRange TraverseGlobe::setRange(possibleSunInfo sun, bool defaultRange, doub
 }
 
 void TraverseGlobe::decreasingSTEP() {
-	int rangeSize = 4;
-	int initialStep = 100;
+	int rangeSize = 3;
+	int initialStep = 60;
 	possibleSunInfo currentSun;
 	searchRange range = setRange(currentSun, true, initialStep, rangeSize);
-	for (double step = 120; step >= 0.5; step /= 2) {
+	for (double step = initialStep; step >= 0.5; step /= 2) {
 		if (output) chronoStart();
 		currentSun = considerPossibleSuns(step, range);
 		bestSuns.push(currentSun);
