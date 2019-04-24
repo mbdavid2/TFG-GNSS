@@ -26,7 +26,7 @@ clockTime startTime;
 
 int writeData = 0;
 
-const bool output = true; 
+const bool output = false; 
 
 void TraverseGlobe::printAllPossibleSunsOrdered() {
 	cout << endl << "[List of all the studied candidates ordered by pearson correlation coefficient]" << endl;
@@ -68,7 +68,7 @@ void chronoEnd() {
 	// printExecutionTime (startTime, now);
 }
 
-void printCorrelationResults(possibleSunInfo bestSun) {
+void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun) {
 	double correctRa = 212.338;
 	double correctDec = -13.060;
 	cout << "[Results]" << endl;
@@ -76,18 +76,18 @@ void printCorrelationResults(possibleSunInfo bestSun) {
 	cout << "   -> Estimated Sun's location: " << bestSun.location << endl;
 }
 
-void printRealSun() {
-	double ra = 212.338;
-	double dec = -13.060;
-	double pearsonCoefficient = mainfortran_(&ra, &dec, &sumy, &sumy2, &writeData);
-	possibleSunInfo bestSun;
-	bestSun.coefficient = pearsonCoefficient;
-	bestSun.ra = ra;
-	bestSun.dec = dec;
-	bestSun.location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
-	cout << endl << "### Real Sun's location [ra=212.338, dec=-13.060] ###" << endl;
-	printCorrelationResults(bestSun);
-}
+// void printRealSun() {
+// 	double ra = 212.338;
+// 	double dec = -13.060;
+// 	double pearsonCoefficient = mainfortran_(&ra, &dec, &sumy, &sumy2, &writeData);
+// 	possibleSunInfo bestSun;
+// 	bestSun.coefficient = pearsonCoefficient;
+// 	bestSun.ra = ra;
+// 	bestSun.dec = dec;
+// 	bestSun.location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
+// 	cout << endl << "### Real Sun's location [ra=212.338, dec=-13.060] ###" << endl;
+// 	printCorrelationResults(bestSun);
+// }
 
 void printCorrelationParameters(double step, searchRange range){
 	cout << endl << "-----------------------------------------------" << endl << endl;
@@ -151,18 +151,13 @@ searchRange TraverseGlobe::setRange(possibleSunInfo sun, bool defaultRange, doub
 
 		// range.lowerRa = sun.ra - raRange >= 0 ? sun.ra - raRange : 360 - (sun.ra - raRange);
 		// range.upperRa = sun.ra + raRange <= 360 ? sun.ra + raRange : (sun.ra + raRange) - 360;
-		// range.lowerDec = sun.dec - decRange >= -180 ? sun.dec - decRange : 180 - (sun.dec - decRange);
-		// range.upperDec = sun.dec + decRange <= 180 ? sun.dec + decRange : (sun.dec + decRange) - 180;
+		// range.lowerDec = sun.dec - decRange >= -90 ? sun.dec - decRange : 90 - (sun.dec - decRange);
+		// range.upperDec = sun.dec + decRange <= 90 ? sun.dec + decRange : (sun.dec + decRange) - 90;
 
 		range.lowerRa = sun.ra - raRange >= 0 ? sun.ra - raRange : 0;
 		range.upperRa = sun.ra + raRange <= 360 ? sun.ra + raRange : 360;
 		range.lowerDec = sun.dec - decRange >= -90 ? sun.dec - decRange : -90;
 		range.upperDec = sun.dec + decRange <= 90 ? sun.dec + decRange : 90;
-
-		// range.lowerRa = range.lowerRa < 0 ? 0 : range.lowerRa;
-		// range.upperRa = range.upperRa > 360 ? 360 : range.upperRa;
-		// range.lowerDec = range.lowerDec < -180 ? -180 :range.upperDec;
-		// range.upperDec = range.upperDec > 180 ? 180 : range.lowerDec;
 	}
 	return range;
 }
@@ -181,7 +176,6 @@ void TraverseGlobe::decreasingSTEP() {
 		//TODO: SHOULD ONLY USE NEW COORDINATES IF THERE'S AN IMPROVEMENT
 		range = setRange(currentSun, false, step, rangeSize);
 	}
-	// printCorrelationResults(currentSun);
 }
 
 void TraverseGlobe::estimateSourcePosition(float epoch, double sumyFortran, double sumy2Fortran) {

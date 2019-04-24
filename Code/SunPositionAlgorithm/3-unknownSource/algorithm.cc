@@ -51,7 +51,7 @@ void plotResults(priority_queue<possibleSunInfo>& bestSuns) {
 	}
 	plotData.close();
 	string ranges = "";//set xrange [0:360]; set yrange [-180:180];";// set zrange [-1:1];";
-	//system("gnuplot -e \"set xlabel 'Right Ascension'; set ylabel 'Declination'; set zlabel 'Coefficient'; " + ranges +" set grid; splot 'gnuplot.in' using 1:2:3 with lines; pause -1;\"");
+	system("gnuplot -e \"set xlabel 'Right Ascension'; set ylabel 'Declination'; set zlabel 'Coefficient'; " + ranges +" set grid; splot 'gnuplot.in' using 1:2:3 with lines; pause -1;\"");
 }
 
 int main() {
@@ -64,5 +64,8 @@ int main() {
 	traverseGlobe.estimateSourcePosition(bestCandidate.epoch, bestCandidate.sumyFortran, bestCandidate.sumy2Fortran);
 	// traverseGlobe.printAllPossibleSunsOrdered();
 	priority_queue<possibleSunInfo> bestSuns = traverseGlobe.getPriorityQueueBestSuns();
-	plotResults(bestSuns);
+	// plotResults(bestSuns);
+	possibleSunInfo best = bestSuns.top();
+	cout << endl << "[Best Sun]" << endl;
+	traverseGlobe.printCorrelationResults(best);
 }
