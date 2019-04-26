@@ -3,6 +3,7 @@
 #include <vector>
 #include <chrono>
 #include <queue>
+#include <fstream>
 
 using namespace std;
 using namespace std::chrono;
@@ -97,7 +98,12 @@ void printCorrelationParameters(double step, searchRange range){
 	cout << "   -> RightAscension = [" + to_string(range.lowerRa) + ", " + to_string(range.upperRa) + " || Declination = [" + to_string(range.lowerDec) + ", " + to_string(range.upperDec) + "]" << endl;
 }
 
-possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange range) {
+void writeCoefficientToFile(double ra, double dec, double pearsonCoefficient, ofstream& plotData) {
+	plotData << ra << " " << dec << " " << pearsonCoefficient << endl;
+	
+}
+
+possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange range, ofstream& plotData) {
 	if (output) printCorrelationParameters(step, range);
 	double pearsonCoefficient;
 	int i = 0;
@@ -115,6 +121,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 					bestSun.dec = dec;
 					bestSun.location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
 				}
+				writeCoefficientToFile(ra, dec, pearsonCoefficient, plotData);
 				// cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
 			}
 		}
@@ -127,6 +134,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 				bestSun.coefficient = pearsonCoefficient;
 				bestSun.location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
 			}
+			writeCoefficientToFile(ra, dec, pearsonCoefficient, plotData);
 			// cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
 		}
 	}
@@ -163,19 +171,24 @@ searchRange TraverseGlobe::setRange(possibleSunInfo sun, bool defaultRange, doub
 }
 
 void TraverseGlobe::decreasingSTEP() {
+	// Write data to file for hill climbing
+	ofstream plotData;
+	plotData.open("gnuplot.in", ios::trunc);
+	//
 	int rangeSize = 3;
 	int initialStep = 60;
 	possibleSunInfo currentSun;
 	searchRange range = setRange(currentSun, true, initialStep, rangeSize);
 	for (double step = initialStep; step >= 0.5; step /= 2) {
 		if (output) chronoStart();
-		currentSun = considerPossibleSuns(step, range);
+		currentSun = considerPossibleSuns(step, range, plotData);
 		bestSuns.push(currentSun);
 		if (output) printCorrelationResults(currentSun);
 		if (output) chronoEnd();
 		//TODO: SHOULD ONLY USE NEW COORDINATES IF THERE'S AN IMPROVEMENT
 		range = setRange(currentSun, false, step, rangeSize);
 	}
+	plotData.close();
 }
 
 void TraverseGlobe::estimateSourcePosition(float epoch, double sumyFortran, double sumy2Fortran) {

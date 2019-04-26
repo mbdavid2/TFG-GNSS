@@ -33,7 +33,7 @@ candidate findSpike() {
 }
 
 void filterByTime(float time) {
-	string command = "cat " + DATA_FOLDER + FILTERED_FILE_TIME + " | gawk -f " + DATA_FOLDER + AWK_SCRIPT_TIME + " -v flareTime=" + to_string(time) + " > spikeData.out";
+	string command = "cat " + DATA_FOLDER + FILTERED_FILE_TIME + " | gawk -f " + AWK_SCRIPT_TIME + " -v flareTime=" + to_string(time) + " > spikeData.out";
 	system(command); 
 }
 
@@ -54,6 +54,25 @@ void plotResults(priority_queue<possibleSunInfo>& bestSuns) {
 	system("gnuplot -e \"set xlabel 'Right Ascension'; set ylabel 'Declination'; set zlabel 'Coefficient'; " + ranges +" set grid; splot 'gnuplot.in' using 1:2:3 with lines; pause -1;\"");
 }
 
+void plotIPPsRaDecVTEC() {
+	//Esto como que no es muy interesante no? No dice nada pq son RA i DEC del IPP
+	string ranges = "";//set xrange [0:360]; set yrange [-180:180];";// set zrange [-1:1];";
+	system("gnuplot -e \"set xlabel 'Right Ascension'; set ylabel 'Declination'; set zlabel 'VTEC'; " + ranges +" set grid; splot 'spikeData.out' using 2:3:1 with point; pause -1;\"");
+}
+
+void plotSunsRaDecCoefInterpolate() {
+	string ranges = "set zrange [0:1];";//set xrange [0:360]; set yrange [-180:180];";// set zrange [-1:1];";
+	string labels = "set xlabel 'Right Ascension'; set ylabel 'Declination'; set zlabel 'Coefficient'; ";
+	system("gnuplot -e \"" + labels + "set hidden3d; set dgrid3d 35,35 qnorm 2; " + ranges +" set grid; splot 'gnuplot.in' using 1:2:3 with lines; pause -1;\"");
+}
+
+void plotSunsRaDecCoef() {
+	string ranges = "";//set xrange [0:360]; set yrange [-180:180];";// set zrange [-1:1];";
+	string labels = "set xlabel 'Right Ascension'; set ylabel 'Declination'; set zlabel 'Coefficient'; ";
+	system("gnuplot -e \"" + labels + ranges +" set grid; splot 'gnuplot.in' using 1:2:3 with points; pause -1;\"");
+}
+
+
 int main() {
 	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl;
 	// reFilterTiFile();
@@ -68,4 +87,6 @@ int main() {
 	possibleSunInfo best = bestSuns.top();
 	cout << endl << "[Best Sun]" << endl;
 	traverseGlobe.printCorrelationResults(best);
+	// plotSunsRaDecCoefInterpolate();
+	// plotSunsRaDecCoef();
 }

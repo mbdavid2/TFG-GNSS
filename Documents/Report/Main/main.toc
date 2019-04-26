@@ -1,3 +1,5 @@
+\contentsline {paragraph}{Main}{5}
+\contentsline {paragraph}{Content}{5}
 \contentsline {chapter}{\numberline {1}GEP}{7}
 \contentsline {chapter}{\numberline {2}Background}{8}
 \contentsline {section}{\numberline {2.1}Global Navigation Satellite Systems}{8}
@@ -38,6 +40,11 @@
 \contentsline {paragraph}{Computing the correlation}{30}
 \contentsline {paragraph}{Compiling}{31}
 \contentsline {subsection}{\numberline {5.2.2}Results}{32}
-\contentsline {chapter}{\numberline {6}Sun flare detection algorithm}{34}
-\contentsline {section}{\numberline {6.1}Correlation computation}{34}
-\contentsline {section}{\numberline {6.2}Decrease range of the search}{34}
+\contentsline {chapter}{\numberline {6}BGSEES}{34}
+\contentsline {section}{\numberline {6.1}Decreasing the range of the search}{34}
+\contentsline {subsection}{\numberline {6.1.1}Pseudocode}{34}
+\contentsline {subsection}{\numberline {6.1.2}Implementation}{35}
+\contentsline {subsection}{\numberline {6.1.3}Results}{35}
+\contentsline {section}{\numberline {6.2}Hill Climbing}{35}
+\contentsline {section}{\numberline {6.3}Least squares}{35}
+\contentsline {section}{\numberline {6.4}Discarding the Sun hemisphere}{35}

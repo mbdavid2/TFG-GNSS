@@ -174,11 +174,11 @@ The solar-zenith angle (denoted $\chi$ from now onward) plays a major role when 
 
 Figure \ref{fig:solar-zenith-angle}, at the end of the chapter, provides a visual representation of this variable that along with the results depicts how it can affect the VTEC value. 
 
-Obtaining the angle between two celestial objects has been shown in the previous section by means of equations \ref{eq:1}, \ref{eq:2} and \ref{eq:3}, when calculating the angle between the Sun and a detected GRB.
+Obtaining the angle between two celestial objects has been shown in the previous section by means of equations \ref{eq:3}, \ref{eq:4} and \ref{eq:5}, when calculating the angle between the Sun and a detected GRB.
 
 \textbf{TODO: JUSTIFICAR ESTAS DOS EQUACIONES!!!}
 
-\begin{equation} \label{eq:1}
+\begin{equation} \label{eq:3}
 unitVectorObjectA =	
 \begin{bmatrix}
 \cos\delta_{g} * \cos\alpha_{g} \\ 
@@ -187,7 +187,7 @@ unitVectorObjectA =
 \end{bmatrix}
 \end{equation}
 
-\begin{equation} \label{eq:2}
+\begin{equation} \label{eq:4}
 unitVectorObjectB =	
 \begin{bmatrix}
 \cos\delta_{s} * \cos\alpha_{s} \\ 
@@ -196,17 +196,17 @@ unitVectorObjectB =
 \end{bmatrix}
 \end{equation}
 
-\begin{equation} \label{eq:3}
+\begin{equation} \label{eq:5}
 \cos \beta = unitVectorObjectA \cdot unitVectorObjectB
 \end{equation}\\
 
 For this case, though, the angle is computed using the IPP's Right Ascension and Latitude (equivalent to declination), yielding the cosine of $\chi$, the \textbf{solar-zenith angle}. The previous dot product can be simplified to:
 
-\begin{equation} \label{eq:4}
+\begin{equation} \label{eq:6}
 \cos \chi = \sin\delta_{IPP}*\sin\delta_{Sun} + \cos\delta_{IPP}*\cos\delta_{Sun}*\cos(\alpha_{IPP} - \alpha_{Sun})
 \end{equation}\\
 
-The following Fortran code is the function that implements equation \ref{eq:4} and returns $\cos \chi$:
+The following Fortran code is the function that implements equation \ref{eq:6} and returns $\cos \chi$:
 
 \begin{lstlisting}[language=Fortran, caption=Computation of the solar-zenith a angle's cosine]
 double precision function computeAngle (raIPP, decIPP, raSun, decSun)

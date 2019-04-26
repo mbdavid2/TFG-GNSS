@@ -25,7 +25,7 @@ class TraverseGlobe {
 	private:
 		void decreasingSTEP();
 
-		possibleSunInfo considerPossibleSuns(double step, searchRange range);
+		possibleSunInfo considerPossibleSuns(double step, searchRange range, ofstream& plotData);
 
 		searchRange setRange(possibleSunInfo sun, bool defaultRange, double step, int rangeSize);
 
