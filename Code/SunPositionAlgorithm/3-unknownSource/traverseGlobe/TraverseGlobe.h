@@ -1,24 +1,11 @@
+#ifndef TRAVERSEGLOBE_H
+#define TRAVERSEGLOBE_H
 #include <iostream>
 #include <vector>
 #include <queue>
+#include "../auxiliary/auxiliary.h"
 
 using namespace std;
-
-struct possibleSunInfo {
-	double coefficient;
-	double ra;
-	double dec;
-	string location;
-};
-
-bool operator<(possibleSunInfo a, possibleSunInfo b);
-
-struct searchRange {
-	double lowerRa;
-	double upperRa;
-	double lowerDec;
-	double upperDec;
-};
 
 class TraverseGlobe {
 
@@ -30,7 +17,7 @@ class TraverseGlobe {
 		searchRange setRange(possibleSunInfo sun, bool defaultRange, double step, int rangeSize);
 
 	public:
-		void estimateSourcePosition(float epoch, double sumyFortran, double sumy2Fortran);
+		void estimateSourcePosition(double epoch, double sumyFortran, double sumy2Fortran);
 
 		void printCorrelationResults(possibleSunInfo bestSun);
 
@@ -39,6 +26,7 @@ class TraverseGlobe {
 		void printAllPossibleSunsOrdered();
 };
 
+#endif
 
 
 

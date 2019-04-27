@@ -22,7 +22,7 @@ void SpikeFinder::printTopNCandidates(int n) {
 	}
 }
 
-float SpikeFinder::getBestEpoch() {
+double SpikeFinder::getBestEpoch() {
 	return !candidates.empty() ? candidates.top().epoch : -1.0;
 }
 
@@ -33,7 +33,7 @@ void SpikeFinder::printAllCandidates() {
 	}
 }
 
-void SpikeFinder::insertCandidate (priority_queue<candidate>& candidates, float epoch, float maxMeanVTEC) {
+void SpikeFinder::insertCandidate (priority_queue<candidate>& candidates, double epoch, double maxMeanVTEC) {
 	candidate c;
 	c.epoch = epoch;
 	c.maxMeanVTEC = maxMeanVTEC;
@@ -46,9 +46,9 @@ void SpikeFinder::insertCandidate (priority_queue<candidate>& candidates, float 
 }
 
 priority_queue<candidate> SpikeFinder::findQueueBestCandidates (ifstream& data) {
-	float epochIn, vtecIn, raIPPIn, latIPPIn;
-	float previousEpoch = -1;
-	float totalEpochVTEC = 0;
+	double epochIn, vtecIn, raIPPIn, latIPPIn;
+	double previousEpoch = -1;
+	double totalEpochVTEC = 0;
 	int n = 0;
 	priority_queue<candidate> candidates;
 
@@ -69,7 +69,7 @@ priority_queue<candidate> SpikeFinder::findQueueBestCandidates (ifstream& data) 
 	return candidates;
 }
 
-// void SpikeFinder::saveInfo(vector<infoIPP>& infoVec, float epoch, float vtec, float ra, float lat) {
+// void SpikeFinder::saveInfo(vector<infoIPP>& infoVec, double epoch, double vtec, double ra, double lat) {
 // 	infoIPP info;
 // 	info.epoch = epoch;
 // 	info.vtec = vtec;
@@ -79,9 +79,9 @@ priority_queue<candidate> SpikeFinder::findQueueBestCandidates (ifstream& data) 
 // }
 
 candidate SpikeFinder::findSingleBestCandidate (ifstream& data) {
-	float epochIn, vtecIn, raIPPIn, latIPPIn;
-	float previousEpoch = -1;
-	float totalEpochVTEC = 0;
+	double epochIn, vtecIn, raIPPIn, latIPPIn;
+	double previousEpoch = -1;
+	double totalEpochVTEC = 0;
 	int n = 0;
 	candidate bestCandidate;
 	bestCandidate.epoch = 0;
@@ -102,7 +102,7 @@ candidate SpikeFinder::findSingleBestCandidate (ifstream& data) {
 		totalEpochVTEC += vtecIn;
 		n++;
 		if (previousEpoch != epochIn) {
-			float maxMeanVTEC = totalEpochVTEC/n;
+			double maxMeanVTEC = totalEpochVTEC/n;
 			if (maxMeanVTEC > bestCandidate.maxMeanVTEC) {
 				bestCandidate.maxMeanVTEC = maxMeanVTEC;
 				bestCandidate.epoch = previousEpoch;

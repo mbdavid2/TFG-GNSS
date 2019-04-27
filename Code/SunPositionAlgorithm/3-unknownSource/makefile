@@ -1,4 +1,4 @@
-.PHONY: pristine clean cleanResults correlation spikeFinder traverseGlobe
+.PHONY: pristine clean cleanResults correlation spikeFinder traverseGlobe fileManager resultsDebugger
 SHELL := /bin/bash
 CFLAGS = -Wall
 FFLAGS = -lgfortran
@@ -18,28 +18,48 @@ tiDataFolder = ../data/
 spikeFinder = spikeFinder/SpikeFinder
 traverseGlobe = traverseGlobe/TraverseGlobe
 correlation = computeCorrelation/computeCorrelation
+fileManager = fileManager/FileManager
+resultsDebugger = resultsDebugger/ResultsDebugger
+auxiliary = auxiliary/auxiliary
 
 main: compile run 
 
-compile: correlation spikeFinder traverseGlobe
-	g++ $(CFLAGS) $(correlation).o $(spikeFinder).o $(traverseGlobe).o $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
+compile: correlation auxiliary resultsDebugger fileManager spikeFinder traverseGlobe
+	g++ $(CFLAGS) $(auxiliary).o $(resultsDebugger).o $(fileManager).o $(correlation).o $(spikeFinder).o $(traverseGlobe).o $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
 
 correlation: $(correlation).f90
 	gfortran $(correlation).f90 -c -o $(correlation).o
 
-spikeFinder: $(spikeFinder).cc
+spikeFinder: $(spikeFinder).cc $(spikeFinder).h
 	g++ $(spikeFinder).cc -c -o $(spikeFinder).o
 
-traverseGlobe: $(traverseGlobe).cc
+traverseGlobe: $(traverseGlobe).cc $(traverseGlobe).h
 	g++ $(traverseGlobe).cc -c -o $(traverseGlobe).o
 
-run: $(tiDataFolder)$(tiFilteredFile) $(algorithmName).x 
+fileManager: $(fileManager).cc $(fileManager).h
+	g++ $(fileManager).cc -c -o $(fileManager).o
+
+resultsDebugger: $(resultsDebugger).cc $(resultsDebugger).h
+	g++ $(resultsDebugger).cc -c -o $(resultsDebugger).o
+
+auxiliary: $(auxiliary).cc $(auxiliary).h
+	g++ $(auxiliary).cc -c -o $(auxiliary).o 
+
+run: $(algorithmName).x 
 	./$(algorithmName).x
 
 
 
-preProcessDataAWK: $(tiDataFolder)$(tiOriginalFile) $(tiDataFolder)filterDataTi.awk
-	zcat $(tiDataFolder)$(tiOriginalFile) | gawk -f $(tiDataFolder)filterDataTi.awk > $(tiDataFolder)$(tiFilteredFile)
+
+
+
+
+
+
+
+
+# preProcessDataAWK: $(tiDataFolder)$(tiOriginalFile) $(tiDataFolder)filterDataTi.awk
+# 	zcat $(tiDataFolder)$(tiOriginalFile) | gawk -f $(tiDataFolder)filterDataTi.awk > $(tiDataFolder)$(tiFilteredFile)
 
 # plot:
 # 	@./runBruteForce.sh plot

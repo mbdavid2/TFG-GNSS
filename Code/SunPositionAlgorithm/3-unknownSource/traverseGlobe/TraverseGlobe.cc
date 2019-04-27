@@ -1,18 +1,15 @@
-#include "TraverseGlobe.h"
 #include <iostream>
 #include <vector>
 #include <chrono>
 #include <queue>
 #include <fstream>
+#include "TraverseGlobe.h"
+#include "../auxiliary/auxiliary.h"
 
 using namespace std;
 using namespace std::chrono;
 
 typedef high_resolution_clock::time_point clockTime;
-
-bool operator<(possibleSunInfo a, possibleSunInfo b) { 
-	return a.coefficient < b.coefficient ? true : false; 
-}
 
 priority_queue<possibleSunInfo> bestSuns;
 
@@ -191,7 +188,7 @@ void TraverseGlobe::decreasingSTEP() {
 	plotData.close();
 }
 
-void TraverseGlobe::estimateSourcePosition(float epoch, double sumyFortran, double sumy2Fortran) {
+void TraverseGlobe::estimateSourcePosition(double epoch, double sumyFortran, double sumy2Fortran) {
 	sumy2 = sumy2Fortran;
 	sumy = sumyFortran;
 	decreasingSTEP();

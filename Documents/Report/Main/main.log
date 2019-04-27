@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  26 APR 2019 18:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  27 APR 2019 09:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -755,7 +755,8 @@ LaTeX Warning: Label `eq:2' multiply defined.
 
 LaTeX Warning: Label `eq:3' multiply defined.
 
-) (./sections/ch5BruteForceApproach.aux) (./sections/ch6Algorithm.aux))
+) (./sections/ch5BruteForceApproach.aux) (./sections/ch6Algorithm.aux)
+(./sections/chXResults.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
@@ -1168,7 +1169,16 @@ Chapter 6.
 
 
 
-]) [35] [36
+]) [35]
+\openout2 = `sections/chXResults.aux'.
+
+ (./sections/chXResults.tex
+Chapter 7.
+) [36
+
+
+
+] [37
 
 ] (./main.bbl
 Underfull \hbox (badness 2269) in paragraph at lines 4--8
@@ -1182,13 +1192,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 du / starlink /
  []
 
-[37
+[38
 
-]) [38] (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
+]) [39] (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
 (./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
 (./sections/ch2Background.aux) (./sections/ch3StellarFlares.aux)
 (./sections/ch4SolarFlareAlgorithm.aux) (./sections/ch5BruteForceApproach.aux)
-(./sections/ch6Algorithm.aux))
+(./sections/ch6Algorithm.aux) (./sections/chXResults.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1197,10 +1207,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11687 strings out of 494847
- 169020 string characters out of 6179080
- 475652 words of memory out of 5000000
- 14698 multiletter control sequences out of 15000+600000
+ 11695 strings out of 494847
+ 169196 string characters out of 6179080
+ 476213 words of memory out of 5000000
+ 14699 multiletter control sequences out of 15000+600000
  13731 words of font info for 49 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  53i,12n,101p,2130b,1928s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1217,10 +1227,10 @@ ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (40 pages, 562253 bytes).
+Output written on main.pdf (41 pages, 562543 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 210 PDF objects out of 1000 (max. 8388607)
+ 136 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
