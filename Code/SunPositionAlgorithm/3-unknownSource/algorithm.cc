@@ -87,6 +87,5 @@ int main() {
 	possibleSunInfo best = bestSuns.top();
 	cout << endl << "[Best Sun]" << endl;
 	traverseGlobe.printCorrelationResults(best);
-	// plotSunsRaDecCoefInterpolate();
 	// plotSunsRaDecCoef();
 }

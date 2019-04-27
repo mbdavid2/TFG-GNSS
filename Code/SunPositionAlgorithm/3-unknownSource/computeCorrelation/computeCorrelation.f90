@@ -2,7 +2,7 @@ double precision function mainFortran (raSunIn, decSunIn, sumy, sumy2, writeData
 	implicit none
 	double precision, intent(in) :: raSunIn, decSunIn, sumy, sumy2, writeData
 
-	double precision, parameter :: CORRELATION_THRESHOLD = -0.5
+	double precision, parameter :: CORRELATION_THRESHOLD = -0.2
 
 	double precision :: rxyPearsonCoefficient
 
