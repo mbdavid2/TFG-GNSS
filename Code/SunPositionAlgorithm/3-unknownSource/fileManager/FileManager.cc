@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include "FileManager.h"
 #include "../auxiliary/auxiliary.h"
 
@@ -33,7 +35,11 @@ void FileManager::filterTiFileByTime(double time) {
         exit(0);
     }
     string outputFile = "spikeData.out";
-	string command = "cat " + filteredFile + " | gawk -f " + filterTimeAWKScript + " -v flareTime=" + to_string(time) + " > " + outputFile;
+    stringstream stream;
+    stream << fixed << setprecision(13) << time;
+    string timeS = stream.str();
+	string command = "cat " + filteredFile + " | gawk -f " + filterTimeAWKScript + " -v flareTime=" + timeS + " > " + outputFile;
+    cout << command << endl;
 	system(command.c_str()); 
 }
 

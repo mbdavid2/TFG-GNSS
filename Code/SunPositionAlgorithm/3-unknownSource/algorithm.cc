@@ -8,8 +8,8 @@
 
 using namespace std;
 
-const string ORIGINAL_FILE = "ti.2003.301.10h30m-11h30m.gz";
-const string ORIGINAL_FILE2 = "ti.2006.340.67190s-68500s.flare.gz";
+// const string ORIGINAL_FILE = "ti.2003.301.10h30m-11h30m.gz";
+const string ORIGINAL_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 
 const string FILTER_AWK_SCRIPT = "filterDataTi.awk";
 const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
@@ -54,4 +54,7 @@ int main() {
 
 	cout << endl << "[Best Sun]" << endl;
 	traverseGlobe.printCorrelationResults(best);
+
+	ResultsDebugger resultsDebugger;
+	resultsDebugger.plotSunsRaDecCoef();
 }

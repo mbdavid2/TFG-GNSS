@@ -1,4 +1,4 @@
-.PHONY: pristine clean cleanResults correlation spikeFinder traverseGlobe fileManager resultsDebugger
+.PHONY: pristine clean cleanResults correlation spikeFinder traverseGlobe fileManager resultsDebugger auxiliary
 SHELL := /bin/bash
 CFLAGS = -Wall
 FFLAGS = -lgfortran
