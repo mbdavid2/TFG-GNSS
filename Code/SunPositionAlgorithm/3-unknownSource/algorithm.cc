@@ -41,9 +41,11 @@ void decreaseRangeMethod(FileManager fileManager, double epoch) {
 	cout << endl << "____________________________________" << endl << endl;
 }
 
-void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candidates, FileManager fileManager) {
-	while (!candidates.empty()) {
+void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candidates, FileManager fileManager, int n) {
+	int i = 0;
+	while (!candidates.empty() && ++i <= n) {
 		spikeFinder.printInfoCandidate(candidates.top());
+		cout << candidates.top().epoch;
 		decreaseRangeMethod(fileManager, candidates.top().epoch);
 		candidates.pop();
 	}
@@ -51,13 +53,13 @@ void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candi
 
 void leastSquaresMethod(priority_queue<infoIPP> bestIPPs) {
 	FortranController fc;
-	fc.leastSquares(bestIPPs);
 	cout << endl << "[Least Squres method]" << endl;
+	fc.leastSquares(bestIPPs);
 	cout << endl << "____________________________________" << endl << endl;
 }
 
 void mainAlgorithm() {
-	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl;
+	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl << endl;
 	FileManager fileManager;
 
 	// First filter
@@ -74,9 +76,10 @@ void mainAlgorithm() {
 
 	// Test: multiple epochs
 	SpikeFinder spikeFinder;
-	candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
+	// candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
+	spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
 	priority_queue<candidate> candidates = spikeFinder.getPQBestCandidates();
-	multipleEpochsTest(spikeFinder, candidates, fileManager);
+	multipleEpochsTest(spikeFinder, candidates, fileManager, 15);
 
 	// Find location using the least squares method
 	// Get best IPPs from that epoch

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  1 MAY 2019 12:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  1 MAY 2019 18:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,7 +996,7 @@ l.10 \end{abstract}
 {page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.43 ...ter}{\numberline {6}BGSEES}{34}{chapter.6}
+l.43 ...traterrestrial EUV Sources}{33}{chapter.6}
                                                    [1
 
 
@@ -1276,16 +1276,19 @@ Chapter 6.
 
 
 
-]) [35]
+]) [35] [36]
 \openout2 = `sections/chXResults.aux'.
 
  (./sections/chXResults.tex
 Chapter 7.
-) [36
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [37
 
 
 
-] [37
+] [38] [39
 
 ] (./main.bbl
 Underfull \hbox (badness 2269) in paragraph at lines 4--8
@@ -1299,11 +1302,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 du / starlink /
  []
 
-[38
+[40
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
- [39]
+ [41]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
  (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
 (./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
@@ -1313,7 +1316,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4A3ADA93B38F2FDD364C8FB7CDDD90F1;2645.
+(rerunfilecheck)             Checksum: DFBA75231B791F8FB8ED3C0F8094B32F;2695.
 
 
 LaTeX Warning: There were undefined references.
@@ -1324,8 +1327,8 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
  ) 
 Here is how much of TeX's memory you used:
- 15417 strings out of 494847
- 225536 string characters out of 6179080
+ 15421 strings out of 494847
+ 225577 string characters out of 6179080
  557995 words of memory out of 5000000
  18106 multiletter control sequences out of 15000+600000
  13731 words of font info for 49 fonts, out of 8000000 for 9000
@@ -1344,10 +1347,10 @@ ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (41 pages, 578237 bytes).
+Output written on main.pdf (43 pages, 581490 bytes).
 PDF statistics:
- 830 PDF objects out of 1000 (max. 8388607)
- 750 compressed objects within 8 object streams
- 302 named destinations out of 1000 (max. 500000)
+ 842 PDF objects out of 1000 (max. 8388607)
+ 760 compressed objects within 8 object streams
+ 306 named destinations out of 1000 (max. 500000)
  374 words of extra memory for PDF output out of 10000 (max. 10000000)
 

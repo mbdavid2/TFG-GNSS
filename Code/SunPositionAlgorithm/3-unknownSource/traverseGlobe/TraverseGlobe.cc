@@ -45,6 +45,8 @@ void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun) {
 	// cout << "[Results]" << endl;
 	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << endl; //<< " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
 	cout << "   -> Estimated Sun's location: " << bestSun.location << endl;
+
+	// cout << " " << bestSun.ra << " " << bestSun.dec << " " << abs(correctRa-bestSun.ra) << " " << abs(correctDec-bestSun.dec) << " " << bestSun.coefficient << endl;
 }
 
 // void printRealSun() {

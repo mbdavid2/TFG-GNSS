@@ -40,7 +40,7 @@
 \contentsline {paragraph}{Computing the correlation}{30}{paragraph*.21}
 \contentsline {paragraph}{Compiling}{31}{paragraph*.22}
 \contentsline {subsection}{\numberline {5.2.2}Results}{32}{subsection.5.2.2}
-\contentsline {chapter}{\numberline {6}BGSEES}{34}{chapter.6}
+\contentsline {chapter}{\numberline {6}Blind GNSS Search of Extraterrestrial EUV Sources}{34}{chapter.6}
 \contentsline {section}{\numberline {6.1}Decreasing the range of the search}{34}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}Pseudocode}{34}{subsection.6.1.1}
 \contentsline {subsection}{\numberline {6.1.2}Implementation}{35}{subsection.6.1.2}
@@ -48,7 +48,7 @@
 \contentsline {section}{\numberline {6.2}Hill Climbing}{35}{section.6.2}
 \contentsline {section}{\numberline {6.3}OpenMP?}{35}{section.6.3}
 \contentsline {section}{\numberline {6.4}Discarding the Sun hemisphere}{35}{section.6.4}
-\contentsline {chapter}{\numberline {7}Results}{36}{chapter.7}
-\contentsline {section}{\numberline {7.1}Sun}{36}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Optimization 1}{36}{subsection.7.1.1}
-\contentsline {section}{\numberline {7.2}Far-away stars}{36}{section.7.2}
+\contentsline {chapter}{\numberline {7}Results}{37}{chapter.7}
+\contentsline {section}{\numberline {7.1}Sun}{37}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Decrease range method}{37}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}Far-away stars}{37}{section.7.2}

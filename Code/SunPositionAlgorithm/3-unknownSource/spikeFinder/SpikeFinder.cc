@@ -18,7 +18,7 @@ bool operator<(infoIPP a, infoIPP b) {
 }
 
 void SpikeFinder::printInfoCandidate(candidate c) {
-	cout << "[Best epoch candidate]" << endl;
+	cout << "[Epoch candidate]" << endl;
 	cout << "  -> Epoch: " << c.epoch << endl;
 	cout << "  -> Mean VTEC of epoch: " << c.maxMeanVTEC << endl;
 	// cout << "  -> Max VTEC of epoch: " << c.maxIndividialVTEC << endl;
