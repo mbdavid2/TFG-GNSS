@@ -1,7 +1,7 @@
 #ifndef FILEMANAGER_H
 #define FILEMANAGER_H
 #include <iostream>
-#include "../auxiliary/auxiliary.h"
+#include "../auxiliary/Auxiliary.h"
 
 using namespace std;
 

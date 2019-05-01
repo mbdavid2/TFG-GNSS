@@ -2,7 +2,7 @@
 #define RESULTSDEBUGGER_H
 #include <iostream>
 #include <queue>
-#include "../auxiliary/auxiliary.h"
+#include "../auxiliary/Auxiliary.h"
 
 using namespace std;
 

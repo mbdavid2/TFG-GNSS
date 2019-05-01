@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <sstream>
 #include "FileManager.h"
-#include "../auxiliary/auxiliary.h"
+#include "../auxiliary/Auxiliary.h"
 
 using namespace std;
 
@@ -39,7 +39,6 @@ void FileManager::filterTiFileByTime(double time) {
     stream << fixed << setprecision(13) << time;
     string timeS = stream.str();
 	string command = "cat " + filteredFile + " | gawk -f " + filterTimeAWKScript + " -v flareTime=" + timeS + " > " + outputFile;
-    cout << command << endl;
 	system(command.c_str()); 
 }
 

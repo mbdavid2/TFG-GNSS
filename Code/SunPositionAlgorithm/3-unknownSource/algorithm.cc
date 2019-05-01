@@ -5,32 +5,28 @@
 #include "traverseGlobe/TraverseGlobe.h"
 #include "fileManager/FileManager.h"
 #include "resultsDebugger/ResultsDebugger.h"
+#include "hillClimbing/HillClimbing.h"
+#include "auxiliary/Auxiliary.h"
+#include "fortranController/FortranController.h"
 
 using namespace std;
 
-// const string ORIGINAL_FILE = "ti.2003.301.10h30m-11h30m.gz";
-const string ORIGINAL_FILE = "ti.2006.340.67190s-68500s.flare.gz";
+const string ORIGINAL_FILE = "ti.2003.301.10h30m-11h30m.gz";
+// const string ORIGINAL_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 
 const string FILTER_AWK_SCRIPT = "filterDataTi.awk";
 const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
 
-void printSpikeCandidate(candidate c) {
-	cout << "  -> Epoch: " << c.epoch << endl;
-	cout << "  -> Mean VTEC of epoch: " << c.maxMeanVTEC << endl;
-	cout << "  -> Max VTEC of epoch: " << c.maxIndividialVTEC << endl;
-	cout << "  -> Ra of max candidate: " << c.bestRa << endl;
-	cout << "  -> Dec of max candidate: " << c.bestDec << endl;
-}
-
 candidate findSpike(string dataFile) {
 	cout << "[C++: Finding a spike in the VTEC distribution]" << endl;
 	SpikeFinder spikeFinder;
-	candidate bestCandidate = spikeFinder.getInfoBestCandidate(dataFile, 0);
-	printSpikeCandidate(bestCandidate);
+	candidate bestCandidate = spikeFinder.computeInfoBestCandidate(dataFile, 1);
+	spikeFinder.printInfoCandidate(bestCandidate);
+	spikeFinder.printBestIPPsFromCandidate(bestCandidate);
 	return bestCandidate;
 }
 
-int main() {
+void mainAlgorithm() {
 	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl;
 	FileManager fileManager;
 
@@ -47,7 +43,7 @@ int main() {
 
 	//Execute main algorithm
 	TraverseGlobe traverseGlobe;
-	traverseGlobe.estimateSourcePosition(bestCandidate.epoch, bestCandidate.sumyFortran, bestCandidate.sumy2Fortran);
+	traverseGlobe.estimateSourcePosition(bestCandidate.epoch, 0, 0); //TODO: quitar estos ceros del sumfortran
 	priority_queue<possibleSunInfo> bestSuns = traverseGlobe.getPriorityQueueBestSuns();
 
 	possibleSunInfo best = bestSuns.top();
@@ -55,6 +51,19 @@ int main() {
 	cout << endl << "[Best Sun]" << endl;
 	traverseGlobe.printCorrelationResults(best);
 
-	ResultsDebugger resultsDebugger;
-	resultsDebugger.plotSunsRaDecCoef();
+	// ResultsDebugger resultsDebugger;
+	// resultsDebugger.plotSunsRaDecCoef();
+}
+
+int main() {
+	Auxiliary aux;
+	aux.chronoStart();
+	mainAlgorithm();
+	aux.chronoEnd();
+
+
+
+
+	// HillClimbing hillClimbing;
+	// hillClimbing.hillClimbing();
 }

@@ -3,15 +3,16 @@
 #include <iostream>
 #include <fstream>
 #include <queue>
+#include <map>
 
 using namespace std;
 
-// struct infoIPP {
-// 	double epoch;
-// 	double vtec;
-// 	double ra;
-// 	double dec;
-// };
+struct infoIPP {
+	double epoch;
+	double vtec;
+	double ra;
+	double dec;
+};
 
 struct candidate { 
 	double epoch; 
@@ -19,9 +20,6 @@ struct candidate {
 	double maxIndividialVTEC;
 	double bestRa;
 	double bestDec;
-	double sumyFortran;
-	double sumy2Fortran;
-	// vector<infoIPP> infoAllRows;
 };
 
 bool operator<(candidate a, candidate b);
@@ -29,24 +27,40 @@ bool operator<(candidate a, candidate b);
 class SpikeFinder {
 
 	private: 
-		// void saveInfo(vector<infoIPP>& infoVec, double epoch, double vtec, double ra, double lat);
 
-		void insertCandidate(priority_queue<candidate>& candidates, double epoch, double meanVTEC);
+		// Objects
+		map<double, priority_queue<infoIPP> > priorityQueuesEpochs;
 
-	public:
 		priority_queue<candidate> candidates;
 
-		double getBestEpoch();
+		priority_queue<infoIPP> IPPsOfEpoch;
+
+		// Functions
+		void insertCandidate(double epoch, double meanVTEC);
+
+		void insertInfoIPP (double epoch, double vtec, double ra, double lat);
+
+		candidate getBestCandidateFromPQ();
+
+		// Printing
+		void printAllCandidates();
 
 		void printTopNCandidates(int n);
 
-		void printAllCandidates();
-
-		priority_queue<candidate> findQueueBestCandidates (ifstream& data);
+	public:		
+		
+		void findQueueBestCandidates (ifstream& data);
 
 		candidate findSingleBestCandidate (ifstream& data);
 
-		candidate getInfoBestCandidate (string fileName, int type);
+		candidate computeInfoBestCandidate (string fileName, int type);
+
+		priority_queue<candidate> getBestIPPsFromCandidate(candidate c);
+
+		// Printing
+		void printBestIPPsFromCandidate(candidate c);
+
+		void printInfoCandidate(candidate c);
 };
 
 #endif

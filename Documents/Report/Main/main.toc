@@ -1,54 +1,54 @@
-\contentsline {paragraph}{Main}{5}
-\contentsline {paragraph}{Content}{5}
-\contentsline {chapter}{\numberline {1}GEP}{7}
-\contentsline {chapter}{\numberline {2}Background}{8}
-\contentsline {section}{\numberline {2.1}Global Navigation Satellite Systems}{8}
-\contentsline {paragraph}{GNSS and GPS}{8}
-\contentsline {paragraph}{Positioning}{8}
-\contentsline {paragraph}{Ionospheric Pierce Points}{9}
-\contentsline {paragraph}{The International GNSS Service}{9}
-\contentsline {section}{\numberline {2.2}Ionosphere}{9}
-\contentsline {section}{\numberline {2.3}Stellar flares}{10}
-\contentsline {section}{\numberline {2.4}Gamma-Ray Bursts}{10}
-\contentsline {chapter}{\numberline {3}Study on the feasibility of stellar flare detection}{11}
-\contentsline {section}{\numberline {3.1}Sources of data and possible candidates}{12}
-\contentsline {section}{\numberline {3.2}The Neil Gehrels Swift Observatory and its data}{12}
-\contentsline {section}{\numberline {3.3}Objective function}{13}
-\contentsline {paragraph}{Computing the angle}{14}
-\contentsline {section}{\numberline {3.4}Obtaining the data}{15}
-\contentsline {section}{\numberline {3.5}Results}{15}
-\contentsline {chapter}{\numberline {4}Solar flare detection}{16}
-\contentsline {section}{\numberline {4.1}Data}{16}
-\contentsline {subsection}{\numberline {4.1.1}GPS Data}{16}
-\contentsline {subsection}{\numberline {4.1.2}Formatting}{17}
-\contentsline {subsection}{\numberline {4.1.3}The Halloween Solar Storm: X17.2 flare}{18}
-\contentsline {section}{\numberline {4.2}Vertical Total Electron Content (VTEC)}{19}
-\contentsline {subsection}{\numberline {4.2.1}Computing the VTEC}{19}
-\contentsline {paragraph}{Implementation}{19}
-\contentsline {subsection}{\numberline {4.2.2}Distribution throughout the day}{19}
-\contentsline {section}{\numberline {4.3}Solar-zenith angle}{21}
-\contentsline {section}{\numberline {4.4}Results}{23}
-\contentsline {chapter}{\numberline {5}Brute Force Approach}{25}
-\contentsline {section}{\numberline {5.1}Key elements}{25}
-\contentsline {subsection}{\numberline {5.1.1}Moment of the flare}{25}
-\contentsline {subsection}{\numberline {5.1.2}Correlation}{26}
-\contentsline {paragraph}{Computation}{26}
-\contentsline {section}{\numberline {5.2}Algorithm}{26}
-\contentsline {subsection}{\numberline {5.2.1}Implementation}{29}
-\contentsline {paragraph}{Finding the epoch}{29}
-\contentsline {paragraph}{Iterating over the possible Suns}{30}
-\contentsline {paragraph}{Computing the correlation}{30}
-\contentsline {paragraph}{Compiling}{31}
-\contentsline {subsection}{\numberline {5.2.2}Results}{32}
-\contentsline {chapter}{\numberline {6}BGSEES}{34}
-\contentsline {section}{\numberline {6.1}Decreasing the range of the search}{34}
-\contentsline {subsection}{\numberline {6.1.1}Pseudocode}{34}
-\contentsline {subsection}{\numberline {6.1.2}Implementation}{35}
-\contentsline {subsection}{\numberline {6.1.3}Results}{35}
-\contentsline {section}{\numberline {6.2}Hill Climbing}{35}
-\contentsline {section}{\numberline {6.3}OpenMP?}{35}
-\contentsline {section}{\numberline {6.4}Discarding the Sun hemisphere}{35}
-\contentsline {chapter}{\numberline {7}Results}{36}
-\contentsline {section}{\numberline {7.1}Sun}{36}
-\contentsline {subsection}{\numberline {7.1.1}Optimization 1}{36}
-\contentsline {section}{\numberline {7.2}Far-away stars}{36}
+\contentsline {paragraph}{Main}{5}{paragraph*.4}
+\contentsline {paragraph}{Content}{5}{paragraph*.5}
+\contentsline {chapter}{\numberline {1}GEP}{7}{chapter.1}
+\contentsline {chapter}{\numberline {2}Background}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Global Navigation Satellite Systems}{8}{section.2.1}
+\contentsline {paragraph}{GNSS and GPS}{8}{paragraph*.6}
+\contentsline {paragraph}{Positioning}{8}{paragraph*.7}
+\contentsline {paragraph}{Ionospheric Pierce Points}{9}{paragraph*.8}
+\contentsline {paragraph}{The International GNSS Service}{9}{paragraph*.9}
+\contentsline {section}{\numberline {2.2}Ionosphere}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Stellar flares}{10}{section.2.3}
+\contentsline {section}{\numberline {2.4}Gamma-Ray Bursts}{10}{section.2.4}
+\contentsline {chapter}{\numberline {3}Study on the feasibility of stellar flare detection}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Sources of data and possible candidates}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}The Neil Gehrels Swift Observatory and its data}{12}{section.3.2}
+\contentsline {section}{\numberline {3.3}Objective function}{13}{section.3.3}
+\contentsline {paragraph}{Computing the angle}{14}{paragraph*.10}
+\contentsline {section}{\numberline {3.4}Obtaining the data}{15}{section.3.4}
+\contentsline {section}{\numberline {3.5}Results}{15}{section.3.5}
+\contentsline {chapter}{\numberline {4}Solar flare detection}{16}{chapter.4}
+\contentsline {section}{\numberline {4.1}Data}{16}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}GPS Data}{16}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Formatting}{17}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}The Halloween Solar Storm: X17.2 flare}{18}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Vertical Total Electron Content (VTEC)}{19}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Computing the VTEC}{19}{subsection.4.2.1}
+\contentsline {paragraph}{Implementation}{19}{paragraph*.13}
+\contentsline {subsection}{\numberline {4.2.2}Distribution throughout the day}{19}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Solar-zenith angle}{21}{section.4.3}
+\contentsline {section}{\numberline {4.4}Results}{23}{section.4.4}
+\contentsline {chapter}{\numberline {5}Brute Force Approach}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Key elements}{25}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Moment of the flare}{25}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Correlation}{26}{subsection.5.1.2}
+\contentsline {paragraph}{Computation}{26}{paragraph*.17}
+\contentsline {section}{\numberline {5.2}Algorithm}{26}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Implementation}{29}{subsection.5.2.1}
+\contentsline {paragraph}{Finding the epoch}{29}{paragraph*.19}
+\contentsline {paragraph}{Iterating over the possible Suns}{30}{paragraph*.20}
+\contentsline {paragraph}{Computing the correlation}{30}{paragraph*.21}
+\contentsline {paragraph}{Compiling}{31}{paragraph*.22}
+\contentsline {subsection}{\numberline {5.2.2}Results}{32}{subsection.5.2.2}
+\contentsline {chapter}{\numberline {6}BGSEES}{34}{chapter.6}
+\contentsline {section}{\numberline {6.1}Decreasing the range of the search}{34}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Pseudocode}{34}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Implementation}{35}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Results}{35}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Hill Climbing}{35}{section.6.2}
+\contentsline {section}{\numberline {6.3}OpenMP?}{35}{section.6.3}
+\contentsline {section}{\numberline {6.4}Discarding the Sun hemisphere}{35}{section.6.4}
+\contentsline {chapter}{\numberline {7}Results}{36}{chapter.7}
+\contentsline {section}{\numberline {7.1}Sun}{36}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Optimization 1}{36}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}Far-away stars}{36}{section.7.2}

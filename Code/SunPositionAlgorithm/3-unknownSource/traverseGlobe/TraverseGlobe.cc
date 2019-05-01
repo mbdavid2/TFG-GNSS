@@ -1,15 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <chrono>
 #include <queue>
 #include <fstream>
 #include "TraverseGlobe.h"
-#include "../auxiliary/auxiliary.h"
+#include "../auxiliary/Auxiliary.h"
+#include "../fortranController/FortranController.h"
 
 using namespace std;
-using namespace std::chrono;
-
-typedef high_resolution_clock::time_point clockTime;
 
 priority_queue<possibleSunInfo> bestSuns;
 
@@ -17,10 +14,7 @@ double sumy;
 double sumy2;
 
 //External Fortran functions
-extern "C" double mainfortran_(double* ra, double* dec, double* sumy, double* sumy2, int* writeData);
-
-//Global variables
-clockTime startTime;
+// extern "C" double mainfortran_(double* ra, double* dec, double* sumy, double* sumy2, int* writeData);
 
 int writeData = 0;
 
@@ -36,44 +30,14 @@ void TraverseGlobe::printAllPossibleSunsOrdered() {
 	}
 }
 
-void printExecutionTime(clockTime start_time, clockTime end_time) {
-    // auto execution_time_ns = duration_cast<nanoseconds>(end_time - start_time).count();
-    auto execution_time_ms = duration_cast<microseconds>(end_time - start_time).count();
-    auto execution_time_sec = duration_cast<seconds>(end_time - start_time).count();
-    auto execution_time_min = duration_cast<minutes>(end_time - start_time).count();
-    // auto execution_time_hour = duration_cast<hours>(end_time - start_time).count();
-
-    cout << "   -> Execution Time: ";
-    // if(execution_time_hour > 0)
-    // cout << "" << execution_time_hour << " Hours, ";
-    if(execution_time_min > 0)
-    	cout << "" << execution_time_min % 60 << "m ";
-    if(execution_time_sec > 0)
-    	cout << "" << execution_time_sec % 60 << "s ";
-    if(execution_time_ms > 0)
-    	cout << "" << execution_time_ms % long(1E+3) << "ms ";
-    // if(execution_time_ns > 0)
-    // cout << "" << execution_time_ns % long(1E+6) << " NanoSeconds, ";
-	cout << endl;
-}
-
-void chronoStart() {
-	startTime = high_resolution_clock::now();
-}
-
-void chronoEnd() {
-	clockTime now = high_resolution_clock::now();
-	// printExecutionTime (startTime, now);
-}
-
 void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun) {
-	// double correctRa = 212.338;
-	// double correctDec = -13.060;
-	double correctRa = 253.182;
-	double correctDec = -22.542;
+	double correctRa = 212.338;
+	double correctDec = -13.060;
+	// double correctRa = 253.182;
+	// double correctDec = -22.542;
 	 
 	cout << "[Results]" << endl;
-	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
+	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << endl; //<< " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
 	cout << "   -> Estimated Sun's location: " << bestSun.location << endl;
 }
 
@@ -104,6 +68,10 @@ void writeCoefficientToFile(double ra, double dec, double pearsonCoefficient, of
 }
 
 possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange range, ofstream& plotData) {
+	FortranController fc;
+
+
+
 	if (output) printCorrelationParameters(step, range);
 	double pearsonCoefficient;
 	int i = 0;
@@ -113,7 +81,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 	for (double dec = range.lowerDec; dec <= range.upperDec; dec += step) {
 		if (dec != -90 and dec != 90) {
 			for (double ra = range.lowerRa; ra <= range.upperRa; ra += step) {
-				pearsonCoefficient = mainfortran_(&ra, &dec, &sumy, &sumy2, &writeData);
+				pearsonCoefficient = fc.computeCorrelation(&ra, &dec, &sumy, &sumy2, &writeData);
 				if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 				if (pearsonCoefficient > bestSun.coefficient) {
 					bestSun.coefficient = pearsonCoefficient;
@@ -128,7 +96,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 		else {
 			//Do only once
 			double ra = 0;
-			pearsonCoefficient = mainfortran_(&ra, &dec, &sumy, &sumy2, &writeData);
+			pearsonCoefficient = fc.computeCorrelation(&ra, &dec, &sumy, &sumy2, &writeData);
 			if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 			if (pearsonCoefficient > bestSun.coefficient) {
 				bestSun.coefficient = pearsonCoefficient;
@@ -152,8 +120,6 @@ searchRange TraverseGlobe::setRange(possibleSunInfo sun, bool defaultRange, doub
 	}
 	else {
 		//TODO: esto deberia haber una mejor logica detras, quizas intentar que siempre haya el mismo numero de soles estudiados???
-		// double raRange = step;
-		// double decRange = step;
 		double raRange = step*rangeSize;
 		double decRange = step*rangeSize;
 
@@ -171,21 +137,16 @@ searchRange TraverseGlobe::setRange(possibleSunInfo sun, bool defaultRange, doub
 }
 
 void TraverseGlobe::decreasingSTEP() {
-	// Write data to file for hill climbing
 	ofstream plotData;
 	plotData.open("gnuplot.in", ios::trunc);
-	//
 	int rangeSize = 3;
 	int initialStep = 60;
 	possibleSunInfo currentSun;
 	searchRange range = setRange(currentSun, true, initialStep, rangeSize);
 	for (double step = initialStep; step >= 0.5; step /= 2) {
-		if (output) chronoStart();
 		currentSun = considerPossibleSuns(step, range, plotData);
 		bestSuns.push(currentSun);
 		if (output) printCorrelationResults(currentSun);
-		if (output) chronoEnd();
-		//TODO: SHOULD ONLY USE NEW COORDINATES IF THERE'S AN IMPROVEMENT
 		range = setRange(currentSun, false, step, rangeSize);
 	}
 	plotData.close();

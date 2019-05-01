@@ -1,7 +1,9 @@
-.PHONY: pristine clean cleanResults correlation spikeFinder traverseGlobe fileManager resultsDebugger auxiliary
+.PHONY: *
 SHELL := /bin/bash
 CFLAGS = -Wall
 FFLAGS = -lgfortran
+
+
 
 algorithmName = algorithm
 
@@ -15,35 +17,62 @@ tiDataFolder = ../data/
 # ----------
 # CLASSES
 # ----------
-spikeFinder = spikeFinder/SpikeFinder
-traverseGlobe = traverseGlobe/TraverseGlobe
-correlation = computeCorrelation/computeCorrelation
-fileManager = fileManager/FileManager
-resultsDebugger = resultsDebugger/ResultsDebugger
-auxiliary = auxiliary/auxiliary
+spikeFinderF = spikeFinder/SpikeFinder
+traverseGlobeF = traverseGlobe/TraverseGlobe
+fileManagerF = fileManager/FileManager
+resultsDebuggerF = resultsDebugger/ResultsDebugger
+hillClimbingF = hillClimbing/HillClimbing
+auxiliaryF = auxiliary/Auxiliary
+CLASSES = $(auxiliaryF).o $(resultsDebuggerF).o $(hillClimbingF).o $(fileManagerF).o $(spikeFinderF).o $(traverseGlobeF).o
+
+# ----------
+# Fortran and C++ Fortran Controller
+# ----------
+fortranControllerF = fortranController/FortranController
+leastSquaresF = fortranController/leastSquares
+correlationF = fortranController/computeCorrelation
+FORTRAN = $(fortranControllerF).o $(correlationF).o $(leastSquaresF).o
+
 
 main: compile run 
 
-compile: correlation auxiliary resultsDebugger fileManager spikeFinder traverseGlobe
-	g++ $(CFLAGS) $(auxiliary).o $(resultsDebugger).o $(fileManager).o $(correlation).o $(spikeFinder).o $(traverseGlobe).o $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
+compile: correlation fortranController auxiliary hillClimbing resultsDebugger fileManager spikeFinder traverseGlobe
+	g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
 
-correlation: $(correlation).f90
-	gfortran $(correlation).f90 -c -o $(correlation).o
+# ----------
+# Fortran and C++ Fortran Controller
+# ----------
+fortranController: correlation leastSquares
+	g++ $(fortranControllerF).cc -c -o $(fortranControllerF).o
 
-spikeFinder: $(spikeFinder).cc $(spikeFinder).h
-	g++ $(spikeFinder).cc -c -o $(spikeFinder).o
+correlation: $(correlationF).f90
+	gfortran $(correlationF).f90 -c -o $(correlationF).o
 
-traverseGlobe: $(traverseGlobe).cc $(traverseGlobe).h
-	g++ $(traverseGlobe).cc -c -o $(traverseGlobe).o
+leastSquares: $(leastSquaresF).f90
+	gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o 
 
-fileManager: $(fileManager).cc $(fileManager).h
-	g++ $(fileManager).cc -c -o $(fileManager).o
+# ----------
+# C++
+# ----------F
+spikeFinder: $(spikeFinderF).cc $(spikeFinderF).h
+	g++ $(spikeFinderF).cc -c -o $(spikeFinderF).o
 
-resultsDebugger: $(resultsDebugger).cc $(resultsDebugger).h
-	g++ $(resultsDebugger).cc -c -o $(resultsDebugger).o
+traverseGlobe: $(traverseGlobeF).cc $(traverseGlobeF).h
+	g++ $(traverseGlobeF).cc -c -o $(traverseGlobeF).o
 
-auxiliary: $(auxiliary).cc $(auxiliary).h
-	g++ $(auxiliary).cc -c -o $(auxiliary).o 
+fileManager: $(fileManagerF).cc $(fileManagerF).h
+	g++ $(fileManagerF).cc -c -o $(fileManagerF).o
+
+resultsDebugger: $(resultsDebuggerF).cc $(resultsDebuggerF).h
+	g++ $(resultsDebuggerF).cc -c -o $(resultsDebuggerF).o
+
+hillClimbing: $(hillClimbingF).cc $(hillClimbingF).h
+	g++ $(hillClimbingF).cc -c -o $(hillClimbingF).o
+
+auxiliary: $(auxiliaryF).cc $(auxiliaryF).h
+	g++ $(auxiliaryF).cc -c -o $(auxiliaryF).o
+
+
 
 run: $(algorithmName).x 
 	./$(algorithmName).x

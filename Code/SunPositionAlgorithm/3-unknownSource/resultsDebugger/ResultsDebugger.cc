@@ -2,7 +2,7 @@
 #include <fstream>
 #include <queue>
 #include "ResultsDebugger.h"
-#include "../auxiliary/auxiliary.h"
+#include "../auxiliary/Auxiliary.h"
 
 using namespace std;
 

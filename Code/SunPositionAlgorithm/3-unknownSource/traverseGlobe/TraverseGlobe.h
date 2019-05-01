@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include "../auxiliary/auxiliary.h"
+#include "../auxiliary/Auxiliary.h"
 
 using namespace std;
 
