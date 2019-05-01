@@ -21,9 +21,9 @@ void SpikeFinder::printInfoCandidate(candidate c) {
 	cout << "[Best epoch candidate]" << endl;
 	cout << "  -> Epoch: " << c.epoch << endl;
 	cout << "  -> Mean VTEC of epoch: " << c.maxMeanVTEC << endl;
-	cout << "  -> Max VTEC of epoch: " << c.maxIndividialVTEC << endl;
-	cout << "  -> Ra of max candidate: " << c.bestRa << endl;
-	cout << "  -> Dec of max candidate: " << c.bestDec << endl;
+	// cout << "  -> Max VTEC of epoch: " << c.maxIndividialVTEC << endl;
+	// cout << "  -> Ra of max candidate: " << c.bestRa << endl;
+	// cout << "  -> Dec of max candidate: " << c.bestDec << endl;
 }
 
 void SpikeFinder::printAllCandidates() {
@@ -46,8 +46,12 @@ void SpikeFinder::printTopNCandidates(int n) {
 	}
 }
 
-priority_queue<candidate> SpikeFinder::getBestIPPsFromCandidate(candidate c) {
+priority_queue<candidate> SpikeFinder::getPQBestCandidates() {
 	return candidates;
+}
+
+priority_queue<infoIPP> SpikeFinder::getBestIPPsFromCandidate(candidate c) {
+	return priorityQueuesEpochs[c.epoch];
 }
 
 void SpikeFinder::printBestIPPsFromCandidate(candidate c) {

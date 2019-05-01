@@ -1,5 +1,7 @@
 #include <iostream>
+#include <queue>
 #include "FortranController.h"
+#include "../auxiliary/Auxiliary.h"
 
 // computeCorrelationFortran //
 
@@ -13,7 +15,7 @@ double FortranController::computeCorrelation(double* ra, double* dec, double* su
 
 extern "C" double leastsquaresfortran_();
 
-double FortranController::leastSquares() {
+double FortranController::leastSquares(priority_queue<infoIPP> bestIPPs) {
 	return leastsquaresfortran_();
 }
 

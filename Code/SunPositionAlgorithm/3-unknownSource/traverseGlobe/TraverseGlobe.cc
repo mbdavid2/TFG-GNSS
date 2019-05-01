@@ -8,8 +8,6 @@
 
 using namespace std;
 
-priority_queue<possibleSunInfo> bestSuns;
-
 double sumy;
 double sumy2;
 
@@ -19,6 +17,14 @@ double sumy2;
 int writeData = 0;
 
 const bool output = false; 
+
+TraverseGlobe::TraverseGlobe() {
+
+}
+
+void TraverseGlobe::deletePQ() {
+	bestSuns = priority_queue<possibleSunInfo> ();
+}
 
 void TraverseGlobe::printAllPossibleSunsOrdered() {
 	cout << endl << "[List of all the studied candidates ordered by pearson correlation coefficient]" << endl;
@@ -36,7 +42,7 @@ void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun) {
 	// double correctRa = 253.182;
 	// double correctDec = -22.542;
 	 
-	cout << "[Results]" << endl;
+	// cout << "[Results]" << endl;
 	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << endl; //<< " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
 	cout << "   -> Estimated Sun's location: " << bestSun.location << endl;
 }

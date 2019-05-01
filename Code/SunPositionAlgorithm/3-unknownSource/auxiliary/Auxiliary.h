@@ -6,6 +6,21 @@
 using namespace std;
 using namespace std::chrono;
 
+struct infoIPP {
+	double epoch;
+	double vtec;
+	double ra;
+	double dec;
+};
+
+struct candidate { 
+	double epoch; 
+	double maxMeanVTEC;
+	double maxIndividialVTEC;
+	double bestRa;
+	double bestDec;
+};
+
 struct possibleSunInfo {
 	double coefficient;
 	double ra;

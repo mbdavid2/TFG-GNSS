@@ -1,5 +1,7 @@
 #ifndef FORTRANCONTROLLER_H
 #define FORTRANCONTROLLER_H
+#include <queue>
+#include "../auxiliary/Auxiliary.h"
 
 using namespace std;
 
@@ -13,7 +15,7 @@ class FortranController {
 
         double computeCorrelation(double* ra, double* dec, double* sumy, double* sumy2, int* writeData);
 
-        double leastSquares();
+        double leastSquares(priority_queue<infoIPP> bestIPPs);
 };
 
 #endif

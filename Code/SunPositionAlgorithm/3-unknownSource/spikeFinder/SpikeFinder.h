@@ -4,23 +4,9 @@
 #include <fstream>
 #include <queue>
 #include <map>
+#include "../auxiliary/Auxiliary.h"
 
 using namespace std;
-
-struct infoIPP {
-	double epoch;
-	double vtec;
-	double ra;
-	double dec;
-};
-
-struct candidate { 
-	double epoch; 
-	double maxMeanVTEC;
-	double maxIndividialVTEC;
-	double bestRa;
-	double bestDec;
-};
 
 bool operator<(candidate a, candidate b);
 
@@ -55,7 +41,9 @@ class SpikeFinder {
 
 		candidate computeInfoBestCandidate (string fileName, int type);
 
-		priority_queue<candidate> getBestIPPsFromCandidate(candidate c);
+		priority_queue<infoIPP> getBestIPPsFromCandidate(candidate c);
+
+		priority_queue<candidate> getPQBestCandidates();
 
 		// Printing
 		void printBestIPPsFromCandidate(candidate c);

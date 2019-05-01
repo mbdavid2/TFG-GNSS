@@ -17,6 +17,11 @@ class TraverseGlobe {
 		searchRange setRange(possibleSunInfo sun, bool defaultRange, double step, int rangeSize);
 
 	public:
+
+		priority_queue<possibleSunInfo> bestSuns;
+		
+		TraverseGlobe();
+
 		void estimateSourcePosition(double epoch, double sumyFortran, double sumy2Fortran);
 
 		void printCorrelationResults(possibleSunInfo bestSun);
@@ -24,6 +29,8 @@ class TraverseGlobe {
 		priority_queue<possibleSunInfo> getPriorityQueueBestSuns();
 
 		void printAllPossibleSunsOrdered();
+
+		void deletePQ();
 };
 
 #endif
