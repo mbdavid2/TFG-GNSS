@@ -12,7 +12,7 @@ class HillClimbing {
 		
 
 	public:
-        void hillClimbing();
+        void estimateSourcePosition();
 };
 
 #endif

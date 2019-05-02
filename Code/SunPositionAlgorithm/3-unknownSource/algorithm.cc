@@ -58,6 +58,11 @@ void leastSquaresMethod(priority_queue<infoIPP> bestIPPs) {
 	cout << endl << "____________________________________" << endl << endl;
 }
 
+void hillClimbingMethod() {
+	HillClimbing hillClimbing;
+	hillClimbing.estimateSourcePosition();
+}
+
 void mainAlgorithm() {
 	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl << endl;
 	FileManager fileManager;
@@ -66,6 +71,18 @@ void mainAlgorithm() {
 	fileManager.setInputFile(ORIGINAL_FILE);
 	fileManager.setAWKScripts(FILTER_AWK_SCRIPT, FILTER_TIME_AWK_SCRIPT);	
 	fileManager.filterTiFileByBasicData();
+
+	// Find spike
+	SpikeFinder spikeFinder;
+	candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
+
+	// Filter by time
+	fileManager.filterTiFileByTime(bestCandidate.epoch);
+
+	///////////
+
+	// Hill Climbing
+	hillClimbingMethod();
 	
 	// // Find spike (epoch)
 	// SpikeFinder spikeFinder;
@@ -75,11 +92,11 @@ void mainAlgorithm() {
 	// decreaseRangeMethod(fileManager, bestCandidate.epoch);
 
 	// Test: multiple epochs
-	SpikeFinder spikeFinder;
-	// candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
-	spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
-	priority_queue<candidate> candidates = spikeFinder.getPQBestCandidates();
-	multipleEpochsTest(spikeFinder, candidates, fileManager, 15);
+	// SpikeFinder spikeFinder;
+	// // candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
+	// spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
+	// priority_queue<candidate> candidates = spikeFinder.getPQBestCandidates();
+	// multipleEpochsTest(spikeFinder, candidates, fileManager, 15);
 
 	// Find location using the least squares method
 	// Get best IPPs from that epoch

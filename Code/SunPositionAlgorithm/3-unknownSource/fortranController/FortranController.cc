@@ -5,10 +5,10 @@
 
 // computeCorrelationFortran //
 
-extern "C" double computecorrelationfortran_(double* ra, double* dec, double* sumy, double* sumy2, int* writeData);
+extern "C" double computecorrelationfortran_(double* ra, double* dec);
 
-double FortranController::computeCorrelation(double* ra, double* dec, double* sumy, double* sumy2, int* writeData) {
-	return computecorrelationfortran_(ra, dec, sumy, sumy2, writeData);
+double FortranController::computeCorrelation(double* ra, double* dec) {
+	return computecorrelationfortran_(ra, dec);
 }
 
 // leastSquaresFortran //

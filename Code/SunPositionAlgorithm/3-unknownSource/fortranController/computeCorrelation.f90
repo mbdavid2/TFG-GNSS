@@ -1,10 +1,14 @@
-double precision function computeCorrelationFortran (raSunIn, decSunIn, sumy, sumy2, writeData)
+double precision function computeCorrelationFortran (raSunIn, decSunIn)
 	implicit none
-	double precision, intent(in) :: raSunIn, decSunIn, sumy, sumy2, writeData
+	double precision, intent(in) :: raSunIn, decSunIn
+
+	double precision :: sumy, sumy2, writeData
 
 	double precision, parameter :: CORRELATION_THRESHOLD = -0.2
 
 	double precision :: rxyPearsonCoefficient
+
+	writeData = 0
 
 	rxyPearsonCoefficient = traverseFile(raSunIn, decSunIn)
 	return

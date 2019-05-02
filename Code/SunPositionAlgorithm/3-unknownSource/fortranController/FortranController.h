@@ -13,7 +13,7 @@ class FortranController {
 	public:
         void hillClimbing();
 
-        double computeCorrelation(double* ra, double* dec, double* sumy, double* sumy2, int* writeData);
+        double computeCorrelation(double* ra, double* dec);
 
         double leastSquares(priority_queue<infoIPP> bestIPPs);
 };

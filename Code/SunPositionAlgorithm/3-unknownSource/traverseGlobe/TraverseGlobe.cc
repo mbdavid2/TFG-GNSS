@@ -14,8 +14,6 @@ double sumy2;
 //External Fortran functions
 // extern "C" double mainfortran_(double* ra, double* dec, double* sumy, double* sumy2, int* writeData);
 
-int writeData = 0;
-
 const bool output = false; 
 
 TraverseGlobe::TraverseGlobe() {
@@ -89,7 +87,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 	for (double dec = range.lowerDec; dec <= range.upperDec; dec += step) {
 		if (dec != -90 and dec != 90) {
 			for (double ra = range.lowerRa; ra <= range.upperRa; ra += step) {
-				pearsonCoefficient = fc.computeCorrelation(&ra, &dec, &sumy, &sumy2, &writeData);
+				pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
 				if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 				if (pearsonCoefficient > bestSun.coefficient) {
 					bestSun.coefficient = pearsonCoefficient;
@@ -104,7 +102,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 		else {
 			//Do only once
 			double ra = 0;
-			pearsonCoefficient = fc.computeCorrelation(&ra, &dec, &sumy, &sumy2, &writeData);
+			pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
 			if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 			if (pearsonCoefficient > bestSun.coefficient) {
 				bestSun.coefficient = pearsonCoefficient;
