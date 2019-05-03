@@ -34,7 +34,7 @@ void FileManager::filterTiFileByTime(double time) {
         cout << "[ERROR] Input files not set properly (2) " << endl;
         exit(0);
     }
-    string outputFile = "spikeData.out";
+    string outputFile = "filteredByTime.out"; //Name used in Fortran compute correlation file
     stringstream stream;
     stream << fixed << setprecision(13) << time;
     string timeS = stream.str();

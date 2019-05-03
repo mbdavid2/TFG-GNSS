@@ -22,12 +22,8 @@ void FortranController::resetConsideredLocations() {
 
 // leastSquaresFortran //
 
-extern "C" double leastsquaresfortran_();
+extern "C" double leastsquaresfortran_(const char* inputFileName);
 
-double FortranController::leastSquares(priority_queue<infoIPP> bestIPPs) {
-	return leastsquaresfortran_();
-}
-
-void FortranController::hillClimbing() {
-    cout << "dsadas" << endl;
+double FortranController::leastSquares(const char* inputFileName) {
+	return leastsquaresfortran_(inputFileName);
 }

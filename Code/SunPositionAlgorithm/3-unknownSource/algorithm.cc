@@ -51,10 +51,12 @@ void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candi
 	}
 }
 
-void leastSquaresMethod(priority_queue<infoIPP> bestIPPs) {
+void leastSquaresMethod() {
 	FortranController fc;
 	cout << endl << "[Least Squres method]" << endl;
-	fc.leastSquares(bestIPPs);
+	string fileNameString = "filteredByTime.out";
+	const char* inputFileName = fileNameString.c_str();
+	fc.leastSquares(inputFileName);
 	cout << endl << "____________________________________" << endl << endl;
 }
 
@@ -82,10 +84,10 @@ void mainAlgorithm() {
 	///////////
 
 	// Find location using the decreaseRange method
-	decreaseRangeMethod(fileManager, bestCandidate.epoch);
+	// decreaseRangeMethod(fileManager, bestCandidate.epoch);
 
 	// Hill Climbing
-	hillClimbingMethod();
+	// hillClimbingMethod();
 
 	// Test: multiple epochs
 	// SpikeFinder spikeFinder;
@@ -98,7 +100,7 @@ void mainAlgorithm() {
 	// Get best IPPs from that epoch
 	// spikeFinder.printBestIPPsFromCandidate(bestCandidate);
 	// priority_queue<infoIPP> bestIPPs = spikeFinder.getBestIPPsFromCandidate(bestCandidate);
-	// leastSquaresMethod(bestIPPs);
+	leastSquaresMethod();
 }
 
 int main() {
@@ -107,7 +109,7 @@ int main() {
 	mainAlgorithm();
 	aux.chronoEnd();
 
-	ResultsDebugger resultsDebugger;
+	// ResultsDebugger resultsDebugger;
 	// resultsDebugger.plotSunsRaDecCoefAllSunsAndHillClimbingPath();
-	resultsDebugger.plotSunsRaDecCoefHillClimbingAllConsideredAndPath();
+	// resultsDebugger.plotSunsRaDecCoefHillClimbingAllConsideredAndPath();
 }

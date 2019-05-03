@@ -38,7 +38,7 @@ void writeToFileForOutput(possibleSunInfo candidate, string filename) {
 	system(command.c_str());
 }
 
-vector<possibleSunInfo> getLocalNeighboursList(possibleSunInfo current, FortranController fortranController) {
+vector<possibleSunInfo> getLocalNeighboursList(possibleSunInfo current, FortranController& fortranController) {
     vector<possibleSunInfo> locals = vector<possibleSunInfo>();
     //Considering some possibleSunInfos multiple times
     for (double ra = current.ra - 2; ra <= current.ra + 2; ra += 1) {
@@ -75,10 +75,10 @@ void HillClimbing::estimateSourcePosition() {
     FortranController fortranController;
     fortranController.resetConsideredLocations();
     possibleSunInfo current;// = make_pair(122, -20);
-    // current.ra = 100;
-    // current.dec = -60;
-    current.ra = 160;
-    current.dec = -20;
+    current.ra = 100;
+    current.dec = -60;
+    // current.ra = 160;
+    // current.dec = -20;
     current.coefficient = fortranController.computeCorrelation(&current.ra, &current.dec);
     possibleSunInfo best;// = make_pair(-1, -1);
     int i = 0;
@@ -90,6 +90,7 @@ void HillClimbing::estimateSourcePosition() {
         possibleSunInfo newCandidate = getBestCandidate(candidates);
         if (newCandidate < current) {
         	// current = newCandidate;
+            cout << "Can't progress" << endl;
         	break;
         }
         current = newCandidate;

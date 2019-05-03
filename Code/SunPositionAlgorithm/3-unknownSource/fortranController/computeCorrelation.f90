@@ -18,7 +18,7 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 			implicit none
 			integer :: status ! I/O status: 0 for success
 
-			open (unit = 1, file = 'spikeData.out', status='old', action='read', iostat=status)
+			open (unit = 1, file = 'filteredByTime.out', status='old', action='read', iostat=status)
 
 		   	if (status /= 0) then 
 				write (*, 1040) status

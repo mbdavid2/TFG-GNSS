@@ -2,8 +2,18 @@
 - estudiar nuevos datos enviados, este es por segundo, no 30s!
 - HillClimbing
 - esperar correo del señor ese para la stellar flare
-- 
 
+
+
+
+
+
+
+
+
+
+- calcular recta de regresion y descartar outliers asi
+- buscar en el fichero write(* ) -> hay una variable true o false qu eindica si es valido
 
 
 

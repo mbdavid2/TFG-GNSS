@@ -15,7 +15,7 @@ class FortranController {
 
         double computeCorrelation(double* ra, double* dec);
 
-        double leastSquares(priority_queue<infoIPP> bestIPPs);
+        double leastSquares(const char* inputFileName);
 
         // Debug
         void printNumberOfConsideredLocations();
