@@ -19,6 +19,12 @@ class ResultsDebugger {
 		void plotSunsRaDecCoefInterpolate();
 
 		void plotSunsRaDecCoef();
+
+		void plotSunsRaDecCoefPath();
+
+		void plotSunsRaDecCoefAllSunsAndHillClimbingPath();
+
+		void plotSunsRaDecCoefHillClimbingAllConsideredAndPath();
 };
 
 #endif

@@ -8,7 +8,16 @@
 extern "C" double computecorrelationfortran_(double* ra, double* dec);
 
 double FortranController::computeCorrelation(double* ra, double* dec) {
+	consideredLocationsCounter++;
 	return computecorrelationfortran_(ra, dec);
+}
+
+void FortranController::printNumberOfConsideredLocations() {
+	cout << endl << consideredLocationsCounter << " locations considered" << endl;
+}
+
+void FortranController::resetConsideredLocations() {
+	consideredLocationsCounter = 0;
 }
 
 // leastSquaresFortran //

@@ -81,15 +81,11 @@ void mainAlgorithm() {
 
 	///////////
 
+	// Find location using the decreaseRange method
+	decreaseRangeMethod(fileManager, bestCandidate.epoch);
+
 	// Hill Climbing
 	hillClimbingMethod();
-	
-	// // Find spike (epoch)
-	// SpikeFinder spikeFinder;
-	// candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
-
-	// // Find location using the decreaseRange method
-	// decreaseRangeMethod(fileManager, bestCandidate.epoch);
 
 	// Test: multiple epochs
 	// SpikeFinder spikeFinder;
@@ -110,4 +106,8 @@ int main() {
 	aux.chronoStart();
 	mainAlgorithm();
 	aux.chronoEnd();
+
+	ResultsDebugger resultsDebugger;
+	// resultsDebugger.plotSunsRaDecCoefAllSunsAndHillClimbingPath();
+	resultsDebugger.plotSunsRaDecCoefHillClimbingAllConsideredAndPath();
 }

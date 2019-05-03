@@ -8,14 +8,18 @@ using namespace std;
 class FortranController {
 
 	private:
+		int consideredLocationsCounter;
 		
-
 	public:
         void hillClimbing();
 
         double computeCorrelation(double* ra, double* dec);
 
         double leastSquares(priority_queue<infoIPP> bestIPPs);
+
+        // Debug
+        void printNumberOfConsideredLocations();
+		void resetConsideredLocations();
 };
 
 #endif
