@@ -3,8 +3,7 @@
 #include <vector>
 #include "HillClimbing.h"
 #include "../fortranController/FortranController.h"
-
-typedef pair<double, double> location;
+#include "../auxiliary/Auxiliary.h"
 
 double heuristic (int x, int y) {
     return x + y;
@@ -20,49 +19,54 @@ double heuristic (int x, int y) {
 //         }
 // }
 
-void printLocationInfo(location l, double coefficient) {
-    cout << l.first << " " << l.second << " " << coefficient << endl;
+void printpossibleSunInfoInfo(possibleSunInfo l) {
+    cout << l.ra << " " << l.dec << " " << l.coefficient << endl;
 }
 
-vector<location> getLocalNeighboursList(location current) {
-    vector<location> locals = vector<location>();
-    //Considering some locations multiple times
-    for (double ra = current.first - 1; ra <= current.first + 1; ra++) {
-        for (double dec = current.second - 1; dec <= current.second + 1; dec++) {
-            locals.push_back(make_pair(ra, dec));
+vector<possibleSunInfo> getLocalNeighboursList(possibleSunInfo current) {
+    vector<possibleSunInfo> locals = vector<possibleSunInfo>();
+    //Considering some possibleSunInfos multiple times
+    for (double ra = current.ra - 1; ra <= current.ra + 1; ra++) {
+        for (double dec = current.dec - 1; dec <= current.dec + 1; dec++) {
+        	possibleSunInfo psi;
+        	psi.ra = ra;
+        	psi.dec = dec;
+        	psi.coefficient = -1;
+            locals.push_back(psi);
         }
     }
     return locals;
 }
 
-location getBestCandidate(vector<location> candidates, FortranController fortranController) {
-    location maxCandidate = make_pair(-1, -1);
+possibleSunInfo getBestCandidate(vector<possibleSunInfo> candidates, FortranController fortranController) {
+    possibleSunInfo maxCandidate;
     double maxCoefficient = -1;
-    double pearsonCoefficient = -1;
     for (int i = 0; i < candidates.size(); ++i) {
-        pearsonCoefficient = fortranController.computeCorrelation(&candidates[i].first, &candidates[i].second);
-        printLocationInfo(candidates[i], pearsonCoefficient);
-        if (pearsonCoefficient > maxCoefficient) {
-            maxCoefficient = pearsonCoefficient;
+        candidates[i].coefficient = fortranController.computeCorrelation(&candidates[i].ra, &candidates[i].dec);
+        if (candidates[i].coefficient > maxCoefficient) {
+            maxCoefficient = candidates[i].coefficient;
             maxCandidate = candidates[i];
         }
     }
+    // printpossibleSunInfoInfo(maxCandidate);
     return maxCandidate;
 }
 
 void HillClimbing::estimateSourcePosition() {
     FortranController fortranController;
-    location current = make_pair(122, -20);
-    location best = make_pair(-1, -1);
+    possibleSunInfo current;// = make_pair(122, -20);
+    possibleSunInfo best;// = make_pair(-1, -1);
     int i = 0;
     while (++i < 10) {
-        cout << " -> " << current.first << current.second << endl;
-        vector<location> candidates = getLocalNeighboursList(current);
-        location current = getBestCandidate(candidates, fortranController);
-        cout << " -> " << current.first << current.second << endl;
+        cout << "Current -> " << current.ra << current.dec << endl;
+        vector<possibleSunInfo> candidates = getLocalNeighboursList(current);
+        possibleSunInfo newCandidate = getBestCandidate(candidates, fortranController);
+        if (newCandidate == current) {
+        	current = newCandidate;
+        	break;
+        }
+        current = newCandidate;
+        cout << "Current -> " << current.ra << current.dec << endl;
     }
-    // cout << current.first << " " << current.second << endl;
-    // while (checkLocalOptions(candidate)) {
-
-    // }
+    cout << "Finished -> " << current.ra << current.dec << endl;
 }
