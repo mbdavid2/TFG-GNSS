@@ -22,8 +22,8 @@ void FortranController::resetConsideredLocations() {
 
 // leastSquaresFortran //
 
-extern "C" double leastsquaresfortran_(const char* inputFileName);
+extern "C" double leastsquaresfortran_(const char* inputFileName, int* numRows);
 
-double FortranController::leastSquares(const char* inputFileName) {
-	return leastsquaresfortran_(inputFileName);
+double FortranController::leastSquares(const char* inputFileName, int numRows) {
+	return leastsquaresfortran_(inputFileName, &numRows);
 }

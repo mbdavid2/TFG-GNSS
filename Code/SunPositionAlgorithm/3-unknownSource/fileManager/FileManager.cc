@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <fstream>
 #include "FileManager.h"
 #include "../auxiliary/Auxiliary.h"
 
@@ -29,11 +30,7 @@ void FileManager::filterTiFileByBasicData() {
 	system(command.c_str()); 
 }
 
-void FileManager::filterTiFileByTime(double time) {
-    if (filteredFile == "" || filterTimeAWKScript == "") {
-        cout << "[ERROR] Input files not set properly (2) " << endl;
-        exit(0);
-    }
+void FileManager::filterUsingAwk(double time) {
     string outputFile = "filteredByTime.out"; //Name used in Fortran compute correlation file
     stringstream stream;
     stream << fixed << setprecision(13) << time;
@@ -41,6 +38,34 @@ void FileManager::filterTiFileByTime(double time) {
 	string command = "cat " + filteredFile + " | gawk -f " + filterTimeAWKScript + " -v flareTime=" + timeS + " > " + outputFile;
 	system(command.c_str()); 
 }
+
+int FileManager::filterTiFileByTime(double time) {
+    string outputFile = "filteredByTime.out"; //Name used in Fortran compute correlation file
+    if (filteredFile == "" || filterTimeAWKScript == "") {
+        cout << "[ERROR] Input files not set properly (2) " << endl;
+        exit(0);
+    } 
+
+    ifstream inputData;
+    ofstream writeData;
+    double epochIn, vtecIn, raIPPIn, latIPPIn;
+    int i = 0;
+
+    inputData.open(filteredFile, ifstream::in);
+    writeData.open(outputFile, ifstream::trunc);
+
+    inputData >> epochIn >> vtecIn >> raIPPIn >> latIPPIn;
+	while (inputData >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
+        if (epochIn == time) {
+            i++;
+            writeData << " " << vtecIn << " " << raIPPIn << " " << latIPPIn << endl;
+        }
+    }
+
+    inputData.close();
+    writeData.close();
+    return i; 
+}  
 
 string FileManager::getFilteredFile() {
     return filteredFile;

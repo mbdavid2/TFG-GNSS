@@ -51,12 +51,12 @@ void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candi
 	}
 }
 
-void leastSquaresMethod() {
+void leastSquaresMethod(int numRows) {
 	FortranController fc;
 	cout << endl << "[Least Squres method]" << endl;
 	string fileNameString = "filteredByTime.out";
 	const char* inputFileName = fileNameString.c_str();
-	fc.leastSquares(inputFileName);
+	fc.leastSquares(inputFileName, numRows);
 	cout << endl << "____________________________________" << endl << endl;
 }
 
@@ -79,7 +79,7 @@ void mainAlgorithm() {
 	candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
 
 	// Filter by time
-	fileManager.filterTiFileByTime(bestCandidate.epoch);
+	int numRows = fileManager.filterTiFileByTime(bestCandidate.epoch);
 
 	///////////
 
@@ -100,7 +100,7 @@ void mainAlgorithm() {
 	// Get best IPPs from that epoch
 	// spikeFinder.printBestIPPsFromCandidate(bestCandidate);
 	// priority_queue<infoIPP> bestIPPs = spikeFinder.getBestIPPsFromCandidate(bestCandidate);
-	leastSquaresMethod();
+	leastSquaresMethod(numRows); //TODO: como obtenemos el numero de lineas al hacer el filtrado??
 }
 
 int main() {
@@ -110,6 +110,6 @@ int main() {
 	aux.chronoEnd();
 
 	// ResultsDebugger resultsDebugger;
-	// resultsDebugger.plotSunsRaDecCoefAllSunsAndHillClimbingPath();
+	// // resultsDebugger.plotSunsRaDecCoefAllSunsAndHillClimbingPath();
 	// resultsDebugger.plotSunsRaDecCoefHillClimbingAllConsideredAndPath();
 }

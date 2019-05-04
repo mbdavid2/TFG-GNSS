@@ -75,10 +75,10 @@ void HillClimbing::estimateSourcePosition() {
     FortranController fortranController;
     fortranController.resetConsideredLocations();
     possibleSunInfo current;// = make_pair(122, -20);
-    current.ra = 100;
-    current.dec = -60;
-    // current.ra = 160;
-    // current.dec = -20;
+    // current.ra = 100;
+    // current.dec = -60;
+    current.ra = 160;
+    current.dec = -20;
     current.coefficient = fortranController.computeCorrelation(&current.ra, &current.dec);
     possibleSunInfo best;// = make_pair(-1, -1);
     int i = 0;

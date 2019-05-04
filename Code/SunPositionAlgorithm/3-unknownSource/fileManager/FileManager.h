@@ -20,7 +20,9 @@ class FileManager {
 
 		void setAWKScripts(string filterBasic, string filterTime);
 
-		void filterTiFileByTime(double time);
+		int filterTiFileByTime(double time);
+
+		void filterUsingAwk(double time);
 
 		void filterTiFileByBasicData();
 

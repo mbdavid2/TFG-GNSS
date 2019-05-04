@@ -15,7 +15,7 @@ class FortranController {
 
         double computeCorrelation(double* ra, double* dec);
 
-        double leastSquares(const char* inputFileName);
+        double leastSquares(const char* inputFileName, int numRows);
 
         // Debug
         void printNumberOfConsideredLocations();
