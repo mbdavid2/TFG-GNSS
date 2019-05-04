@@ -1,7 +1,7 @@
 .PHONY: *
 SHELL := /bin/bash
 CFLAGS = -Wall
-FFLAGS = -lgfortran
+FFLAGS = -lgfortran -lblas -llapack
 
 
 
@@ -43,34 +43,34 @@ compile: correlation fortranController auxiliary hillClimbing resultsDebugger fi
 # Fortran and C++ Fortran Controller
 # ----------
 fortranController: correlation leastSquares
-	g++ $(fortranControllerF).cc -c -o $(fortranControllerF).o
+	g++ $(CFLAGS) $(fortranControllerF).cc -c -o $(fortranControllerF).o
 
 correlation: $(correlationF).f90
 	gfortran $(correlationF).f90 -c -o $(correlationF).o
 
 leastSquares: $(leastSquaresF).f90
-	gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o 
+	gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o
 
 # ----------
 # C++
 # ----------F
 spikeFinder: $(spikeFinderF).cc $(spikeFinderF).h
-	g++ $(spikeFinderF).cc -c -o $(spikeFinderF).o
+	g++ $(CFLAGS) $(spikeFinderF).cc -c -o $(spikeFinderF).o
 
 traverseGlobe: $(traverseGlobeF).cc $(traverseGlobeF).h
-	g++ $(traverseGlobeF).cc -c -o $(traverseGlobeF).o
+	g++ $(CFLAGS) $(traverseGlobeF).cc -c -o $(traverseGlobeF).o
 
 fileManager: $(fileManagerF).cc $(fileManagerF).h
-	g++ $(fileManagerF).cc -c -o $(fileManagerF).o
+	g++ $(CFLAGS) $(fileManagerF).cc -c -o $(fileManagerF).o
 
 resultsDebugger: $(resultsDebuggerF).cc $(resultsDebuggerF).h
-	g++ $(resultsDebuggerF).cc -c -o $(resultsDebuggerF).o
+	g++ $(CFLAGS) $(resultsDebuggerF).cc -c -o $(resultsDebuggerF).o
 
 hillClimbing: $(hillClimbingF).cc $(hillClimbingF).h
-	g++ $(hillClimbingF).cc -c -o $(hillClimbingF).o
+	g++ $(CFLAGS) $(hillClimbingF).cc -c -o $(hillClimbingF).o
 
 auxiliary: $(auxiliaryF).cc $(auxiliaryF).h
-	g++ $(auxiliaryF).cc -c -o $(auxiliaryF).o
+	g++ $(CFLAGS) $(auxiliaryF).cc -c -o $(auxiliaryF).o
 
 
 

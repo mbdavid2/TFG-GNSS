@@ -35,8 +35,8 @@ void TraverseGlobe::printAllPossibleSunsOrdered() {
 }
 
 void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun) {
-	double correctRa = 212.338;
-	double correctDec = -13.060;
+	// double correctRa = 212.338;
+	// double correctDec = -13.060;
 	// double correctRa = 253.182;
 	// double correctDec = -22.542;
 	 

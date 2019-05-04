@@ -25,7 +25,7 @@ void printPossibleSunInfo(possibleSunInfo l) {
 
 void printVector(const vector<possibleSunInfo>& vec) {
     cout << "Neighbours:" << endl;
-	for (int i = 0; i < vec.size(); ++i) {
+	for (unsigned int i = 0; i < vec.size(); ++i) {
        cout << "   ";
        printPossibleSunInfo(vec[i]);
     }
@@ -59,7 +59,7 @@ vector<possibleSunInfo> getLocalNeighboursList(possibleSunInfo current, FortranC
 possibleSunInfo getBestCandidate(vector<possibleSunInfo> candidates) {
     possibleSunInfo maxCandidate;
     double maxCoefficient = -1;
-    for (int i = 0; i < candidates.size(); ++i) {
+    for (unsigned int i = 0; i < candidates.size(); ++i) {
         if (candidates[i].coefficient > maxCoefficient) {
             maxCoefficient = candidates[i].coefficient;
             maxCandidate = candidates[i];

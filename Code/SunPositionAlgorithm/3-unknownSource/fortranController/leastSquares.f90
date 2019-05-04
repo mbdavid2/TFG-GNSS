@@ -29,30 +29,59 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			implicit none
 			double precision, dimension (0:numRows) :: matrixVTEC
 			double precision, dimension (0:numRows, 0:3) :: matrixIPP
-			double precision, dimension (0:3) :: X
+			double precision, dimension (0:3) :: solution
 			integer :: vtecSize, i
 
 			call storeMatrixData(matrixVTEC, matrixIPP)
 
-			vtecSize = size(matrixVTEC)
-			do i = 0, vtecSize-1
-				print *, matrixVTEC(i)
-				print *, matrixIPP(i,0), matrixIPP(i,1), matrixIPP(i,2), matrixIPP(i,3)
-			end do
+			! vtecSize = size(matrixVTEC)
+			! do i = 0, vtecSize-1
+			! 	print *, matrixVTEC(i)
+			! 	print *, matrixIPP(i,0), matrixIPP(i,1), matrixIPP(i,2), matrixIPP(i,3)
+			! end do
 
-			! call computeMatrixComputations(X, matrixIPP, matrixVTEC)
+			call computeMatrixComputations(solution, matrixIPP, matrixVTEC)
+			print *, "Results:"
+			print *, solution(0), solution(1), solution(2), solution(3)
+			call obtainSourceLocation(solution)
 
 		end subroutine leastSquares
 
-		subroutine computeMatrixComputations(X, A, Y)
+		subroutine computeMatrixComputations(solution, A, Y)
 			implicit none
-			double precision, dimension (0:numRows), intent(in) :: Y, X
+			double precision, dimension (0:3), intent(out) :: solution
+			double precision, dimension (0:numRows), intent(in) :: Y
 			double precision, dimension (0:numRows, 0:3), intent(in) :: A
 			double precision, dimension (0:3, 0:numRows) :: transposedA, innerMat
+			double precision, dimension (0:numRows, 0:3) :: invMult
 
 			transposedA = transpose(A)
-			innerMat = matmul(transposedA, A)
+			! invMult = inv(matmul(transposedA, A))
+			
+			solution = matmul(matmul(inv(matmul(transposedA, A)), transposedA), y) ! esto dejarlo mas bonito???
 		end subroutine computeMatrixComputations
+
+		subroutine obtainSourceLocation(solution)
+			double precision, dimension (0:3), intent(in) :: solution
+			double precision :: a, b, g, mod
+			double precision :: X, Y, Z, ra, dec
+
+			a = solution(0)
+			b = solution(1)
+			g = solution(2)
+
+			mod = sqrt(a*a + b*b + g*g)
+
+			X = a/mod
+			Y = b/mod
+			Z = g/mod
+
+			dec = asin(Z)
+			ra = asin(Y/cos(dec))
+			ra = acos(X/cos(dec))
+
+			print *, "Ra, Dec: ", toDegree(ra), toDegree(dec)
+		end subroutine obtainSourceLocation
 
 		subroutine storeMatrixData(matrixVTEC, matrixIPP)
 			implicit none
@@ -62,9 +91,8 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			double precision :: xIPP, yIPP, zIPP
 			
 			integer :: i
-			i = 0
 
-			do while (1 == 1)
+			do i = 0, numRows
 				read (1, *, end = 240) vtec, raIPP, decIPP
 				
 				call computeComponentsIPP(raIPP, decIPP, xIPP, yIPP, zIPP)
@@ -74,8 +102,6 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 				matrixIPP(i, 1) = yIPP
 				matrixIPP(i, 2) = zIPP
 				matrixIPP(i, 3) = 1
-
-				i = i + 1
 			end do
 			240 continue
 			close(1)
@@ -97,7 +123,7 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			return
 		end subroutine computeComponentsIPP
 
-		double precision function toRadian (degree)
+		double precision function toRadian(degree)
 		  implicit none
 		  double precision, parameter :: PI = atan(1.0)*4
 		  double precision, intent(in) :: degree
@@ -106,5 +132,63 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 		  radians = (degree*PI)/180
 		  return
 		end function toRadian
+
+		double precision function toDegree(radians)
+		  implicit none
+		  double precision, parameter :: PI = atan(1.0)*4
+		  double precision, intent(in) :: radians
+		  double precision :: degree
+
+		  degree = (radians*180/PI)
+		  return
+		end function toDegree
+
+		! subroutine inverse(A, invA)
+		! 	implicit none
+
+		! 	external DGETRI
+
+		! 	double precision, dimension (0:numRows, 0:3), intent(in) :: A
+		! 	double precision, dimension (0:numRows, 0:3), intent(out) :: invA
+
+		! 	call DGETRI(3, invA, 3, ipiv, work, n, info)
+
+
+		! end subroutine
+
+		! Returns the inverse of a matrix calculated by finding the LU
+		! decomposition.  Depends on LAPACK.
+		function inv(A) result(Ainv)
+			double precision, dimension(:,:), intent(in) :: A
+			double precision, dimension(size(A,1),size(A,2)) :: Ainv
+
+			double precision, dimension(size(A,1)) :: work  ! work array for LAPACK
+			integer, dimension(size(A,1)) :: ipiv   ! pivot indices
+			integer :: n, info
+
+			! External procedures defined in LAPACK
+			external DGETRF
+			external DGETRI
+
+			! Store A in Ainv to prevent it from being overwritten by LAPACK
+			Ainv = A
+			n = size(A,1)
+
+			! DGETRF computes an LU factorization of a general M-by-N matrix A
+			! using partial pivoting with row interchanges.
+			call DGETRF(n, n, Ainv, n, ipiv, info)
+
+			if (info /= 0) then
+				stop 'Matrix is numerically singular!'
+			end if
+
+			! DGETRI computes the inverse of a matrix using the LU factorization
+			! computed by DGETRF.
+			call DGETRI(n, Ainv, n, ipiv, work, n, info)
+
+			if (info /= 0) then
+				stop 'Matrix inversion failed!'
+			end if
+		end function inv
 end function leastSquaresFortran
 
