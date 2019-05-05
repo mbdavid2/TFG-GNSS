@@ -27,28 +27,38 @@ The results will be discussed in the last section of this chapter to see if the 
 
 \paragraph{Computation}
 
-The correlation between two independent variables is computed as follows:
+The correlation between two independent variables is defined as follows:
 
-TODO: IMAGES HERE!!!
+\begin{equation} \label{eq:coefficient}
+r_{xy} = \frac{\sum(x_{i} - \bar{x})(y_{i} - \bar{y})}
+{\sqrt{\sum(x_{i} - \bar{x})^{2}}
+	\sqrt{\sum(y_{i} - \bar{y})^{2}}} \ \ \text{for} \ \ i \in (0, n)
+\end{equation} \\
 
-Although optimization is not the aim of this section, the previous formula can also be expressed as follows:
+Although optimization is not the aim of this section, the previous formula would require passing the data twice: first to compute the mean of cosine and VTEC and second to compute the coefficient itself. The formula can also be expressed as follows:
 
+\begin{equation} \label{eq:singlePass}
+r_{xy} = \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}
+{\sqrt{n\sum x_{i}^{2} - (\sum x_{i})^{2}}
+	\sqrt{n\sum y_{i}^{2} - (\sum y_{i})^{2}}}  \ \ \text{for} \ \ i \in (0, n)
+\end{equation} \\
 
+With can be implemented with a single pass algorithm, as opposed to the former. Because of this we decided to initially start with this one.
 
-With which a single pass algorithm can be implemented, as opposed to the former. Because of this we decided to initially start with this one.
+To ensure that the implementation of the previous method in Fortran was correct, we used the R language and its already implemented correlation function to test our results, in the previous section the Fortran implementation is shown. 
 
-Formulas
+\subsection{Discarding outliers by fitting the data}
 
-explain, formulas, references, etc
+It is necessary to discard outliers as they are problematic when computing the mean of the VTEC and the correlation. This is done....
 
-explain R and compare to show the computation is correct
+ARGGGGGGGGGGGGGGGGGGGG
 
 \section{Algorithm}
 
-The algorithm works as follows: the spike of VTEC value throughout the day is found by finding the epoch with the maximum mean VTEC of all IPPs for that epoch.
-The data is then filtered by that epoch (only IPPs for that epoch will be used for the computations) and the algorithm starts considering possible Suns.
+The algorithm works as follows: the spike of VTEC value throughout the day is found by finding the epoch with the maximum mean VTEC of all IPPs for that epoch\footnote{The use of this method for finding the best epoch is discussed in chapter **** }.
+The data is then filtered by that epoch (only the info of IPPs for that epoch will be used for the computations) and the algorithm starts considering possible Suns.
 
-There are $360 * 180 = 64800$ possible Sun's. Thus, in order to test the algorithm the factor \textit{STEP} is used which defines the step between the angles of possible Suns. The smaller the step, the more Suns will be considered. 
+There are $360 * 180 = 64800$ possible Sun's. Thus, in order to test the algorithm, the factor \textit{STEP} is used which defines the step between the angles of possible Suns. The smaller the step, the more Suns will be considered. 
 
 For each of these possible Suns, the VTEC value and the cosine of the solar-zenith angle ($\cos \chi$) are computed for every IPP in that epoch, but the $\cos \chi$ is computed using the location of the IPP and the one of the possible Sun. Each of this Suns yields a data set with the aforementioned variables that can be plotted to obtain images such as the one studied at the end of the previous section. This two variables are used for computing the correlation coefficient for every considered Sun.
 
@@ -77,7 +87,7 @@ The following is the pseudocode for the brute force approach of the algorithm. W
 
 \clearpage
 
-One thing that has to be taken into consideration is that all possible locations that have a declination of 90º or -90º yield the same results. Figure \ref{fig:poles} shows the results as seen in the previous chapter but in this case we have a different plot because of the different Sun position. 
+One thing that has to be taken into consideration is that all possible locations that have a declination of 90º or -90º yield the same results (figure \ref{fig:poles}).
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -93,7 +103,7 @@ One thing that has to be taken into consideration is that all possible locations
 	\label{fig:poles}
 \end{figure}
 
-Using a \textit{diff} tool we can observe that although the data files used to plot the results \footnote{$cos\chi$ as the X axis and VTEC as the Y axis} have different values, the resulting plots are exactly the same image.
+Using a \textit{diff} tool we can observe that although the data files used to plot the results \footnote{The data is $cos\chi$ as the X axis and VTEC as the Y axis} have different values, the resulting plots are exactly the same image.
 
 This is due to the fact that declinations 90º and -90º correspond to the poles, when the Sun is directly on top or below the Earth, and therefore all possible right ascensions are exactly the same position.
 
@@ -103,32 +113,26 @@ This is due to the fact that declinations 90º and -90º correspond to the poles
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[language=c, caption=Finding a VTEC spike]
-for (int dec = -90; dec <= 90; dec += step) {
-	if (dec != -90 and dec != 90) {
-		for (int ra = 0; ra <= 360; ra += step) {
-			pearsonCoefficient = testsun_(&ra, &dec);
-			cout << "\r" << "[" << ++i << " possible Suns considered]";
-			if (pearsonCoefficient > maxCoefficient) {
-				maxCoefficient = pearsonCoefficient;
-				location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
-			}
-			if (outputEachFile) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
-		}
-	}
-	else {
-		//Do only once
-		int ra = 0;
-		pearsonCoefficient = testsun_(&ra, &dec);
-		cout << "\r" << "[" << ++i << " possible Suns considered]";
-		if (pearsonCoefficient > maxCoefficient) {
-			maxCoefficient = pearsonCoefficient;
-			location = to_string(ra) + to_string(dec);
-		}
-		if (outputEachFile) cout << "Generated file for: ra=" << ra << " dec=" << dec << " Pearson coefficient rxy = " << pearsonCoefficient << endl;
+double epochIn, vtecIn, raIPPIn, latIPPIn;
+int n = 0;
+
+data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn;
+double totalEpochVTEC = vtecIn;
+double previousEpoch = epochIn;
+while (data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
+	totalEpochVTEC += vtecIn;
+	n++;
+	if (previousEpoch != epochIn) {
+		insertCandidate(previousEpoch, totalEpochVTEC/n);
+		previousEpoch = epochIn;
+		totalEpochVTEC = 0;
+		n = 0;
 	}
 }
 \end{lstlisting}
 \end{minipage}
+
+The loop traverses the data and computes the mean VTEC of each epoch, inserting it in a priority queue.
 
 \paragraph{Iterating over the possible Suns}
 \begin{minipage}{\linewidth}
@@ -136,7 +140,7 @@ for (int dec = -90; dec <= 90; dec += step) {
 for (int dec = -90; dec <= 90; dec += step) {
 	if (dec != -90 and dec != 90) {
 		for (int ra = 0; ra <= 360; ra += step) {
-			pearsonCoefficient = testsun_(&ra, &dec);
+			pearsonCoefficient = computeCorrelation(&ra, &dec);
 			if (pearsonCoefficient > maxCoefficient) {
 				maxCoefficient = pearsonCoefficient;
 				location = "[" + to_string(ra) + ", " + to_string(dec) + "]";
@@ -145,7 +149,7 @@ for (int dec = -90; dec <= 90; dec += step) {
 	}
 	else {
 		int ra = 0;
-		pearsonCoefficient = testsun_(&ra, &dec);
+		pearsonCoefficient = computeCorrelation(&ra, &dec);
 		if (pearsonCoefficient > maxCoefficient) {
 			maxCoefficient = pearsonCoefficient;
 			location = "[" + to_string(ra) + ", " + to_string(dec) + "]";
@@ -157,11 +161,20 @@ for (int dec = -90; dec <= 90; dec += step) {
 
 \paragraph{Computing the correlation}
 
-This is the Fortran function \textit{testsun\_()} called for every possible pair \textit{(ra, dec)} (a "virtual" Sun) considered in the previous loop.
+This is the main code of the Fortran function \textit{computeCorrelation(ra, dec)} called for every possible \textit{(ra, dec)} pair (a "virtual" Sun) considered in the previous loop. \textit{computeCorrelation} has more auxiliary functions such as \textit{openFile()} that are not included for readability.
 
-It reads every line of the file (every line corresponds to an IPP) and computes both the solar-zenith angle and the VTEC as seen in the previous chapter.
+It reads every line of the file that contains the information of the IPPs filtered by the found epoch and computes both the solar-zenith angle and the VTEC as seen in the previous chapter.
 
-Given these results, the necessary values for computing the correlation are updated each iteration as shown in the next listing, using equations \textbf{TODO: LAS EQUACIONES DE CORRELACION} and finally uses them to compute de Pearson Correlation Coefficient.
+Given these results, the necessary values for computing the correlation are updated each iteration:
+
+\begin{itemize}
+	\item $\sum x_{i}$ and $\sum y_{i}$
+	\item $\sum x_{i}y_{i}$
+	\item $\sum x_{i}^{2}$ and $\sum y_{i}^{2}$
+\end{itemize}
+
+
+Once all the IPPs have been processed, the previous values are used to compute the Pearson Correlation Coefficient using equation \ref{eq:singlePass}.
 
 \begin{lstlisting}[language=Fortran, caption=Correlation computation]
 double precision function traverseFile (raSunIn, decSunIn)
@@ -190,12 +203,10 @@ double precision function traverseFile (raSunIn, decSunIn)
 		decIPP = toRadian(decIPP)
 		vtec = estimateVTEC(mapIon, d2Li)
 		cosx = computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
-		if (vtec < VTEC_UPPER_LIMIT .and. vtec > VTEC_LOWER_LIMIT) then
-			if (cosx > CORRELATION_THRESHOLD) then
-				write(34,*) cosx, vtec
-				call updateCorrelationParameters (cosx, vtec, sumx, sumy, sumxy, sumx2, sumy2)
-				i = i + 1
-			end if
+		if (cosx > CORRELATION_THRESHOLD) then
+			write(34,*) cosx, vtec
+			call updateCorrelationParameters (cosx, vtec, sumx, sumy, sumxy, sumx2, sumy2)
+			i = i + 1
 		end if	
 	end do
 	240 continue
@@ -205,12 +216,7 @@ double precision function traverseFile (raSunIn, decSunIn)
 end function traverseFile
 \end{lstlisting}
 
-As can be seen in the code, the line (IPP) is only considered if:
-
-\begin{itemize}
-	\item The VTEC value is within a given lower and upper bounds, in this case -0.3 and 0,3, respectively, to discard outliers.
-	\item $\cos\chi$ is higher than a \textit{"correlation threshold"} (-0.1º in this case). This is done because we want to study the only the "part" of the plot where the Sun is having an effect. This can be seen in figure \ref{fig:solar-zenith-angle}, where we observed that the VTEC value remained the same from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º).
-\end{itemize}
+As can be seen in the code, the line (IPP) is only considered if $\cos\chi$ is higher than a \textit{"correlation threshold"} (-0.1º in this case). This is done because we want to study only the "part" of the ionosphere where the Sun is having an effect. This can be seen in figure \ref{fig:solar-zenith-angle}, where we observed that the VTEC value remained the same from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º).
 
 \paragraph{Compiling}
 
@@ -227,7 +233,6 @@ This can be done by compiling the object of the Fortran code using the $-c$ flag
 Executing the algorithm with a STEP of 10º, this is the output of the execution:
 
 \begin{lstlisting}[caption=Brute force approach algorithm output]
-#### Brute force algorithm ####
 [C++: Finding a spike in the VTEC distribution]
 	-> Spike found: 11.05
 [AWK: Filtering all data by best epoch: 11.05]
@@ -263,7 +268,6 @@ It can be interesting to see how the computation time grows as more precision is
 		3 & 7141 & 0.937349 & [ra=213, dec=-12] & 7s 169ms \\
 			\hline 
 		1 & 64621 & 0.939114 & [ra=214, dec=-11] & 1m 9s 564ms \\
-		\hline 
 		\hline 
 	\end{tabular}
 	\caption{Results}

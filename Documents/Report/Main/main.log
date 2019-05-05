@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  3 MAY 2019 21:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  5 MAY 2019 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -862,8 +862,17 @@ LaTeX Warning: Label `eq:2' multiply defined.
 
 LaTeX Warning: Label `eq:3' multiply defined.
 
-) (./sections/ch5BruteForceApproach.aux) (./sections/ch6Algorithm.aux)
-(./sections/chXResults.aux))
+
+LaTeX Warning: Label `fig:vtecDistribution' multiply defined.
+
+) (./sections/ch5BruteForceApproach.aux) (./sections/ch6Algorithm.aux
+
+LaTeX Warning: Label `fig:solar-zenith-angle' multiply defined.
+
+
+LaTeX Warning: Label `fig:poles' multiply defined.
+
+) (./sections/chXResults.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
@@ -971,7 +980,7 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `sections/cover.aux'.
 
  (./sections/cover.tex
-<images/cover/logo-fib.png, id=168, 1003.75pt x 150.5625pt>
+<images/cover/logo-fib.png, id=172, 1003.75pt x 150.5625pt>
 File: images/cover/logo-fib.png Graphic file (type png)
 <use images/cover/logo-fib.png>
 Package pdftex.def Info: images/cover/logo-fib.png  used on input line 21.
@@ -996,7 +1005,7 @@ l.10 \end{abstract}
 {page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.43 ...traterrestrial EUV Sources}{34}{chapter.6}
+l.43 ...line {5.2.2}Results}{31}{subsection.5.2.2}
                                                    [1
 
 
@@ -1100,12 +1109,12 @@ Chapter 4.
 LaTeX Warning: Reference `fig:diagramIGS' on page 16 undefined on input line 17
 .
 
-<images/ch4/FTPNASA.png, id=404, 641.39626pt x 804.00375pt>
+<images/ch4/FTPNASA.png, id=416, 641.39626pt x 804.00375pt>
 File: images/ch4/FTPNASA.png Graphic file (type png)
 <use images/ch4/FTPNASA.png>
 Package pdftex.def Info: images/ch4/FTPNASA.png  used on input line 21.
 (pdftex.def)             Requested size: 127.91907pt x 160.34398pt.
-<images/ch4/DataFlowIGS.png, id=405, 667.49374pt x 457.71pt>
+<images/ch4/DataFlowIGS.png, id=417, 667.49374pt x 457.71pt>
 File: images/ch4/DataFlowIGS.png Graphic file (type png)
 <use images/ch4/DataFlowIGS.png>
 Package pdftex.def Info: images/ch4/DataFlowIGS.png  used on input line 26.
@@ -1115,7 +1124,7 @@ Package pdftex.def Info: images/ch4/DataFlowIGS.png  used on input line 26.
 
 
 ] [17 <./images/ch4/FTPNASA.png> <./images/ch4/DataFlowIGS.png>]
-<images/ch4/halloweenPaper.png, id=419, 876.27374pt x 599.23875pt>
+<images/ch4/halloweenPaper.png, id=431, 876.27374pt x 599.23875pt>
 File: images/ch4/halloweenPaper.png Graphic file (type png)
 <use images/ch4/halloweenPaper.png>
 Package pdftex.def Info: images/ch4/halloweenPaper.png  used on input line 76.
@@ -1154,13 +1163,13 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 142.
  [20]
-<images/ch4/vtecDistributionGeneral.png, id=476, 481.8pt x 361.35pt>
+<images/ch4/vtecDistributionGeneral.png, id=488, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionGeneral.png Graphic file (type png)
 <use images/ch4/vtecDistributionGeneral.png>
 Package pdftex.def Info: images/ch4/vtecDistributionGeneral.png  used on input 
 line 155.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch4/vtecDistributionVill.png, id=477, 481.8pt x 361.35pt>
+<images/ch4/vtecDistributionVill.png, id=489, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionVill.png Graphic file (type png)
 <use images/ch4/vtecDistributionVill.png>
 Package pdftex.def Info: images/ch4/vtecDistributionVill.png  used on input lin
@@ -1192,7 +1201,7 @@ LaTeX Warning: Command \textordmasculine invalid in math mode on input line 224
 LaTeX Warning: Command \textordmasculine invalid in math mode on input line 224
 .
 
-<images/ch4/resultSunTest.png, id=491, 481.8pt x 361.35pt>
+<images/ch4/resultSunTest.png, id=503, 481.8pt x 361.35pt>
 File: images/ch4/resultSunTest.png Graphic file (type png)
 <use images/ch4/resultSunTest.png>
 Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 228.
@@ -1212,32 +1221,52 @@ File: images/ch4/resultSunTest.png Graphic file (type png)
 <use images/ch4/resultSunTest.png>
 Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 242.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-[23 <./images/ch4/resultSunTest.png>]) [24]
+<images/ch4/smallChi.jpg, id=521, 524.96124pt x 423.5825pt>
+File: images/ch4/smallChi.jpg Graphic file (type jpg)
+<use images/ch4/smallChi.jpg>
+Package pdftex.def Info: images/ch4/smallChi.jpg  used on input line 250.
+(pdftex.def)             Requested size: 170.55441pt x 137.61743pt.
+<images/ch4/largeChi.jpg, id=522, 562.1pt x 423.5825pt>
+File: images/ch4/largeChi.jpg Graphic file (type jpg)
+<use images/ch4/largeChi.jpg>
+Package pdftex.def Info: images/ch4/largeChi.jpg  used on input line 255.
+(pdftex.def)             Requested size: 170.55441pt x 128.52351pt.
+[23 <./images/ch4/resultSunTest.png>]) [24 <./images/ch4/smallChi.jpg> <./image
+s/ch4/largeChi.jpg>]
 \openout2 = `sections/ch5BruteForceApproach.aux'.
 
-
-(./sections/ch5BruteForceApproach.tex
+ (./sections/ch5BruteForceApproach.tex
 Chapter 5.
 [25
 
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+[26]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 58.
- [26] [27]
-<images/ch4/ra180_dec-090.png, id=538, 481.8pt x 361.35pt>
+put line 68.
+ [27]
+<images/ch4/ra180_dec-090.png, id=557, 481.8pt x 361.35pt>
 File: images/ch4/ra180_dec-090.png Graphic file (type png)
 <use images/ch4/ra180_dec-090.png>
-Package pdftex.def Info: images/ch4/ra180_dec-090.png  used on input line 84.
+Package pdftex.def Info: images/ch4/ra180_dec-090.png  used on input line 94.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch4/ra000_dec-090.png, id=539, 481.8pt x 361.35pt>
+<images/ch4/ra000_dec-090.png, id=558, 481.8pt x 361.35pt>
 File: images/ch4/ra000_dec-090.png Graphic file (type png)
 <use images/ch4/ra000_dec-090.png>
-Package pdftex.def Info: images/ch4/ra000_dec-090.png  used on input line 89.
+Package pdftex.def Info: images/ch4/ra000_dec-090.png  used on input line 99.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 83--92
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 93--102
 [][]  [] 
  []
 
@@ -1249,34 +1278,64 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) [28
 
  <./images/ch4/ra180_dec-090.png> <./images/ch4/ra000_dec-090.png>] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
 
  []
 
 [31]
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 242
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 247
 .
 
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 242
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 247
 .
 
 
-Overfull \hbox (29.70473pt too wide) in paragraph at lines 249--269
+Overfull \hbox (29.70473pt too wide) in paragraph at lines 254--273
  [][] 
  []
 
-[32]) [33]
+) [32]
 \openout2 = `sections/ch6Algorithm.aux'.
 
  (./sections/ch6Algorithm.tex
 Chapter 6.
-[34
+[33
 
 
 
-]) [35] [36]
+] [34]
+<images/ch6/hillClimbing/resultsAll.png, id=684, 481.8pt x 361.35pt>
+File: images/ch6/hillClimbing/resultsAll.png Graphic file (type png)
+<use images/ch6/hillClimbing/resultsAll.png>
+Package pdftex.def Info: images/ch6/hillClimbing/resultsAll.png  used on input 
+line 54.
+(pdftex.def)             Requested size: 255.83813pt x 191.8785pt.
+<images/ch6/hillClimbing/resultsPathBad.png, id=685, 481.8pt x 361.35pt>
+File: images/ch6/hillClimbing/resultsPathBad.png Graphic file (type png)
+<use images/ch6/hillClimbing/resultsPathBad.png>
+Package pdftex.def Info: images/ch6/hillClimbing/resultsPathBad.png  used on in
+put line 64.
+(pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
+<images/ch6/hillClimbing/resultsPathGood.png, id=686, 481.8pt x 361.35pt>
+File: images/ch6/hillClimbing/resultsPathGood.png Graphic file (type png)
+<use images/ch6/hillClimbing/resultsPathGood.png>
+Package pdftex.def Info: images/ch6/hillClimbing/resultsPathGood.png  used on i
+nput line 69.
+(pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 63--72
+[][]  [] 
+ []
+
+[35
+
+ <./images/ch6/hillClimbing/resultsAll.png (PNG copy)> <./images/ch6/hillClimbi
+ng/resultsPathBad.png (PNG copy)> <./images/ch6/hillClimbing/resultsPathGood.pn
+g (PNG copy)>] [36]) [37
+
+]
 \openout2 = `sections/chXResults.aux'.
 
  (./sections/chXResults.tex
@@ -1284,11 +1343,11 @@ Chapter 7.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [37
+) [38
 
 
 
-] [38] [39
+] [39] [40
 
 ] (./main.bbl
 Underfull \hbox (badness 2269) in paragraph at lines 4--8
@@ -1302,11 +1361,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 du / starlink /
  []
 
-[40
+[41
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
- [41]
+ [42]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
  (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
 (./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
@@ -1316,7 +1375,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DFBA75231B791F8FB8ED3C0F8094B32F;2695.
+(rerunfilecheck)             Checksum: E663072DA54617EE0086223B25884519;2788.
 
 
 LaTeX Warning: There were undefined references.
@@ -1327,10 +1386,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
  ) 
 Here is how much of TeX's memory you used:
- 15421 strings out of 494847
- 225577 string characters out of 6179080
- 557995 words of memory out of 5000000
- 18106 multiletter control sequences out of 15000+600000
+ 15447 strings out of 494847
+ 226454 string characters out of 6179080
+ 485137 words of memory out of 5000000
+ 18128 multiletter control sequences out of 15000+600000
  13731 words of font info for 49 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  53i,12n,101p,2130b,2064s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1347,10 +1406,10 @@ ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (43 pages, 581521 bytes).
+Output written on main.pdf (44 pages, 763771 bytes).
 PDF statistics:
- 842 PDF objects out of 1000 (max. 8388607)
- 760 compressed objects within 8 object streams
- 306 named destinations out of 1000 (max. 500000)
- 374 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 857 PDF objects out of 1000 (max. 8388607)
+ 769 compressed objects within 8 object streams
+ 303 named destinations out of 1000 (max. 500000)
+ 407 words of extra memory for PDF output out of 10000 (max. 10000000)
 

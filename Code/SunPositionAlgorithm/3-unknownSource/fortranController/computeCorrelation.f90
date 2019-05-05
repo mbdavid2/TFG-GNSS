@@ -8,7 +8,7 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 
 	double precision :: rxyPearsonCoefficient
 
-	writeData = 1
+	writeData = 0
 
 	rxyPearsonCoefficient = traverseFile(raSunIn, decSunIn)
 	return

@@ -110,6 +110,6 @@ int main() {
 	aux.chronoEnd();
 
 	// ResultsDebugger resultsDebugger;
-	// // resultsDebugger.plotSunsRaDecCoefAllSunsAndHillClimbingPath();
+	// resultsDebugger.plotSunsRaDecCoefAllSunsAndHillClimbingPath();
 	// resultsDebugger.plotSunsRaDecCoefHillClimbingAllConsideredAndPath();
 }

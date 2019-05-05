@@ -97,14 +97,12 @@ candidate SpikeFinder::getBestCandidateFromPQ() {
 
 void SpikeFinder::findQueueBestCandidates (ifstream& data) {
 	double epochIn, vtecIn, raIPPIn, latIPPIn;
-	double previousEpoch = -1;
-	double totalEpochVTEC = 0;
 	int n = 0;
 
 	//Loop
 	data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn;
-	totalEpochVTEC += vtecIn;
-	previousEpoch = epochIn;
+	double totalEpochVTEC = vtecIn;
+	double previousEpoch = epochIn;
 	while (data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
 		insertInfoIPP(epochIn, vtecIn, raIPPIn, latIPPIn);
 		totalEpochVTEC += vtecIn;

@@ -43,12 +43,46 @@ Later in this section a study on the optimal parameters (starting value and decr
 
 \subsection{Results}
 
+\clearpage
+
 \section{Hill Climbing}
 
-Using the previous optimization we can see a plot of all the considered possibilities:
+Using the previous optimization we can see a plot of all the possibilities the algorithm considers:
 
-As we can see in the previous figure, we only appear to have one local maxima, which is a suitable problem to solve using a \textit{Hill Climbing} approach.
+\begin{figure}[!htb]
+	\begin{centering}
+		\includegraphics[width=0.6\linewidth]{images/ch6/hillClimbing/resultsAll.png}
+		\caption{Visual representation of the solar-zenith angle}
+		\label{fig:solar-zenith-angle}
+	\end{centering}
+\end{figure}
 
+As we can see in the previous figure, there appears to be a "hill" (our solution) so an attempt to solve the problem by using a \textit{Hill Climbing} approach was also considered.
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch6/hillClimbing/resultsPathBad.png}
+		\caption{ra=180º, dec=-90º}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch6/hillClimbing/resultsPathGood.png}
+		\caption{ra=0º, dec=-90º}
+	\end{subfigure}
+	\caption{Two examples of possible Sun locations}
+	\label{fig:poles}
+\end{figure}
+
+If we take ra 160, dec -20, good:
+
+
+If we take 100, -60:
+
+
+because of this blab ladasda as another possibility would be to use Simulated Annealing so that the algorithm doesn't stop in local hills.
+
+
+\clearpage
 \section{OpenMP?}
 
 
