@@ -11,17 +11,27 @@ zcat "$tiDataFile" | gawk -f processDataSun.awk  > outputTi.out
 # cat outputTi.out
 # fi
 echo "-> Compiling sunTest.f90"
+gfortran x_y_sigmay_2_linear_fit.v2.f -o linearFit.x -lblas -llapack 
 gfortran createPlot.f90 sunTestMain.f90
 echo "-> Running sunTest.f90"
 if [ "$1" == "plot" ];then
 	./a.out > resultsToPlot
+	rm a.out
 	echo "-> Plot the results"
 	gnuplot -e "set terminal png; set output 'result.png'; set title 'Time=11.05h || ra=212.338 || dec=-13.060'; set xlabel 'Cosine of solar-zenith angle'; set ylabel 'VTEC'; set grid; plot \"resultsToPlot\" using 1:2 with point"
 else
 	./a.out
+	rm a.out
 fi
-rm resultsToPlot
-rm *.out
+# rm resultsToPlot
+# rm *.out
 rm *.mod
 
 # plot [10.5:11.5] "test" using 1:2 with point
+
+cat resultsToPlot | ./linearFit.x 3 5 > resultsFitted
+
+cat resultsFitted | gawk -e '{/a/; if ($6 == "T" && $3 >= 0.01) {print $0}}' > trueFitted
+cat resultsFitted | gawk -e '{/a/; if ($6 == "F") {print $0}}' > falseFitted
+
+gnuplot -e "set grid; plot \"resultsToPlot\" using 1:2 with point, \"trueFitted\" using 1:2 with lines; pause -1;"

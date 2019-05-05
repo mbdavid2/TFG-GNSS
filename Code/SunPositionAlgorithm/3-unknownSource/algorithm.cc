@@ -84,7 +84,7 @@ void mainAlgorithm() {
 	///////////
 
 	// Find location using the decreaseRange method
-	// decreaseRangeMethod(fileManager, bestCandidate.epoch);
+	decreaseRangeMethod(fileManager, bestCandidate.epoch);
 
 	// Hill Climbing
 	// hillClimbingMethod();
@@ -100,7 +100,7 @@ void mainAlgorithm() {
 	// Get best IPPs from that epoch
 	// spikeFinder.printBestIPPsFromCandidate(bestCandidate);
 	// priority_queue<infoIPP> bestIPPs = spikeFinder.getBestIPPsFromCandidate(bestCandidate);
-	leastSquaresMethod(numRows); //TODO: como obtenemos el numero de lineas al hacer el filtrado??
+	// leastSquaresMethod(numRows); //TODO: como obtenemos el numero de lineas al hacer el filtrado??
 }
 
 int main() {

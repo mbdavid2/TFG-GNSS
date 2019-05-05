@@ -31,6 +31,7 @@ CLASSES = $(auxiliaryF).o $(resultsDebuggerF).o $(hillClimbingF).o $(fileManager
 fortranControllerF = fortranController/FortranController
 leastSquaresF = fortranController/leastSquares
 correlationF = fortranController/computeCorrelation
+linearFitF = linearFit/x_y_sigmay_2_linear_fit.v2
 FORTRAN = $(fortranControllerF).o $(correlationF).o $(leastSquaresF).o
 
 
@@ -50,6 +51,9 @@ correlation: $(correlationF).f90
 
 leastSquares: $(leastSquaresF).f90
 	gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o
+
+linearFit: $(linearFitF).f
+	gfortran $(linearFitF).f -c -o $(linearFitF).o
 
 # ----------
 # C++

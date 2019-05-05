@@ -40,14 +40,14 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			! 	print *, matrixIPP(i,0), matrixIPP(i,1), matrixIPP(i,2), matrixIPP(i,3)
 			! end do
 
-			call computeMatrixComputations(solution, matrixIPP, matrixVTEC)
+			call matrixComputations(solution, matrixIPP, matrixVTEC)
 			print *, "Results:"
 			print *, solution(0), solution(1), solution(2), solution(3)
 			call obtainSourceLocation(solution)
 
 		end subroutine leastSquares
 
-		subroutine computeMatrixComputations(solution, A, Y)
+		subroutine matrixComputations(solution, A, Y)
 			implicit none
 			double precision, dimension (0:3), intent(out) :: solution
 			double precision, dimension (0:numRows), intent(in) :: Y
@@ -59,7 +59,7 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			! invMult = inv(matmul(transposedA, A))
 			
 			solution = matmul(matmul(inv(matmul(transposedA, A)), transposedA), y) ! esto dejarlo mas bonito???
-		end subroutine computeMatrixComputations
+		end subroutine matrixComputations
 
 		subroutine obtainSourceLocation(solution)
 			double precision, dimension (0:3), intent(in) :: solution
@@ -78,9 +78,9 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 
 			dec = asin(Z)
 			ra = asin(Y/cos(dec))
-			ra = acos(X/cos(dec))
-
 			print *, "Ra, Dec: ", toDegree(ra), toDegree(dec)
+			ra = acos(X/cos(dec))
+			print *, "Ra2, Dec: ", toDegree(ra), toDegree(dec)
 		end subroutine obtainSourceLocation
 
 		subroutine storeMatrixData(matrixVTEC, matrixIPP)
