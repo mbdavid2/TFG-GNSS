@@ -4,8 +4,9 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 	double precision :: rxyPearsonCoefficient
 	integer, intent(in) :: numRows
 
-	call openFile(inputFileName)
-	call leastSquares() 
+	call leastSquares(0)
+	call leastSquares(1)
+	 
 	! TODO: we should pass the real number of rows
 
 	rxyPearsonCoefficient = 23232
@@ -25,8 +26,9 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			end if
 		end subroutine openFile
 
-		subroutine leastSquares()
+		subroutine leastSquares(method)
 			implicit none
+			integer, intent(in) :: method
 			double precision, dimension (0:numRows) :: matrixVTEC
 			double precision, dimension (0:numRows, 0:3) :: matrixIPP
 			double precision, dimension (0:3) :: solution
@@ -34,18 +36,38 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 
 			call storeMatrixData(matrixVTEC, matrixIPP)
 
-			! vtecSize = size(matrixVTEC)
-			! do i = 0, vtecSize-1
-			! 	print *, matrixVTEC(i)
-			! 	print *, matrixIPP(i,0), matrixIPP(i,1), matrixIPP(i,2), matrixIPP(i,3)
-			! end do
-
-			call matrixComputations(solution, matrixIPP, matrixVTEC)
-			print *, "Results:"
-			print *, solution(0), solution(1), solution(2), solution(3)
-			call obtainSourceLocation(solution)
-
+			if (method == 0) then
+				print *, "Multiplications:"
+				call matrixComputations(solution, matrixIPP, matrixVTEC)
+				call obtainSourceLocation(solution)
+			else if (method == 1) then
+				print *, "LAPACK:"
+				call matrixComputationsLapack(solution, matrixIPP, matrixVTEC)
+				solution(0) = matrixVTEC(0)
+				solution(1) = matrixVTEC(1)
+				solution(2) = matrixVTEC(2)
+				call obtainSourceLocation(solution)
+			end if
 		end subroutine leastSquares
+
+		subroutine matrixComputationsLapack(solution, A, Y)
+			implicit none
+			double precision, dimension (0:3), intent(out) :: solution
+			double precision, dimension (0:numRows), intent(in) :: Y
+			double precision, dimension (:, :) :: A
+			double precision, dimension (0:3, 0:numRows) :: transposedA, innerMat
+			double precision, dimension (0:numRows, 0:3) :: invMult
+			double precision, dimension(size(A,1)) :: work  ! work array for LAPACK
+			integer :: n, info
+
+			external DGELS
+
+			call DGELS('N', numRows, 4, 1, A, numRows, Y, numRows, work, numRows, info)
+
+			if (info /= 0) then
+				stop 'Matrix is numerically singular!'
+			end if
+		end subroutine matrixComputationsLapack
 
 		subroutine matrixComputations(solution, A, Y)
 			implicit none
@@ -89,8 +111,9 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			double precision, dimension (0:numRows, 0:3), intent(out) :: matrixIPP
 			double precision :: vtec, raIPP, decIPP
 			double precision :: xIPP, yIPP, zIPP
-			
 			integer :: i
+
+			call openFile(inputFileName)
 
 			do i = 0, numRows
 				read (1, *, end = 240) vtec, raIPP, decIPP

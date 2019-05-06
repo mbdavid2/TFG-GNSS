@@ -37,7 +37,10 @@ FORTRAN = $(fortranControllerF).o $(correlationF).o $(leastSquaresF).o
 
 main: compile run 
 
-compile: correlation fortranController auxiliary hillClimbing resultsDebugger fileManager spikeFinder traverseGlobe
+compile: fortranController $(CLASSES) $(FORTRAN)
+	g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
+
+compileAll: correlation fortranController auxiliary hillClimbing resultsDebugger fileManager spikeFinder traverseGlobe
 	g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
 
 # ----------

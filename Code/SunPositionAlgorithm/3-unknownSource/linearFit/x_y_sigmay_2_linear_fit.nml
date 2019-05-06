@@ -1,8 +1,0 @@
-$parameters
- !!res_max_sigmas=99.0d0
- !res_max_sigmas=3.d0
- res_max_sigmas=2.5d0
- !res_max_sigmas=3.5d0
- !max_iter_outliers=10
- max_iter_outliers=5
-$end
