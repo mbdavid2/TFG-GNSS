@@ -6,6 +6,7 @@
 #include "fileManager/FileManager.h"
 #include "resultsDebugger/ResultsDebugger.h"
 #include "hillClimbing/HillClimbing.h"
+#include "simulatedAnnealing/SimulatedAnnealing.h"
 #include "auxiliary/Auxiliary.h"
 #include "fortranController/FortranController.h"
 
@@ -65,6 +66,11 @@ void hillClimbingMethod() {
 	hillClimbing.estimateSourcePosition();
 }
 
+void simulatedAnnealingMethod() {
+	SimulatedAnnealing simulatedAnnealing;
+	simulatedAnnealing.estimateSourcePositionSA();
+}
+
 void mainAlgorithm() {
 	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl << endl;
 	FileManager fileManager;
@@ -83,6 +89,9 @@ void mainAlgorithm() {
 	// fileManager.filterTiFileByTime(bestCandidate.epoch);
 	///////////
 
+	// Simulated Annealing
+	simulatedAnnealingMethod();
+
 	// Find location using the decreaseRange method
 	// decreaseRangeMethod(fileManager, bestCandidate.epoch);
 
@@ -100,7 +109,7 @@ void mainAlgorithm() {
 	// Get best IPPs from that epoch
 	// spikeFinder.printBestIPPsFromCandidate(bestCandidate);
 	// priority_queue<infoIPP> bestIPPs = spikeFinder.getBestIPPsFromCandidate(bestCandidate);
-	leastSquaresMethod(numRows); //TODO: como obtenemos el numero de lineas al hacer el filtrado??
+	// leastSquaresMethod(numRows); //TODO: como obtenemos el numero de lineas al hacer el filtrado??
 }
 
 int main() {

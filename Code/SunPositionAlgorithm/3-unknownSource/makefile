@@ -1,7 +1,7 @@
 .PHONY: *
 SHELL := /bin/bash
 CFLAGS = -Wall
-FFLAGS = -lgfortran -lblas -llapack
+FFLAGS = -lgfortran -lblas -llapack -lgsl -lgslcblas
 
 
 
@@ -23,7 +23,8 @@ fileManagerF = fileManager/FileManager
 resultsDebuggerF = resultsDebugger/ResultsDebugger
 hillClimbingF = hillClimbing/HillClimbing
 auxiliaryF = auxiliary/Auxiliary
-CLASSES = $(auxiliaryF).o $(resultsDebuggerF).o $(hillClimbingF).o $(fileManagerF).o $(spikeFinderF).o $(traverseGlobeF).o
+simulatedAnnealingF = simulatedAnnealing/SimulatedAnnealing
+CLASSES = $(auxiliaryF).o $(resultsDebuggerF).o $(hillClimbingF).o $(fileManagerF).o $(spikeFinderF).o $(traverseGlobeF).o $(simulatedAnnealingF).o
 
 # ----------
 # Fortran and C++ Fortran Controller
@@ -75,6 +76,9 @@ resultsDebugger: $(resultsDebuggerF).cc $(resultsDebuggerF).h
 
 hillClimbing: $(hillClimbingF).cc $(hillClimbingF).h
 	g++ $(CFLAGS) $(hillClimbingF).cc -c -o $(hillClimbingF).o
+
+simulatedAnnealing: $(simulatedAnnealingF).cc $(simulatedAnnealingF).h
+	g++ $(CFLAGS) $(simulatedAnnealingF).cc -c -o $(simulatedAnnealingF).o
 
 auxiliary: $(auxiliaryF).cc $(auxiliaryF).h
 	g++ $(CFLAGS) $(auxiliaryF).cc -c -o $(auxiliaryF).o
