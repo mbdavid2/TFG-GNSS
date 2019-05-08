@@ -26,6 +26,8 @@ class FileManager {
 
 		void filterTiFileByBasicData();
 
+		void discardOutliersLinearFitFortran(int sigma, int iterations);
+
 		string getFilteredFile();
 };
 

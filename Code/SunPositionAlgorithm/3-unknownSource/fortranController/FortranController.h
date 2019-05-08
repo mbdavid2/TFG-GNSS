@@ -13,13 +13,18 @@ class FortranController {
 	public:
         void hillClimbing();
 
+        //Compute correlation
         double computeCorrelation(double* ra, double* dec);
 
+        void printNumberOfConsideredLocations();
+
+		void resetConsideredLocations();
+
+		//Least Squares
         double leastSquares(const char* inputFileName, int numRows);
 
-        // Debug
-        void printNumberOfConsideredLocations();
-		void resetConsideredLocations();
+        //Linear fitting: discard outliers
+        void discardOutliersLinearFit();
 };
 
 #endif

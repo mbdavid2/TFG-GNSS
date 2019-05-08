@@ -35,15 +35,14 @@ void TraverseGlobe::printAllPossibleSunsOrdered() {
 }
 
 void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun) {
-	// double correctRa = 212.338;
-	// double correctDec = -13.060;
+	double correctRa = 212.338;
+	double correctDec = -13.060;
 	// double correctRa = 253.182;
 	// double correctDec = -22.542;
 	 
 	// cout << "[Results]" << endl;
-	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << endl; //<< " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
+	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
 	cout << "   -> Estimated Sun's location: " << bestSun.location << endl;
-
 	// cout << " " << bestSun.ra << " " << bestSun.dec << " " << abs(correctRa-bestSun.ra) << " " << abs(correctDec-bestSun.dec) << " " << bestSun.coefficient << endl;
 }
 
@@ -75,8 +74,6 @@ void writeCoefficientToFile(double ra, double dec, double pearsonCoefficient, of
 
 possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange range, ofstream& plotData) {
 	FortranController fc;
-
-
 
 	if (output) printCorrelationParameters(step, range);
 	double pearsonCoefficient;
@@ -158,12 +155,27 @@ void TraverseGlobe::decreasingSTEP() {
 	plotData.close();
 }
 
+void TraverseGlobe::debugSingle() {
+	FortranController fc;
+	double ra = 212.338;
+	double dec = -13.060;
+	double pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
+	possibleSunInfo bestSun;
+	bestSun.coefficient = pearsonCoefficient;
+	bestSun.ra = ra;
+	bestSun.dec = dec;
+	bestSun.location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
+	bestSuns.push(bestSun);
+}
+
 void TraverseGlobe::estimateSourcePosition(double epoch, double sumyFortran, double sumy2Fortran) {
 	sumy2 = sumy2Fortran;
 	sumy = sumyFortran;
 	decreasingSTEP();
 	// printRealSun();
 }
+
+
 
 priority_queue<possibleSunInfo> TraverseGlobe::getPriorityQueueBestSuns() {
 	return bestSuns;

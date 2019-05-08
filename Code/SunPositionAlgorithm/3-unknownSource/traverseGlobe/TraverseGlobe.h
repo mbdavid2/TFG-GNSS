@@ -30,6 +30,8 @@ class TraverseGlobe {
 
 		void printAllPossibleSunsOrdered();
 
+		void debugSingle();
+
 		void deletePQ();
 };
 

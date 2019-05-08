@@ -31,12 +31,13 @@ CLASSES = $(auxiliaryF).o $(resultsDebuggerF).o $(hillClimbingF).o $(fileManager
 # ----------
 fortranControllerF = fortranController/FortranController
 leastSquaresF = fortranController/leastSquares
+computeCosinesF = fortranController/computeCosinesOfCurrentSource
 correlationF = fortranController/computeCorrelation
-linearFitF = linearFit/x_y_sigmay_2_linear_fit.v2
-FORTRAN = $(fortranControllerF).o $(correlationF).o $(leastSquaresF).o
+linearFitF = fortranController/x_y_sigmay_2_linear_fit.v2
+FORTRAN = $(fortranControllerF).o $(correlationF).o $(leastSquaresF).o $(computeCosinesF).o
 
 
-main: compile run 
+main: linearFit compile run 
 
 compile: fortranController $(CLASSES) $(FORTRAN)
 	g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
@@ -47,17 +48,20 @@ compileAll: correlation fortranController auxiliary hillClimbing resultsDebugger
 # ----------
 # Fortran and C++ Fortran Controller
 # ----------
-fortranController: correlation leastSquares
+fortranController: computeCosines correlation leastSquares
 	g++ $(CFLAGS) $(fortranControllerF).cc -c -o $(fortranControllerF).o
 
 correlation: $(correlationF).f90
 	gfortran $(correlationF).f90 -c -o $(correlationF).o
 
+computeCosines: $(computeCosinesF).f90
+	gfortran $(computeCosinesF).f90 -c -o $(computeCosinesF).o
+
 leastSquares: $(leastSquaresF).f90
 	gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o
 
 linearFit: $(linearFitF).f
-	gfortran $(linearFitF).f -c -o $(linearFitF).o
+	gfortran $(linearFitF).f -o linearFit.x -lblas -llapack
 
 # ----------
 # C++

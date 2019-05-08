@@ -67,6 +67,13 @@ int FileManager::filterTiFileByTime(double time) {
     return i; 
 }  
 
+void FileManager::discardOutliersLinearFitFortran(int sigma, int iterations) {
+    string executeLinearFit = "cat cosineData.out | ./linearFit.x " + to_string(sigma) + " " + to_string(iterations) + " > resultsFitted";
+    string filterOutliers = "cat resultsFitted | gawk -e '{/a/; if ($6 == \"T\") {print $1 \" \" $2}}' > cosineDataFitted.out";
+    system(executeLinearFit.c_str());
+    system(filterOutliers.c_str());
+}
+
 string FileManager::getFilteredFile() {
     return filteredFile;
 }

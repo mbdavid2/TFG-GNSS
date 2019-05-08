@@ -1,4 +1,4 @@
-double precision function computeCorrelationFortran (raSunIn, decSunIn)
+double precision function computeCosinesOfCurrentSourceFortran (raSunIn, decSunIn)
 	implicit none
 	double precision, intent(in) :: raSunIn, decSunIn
 
@@ -18,7 +18,7 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 			implicit none
 			integer :: status ! I/O status: 0 for success
 
-			open (unit = 1, file = 'cosineDataFitted.out', status='old', action='read', iostat=status)
+			open (unit = 1, file = 'filteredByTime.out', status='old', action='read', iostat=status)
 
 		   	if (status /= 0) then 
 				write (*, 1040) status
@@ -48,12 +48,12 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 		subroutine openFileForWriting (raSunIn, decSunIn)
 			implicit none
 			double precision, intent(in) :: raSunIn, decSunIn
-			character(len=4) :: iString, jString
+			! character(len=4) :: iString, jString
 
-			write(iString, '(F3.3)') raSunIn
-			write(jString, '(F4.3)') decSunIn
-
-			open(34, file = 'results/ra' // trim(iString) // '_dec' // trim(jString), status = 'new')
+			! write(iString, '(F3.3)') raSunIn
+			! write(jString, '(F4.3)') decSunIn
+			open(34, file = 'cosineData.out', status = 'replace')
+			! open(34, file = 'results/ra' // trim(iString) // '_dec' // trim(jString), status = 'new')
 		end subroutine openFileForWriting
 
 		double precision function traverseFile (raSunIn, decSunIn)
@@ -73,50 +73,27 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 			i = 0
 			
 			call openFile()
+			call openFileForWriting(raSunIn, decSunIn)
+
+			raSun = toRadian(raSunIn)
+			decSun = toRadian(decSunIn)
 
 			do while (1 == 1)
-				read (1, *, end = 240) cosx, vtec
-				call updateCorrelationParameters (cosx, vtec, sumx, sumy, sumxy, sumx2, sumy2)
-				i = i + 1
+				read (1, *, end = 240) vtec, raIPP, decIPP
+				raIPP = toRadian(raIPP)
+				decIPP = toRadian(decIPP)
+				cosx = computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
+				if (cosx > CORRELATION_THRESHOLD) then
+					write(34,*) cosx, vtec
+					i = i + 1
+				end if
 			end do
 			240 continue
 
+			close(34)
 			close(1)
 			! print *, "Fortran:", sumy, sumy2
-			rxyPearson = computePearsonCoefficient(i, sumx, sumy, sumxy, sumx2, sumy2)
 			return
 		end function traverseFile
-
-		subroutine updateCorrelationParameters (x, y, sumx, sumy, sumxy, sumx2, sumy2)
-			implicit none
-			double precision, intent(in) :: x, y
-			double precision :: sumy, sumy2, sumxy, sumx2, sumx
-
-			sumx = sumx + x
-			sumy = sumy + y
-			sumxy = sumxy + x*y
-			sumx2 = sumx2 + x*x
-			sumy2 = sumy2 + y*y
-
-			return
-		end subroutine updateCorrelationParameters
-
-		double precision function computePearsonCoefficient (n, sumx, sumy, sumxy, sumx2, sumy2)
-			implicit none
-			integer, intent(in) :: n
-			double precision, intent(in) :: sumx, sumy, sumxy, sumx2, sumy2 
-			double precision :: meanx, meany, numerator, denominator
-			double precision :: rxyPearsonCoefficient
-			! meanx = sumx/n
-			! meany = sumy/n
-
-			! numerator = sumxy - n*meanx*meany
-			! denominator = sqrt(sumx2-n*meanx*meanx)*sqrt(sumy2-n*meany*meany)
-			numerator = n*sumxy - sumx*sumy
-			denominator = sqrt(n*sumx2-sumx*sumx)*sqrt(n*sumy2-sumy*sumy)
-
-			rxyPearsonCoefficient = numerator/denominator
-			return
-		end function computePearsonCoefficient
-end function computeCorrelationFortran
+end function computeCosinesOfCurrentSourceFortran
 

@@ -11,4 +11,13 @@
 
 
 
+Sobre el nuevo cambio, linearFit: el caso de nuevo sol y brute force dejarlos como ya estan. En Brute Force dejarlo igual, ya esta. Al final, ultimo apartado linearfit
 
+En BGSEES: despues de decrease range. Comentar que muy a saco en esos apartados, 0.3, -0.3 pero ahora con linearFit para descartar outliers, hacer un estudio de como afecta esto al rendimiento y usar de ejemplo decrease range, comentar que ahora se tiene que recorrer el fichero dos veces, y luego el script linear fit multiples. Asi que esto nos dara problemas
+
+
+
+
+buena configuracion: -10 y 10
+
+sigma 1 iteration 6
