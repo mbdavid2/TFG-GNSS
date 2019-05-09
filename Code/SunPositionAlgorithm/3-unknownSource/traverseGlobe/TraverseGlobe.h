@@ -24,7 +24,7 @@ class TraverseGlobe {
 
 		void estimateSourcePosition(double epoch, double sumyFortran, double sumy2Fortran);
 
-		void printCorrelationResults(possibleSunInfo bestSun);
+		void printCorrelationResults(possibleSunInfo bestSun, string fileName);
 
 		priority_queue<possibleSunInfo> getPriorityQueueBestSuns();
 

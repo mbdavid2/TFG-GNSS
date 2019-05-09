@@ -34,9 +34,18 @@ void TraverseGlobe::printAllPossibleSunsOrdered() {
 	}
 }
 
-void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun) {
-	double correctRa = 212.338;
-	double correctDec = -13.060;
+void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun, string fileName) {
+	double correctRa;
+	double correctDec;
+	if (fileName == "ti.2003.301.10h30m-11h30m.gz") {
+		correctRa = 212.338;
+		correctDec = -13.060;
+	}
+	else {
+		correctRa = 253.182;
+		correctDec = -22.542;
+	}
+	
 	// double correctRa = 253.182;
 	// double correctDec = -22.542;
 	 
@@ -84,7 +93,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 	for (double dec = range.lowerDec; dec <= range.upperDec; dec += step) {
 		if (dec != -90 and dec != 90) {
 			for (double ra = range.lowerRa; ra <= range.upperRa; ra += step) {
-				pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
+				pearsonCoefficient = fc.computeCorrelationWithLinearFit(&ra, &dec);
 				if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 				if (pearsonCoefficient > bestSun.coefficient) {
 					bestSun.coefficient = pearsonCoefficient;
@@ -99,7 +108,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 		else {
 			//Do only once
 			double ra = 0;
-			pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
+			pearsonCoefficient = fc.computeCorrelationWithLinearFit(&ra, &dec);
 			if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 			if (pearsonCoefficient > bestSun.coefficient) {
 				bestSun.coefficient = pearsonCoefficient;
@@ -149,7 +158,7 @@ void TraverseGlobe::decreasingSTEP() {
 	for (double step = initialStep; step >= 0.5; step /= 2) {
 		currentSun = considerPossibleSuns(step, range, plotData);
 		bestSuns.push(currentSun);
-		if (output) printCorrelationResults(currentSun);
+		// if (output) printCorrelationResults(currentSun);
 		range = setRange(currentSun, false, step, rangeSize);
 	}
 	plotData.close();
@@ -159,7 +168,7 @@ void TraverseGlobe::debugSingle() {
 	FortranController fc;
 	double ra = 212.338;
 	double dec = -13.060;
-	double pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
+	double pearsonCoefficient = fc.computeCorrelationWithLinearFit(&ra, &dec);
 	possibleSunInfo bestSun;
 	bestSun.coefficient = pearsonCoefficient;
 	bestSun.ra = ra;

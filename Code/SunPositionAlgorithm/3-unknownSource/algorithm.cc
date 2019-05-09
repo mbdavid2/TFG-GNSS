@@ -12,8 +12,8 @@
 
 using namespace std;
 
-const string ORIGINAL_FILE = "ti.2003.301.10h30m-11h30m.gz";
-// const string ORIGINAL_FILE = "ti.2006.340.67190s-68500s.flare.gz";
+const string INPUT_DATA_FILE = "ti.2003.301.10h30m-11h30m.gz";
+// const string INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 
 const string FILTER_AWK_SCRIPT = "filterDataTi.awk";
 const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
@@ -38,7 +38,7 @@ void decreaseRangeMethod(FileManager fileManager, double epoch) {
 	possibleSunInfo best = bestSuns.top();
 
 	cout << endl << "[Decrease range method]" << endl;
-	traverseGlobe.printCorrelationResults(best);
+	traverseGlobe.printCorrelationResults(best, INPUT_DATA_FILE);
 	cout << endl << "____________________________________" << endl << endl;
 }
 
@@ -71,12 +71,11 @@ void simulatedAnnealingMethod() {
 	simulatedAnnealing.estimateSourcePositionSA();
 }
 
-void mainAlgorithm() {
-	cout << endl << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl << endl;
+void mainAlgorithm(string methodId) {
 	FileManager fileManager;
 
 	// First filter
-	fileManager.setInputFile(ORIGINAL_FILE);
+	fileManager.setInputFile(INPUT_DATA_FILE);
 	fileManager.setAWKScripts(FILTER_AWK_SCRIPT, FILTER_TIME_AWK_SCRIPT);	
 	fileManager.filterTiFileByBasicData();
 
@@ -86,18 +85,32 @@ void mainAlgorithm() {
 	cout << "[Best epoch: " << bestCandidate.epoch << "]" << endl;
 
 	// Filter by time
-	// int numRows = fileManager.filterTiFileByTime(bestCandidate.epoch);
-	fileManager.filterTiFileByTime(bestCandidate.epoch);
-	///////////
+	int numRows = fileManager.filterTiFileByTime(bestCandidate.epoch);
+	// fileManager.filterTiFileByTime(bestCandidate.epoch);
 
 	// Simulated Annealing
-	simulatedAnnealingMethod();
+	if (methodId == "sa") {
+		cout << "[Simulated Annealing method]" << endl;
+		simulatedAnnealingMethod();
+	}
 
 	// Find location using the decreaseRange method
-	// decreaseRangeMethod(fileManager, bestCandidate.epoch);
+	if (methodId == "dr") {
+		cout << "[Decrease range method]" << endl;
+		decreaseRangeMethod(fileManager, bestCandidate.epoch);
+	}
 
 	// Hill Climbing
-	// hillClimbingMethod();
+	if (methodId == "hc") {
+		cout << "[Hill Climbing method]" << endl;
+		hillClimbingMethod();
+	}
+
+	//Least squares
+	if (methodId == "ls") {
+		cout << "[Least Squares method]" << endl;
+		leastSquaresMethod(numRows); //TODO: como obtenemos el numero de lineas al hacer el filtrado??
+	}
 
 	// Test: multiple epochs
 	// SpikeFinder spikeFinder;
@@ -110,13 +123,16 @@ void mainAlgorithm() {
 	// Get best IPPs from that epoch
 	// spikeFinder.printBestIPPsFromCandidate(bestCandidate);
 	// priority_queue<infoIPP> bestIPPs = spikeFinder.getBestIPPsFromCandidate(bestCandidate);
-	// leastSquaresMethod(numRows); //TODO: como obtenemos el numero de lineas al hacer el filtrado??
-}
+}	
 
 int main() {
+	cout << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl << endl;
+	string methodId;
+	cout << "Input method id (dr/ls/hc/sa): ";
+	cin >> methodId;
 	Auxiliary aux;
 	aux.chronoStart();
-	mainAlgorithm();
+	mainAlgorithm(methodId);
 	aux.chronoEnd();
 
 
