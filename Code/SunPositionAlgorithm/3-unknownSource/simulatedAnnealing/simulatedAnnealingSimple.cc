@@ -9,7 +9,7 @@
 #define N_TRIES 200
 
 /* how many iterations for each T? */
-#define ITERS_FIXED_T 1000
+#define ITERS_FIXED_T 100
 
 /* max step size in random walk */
 #define STEP_SIZE 1.0
@@ -18,7 +18,7 @@
 #define K 1.0
 
 /* initial temperature */
-#define T_INITIAL 0.008
+#define T_INITIAL 0.0008
 
 /* damping factor for temperature */
 #define MU_T 1.003

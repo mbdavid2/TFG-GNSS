@@ -47,9 +47,9 @@
 \contentsline {subsection}{\numberline {6.1.2}Implementation}{34}{subsection.6.1.2}
 \contentsline {subsection}{\numberline {6.1.3}Results}{34}{subsection.6.1.3}
 \contentsline {section}{\numberline {6.2}Hill Climbing}{35}{section.6.2}
-\contentsline {section}{\numberline {6.3}OpenMP?}{37}{section.6.3}
-\contentsline {section}{\numberline {6.4}Discarding the Sun hemisphere}{37}{section.6.4}
-\contentsline {chapter}{\numberline {7}Results}{38}{chapter.7}
-\contentsline {section}{\numberline {7.1}Sun}{38}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Decrease range method}{38}{subsection.7.1.1}
-\contentsline {section}{\numberline {7.2}Far-away stars}{38}{section.7.2}
+\contentsline {section}{\numberline {6.3}OpenMP?}{36}{section.6.3}
+\contentsline {section}{\numberline {6.4}Discarding the Sun hemisphere}{36}{section.6.4}
+\contentsline {chapter}{\numberline {7}Results}{37}{chapter.7}
+\contentsline {section}{\numberline {7.1}Sun}{37}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Decrease range method}{37}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}Far-away stars}{37}{section.7.2}

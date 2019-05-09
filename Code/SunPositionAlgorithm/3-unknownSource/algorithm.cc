@@ -12,8 +12,8 @@
 
 using namespace std;
 
-// const string ORIGINAL_FILE = "ti.2003.301.10h30m-11h30m.gz";
-const string ORIGINAL_FILE = "ti.2006.340.67190s-68500s.flare.gz";
+const string ORIGINAL_FILE = "ti.2003.301.10h30m-11h30m.gz";
+// const string ORIGINAL_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 
 const string FILTER_AWK_SCRIPT = "filterDataTi.awk";
 const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
@@ -91,10 +91,10 @@ void mainAlgorithm() {
 	///////////
 
 	// Simulated Annealing
-	// simulatedAnnealingMethod();
+	simulatedAnnealingMethod();
 
 	// Find location using the decreaseRange method
-	decreaseRangeMethod(fileManager, bestCandidate.epoch);
+	// decreaseRangeMethod(fileManager, bestCandidate.epoch);
 
 	// Hill Climbing
 	// hillClimbingMethod();

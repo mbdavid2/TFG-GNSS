@@ -10,7 +10,9 @@ extern "C" double computecorrelationfortran_(double* ra, double* dec);
 
 extern "C" double computecosinesofcurrentsourcefortran_(double* ra, double* dec);
 
-double FortranController::computeCorrelation(double* ra, double* dec) {
+extern "C" double computecorrelationbasicfortran_(double* ra, double* dec);
+
+double FortranController::computeCorrelationWithLinearFit(double* ra, double* dec) {
 	FileManager fileManager;
 	consideredLocationsCounter++;
 	computecosinesofcurrentsourcefortran_(ra, dec);
@@ -18,6 +20,11 @@ double FortranController::computeCorrelation(double* ra, double* dec) {
 	int iterations = 6;
 	fileManager.discardOutliersLinearFitFortran(sigma, iterations);	
 	return computecorrelationfortran_(ra, dec);
+}
+
+double FortranController::computeCorrelation(double* ra, double* dec) {
+	consideredLocationsCounter++;
+	return computecorrelationbasicfortran_(ra, dec);
 }
 
 void FortranController::printNumberOfConsideredLocations() {

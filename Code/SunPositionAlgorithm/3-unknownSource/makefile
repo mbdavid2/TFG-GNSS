@@ -33,8 +33,9 @@ fortranControllerF = fortranController/FortranController
 leastSquaresF = fortranController/leastSquares
 computeCosinesF = fortranController/computeCosinesOfCurrentSource
 correlationF = fortranController/computeCorrelation
+correlationBasicF = fortranController/computeCorrelationBasic
 linearFitF = fortranController/x_y_sigmay_2_linear_fit.v2
-FORTRAN = $(fortranControllerF).o $(correlationF).o $(leastSquaresF).o $(computeCosinesF).o
+FORTRAN = $(fortranControllerF).o $(correlationF).o $(correlationBasicF).o $(leastSquaresF).o $(computeCosinesF).o
 
 
 main: linearFit compile run 
@@ -48,11 +49,14 @@ compileAll: correlation fortranController auxiliary hillClimbing resultsDebugger
 # ----------
 # Fortran and C++ Fortran Controller
 # ----------
-fortranController: computeCosines correlation leastSquares
+fortranController: computeCosines correlation correlationBasic leastSquares
 	g++ $(CFLAGS) $(fortranControllerF).cc -c -o $(fortranControllerF).o
 
 correlation: $(correlationF).f90
 	gfortran $(correlationF).f90 -c -o $(correlationF).o
+
+correlationBasic: $(correlationBasicF).f90
+	gfortran $(correlationBasicF).f90 -c -o $(correlationBasicF).o
 
 computeCosines: $(computeCosinesF).f90
 	gfortran $(computeCosinesF).f90 -c -o $(computeCosinesF).o

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  5 MAY 2019 21:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  8 MAY 2019 21:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,14 +865,8 @@ LaTeX Warning: Label `eq:3' multiply defined.
 
 LaTeX Warning: Label `fig:vtecDistribution' multiply defined.
 
-) (./sections/ch5BruteForceApproach.aux) (./sections/ch6Algorithm.aux
-
-LaTeX Warning: Label `fig:solar-zenith-angle' multiply defined.
-
-
-LaTeX Warning: Label `fig:poles' multiply defined.
-
-) (./sections/chXResults.aux))
+) (./sections/ch5BruteForceApproach.aux) (./sections/ch6Algorithm.aux)
+(./sections/chXResults.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
@@ -1333,7 +1327,7 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 63--72
 
  <./images/ch6/hillClimbing/resultsAll.png (PNG copy)> <./images/ch6/hillClimbi
 ng/resultsPathBad.png (PNG copy)> <./images/ch6/hillClimbing/resultsPathGood.pn
-g (PNG copy)>] [36]) [37
+g (PNG copy)>]) [36
 
 ]
 \openout2 = `sections/chXResults.aux'.
@@ -1343,11 +1337,11 @@ Chapter 7.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [38
+) [37
 
 
 
-] [39] [40
+] [38] [39
 
 ] (./main.bbl
 Underfull \hbox (badness 2269) in paragraph at lines 4--8
@@ -1361,11 +1355,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 du / starlink /
  []
 
-[41
+[40
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
- [42]
+ [41]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
  (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
 (./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
@@ -1386,10 +1380,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
  ) 
 Here is how much of TeX's memory you used:
- 15447 strings out of 494847
- 226454 string characters out of 6179080
- 485137 words of memory out of 5000000
- 18128 multiletter control sequences out of 15000+600000
+ 15448 strings out of 494847
+ 226489 string characters out of 6179080
+ 485289 words of memory out of 5000000
+ 18130 multiletter control sequences out of 15000+600000
  13731 words of font info for 49 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  53i,12n,101p,2130b,2064s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1406,10 +1400,10 @@ ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (44 pages, 763774 bytes).
+Output written on main.pdf (43 pages, 763447 bytes).
 PDF statistics:
- 857 PDF objects out of 1000 (max. 8388607)
- 769 compressed objects within 8 object streams
- 303 named destinations out of 1000 (max. 500000)
+ 853 PDF objects out of 1000 (max. 8388607)
+ 766 compressed objects within 8 object streams
+ 302 named destinations out of 1000 (max. 500000)
  407 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -11,24 +11,13 @@
 
 /* set up parameters for this simulated annealing run */
 
-/* how many points do we try before stepping */
-#define N_TRIES 200
-
-/* how many iterations for each T? */
-#define ITERS_FIXED_T 50
-
-/* max step size in random walk */
-#define STEP_SIZE 1.0
-
-/* Boltzmann constant */
-#define K 1.0
-
-/* initial temperature */
-#define T_INITIAL 0.008
-
-/* damping factor for temperature */
-#define MU_T 1.003
-#define T_MIN 2.0e-6
+#define N_TRIES 200             /* how many points do we try before stepping */
+#define ITERS_FIXED_T 20      /* how many iterations for each T? */
+#define STEP_SIZE 1.0           /* max step size in random walk */
+#define K 1.0                   /* Boltzmann constant */
+#define T_INITIAL 50        /* initial temperature */
+#define MU_T 1.002              /* damping factor for temperature */
+#define T_MIN 5.0e-1
 
 gsl_siman_params_t params
   = {N_TRIES, ITERS_FIXED_T, STEP_SIZE,
@@ -37,7 +26,7 @@ gsl_siman_params_t params
 double energyFunc(void *xp) {
   possibleSunInfo x = * ((possibleSunInfo *) xp);
   FortranController fc;
-  return fc.computeCorrelation(&x.ra, &x.dec);
+  return 1/fc.computeCorrelation(&x.ra, &x.dec);
 }
 
 double metricFunc(void *xp, void *yp) {

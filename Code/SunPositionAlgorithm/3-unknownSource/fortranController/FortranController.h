@@ -14,6 +14,7 @@ class FortranController {
         void hillClimbing();
 
         //Compute correlation
+        double computeCorrelationWithLinearFit(double* ra, double* dec);
         double computeCorrelation(double* ra, double* dec);
 
         void printNumberOfConsideredLocations();
