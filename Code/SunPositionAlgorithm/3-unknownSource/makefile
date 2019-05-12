@@ -41,7 +41,7 @@ FORTRAN = $(fortranControllerF).o $(correlationF).o $(correlationBasicF).o $(lea
 main: linearFit compile run 
 
 compile: fortranController $(CLASSES) $(FORTRAN)
-	g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
+	@g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
 
 compileAll: correlation fortranController auxiliary hillClimbing resultsDebugger fileManager spikeFinder traverseGlobe
 	g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
@@ -50,22 +50,22 @@ compileAll: correlation fortranController auxiliary hillClimbing resultsDebugger
 # Fortran and C++ Fortran Controller
 # ----------
 fortranController: computeCosines correlation correlationBasic leastSquares
-	g++ $(CFLAGS) $(fortranControllerF).cc -c -o $(fortranControllerF).o
+	@g++ $(CFLAGS) $(fortranControllerF).cc -c -o $(fortranControllerF).o
 
 correlation: $(correlationF).f90
-	gfortran $(correlationF).f90 -c -o $(correlationF).o
+	@gfortran $(correlationF).f90 -c -o $(correlationF).o
 
 correlationBasic: $(correlationBasicF).f90
-	gfortran $(correlationBasicF).f90 -c -o $(correlationBasicF).o
+	@gfortran $(correlationBasicF).f90 -c -o $(correlationBasicF).o
 
 computeCosines: $(computeCosinesF).f90
-	gfortran $(computeCosinesF).f90 -c -o $(computeCosinesF).o
+	@gfortran $(computeCosinesF).f90 -c -o $(computeCosinesF).o
 
 leastSquares: $(leastSquaresF).f90
-	gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o
+	@gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o
 
 linearFit: $(linearFitF).f
-	gfortran $(linearFitF).f -o linearFit.x -lblas -llapack
+	@gfortran $(linearFitF).f -o linearFit.x -lblas -llapack
 
 # ----------
 # C++

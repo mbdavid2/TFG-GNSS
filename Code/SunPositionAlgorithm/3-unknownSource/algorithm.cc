@@ -12,7 +12,7 @@
 
 using namespace std;
 
-const string INPUT_DATA_FILE = "ti.2003.301.10h30m-11h30m.gz";
+string INPUT_DATA_FILE; //= "ti.2003.301.10h30m-11h30m.gz";
 // const string INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 
 const string FILTER_AWK_SCRIPT = "filterDataTi.awk";
@@ -39,7 +39,6 @@ void decreaseRangeMethod(FileManager fileManager, double epoch) {
 
 	cout << endl << "[Decrease range method]" << endl;
 	traverseGlobe.printCorrelationResults(best, INPUT_DATA_FILE);
-	cout << endl << "____________________________________" << endl << endl;
 }
 
 void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candidates, FileManager fileManager, int n) {
@@ -54,11 +53,9 @@ void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candi
 
 void leastSquaresMethod(int numRows) {
 	FortranController fc;
-	cout << endl << "[Least Squres method]" << endl;
 	string fileNameString = "filteredByTime.out";
 	const char* inputFileName = fileNameString.c_str();
 	fc.leastSquares(inputFileName, numRows);
-	cout << endl << "____________________________________" << endl << endl;
 }
 
 void hillClimbingMethod() {
@@ -131,9 +128,22 @@ int main() {
 	cout << "Input method id (dr/ls/hc/sa): ";
 	cin >> methodId;
 	Auxiliary aux;
+	cout << "-- ti.2003.301.10h30m-11h30m.gz | ra=212.338, dec=-13.060 --" << endl;
 	aux.chronoStart();
+	INPUT_DATA_FILE = "ti.2003.301.10h30m-11h30m.gz";
 	mainAlgorithm(methodId);
 	aux.chronoEnd();
+
+	cout << endl << "_______________________________________________________" << endl << endl;
+
+	cout << "-- ti.2006.340.67190s-68500s.flare.gz | ra=253.182, dec=-22.542 --" << endl;
+	aux.chronoStart();
+	INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
+	mainAlgorithm(methodId);
+	aux.chronoEnd();
+
+	
+	
 
 
 	// plot 'cosineData.out' using 1:2 with points, 'cosineDataFitted.out' using 1:2 with points

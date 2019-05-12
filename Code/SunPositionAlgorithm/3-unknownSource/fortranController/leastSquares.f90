@@ -5,6 +5,7 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 	integer, intent(in) :: numRows
 
 	call leastSquares(0)
+	print *, "_________________"
 	call leastSquares(1)
 	 
 	! TODO: we should pass the real number of rows

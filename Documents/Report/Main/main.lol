@@ -8,3 +8,4 @@
 \contentsline {lstlisting}{\numberline {5.2}Main loops}{29}{lstlisting.5.2}
 \contentsline {lstlisting}{\numberline {5.3}Correlation computation}{30}{lstlisting.5.3}
 \contentsline {lstlisting}{\numberline {5.4}Brute force approach algorithm output}{31}{lstlisting.5.4}
+\contentsline {lstlisting}{\numberline {6.1}Hill Climbing}{36}{lstlisting.6.1}

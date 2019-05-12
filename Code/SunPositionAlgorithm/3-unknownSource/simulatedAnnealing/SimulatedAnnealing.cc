@@ -11,11 +11,11 @@
 
 /* set up parameters for this simulated annealing run */
 
-#define N_TRIES 200             /* how many points do we try before stepping */
+#define N_TRIES 20             /* how many points do we try before stepping */
 #define ITERS_FIXED_T 20      /* how many iterations for each T? */
 #define STEP_SIZE 1.0           /* max step size in random walk */
-#define K 1.0                   /* Boltzmann constant */
-#define T_INITIAL 50        /* initial temperature */
+#define K 10.0                   /* Boltzmann constant */
+#define T_INITIAL 5      /* initial temperature */
 #define MU_T 1.002              /* damping factor for temperature */
 #define T_MIN 5.0e-1
 
@@ -24,9 +24,14 @@ gsl_siman_params_t params
      K, T_INITIAL, MU_T, T_MIN};
 
 double energyFunc(void *xp) {
-  possibleSunInfo x = * ((possibleSunInfo *) xp);
+  possibleSunInfo x = *((possibleSunInfo *) xp);
   FortranController fc;
-  return 1/fc.computeCorrelation(&x.ra, &x.dec);
+  double corr = fc.computeCorrelation(&x.ra, &x.dec);
+
+  corr = -corr;
+
+  x.coefficient = corr;
+  return (corr);
 }
 
 double metricFunc(void *xp, void *yp) {
@@ -38,7 +43,7 @@ double metricFunc(void *xp, void *yp) {
 
 void printFunc(void *xp) {
   possibleSunInfo x = *((possibleSunInfo *) xp);
-  cout << x.ra << " " << x.dec << endl;
+  cout << x.ra << " " << x.dec << " " << x.coefficient<< endl;
 }
 
 //This function type should modify the configuration xp using a 
@@ -69,7 +74,7 @@ void SimulatedAnnealing::estimateSourcePositionSA() {
     gsl_rng * r;
 
     possibleSunInfo initial;
-    initial.ra = 160;
+    initial.ra = 200;
     initial.dec = -20;
 
     gsl_rng_env_setup();
@@ -80,6 +85,8 @@ void SimulatedAnnealing::estimateSourcePositionSA() {
     gsl_siman_solve(r, &initial, energyFunc, stepFunc, metricFunc, printFunc,
                   NULL, NULL, NULL,
                   sizeof(possibleSunInfo), params);
+
+    printFunc(&initial);
 
     gsl_rng_free (r);
 }
