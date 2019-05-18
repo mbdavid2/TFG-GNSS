@@ -18,6 +18,16 @@ En BGSEES: despues de decrease range. Comentar que muy a saco en esos apartados,
 
 
 
+Hacer segunda pasada least squares descartando cosx < -0.1 con el primer resultado
+
+
+
+
 buena configuracion: -10 y 10
 
 sigma 1 iteration 6
+
+
+con filtro vtec: 337.98682343647863       -61.67995151858
+					337.98682343647863       -61.679951518584659
+

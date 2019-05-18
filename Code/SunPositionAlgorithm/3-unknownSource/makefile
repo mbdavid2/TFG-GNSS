@@ -117,7 +117,7 @@ run: $(algorithmName).x
 # ----------
 clean:
 	@rm -rf */*.out */*.in */*.o */*.x 
-	@rm -f *.out *.in *.o *.x 
+	@rm -f *.out *.in *.o *.x *.log
 
 cleanResults:
 	@rm -rf results

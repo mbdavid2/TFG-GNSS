@@ -54,8 +54,9 @@ void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candi
 void leastSquaresMethod(int numRows) {
 	FortranController fc;
 	string fileNameString = "filteredByTime.out";
-	const char* inputFileName = fileNameString.c_str();
-	fc.leastSquares(inputFileName, numRows);
+	//Discarding outliers by using the Sun's location? (before filtering the Sun hemisphere)
+	// fc.discardOutliersLinearFit(raSun, decSun);
+	fc.leastSquares(fileNameString.c_str(), numRows);
 }
 
 void hillClimbingMethod() {
@@ -141,6 +142,15 @@ int main() {
 	INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 	mainAlgorithm(methodId);
 	aux.chronoEnd();
+
+	// cout << endl << "_______________________________________________________" << endl << endl;
+
+	// cout << "-- ti.2016.078.07h32m-09h32m.LARGESIZE.flare.gz | ra=¿?¿?, dec=¿?¿?¿ --" << endl;
+	// aux.chronoStart();
+	// INPUT_DATA_FILE = "ti.2016.078.07h32m-09h32m.LARGESIZE.flare.gz";
+	// mainAlgorithm(methodId);
+	// aux.chronoEnd();
+
 
 	
 	

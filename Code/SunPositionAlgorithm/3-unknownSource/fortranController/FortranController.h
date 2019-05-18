@@ -11,7 +11,8 @@ class FortranController {
 		int consideredLocationsCounter;
 		
 	public:
-        void hillClimbing();
+        //Linear fitting: discard outliers
+        void discardOutliersLinearFit(double* ra, double* dec);
 
         //Compute correlation
         double computeCorrelationWithLinearFit(double* ra, double* dec);
@@ -23,9 +24,6 @@ class FortranController {
 
 		//Least Squares
         double leastSquares(const char* inputFileName, int numRows);
-
-        //Linear fitting: discard outliers
-        void discardOutliersLinearFit();
 };
 
 #endif

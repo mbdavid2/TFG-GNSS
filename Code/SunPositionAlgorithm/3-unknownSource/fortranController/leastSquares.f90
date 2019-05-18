@@ -1,12 +1,17 @@
 double precision function leastSquaresFortran(inputFileName, numRows)
 	implicit none
+
+	!! Parameters
+	double precision, parameter :: PI = datan(1.d0)*4.d0
+	double precision, parameter :: COSINE_THRESHOLD = -0.1
+
 	character(len=20), intent(in) :: inputFileName
 	double precision :: rxyPearsonCoefficient
 	integer, intent(in) :: numRows
 
-	call leastSquares(0)
-	print *, "_________________"
-	call leastSquares(1)
+	call iterateLeastSquares(0)
+	! print *, "_________________"
+	! call leastSquares(1)
 	 
 	! TODO: we should pass the real number of rows
 
@@ -27,27 +32,43 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			end if
 		end subroutine openFile
 
-		subroutine leastSquares(method)
+		subroutine iterateLeastSquares(method)
 			implicit none
 			integer, intent(in) :: method
+			integer :: discardOutliers
+			integer :: iteration
+			integer, parameter :: MAX_ITERATIONS = 0
+			double precision :: estimatedRa, estimatedDec
+
+			do iteration = 0, MAX_ITERATIONS
+				call leastSquares(method, iteration, estimatedRa, estimatedDec)
+				print *, "Iteration: ", iteration, " | Ra, Dec: ", estimatedRa, estimatedDec
+			end do
+		end subroutine iterateLeastSquares
+
+		subroutine leastSquares(method, iteration, estimatedRa, estimatedDec)
+			implicit none
+			integer, intent(in) :: method, iteration
+			double precision :: estimatedRa, estimatedDec
 			double precision, dimension (0:numRows) :: matrixVTEC
 			double precision, dimension (0:numRows, 0:3) :: matrixIPP
 			double precision, dimension (0:3) :: solution
 			integer :: vtecSize, i
 
-			call storeMatrixData(matrixVTEC, matrixIPP)
+			call storeMatrixData(matrixVTEC, matrixIPP, iteration, estimatedRa, estimatedDec)
+			print *, "SIZE: ", size(matrixVTEC, 1)
 
 			if (method == 0) then
-				print *, "Multiplications:"
+				! print *, "Multiplications:"
 				call matrixComputations(solution, matrixIPP, matrixVTEC)
-				call obtainSourceLocation(solution)
+				call obtainSourceLocation(solution, estimatedRa, estimatedDec)
 			else if (method == 1) then
 				print *, "LAPACK:"
 				call matrixComputationsLapack(solution, matrixIPP, matrixVTEC)
 				solution(0) = matrixVTEC(0)
 				solution(1) = matrixVTEC(1)
 				solution(2) = matrixVTEC(2)
-				call obtainSourceLocation(solution)
+				call obtainSourceLocation(solution, estimatedRa, estimatedDec)
 			end if
 		end subroutine leastSquares
 
@@ -84,10 +105,11 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			solution = matmul(matmul(inv(matmul(transposedA, A)), transposedA), y) ! esto dejarlo mas bonito???
 		end subroutine matrixComputations
 
-		subroutine obtainSourceLocation(solution)
+		subroutine obtainSourceLocation(solution, estimatedRa, estimatedDec)
 			double precision, dimension (0:3), intent(in) :: solution
+			double precision, intent(out) :: estimatedRa, estimatedDec
 			double precision :: a, b, g, mod
-			double precision :: X, Y, Z, ra, dec
+			double precision :: X, Y, Z
 
 			a = solution(0)
 			b = solution(1)
@@ -99,28 +121,42 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			Y = b/mod
 			Z = g/mod
 
-			dec = asin(Z)
-			ra = asin(Y/cos(dec))
-			print *, "Ra, Dec: ", toDegree(ra), toDegree(dec)
-			ra = acos(X/cos(dec))
-			print *, "Ra2, Dec: ", toDegree(ra), toDegree(dec)
+			estimatedDec = toDegree(dasin(Z))
+			estimatedRa = toDegree(datan2(Y,X) + 2*PI)
 		end subroutine obtainSourceLocation
 
-		subroutine storeMatrixData(matrixVTEC, matrixIPP)
+		subroutine storeMatrixData(matrixVTEC, matrixIPP, iteration, estimatedRa, estimatedDec)
 			implicit none
+			integer, intent(in) :: iteration
+			double precision, intent(in) :: estimatedRa, estimatedDec
 			double precision, dimension (0:numRows), intent(out) :: matrixVTEC
 			double precision, dimension (0:numRows, 0:3), intent(out) :: matrixIPP
 			double precision :: vtec, raIPP, decIPP
 			double precision :: xIPP, yIPP, zIPP
-			integer :: i
+			integer :: i, validOutlier
 
 			call openFile(inputFileName)
 
 			do i = 0, numRows
 				read (1, *, end = 240) vtec, raIPP, decIPP
-				
-				call computeComponentsIPP(raIPP, decIPP, xIPP, yIPP, zIPP)
+				validOutlier = 1
 
+				if (iteration /= 0) then
+					if (i == 0) then
+						print *, "discardOutliers"
+					end if
+					validOutlier = checkOutlier(estimatedRa, estimatedDec, raIPP, decIPP)
+				end if
+
+				if (validOutlier == 1) then
+					call computeComponentsIPP(raIPP, decIPP, xIPP, yIPP, zIPP)
+				else 
+					vtec = 0
+					xIPP = 0
+					yIPP = 0
+					zIPP = 0
+				end if
+				
 				matrixVTEC(i) = vtec
 				matrixIPP(i, 0) = xIPP
 				matrixIPP(i, 1) = yIPP
@@ -130,6 +166,32 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			240 continue
 			close(1)
 		end subroutine storeMatrixData
+
+		integer function checkOutlier(estimatedRa, estimatedDec, raIPP, decIPP)
+			implicit none
+			double precision, intent(in) :: estimatedRa, estimatedDec, raIPP, decIPP
+			double precision :: sourceZenithAngle
+			integer :: validOutlier
+
+			sourceZenithAngle = computeSourceZenithAngle (estimatedRa, estimatedDec, raIPP, decIPP)
+
+			if (sourceZenithAngle >= COSINE_THRESHOLD) then
+				validOutlier = 1
+				return
+			else
+				validOutlier = 0
+				return
+			end if
+		end function checkOutlier
+
+		double precision function computeSourceZenithAngle (raSource, decSource, raIPP, decIPP)
+			implicit none
+			double precision, intent(in) :: raSource, decSource, raIPP, decIPP
+			double precision :: sourceZenithAngle
+
+			sourceZenithAngle = sin(decIPP)*sin(decSource) + cos(decIPP)*cos(decSource)*cos(raIPP - raSource)
+			return
+		end function computeSourceZenithAngle
 
 		subroutine computeComponentsIPP(ra, dec, xIPP, yIPP, zIPP)
 			implicit none
@@ -149,7 +211,6 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 
 		double precision function toRadian(degree)
 		  implicit none
-		  double precision, parameter :: PI = atan(1.0)*4
 		  double precision, intent(in) :: degree
 		  double precision :: radians
 
@@ -159,7 +220,6 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 
 		double precision function toDegree(radians)
 		  implicit none
-		  double precision, parameter :: PI = atan(1.0)*4
 		  double precision, intent(in) :: radians
 		  double precision :: degree
 

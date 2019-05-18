@@ -12,13 +12,17 @@ extern "C" double computecosinesofcurrentsourcefortran_(double* ra, double* dec)
 
 extern "C" double computecorrelationbasicfortran_(double* ra, double* dec);
 
-double FortranController::computeCorrelationWithLinearFit(double* ra, double* dec) {
+void FortranController::discardOutliersLinearFit(double* ra, double* dec) {
 	FileManager fileManager;
-	consideredLocationsCounter++;
-	computecosinesofcurrentsourcefortran_(ra, dec);
 	int sigma = 1;
 	int iterations = 6;
+	computecosinesofcurrentsourcefortran_(ra, dec);
 	fileManager.discardOutliersLinearFitFortran(sigma, iterations);	
+}
+
+double FortranController::computeCorrelationWithLinearFit(double* ra, double* dec) {
+	consideredLocationsCounter++;
+	discardOutliersLinearFit(ra, dec);
 	return computecorrelationfortran_(ra, dec);
 }
 
@@ -45,8 +49,3 @@ double FortranController::leastSquares(const char* inputFileName, int numRows) {
 }
 
 extern "C" double leastsquaresfortran_(const char* inputFileName, int* numRows);
-
-// discard outliers //
-void FortranController::discardOutliersLinearFit() {
-
-}
