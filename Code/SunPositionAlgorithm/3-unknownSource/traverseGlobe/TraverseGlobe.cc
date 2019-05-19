@@ -11,9 +11,6 @@ using namespace std;
 double sumy;
 double sumy2;
 
-//External Fortran functions
-// extern "C" double mainfortran_(double* ra, double* dec, double* sumy, double* sumy2, int* writeData);
-
 const bool output = false; 
 
 TraverseGlobe::TraverseGlobe() {
@@ -112,6 +109,8 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 			if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 			if (pearsonCoefficient > bestSun.coefficient) {
 				bestSun.coefficient = pearsonCoefficient;
+				bestSun.ra = ra;
+				bestSun.dec = dec;
 				bestSun.location = "[ra=" + to_string(ra) + ", dec=" + to_string(dec) + "]";
 			}
 			writeCoefficientToFile(ra, dec, pearsonCoefficient, plotData);

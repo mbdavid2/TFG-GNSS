@@ -37,25 +37,26 @@
 \contentsline {section}{\numberline {5.2}Algorithm}{27}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Implementation}{29}{subsection.5.2.1}
 \contentsline {paragraph}{Finding the epoch}{29}{paragraph*.20}
-\contentsline {paragraph}{Iterating over the possible Suns}{29}{paragraph*.21}
+\contentsline {paragraph}{Iterating over the possible Suns}{30}{paragraph*.21}
 \contentsline {paragraph}{Computing the correlation}{30}{paragraph*.22}
-\contentsline {paragraph}{Compiling}{31}{paragraph*.23}
-\contentsline {subsection}{\numberline {5.2.2}Results}{31}{subsection.5.2.2}
-\contentsline {chapter}{\numberline {6}Blind GNSS Search of Extraterrestrial EUV Sources}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Mean VTEC as a reliable indicator of the moment of the flare}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}Linear fitting: discarding outliers}{34}{section.6.2}
-\contentsline {section}{\numberline {6.3}Decreasing the range of the search}{34}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Pseudocode}{35}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Implementation}{35}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Results}{35}{subsection.6.3.3}
-\contentsline {section}{\numberline {6.4}Hill Climbing}{36}{section.6.4}
-\contentsline {section}{\numberline {6.5}Simulated Annealing}{37}{section.6.5}
-\contentsline {section}{\numberline {6.6}Least Squares method}{38}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Pseudocode}{40}{subsection.6.6.1}
-\contentsline {subsection}{\numberline {6.6.2}Implementation}{40}{subsection.6.6.2}
-\contentsline {section}{\numberline {6.7}OpenMP?}{40}{section.6.7}
-\contentsline {section}{\numberline {6.8}Discarding the Sun hemisphere}{40}{section.6.8}
-\contentsline {chapter}{\numberline {7}Results}{41}{chapter.7}
-\contentsline {section}{\numberline {7.1}Sun}{41}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Decrease range method}{41}{subsection.7.1.1}
-\contentsline {section}{\numberline {7.2}Far-away stars}{41}{section.7.2}
+\contentsline {paragraph}{Compiling}{32}{paragraph*.23}
+\contentsline {subsection}{\numberline {5.2.2}Results}{32}{subsection.5.2.2}
+\contentsline {chapter}{\numberline {6}Blind GNSS Search of Extraterrestrial EUV Sources}{34}{chapter.6}
+\contentsline {section}{\numberline {6.1}Mean VTEC as a reliable indicator of the moment of the flare}{34}{section.6.1}
+\contentsline {section}{\numberline {6.2}Linear fitting: discarding outliers}{35}{section.6.2}
+\contentsline {section}{\numberline {6.3}Decreasing the range of the search}{35}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Pseudocode}{36}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Implementation}{37}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Least Squares method}{41}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Pseudocode}{43}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Implementation}{43}{subsection.6.4.2}
+\contentsline {section}{\numberline {6.5}Other possibilities}{44}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Hill Climbing}{44}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Simulated Annealing}{46}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}OpenMP}{46}{subsection.6.5.3}
+\contentsline {section}{\numberline {6.6}Discarding the Sun hemisphere}{46}{section.6.6}
+\contentsline {chapter}{\numberline {7}Results}{47}{chapter.7}
+\contentsline {section}{\numberline {7.1}Sun}{47}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Decrease range method}{47}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}Far-away stars}{47}{section.7.2}
+\contentsline {chapter}{\numberline {8}Annexes}{49}{chapter.8}

@@ -21,9 +21,9 @@ function checkValidIPP(raSun, decSun, raIPP, decIPP) {
 
 function printData() {
 	vtec = $21/$43;
-	# if (vtec >= lowerLimitVTEC && vtec <= upperLimitVTEC) {
+	if (vtec >= lowerLimitVTEC && vtec <= upperLimitVTEC) { # Activar para ls, desactivar para decrease range
 		print $3 " " vtec " " $44 " " $45;	
-	# }
+	}
 }
 
 function abs(x){

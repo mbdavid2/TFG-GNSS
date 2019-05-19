@@ -21,12 +21,13 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-\lstdefinestyle{mystyle}{
-	commentstyle=\color{codegreen},
-	keywordstyle=\color{magenta},
-	numberstyle=\tiny\color{codegray},
-	stringstyle=\color{codepurple},
-	basicstyle=\footnotesize,
+\lstdefinestyle{myCStyle}{
+	language=c,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{codepurple}\ttfamily,
+	commentstyle=\color{codegreen}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#};
 	breakatwhitespace=false,         
 	breaklines=true,                 
 	captionpos=b,                    
@@ -35,10 +36,36 @@
 	numbersep=5pt,                  
 	showspaces=false,                
 	showstringspaces=false,
-	showtabs=false,                  
+	showtabs=false,
+%	frame=single,           
 	tabsize=2
 }
-\lstset{style=mystyle}
+
+\lstset{style=myCStyle}
+
+\usepackage{minted}
+%\usemintedstyle{emacs}
+
+
+%\lstdefinestyle{mystyle}{
+%	language=c,
+%	commentstyle=\color{codegreen},
+%	keywordstyle=\color{magenta},
+%	numberstyle=\tiny\color{codegray},
+%	stringstyle=\color{codepurple},
+%	basicstyle=\footnotesize,
+%	breakatwhitespace=false,         
+%	breaklines=true,                 
+%	captionpos=b,                    
+%	keepspaces=true,                 
+%	numbers=left,                    
+%	numbersep=5pt,                  
+%	showspaces=false,                
+%	showstringspaces=false,
+%	showtabs=false,                  
+%	tabsize=2
+%}
+
 
 %%% Algorithms/Pseudocode %%% 
 \usepackage{amsmath}
@@ -98,7 +125,8 @@
 \include{sections/ch4SolarFlareAlgorithm}
 \include{sections/ch5BruteForceApproach}
 \include{sections/ch6Algorithm}
-\include{sections/chXResults}
+\include{sections/ch7Results}
+\include{sections/ch8Annexes}
 
 testing \cite{hernandez2009igs} \cite{martinez2016first}
 \cite{swiftnasa}

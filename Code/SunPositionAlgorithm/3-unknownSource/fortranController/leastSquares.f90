@@ -3,7 +3,7 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 
 	!! Parameters
 	double precision, parameter :: PI = datan(1.d0)*4.d0
-	double precision, parameter :: COSINE_THRESHOLD = -0.1
+	double precision, parameter :: COSINE_THRESHOLD = -0.2
 
 	character(len=20), intent(in) :: inputFileName
 	double precision :: rxyPearsonCoefficient
@@ -19,7 +19,19 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 	return
 
 	contains
-		subroutine openFile (inputFileName)
+		subroutine printMatrices(matrixVTEC, matrixIPP)
+			implicit none
+			double precision, dimension (0:numRows), intent(in) :: matrixVTEC
+			double precision, dimension (0:numRows, 0:3), intent(in) :: matrixIPP
+			integer :: vtecSize, i
+
+			vtecSize = size(matrixVTEC)
+			do i = 0, vtecSize-1
+				print *, "VTEC:", matrixVTEC(i), "	|	IPP:", matrixIPP(i,0), matrixIPP(i,1), matrixIPP(i,2), matrixIPP(i,3)
+			end do
+		end subroutine printMatrices
+
+		subroutine openFile(inputFileName)
 			implicit none
 			character(len = 20), intent(in) :: inputFileName
 			integer :: status ! I/O status: 0 for success
@@ -35,9 +47,8 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 		subroutine iterateLeastSquares(method)
 			implicit none
 			integer, intent(in) :: method
-			integer :: discardOutliers
 			integer :: iteration
-			integer, parameter :: MAX_ITERATIONS = 0
+			integer, parameter :: MAX_ITERATIONS = 10
 			double precision :: estimatedRa, estimatedDec
 
 			do iteration = 0, MAX_ITERATIONS
@@ -56,7 +67,7 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			integer :: vtecSize, i
 
 			call storeMatrixData(matrixVTEC, matrixIPP, iteration, estimatedRa, estimatedDec)
-			print *, "SIZE: ", size(matrixVTEC, 1)
+			! call printMatrices(matrixVTEC, matrixIPP)
 
 			if (method == 0) then
 				! print *, "Multiplications:"
@@ -71,6 +82,49 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 				call obtainSourceLocation(solution, estimatedRa, estimatedDec)
 			end if
 		end subroutine leastSquares
+
+		subroutine storeMatrixData(matrixVTEC, matrixIPP, iteration, estimatedRa, estimatedDec)
+			implicit none
+			integer, intent(in) :: iteration
+			double precision, intent(in) :: estimatedRa, estimatedDec
+			double precision, dimension (0:numRows), intent(out) :: matrixVTEC
+			double precision, dimension (0:numRows, 0:3), intent(out) :: matrixIPP
+			double precision :: vtec, raIPP, decIPP
+			double precision :: xIPP, yIPP, zIPP
+			integer :: i, validSample, nUsedSamples
+
+			nUsedSamples = 0
+
+			call openFile(inputFileName)
+
+			do i = 0, numRows
+				read (1, *, end = 240) vtec, raIPP, decIPP
+				validSample = 1
+
+				if (iteration /= 0) then
+					validSample = checkOutlier(estimatedRa, estimatedDec, raIPP, decIPP)
+				end if
+
+				if (validSample == 1) then
+				nUsedSamples = nUsedSamples + 1
+					call computeComponentsIPP(raIPP, decIPP, xIPP, yIPP, zIPP)
+				else
+					vtec = 0
+					xIPP = 0
+					yIPP = 0
+					zIPP = 0
+				end if
+				
+				matrixVTEC(i) = vtec
+				matrixIPP(i, 0) = xIPP
+				matrixIPP(i, 1) = yIPP
+				matrixIPP(i, 2) = zIPP
+				matrixIPP(i, 3) = 1
+			end do
+			240 continue
+			print *, "Number of used samples: ", nUsedSamples
+			close(1)
+		end subroutine storeMatrixData
 
 		subroutine matrixComputationsLapack(solution, A, Y)
 			implicit none
@@ -125,63 +179,20 @@ double precision function leastSquaresFortran(inputFileName, numRows)
 			estimatedRa = toDegree(datan2(Y,X) + 2*PI)
 		end subroutine obtainSourceLocation
 
-		subroutine storeMatrixData(matrixVTEC, matrixIPP, iteration, estimatedRa, estimatedDec)
-			implicit none
-			integer, intent(in) :: iteration
-			double precision, intent(in) :: estimatedRa, estimatedDec
-			double precision, dimension (0:numRows), intent(out) :: matrixVTEC
-			double precision, dimension (0:numRows, 0:3), intent(out) :: matrixIPP
-			double precision :: vtec, raIPP, decIPP
-			double precision :: xIPP, yIPP, zIPP
-			integer :: i, validOutlier
-
-			call openFile(inputFileName)
-
-			do i = 0, numRows
-				read (1, *, end = 240) vtec, raIPP, decIPP
-				validOutlier = 1
-
-				if (iteration /= 0) then
-					if (i == 0) then
-						print *, "discardOutliers"
-					end if
-					validOutlier = checkOutlier(estimatedRa, estimatedDec, raIPP, decIPP)
-				end if
-
-				if (validOutlier == 1) then
-					call computeComponentsIPP(raIPP, decIPP, xIPP, yIPP, zIPP)
-				else 
-					vtec = 0
-					xIPP = 0
-					yIPP = 0
-					zIPP = 0
-				end if
-				
-				matrixVTEC(i) = vtec
-				matrixIPP(i, 0) = xIPP
-				matrixIPP(i, 1) = yIPP
-				matrixIPP(i, 2) = zIPP
-				matrixIPP(i, 3) = 1
-			end do
-			240 continue
-			close(1)
-		end subroutine storeMatrixData
-
 		integer function checkOutlier(estimatedRa, estimatedDec, raIPP, decIPP)
 			implicit none
 			double precision, intent(in) :: estimatedRa, estimatedDec, raIPP, decIPP
 			double precision :: sourceZenithAngle
-			integer :: validOutlier
+			integer :: validSample, returnValue
 
 			sourceZenithAngle = computeSourceZenithAngle (estimatedRa, estimatedDec, raIPP, decIPP)
-
 			if (sourceZenithAngle >= COSINE_THRESHOLD) then
-				validOutlier = 1
-				return
+				validSample = 1
 			else
-				validOutlier = 0
-				return
+				validSample = 0
 			end if
+			returnValue = validSample
+			return
 		end function checkOutlier
 
 		double precision function computeSourceZenithAngle (raSource, decSource, raIPP, decIPP)
