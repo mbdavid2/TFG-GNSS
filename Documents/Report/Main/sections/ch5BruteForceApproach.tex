@@ -1,19 +1,45 @@
 \chapter{Brute Force Approach}
 
-In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was studied. In this section we aim to provide a first, brute force approach, for an algorithm able to estimate the Sun's location based on this study. This approach is done as a first approximation to be problem to see more clearly how the algorithm will work, regardless of the performance.
+In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was studied. Here, we aim to provide a first, brute force approach, of the \textit{Blind GNSS Search of Extraterrestrial EUV Sources (BGSEES)} algorithm to estimate the location of a EUV source. This approach is done as a first approximation to be problem to see more clearly how the algorithm will work, regardless of the performance.
 
-This brute force approach considers possible Sun locations (with a certain degree of precision) and checks the fitness of each to consider which could be the real location.
+For this first approach the Sun is used as the source (to check the corectness of the solution). It considers possible Sun locations (with a certain degree of precision) and checks the fitness of each to consider which could be the real location.
 
 \section{Key elements}
 
-\subsection{Moment of the flare}
+\subsection{Mean VTEC as a reliable indicator of the moment of the flare}
 
 The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content throughout the provided data range. 
 In the previous chapter we already knew the specific moment of the flare: 11.05h, and could work based on this information, but the first step of the algorithm has to determine which moment is going to be studied.
 
 For each epoch\footnote{In our data set the epochs ranged from 10.5 to 11.5, that is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and returned the epoch which had the highest VTEC mean.
 
-An alternative which performs an insertion sort (by inserting the epoch candidates into a priority queue) was also considered and implemented, but for this chapter we only used the epoch with the largest mean.
+??????An alternative which performs an insertion sort (by inserting the epoch candidates into a priority queue) was also considered and implemented, but for this chapter we only used the epoch with the largest mean.
+
+To see if the mean VTEC could be used as a reliable indicator, the algorithm was tested with all available epochs of the data set, in order to study the effect of this indicator in the resulting estimation of the source's location.
+
+To do this we ordered the different epochs available in our data set by their mean VTEC, inserting them into a priority queue. \\
+
+Figure \ref{fig:differentEpochs} shows the evolution of the correlation coefficient of the best estimated location (a) and its total error (right ascension error + declination error) (b) as the mean VTEC of the epoch decreases.
+
+\clearpage
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch6/spikes/correlationDecrease.png}
+		\caption{Correlation coefficient}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch6/spikes/decreaseRangeError.png}
+		\caption{Error of the estimated source}
+	\end{subfigure}
+	\caption{Correlation and error of the solution as the mean VTEC decreases}
+	\label{fig:differentEpochs}
+\end{figure}
+
+As we can see, the correlation rapidly decreases from 1 (almost linear) to a negative coefficient. The error, on the other hand, doesn't experience much change for the first epochs but finally increases considerably. 
+
+The fact that the error remains near 0 as the correlation rapidly decreases for the first epochs can be due to the fact that different location of the source reduces its effect on the  the estimated location with the highest correlation coefficient is still similar to that of the source. As the position of the source changes (the Sun in this case)  TODO: este parrafo
 
 \subsection{Correlation}
 
@@ -35,7 +61,7 @@ r_{xy} = \frac{\sum(x_{i} - \bar{x})(y_{i} - \bar{y})}
 	\sqrt{\sum(y_{i} - \bar{y})^{2}}} \ \ \text{for} \ \ i \in (0, n)
 \end{equation} \\
 
-Although optimization is not the aim of this section, the previous formula would require passing the data twice: first to compute the mean of cosine and VTEC and second to compute the coefficient itself. The formula can also be expressed as follows:
+Although optimization is not the aim of this section, the previous formula would require passing the data twice: first to compute the mean of the cosine and VTEC and second to compute the coefficient itself. The formula can also be expressed as follows:
 
 \begin{equation} \label{eq:singlePass}
 r_{xy} = \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}
@@ -46,12 +72,6 @@ r_{xy} = \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}
 With can be implemented with a single pass algorithm, as opposed to the former. Because of this we decided to initially start with this one.
 
 To ensure that the implementation of the previous method in Fortran was correct, we used the R language and its already implemented correlation function to test our results, in the previous section the Fortran implementation is shown. 
-
-\subsection{Discarding outliers by fitting the data}
-
-It is necessary to discard outliers as they are problematic when computing the mean of the VTEC and the correlation. This is done....
-
-ARGGGGGGGGGGGGGGGGGGGG
 
 \section{Algorithm}
 

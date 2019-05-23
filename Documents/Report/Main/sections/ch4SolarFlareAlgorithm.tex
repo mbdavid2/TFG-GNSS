@@ -2,7 +2,7 @@
 
 Before developing the main solar flare detection algorithm a first program was developed that would target a powerful solar flare for which we knew the time of the event and therefore, the location of the Sun.
 
-Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this first approach was done to understand how the inner part of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC content.
+Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this first approach was done to understand how the core of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC content.
 
 This sections also provides an introduction to the formatting and use of the Global Navigation Satellite Systems data (GPS in this case) and how the main parameters necessary for the algorithms are computed.
 
@@ -31,13 +31,6 @@ The files in this server contain raw GPS data that is then pre-processed to obta
 \end{figure}
 
 However, for this and the following section, only the pre-processed ti files of past dates were needed, as detecting the flares in real time is a task that will be discussed later in the project, in which this pre-processing will have to be taken into consideration. The project supervisor, Manuel Hernández-Pajares, provided me with some of data sets to use as input for the algorithms, along with information about the formatting of this files.
-
-% \cite{cddisnasa} -> The Crustal Dynamics Data Information System (CDDIS) was initially developed to provide a central data bank for NASA's Crustal Dynamics Project (CDP). The system continues to support the space geodesy and geodynamics community through NASA's Space Geodesy Project as well as NASA's Earth Science Enterprise. The CDDIS was established in 1982 as a dedicated data bank to archive and distribute space geodesy related data sets. Today, the CDDIS archives and distributes mainly Global Navigation Satellite Systems (GNSS, currently Global Positioning System GPS and GLObal NAvigation Satellite System GLONASS), laser ranging (both to artificial satellites, SLR, and lunar, LLR), Very Long Baseline Interferometry (VLBI), and Doppler Orbitography and Radio-positioning Integrated by Satellite (DORIS) data for an ever increasing user community of geophysists.
-% The CDDIS is operational on a dedicated computer located at the Goddard Space Flight Center in Greenbelt, MD.
-% The CDDIS has served as a global data center for the International GNSS Service (IGS) since 1992. The CDDIS also actively supports the International Laser Ranging Service (ILRS), the International VLBI Service for Geodesy and Astrometry (IVS), International DORIS Service (IDS), and the International Earth Rotation and Reference Systems Service (IERS) as a global data center.
-% To learn more about these space geodetic techniques and their respective CDDIS data holdings, click on the images below.
-
-% \cite{noll2010crustal} -> Since 1982, the Crustal Dynamics Data Information System (CDDIS) has supported the archive and distribution of geodetic data products acquired by the National Aeronautics and Space Administration (NASA) as well as national and international programs. The CDDIS provides easy, timely, and reliable access to a variety of data sets, products, and information about these data. These measurements, obtained from a global network of nearly 650 instruments at more than 400 distinct sites, include DORIS (Doppler Orbitography and Radiopositioning Integrated by Satellite), GNSS (Global Navigation Satellite System), SLR and LLR (Satellite and Lunar Laser Ranging), and VLBI (Very Long Baseline Interferometry). The CDDIS data system and its archive have become increasingly important to many national and international science communities, particularly several of the operational services within the International Association of Geodesy (IAG) and its observing system the Global Geodetic Observing System (GGOS), including the International DORIS Service (IDS), the International GNSS Service (IGS), the International Laser Ranging Service (ILRS), the International VLBI Service for Geodesy and Astrometry (IVS), and the International Earth rotation and Reference frame Service (IERS). Investigations resulting from the data and products available through the CDDIS support research in many aspects of Earth system science and global change. Each month, the CDDIS archives more than one million data and derived product files totaling over 90 Gbytes in volume. In turn, the global user community downloads nearly 1.2 Tbytes (over 10.5 million files) of data and products from the CDDIS each month. The requirements of analysts have evolved since the start of the CDDIS; the specialized nature of the system accommodates the enhancements required to support diverse data sets and user needs. This paper discusses the CDDIS, including background information about the system and its user communities, archive contents, available metadata, and future plans.
 
 \subsection{Formatting}
 
@@ -95,7 +88,7 @@ For each epoch in our data set (from 10.5 to 11.5 with a sampling rate of 30 sec
 
 As we have mentioned before, one of the main paramenters relevant to the computation is the \textbf{double derivate of LI}, the d2li field in the ti file. The Li is the "ionospheric combination of carrier phases" \cite{hernandez2012gnss}, a direct measurement of TEC. Because this is a derivative it is the increment in VTEC, this will be observed in figure \ref{fig:vtecDistribution}.
 
-The VTEC can be estimated using the following approach:
+The VTEC increment can be estimated using the following approach:
 
 \begin{equation} \label{eq:1}
 	\frac{d^{2}V}{dt^{2}} = \frac{d^{2}Li}{M}
@@ -103,10 +96,12 @@ The VTEC can be estimated using the following approach:
 
 Where $M=\frac{1}{\cos Z}$ is the "ionospheric mapping function", the inverse of the cosine of the satellite-zenith angle that we have for each IPP. \cite{hernandez2012gnss}. This is the \textbf{xmappingion} field in the ti file.
 
-Therefore, we can estimate the VTEC of an IPP by dividing the two given parameters:
+Therefore, we can estimate the VTEC increment of an IPP by dividing the two given parameters:
 \begin{equation} \label{eq:2}
-	VTEC \approx \frac{d^{2}Li}{M}
+	\Delta V \approx \frac{d^{2}Li}{M}
 \end{equation}
+
+Although the data that will be used throughout the project is going to be $\Delta V$, the VTEC increment, it will be referenced as simply VTEC from now on.
 
 \paragraph{Implementation}
 
@@ -238,14 +233,6 @@ Visually, this can be seen as follows:
 TODO: SOLO FALTA ESTO, DIBUJO Y EXPLICACION DE PORQUE SUCEDE ESTO
 
 \begin{figure}[!htb]
-	\begin{centering}
-		\includegraphics[width=0.5\linewidth]{images/ch4/resultSunTest.png}
-		\caption{Visual representation of the solar-zenith angle}
-		\label{fig:solar-zenith-angle}
-	\end{centering}
-\end{figure}
-
-\begin{figure}[!htb]
 	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{images/ch4/smallChi.jpg}
 		\caption{All IPPs}
@@ -255,7 +242,7 @@ TODO: SOLO FALTA ESTO, DIBUJO Y EXPLICACION DE PORQUE SUCEDE ESTO
 		\includegraphics[width=\linewidth]{images/ch4/largeChi.jpg}
 		\caption{Villafranca station}
 	\end{subfigure}
-	\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
+	\caption{Effect of the solar-zenith angle on the VTEC}
 	\label{fig:vtecDistribution}
 \end{figure}
 

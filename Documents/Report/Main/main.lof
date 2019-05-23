@@ -6,14 +6,16 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)\relax }}{18}{figure.caption.12}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)\relax }}{21}{figure.caption.14}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces VTEC value as a function of the solar-zenith angle cosine\relax }}{23}{figure.caption.15}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Visual representation of the solar-zenith angle\relax }}{23}{figure.caption.16}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)\relax }}{24}{figure.caption.17}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Effect of the solar-zenith angle on the VTEC\relax }}{23}{figure.caption.16}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Two examples of possible Sun locations\relax }}{28}{figure.caption.19}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Correlation and error of the solution as the mean VTEC decreases\relax }}{27}{figure.caption.17}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Two examples of possible Sun locations\relax }}{30}{figure.caption.19}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Correlation and error of the solution as the mean VTEC decreases\relax }}{35}{figure.caption.25}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Visual representation of the solar-zenith angle\relax }}{41}{figure.caption.26}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces All visited candidates of the solution space\relax }}{44}{figure.caption.27}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{45}{figure.caption.28}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces All data (red) and fitted samples (blue)\relax }}{40}{figure.caption.25}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Visual representation of the solar-zenith angle\relax }}{43}{figure.caption.26}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces All visited candidates of the solution space\relax }}{45}{figure.caption.27}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{46}{figure.caption.28}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

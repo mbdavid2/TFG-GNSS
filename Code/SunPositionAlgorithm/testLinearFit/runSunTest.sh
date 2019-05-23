@@ -29,9 +29,9 @@ rm *.mod
 
 # plot [10.5:11.5] "test" using 1:2 with point
 
-cat resultsToPlot | ./linearFit.x 1 5 > resultsFitted
+cat resultsToPlot | ./linearFit.x 2 5 > resultsFitted
 
 cat resultsFitted | gawk -e '{/a/; if ($6 == "T" && $3 >= 0.01) {print $0}}' > trueFitted
 cat resultsFitted | gawk -e '{/a/; if ($6 == "F") {print $0}}' > falseFitted
 
-gnuplot -e "set grid; plot \"resultsToPlot\" using 1:2 with point, \"trueFitted\" using 1:2 with point; pause -1;"
+gnuplot -e "set terminal png; set output 'resultAll.png'; set title 'All samples and fitted data'; set xlabel 'Cosine of solar-zenith angle'; set ylabel 'VTEC'; set grid; plot \"all\" using 1:2 with point lc rgb \"red\", \"fitted\" using 1:2 with point lc rgb \"blue\"; pause -1;"

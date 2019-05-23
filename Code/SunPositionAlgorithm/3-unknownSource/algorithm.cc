@@ -69,6 +69,15 @@ void simulatedAnnealingMethod() {
 	simulatedAnnealing.estimateSourcePositionSA();
 }
 
+// void iterateOverMultipleEpochs() {
+// 	for (double epoch = 0;)
+// 	fileManager.setInputFile(INPUT_DATA_FILE);
+// 	fileManager.setAWKScripts(FILTER_AWK_SCRIPT, FILTER_TIME_AWK_SCRIPT);	
+// 	fileManager.filterTiFileByBasicData();
+// 	int numRows = fileManager.filterTiFileByTime(epoch);
+// 	leastSquaresMethod(numRows);
+// }
+
 void mainAlgorithm(string methodId) {
 	FileManager fileManager;
 
