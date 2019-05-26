@@ -1,6 +1,110 @@
 \chapter{Results}
 
-Here discuss results, error. And compare different data sets First sun, then far-away
+In this chapter we will study different data sets using the two presented methods for the \textit{BGSEES} algorithm: the \textbf{Least Squares} and \textbf{Decrease Range} method. 
+
+The aim of the chapter is to test them against each other and using different parameters to see which method yields the best result
+
+The algorithm is tested using data from dates when both Solar flares and flares from far-away stars took place.
+
+We will divide in Sun and far cuz different: Sun hemisphere is discarded
+
+\section{Sun}
+
+\subsection{Used data sets}
+
+Case 1 : The Halloween Solar Storm: X17.2 flare
+Case 2:
+
+We used this flare...bla bla bla
+
+Explain experiment: we use best epoch, the total error is calculated as abs(...)
+
+\section{Using all available data}
+
+Use all IPP data without any filter
+
+\subsubsection{Decreasing range}
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c|} 
+		\hline
+		Data set & Right Ascension Error & Declination Error & Total estimation error & Time \\ [0.5ex] 
+		\hline\hline
+		X17.2 & 3.31917 & 0.771964 & 4.09113 & 0.79132 \\
+		\hline
+		Other & 97.1888 & 84.3119 & 181.501 & 5.17015 \\
+		\hline\hline
+		Total & 4343 & 5454 & 4.09113 & 6565 \\
+		\hline
+	\end{tabular}
+	\caption{Results for different epochs}
+\end{table}
+
+\subsubsection{Least Squares}
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c|} 
+		\hline
+		Data set & Right Ascension Error & Declination Error & Total estimation error & Time \\ [0.5ex] 
+		\hline\hline
+		X17.2 & 3.31917 & 0.771964 & 4.09113 & 0.79132 \\
+		\hline
+		Other & 97.1888 & 84.3119 & 181.501 & 5.17015 \\
+		\hline\hline
+		Total & 4343 & 5454 & 4.09113 & 6565 \\
+		\hline
+	\end{tabular}
+	\caption{Results for different epochs}
+\end{table}
+
+\subsection{Direct VTEC filter}
+
+\subsection{Discarding outliers}
+
+\subsubsection{Decreasing range: linear fit}
+
+\subsubsection{Least Squares: Iteration}
+
+We iterate bla bla bla
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c c|} 
+		\hline
+		Data set & Iterations & RA Error & Declination Error & Total estimation error & Time \\ [0.5ex] 
+		\hline\hline
+		X17.2 & 10 & 3.31917 & 0.771964 & 4.09113 & 0.79132 \\
+		\hline
+		X17.2 & 5 & 3.31917 & 0.771964 & 4.09113 & 0.79132 \\
+		\hline
+		Other & 10 & 97.1888 & 84.3119 & 181.501 & 5.17015 \\
+		\hline\hline
+		Total & 10 & 4343 & 5454 & 4.09113 & 6565 \\
+		\hline
+	\end{tabular}
+	\caption{Results for different epochs}
+\end{table}
+
+\subsection{Results}
+
+\section{Far-away stars}
+
+\subsection{Used data sets}
+
+
+
+
+
+
+
+
+\clearpage
+\clearpage
 
 \section{Sun}
 

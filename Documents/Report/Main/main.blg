@@ -14,50 +14,53 @@ White space in argument---line 18 of file sections/ch3StellarFlares.aux
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: sections/ch4SolarFlareAlgorithm.aux
 A level-1 auxiliary file: sections/ch5BruteForceApproach.aux
-A level-1 auxiliary file: sections/ch6Algorithm.aux
-A level-1 auxiliary file: sections/chXResults.aux
+A level-1 auxiliary file: sections/ch6DecreaseRange.aux
+A level-1 auxiliary file: sections/ch7LeastSquares.aux
+A level-1 auxiliary file: sections/ch8OtherMethods.aux
+A level-1 auxiliary file: sections/ch9Results.aux
+A level-1 auxiliary file: sections/ch10Annexes.aux
 Database file #1: sections/references.bib
 Warning--to sort, need author or key in igswebsite
 Warning--to sort, need author or key in starlinkproject
-You've used 19 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            620 strings with 7840 characters,
-and the built_in function-call counts, 6188 in all, are:
-= -- 577
-> -- 382
-< -- 1
-+ -- 157
-- -- 134
-* -- 443
-:= -- 1067
-add.period$ -- 63
-call.type$ -- 19
-change.case$ -- 121
+            637 strings with 8166 characters,
+and the built_in function-call counts, 6768 in all, are:
+= -- 633
+> -- 402
+< -- 2
++ -- 165
+- -- 140
+* -- 481
+:= -- 1162
+add.period$ -- 69
+call.type$ -- 21
+change.case$ -- 130
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 176
-empty$ -- 447
-format.name$ -- 134
-if$ -- 1245
+cite$ -- 23
+duplicate$ -- 201
+empty$ -- 502
+format.name$ -- 140
+if$ -- 1367
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 12
-newline$ -- 104
-num.names$ -- 34
-pop$ -- 163
+int.to.str$ -- 21
+missing$ -- 14
+newline$ -- 114
+num.names$ -- 38
+pop$ -- 173
 preamble$ -- 1
-purify$ -- 103
+purify$ -- 110
 quote$ -- 0
-skip$ -- 118
+skip$ -- 134
 stack$ -- 0
-substring$ -- 277
-swap$ -- 19
-text.length$ -- 1
+substring$ -- 312
+swap$ -- 23
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 80
 warning$ -- 2
-while$ -- 49
-width$ -- 21
-write$ -- 206
+while$ -- 55
+width$ -- 23
+write$ -- 228
 (There was 1 error message)

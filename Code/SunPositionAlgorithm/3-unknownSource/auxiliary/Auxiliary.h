@@ -48,6 +48,8 @@ class Auxiliary {
 
 		void chronoEnd();
 
+		void printErrorResults(double ra, double dec, string fileName);
+
 	private: 
 		clockTime startTime;
 };

@@ -29,6 +29,11 @@ N.~Gehrels, G.~Chincarini, P.~Giommi, K.~Mason, J.~Nousek, A.~Wells, N.~White,
 \newblock The swift gamma-ray burst mission.
 \newblock {\em The Astrophysical Journal}, 611(2):1005, 2004.
 
+\bibitem{gehrels2013gamma}
+N.~Gehrels and S.~Razzaque.
+\newblock Gamma-ray bursts in the swift-fermi era.
+\newblock {\em Frontiers of Physics}, 8(6):661--678, 2013.
+
 \bibitem{swiftnasa}
 {Goddard Space Flight Center (NASA)}.
 \newblock {Swift GRBs Archive}.
@@ -83,6 +88,11 @@ B.~Hofmann-Wellenhof, H.~Lichtenegger, and E.~Wasle.
 D.~Mart{\'\i}nez~Cid.
 \newblock First study on the feasibility of stellar flares detection with gps.
 \newblock {B.S.} thesis, Universitat Polit{\`e}cnica de Catalunya, 2016.
+
+\bibitem{mitra1974ionospheric}
+A.~P. Mitra.
+\newblock Ionospheric effects of solar flares.
+\newblock In {\em Astrophysics and space science library}, volume~46, 1974.
 
 \bibitem{noaa2ionosphere}
 S.~W. P. C.~N. Oceanic and A.~Administration).

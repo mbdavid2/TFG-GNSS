@@ -23,7 +23,7 @@ class FortranController {
 		void resetConsideredLocations();
 
 		//Least Squares
-        double leastSquares(const char* inputFileName, int numRows);
+        double leastSquares(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec);
 };
 
 #endif

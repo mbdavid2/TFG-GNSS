@@ -42,13 +42,13 @@ void TraverseGlobe::printCorrelationResults(possibleSunInfo bestSun, string file
 		correctRa = 253.182;
 		correctDec = -22.542;
 	}
-	
+	cout << abs(correctRa-bestSun.ra) << " " << abs(correctDec-bestSun.dec);
 	// double correctRa = 253.182;
 	// double correctDec = -22.542;
 	 
 	// cout << "[Results]" << endl;
-	cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
-	cout << "   -> Estimated Sun's location: " << bestSun.location << endl;
+	// cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;
+	// cout << "   -> Estimated Sun's location: " << bestSun.location << endl;
 	// cout << " " << bestSun.ra << " " << bestSun.dec << " " << abs(correctRa-bestSun.ra) << " " << abs(correctDec-bestSun.dec) << " " << bestSun.coefficient << endl;
 }
 
@@ -90,7 +90,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 	for (double dec = range.lowerDec; dec <= range.upperDec; dec += step) {
 		if (dec != -90 and dec != 90) {
 			for (double ra = range.lowerRa; ra <= range.upperRa; ra += step) {
-				pearsonCoefficient = fc.computeCorrelationWithLinearFit(&ra, &dec);
+				pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
 				if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 				if (pearsonCoefficient > bestSun.coefficient) {
 					bestSun.coefficient = pearsonCoefficient;
@@ -105,7 +105,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 		else {
 			//Do only once
 			double ra = 0;
-			pearsonCoefficient = fc.computeCorrelationWithLinearFit(&ra, &dec);
+			pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
 			if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 			if (pearsonCoefficient > bestSun.coefficient) {
 				bestSun.coefficient = pearsonCoefficient;
