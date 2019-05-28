@@ -1,6 +1,6 @@
 \chapter{Least Squares method}
 
-As we have seen in previous chapters the overall process to determine the location of the source is studying the correlation between the VTEC value and the solar-zenith angle (or source-zenith angle, speaking in general terms) for a possible location. 
+As we have seen in previous chapters the overall process to determine the location of the source is studying the correlation between the VTEC value and the solar-zenith angle (or source-zenith angle, speaking in general terms) for a possible location.
 
 That is, for an IPP with a location and an associated VTEC value, given the location of a possible source, compute the cosine between them, and see that the closer the cosine to 1 (or 180º), the higher the VTEC value.
 
@@ -11,30 +11,30 @@ The idea that we wanted to test with this method was finding the location of the
 The source-zenith cosine between the source and the IPP was computed using the following equations:
 
 \begin{equation} \label{eq:61}
-unitVectorIPP =	
+unitVectorIPP =
 \begin{bmatrix}
-X' \\ 
+X' \\
 Y' \\
 Z'
 \end{bmatrix}
 =
 \begin{bmatrix}
-\cos\delta_{g} * \cos\alpha_{g} \\ 
+\cos\delta_{g} * \cos\alpha_{g} \\
 \cos\delta_{g} * \sin\alpha_{g} \\
 \sin\delta_{g}
 \end{bmatrix}
 \end{equation}
 
 \begin{equation} \label{eq:62}
-unitVectorSource =	
+unitVectorSource =
 \begin{bmatrix}
-X \\ 
+X \\
 Y \\
 Z
 \end{bmatrix}
 =
 \begin{bmatrix}
-\cos\delta_{s} * \cos\alpha_{s} \\ 
+\cos\delta_{s} * \cos\alpha_{s} \\
 \cos\delta_{s} * \sin\alpha_{s} \\
 \sin\delta_{s}
 \end{bmatrix}
@@ -51,7 +51,7 @@ Visually, we can see the relation between VTEC and the computed cosine in figure
 \begin{figure}[!htb]
 	\begin{centering}
 		\includegraphics[width=0.5\linewidth]{images/ch4/resultSunTest.png}
-		\caption{Visual representation of the solar-zenith angle}
+		\caption{VTEC as a function of the solar-zenith angle's cosine}
 		\label{fig:solar-zenith-angle}
 	\end{centering}
 \end{figure}
@@ -104,7 +104,7 @@ Because we have an overdetermined system of equations, the solution can be appro
 
 \begin{equation} \label{eq:matrixSystem}
 \begin{bmatrix}
-\Delta V_{0} \\ 
+\Delta V_{0} \\
 \Delta V_{1} \\
 . \\
 . \\
@@ -113,7 +113,7 @@ Because we have an overdetermined system of equations, the solution can be appro
 \end{bmatrix}
 =
 \begin{bmatrix}
-X'_{0} & Y'_{0} & Z'_{0} & 1 \\ 
+X'_{0} & Y'_{0} & Z'_{0} & 1 \\
 X'_{1} & Y'_{1} & Z'_{1} & 1 \\
 . & . & . & .\\
 . & . & . & .\\
@@ -121,7 +121,7 @@ X'_{1} & Y'_{1} & Z'_{1} & 1 \\
 X'_{n} & Y'_{n} & Z'_{n} & 1 \\
 \end{bmatrix}
 \begin{bmatrix}
-\alpha \\ 
+\alpha \\
 \beta \\
 \gamma \\
 b \\
@@ -138,6 +138,6 @@ This way, X can be obtained by means of the least squares estimate equation:
 
 \section{Implementation}
 
-When 
+When
 
 One of the main advantages of this method over the others is that we don't need to compute the correlation, that it is, discard outliers. (o si????)

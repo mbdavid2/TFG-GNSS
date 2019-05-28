@@ -25,7 +25,7 @@ int iterationsLeastSquares;
 // 	SpikeFinder spikeFinder;
 // 	candidate bestCandidate = spikeFinder.computeInfoBestCandidate(dataFile, 1);
 // 	spikeFinder.printInfoCandidate(bestCandidate);
-// 	return return spikeFinder;
+// 	return return spikeFinder;leastSquares
 // }
 
 void decreaseRangeMethod(FileManager fileManager, double epoch) {
@@ -42,7 +42,7 @@ void decreaseRangeMethod(FileManager fileManager, double epoch) {
 	// traverseGlobe.printCorrelationResults(best, INPUT_DATA_FILE);
 	Auxiliary aux;
 	aux.printErrorResults(best.ra, best.dec, INPUT_DATA_FILE);
-	
+
 }
 
 void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candidates, FileManager fileManager, int n) {
@@ -79,7 +79,7 @@ void simulatedAnnealingMethod() {
 void iterateOverMultipleEpochs() {
 	FileManager fileManager;
 	fileManager.setInputFile(INPUT_DATA_FILE);
-	fileManager.setAWKScripts(FILTER_AWK_SCRIPT, FILTER_TIME_AWK_SCRIPT);	
+	fileManager.setAWKScripts(FILTER_AWK_SCRIPT, FILTER_TIME_AWK_SCRIPT);
 	fileManager.filterTiFileByBasicData();
 
 	SpikeFinder spikeFinder;
@@ -99,18 +99,11 @@ void iterateOverMultipleEpochs() {
 }
 
 void mainAlgorithm(string methodId) {
-	// Multiple epochs LS
-	if (methodId == "me") {
-		cout << "[Least Squares (multiple epochs)]" << endl;
-		iterateOverMultipleEpochs();
-		return;
-	}
-
 	FileManager fileManager;
 
 	// First filter
 	fileManager.setInputFile(INPUT_DATA_FILE);
-	fileManager.setAWKScripts(FILTER_AWK_SCRIPT, FILTER_TIME_AWK_SCRIPT);	
+	fileManager.setAWKScripts(FILTER_AWK_SCRIPT, FILTER_TIME_AWK_SCRIPT);
 	fileManager.filterTiFileByBasicData();
 
 	// Find spike
@@ -128,6 +121,13 @@ void mainAlgorithm(string methodId) {
 		simulatedAnnealingMethod();
 	}
 
+	// Multiple epochs LS
+	if (methodId == "me") {
+		cout << "[Least Squares (multiple epochs)]" << endl;
+		iterateOverMultipleEpochs();
+		return;
+	}
+
 	// Find location using the decreaseRange method
 	if (methodId == "dr") {
 		// cout << "[Decrease range method]" << endl;
@@ -143,7 +143,7 @@ void mainAlgorithm(string methodId) {
 	//Least squares
 	if (methodId == "ls") {
 		// cout << "[Least Squares method]" << endl;
-		
+
 		leastSquaresMethod(numRows, iterationsLeastSquares); //TODO: como obtenemos el numero de lineas al hacer el filtrado??
 	}
 
@@ -158,45 +158,20 @@ void mainAlgorithm(string methodId) {
 	// Get best IPPs from that epoch
 	// spikeFinder.printBestIPPsFromCandidate(bestCandidate);
 	// priority_queue<infoIPP> bestIPPs = spikeFinder.getBestIPPsFromCandidate(bestCandidate);
-}	
-
-
-void resultsDebug() {
-	Auxiliary aux;
-
-	for (int i = 0; i < 15; i++) {
-		iterationsLeastSquares = i;
-		cout << i << " ";
-		aux.chronoStart();
-		mainAlgorithm("ls");
-		aux.chronoEnd();
-	}
-
-	// aux.chronoStart();
-	// mainAlgorithm("dr");
-	// aux.chronoEnd();
 }
 
-int main() {
+void methodPrompt() {
+	cout << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl << endl;
+	string methodId;
+	cout << "Input method id (dr/ls/hc/sa/me): ";
+	cin >> methodId;
+
+	Auxiliary aux;
+	cout << "-- ti.2003.301.10h30m-11h30m.gz | ra=212.338, dec=-13.060 --" << endl;
+	aux.chronoStart();
 	INPUT_DATA_FILE = "ti.2003.301.10h30m-11h30m.gz";
-	resultsDebug();
-
-	INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
-	resultsDebug();
-
-
-	// cout << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl << endl;
-	// string methodId;
-	// cout << "Input method id (dr/ls/hc/sa/me): ";
-	// cin >> methodId;
-
-	// Auxiliary aux;
-	// cout << "-- ti.2003.301.10h30m-11h30m.gz | ra=212.338, dec=-13.060 --" << endl;
-	// methodId = "dr";
-	// aux.chronoStart();
-	// INPUT_DATA_FILE = "ti.2003.301.10h30m-11h30m.gz";
-	// mainAlgorithm(methodId);
-	// aux.chronoEnd();
+	mainAlgorithm(methodId);
+	aux.chronoEnd();
 
 	// cout << endl << "_______________________________________________________" << endl << endl;
 
@@ -214,15 +189,44 @@ int main() {
 	// mainAlgorithm(methodId);
 	// aux.chronoEnd();
 
-
-	
-	
-
-
 	// plot 'cosineData.out' using 1:2 with points, 'cosineDataFitted.out' using 1:2 with points
 
 
 	// ResultsDebugger resultsDebugger;
 	// resultsDebugger.plotSunsRaDecCoefAllSunsAndHillClimbingPath();
 	// resultsDebugger.plotSunsRaDecCoefHillClimbingAllConsideredAndPath();
+}
+
+void resultsDebugForReport() {
+
+	cout << "(iterations) errorRa errorDec errorAbsolutoTotal time" << endl;
+	Auxiliary aux;
+
+	// //Single ls
+	// aux.chronoStart();
+	// mainAlgorithm("ls");
+	// aux.chronoEnd();
+
+	//Ls with iterations
+	for (int i = 0; i < 15; i++) {
+		iterationsLeastSquares = i;
+		cout << i << " ";
+		aux.chronoStart();
+		mainAlgorithm("ls");
+		aux.chronoEnd();
+	}
+
+	// aux.chronoStart();
+	// mainAlgorithm("dr");
+	// aux.chronoEnd();
+}
+
+int main() {
+	INPUT_DATA_FILE = "ti.2003.301.10h30m-11h30m.gz";
+	resultsDebugForReport();
+
+	// INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
+	// resultsDebugForReport();
+	iterationsLeastSquares = 10;
+	methodPrompt();
 }

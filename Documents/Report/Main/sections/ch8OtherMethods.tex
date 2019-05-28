@@ -28,12 +28,12 @@ While not exactly Hill Climbing, a simple greedy algorithm was implemented as a 
 	int i = 0;
 	// Loop with limit or until no progress can't be made
 	while (++i < 100) {
-	vector<sourceInfo> candidates = getNeighbourList(current);
-	sourceInfo newCandidate = getBestCandidate(candidates);
-	if (newCandidate < current) {
-	break;
-	}
-	current = newCandidate;
+		vector<sourceInfo> candidates = getNeighbourList(current);
+		sourceInfo newCandidate = getBestCandidate(candidates);
+		if (newCandidate < current) {
+			break;
+		}
+		current = newCandidate;
 	}
 	\end{lstlisting}
 \end{minipage}
@@ -43,7 +43,7 @@ The following figure shows the results of the execution for two different starti
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/ch6/hillClimbing/resultsPathBad.png}
-		\caption{Start: ra=100º, dec=-60º}
+		\caption{Start: ra=100$^{\circ}$, dec=-60º}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.5\textwidth}

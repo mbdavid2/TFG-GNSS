@@ -4,39 +4,47 @@ In this chapter we will study different data sets using the two presented method
 
 The aim of the chapter is to test them against each other and using different parameters to see which method yields the best result
 
-The algorithm is tested using data from dates when both Solar flares and flares from far-away stars took place.
-
-We will divide in Sun and far cuz different: Sun hemisphere is discarded
+The algorithm is tested using data from both Solar flares and flares from far-away stars. Because the day hemisphere has to be discarded in order to study far-away stars (because of the Sun's effect on the ionosphere), the first section will study examples of flares originating from the Sun and the second those from outside the Solar System.
 
 \section{Sun}
 
-\subsection{Used data sets}
+Below is the list of the different data sets used 
 
-Case 1 : The Halloween Solar Storm: X17.2 flare
-Case 2:
+\begin{itemize}
+	\item X17: The X17.2 flare from the Halloween Solar Storm, studied in previous chapters
+	\item 
+\end{itemize}
 
-We used this flare...bla bla bla
+To perform this study, the best epoch is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, the studied factors are:
 
-Explain experiment: we use best epoch, the total error is calculated as abs(...)
+The \textbf{execution time} of the algorithm and the \textbf{total estimation error}, obtained as the sum of the right ascension and declination error. The correct Sun position at that moment is obtained from the data, although we could also compute it knowing the epoch we are studying.
+
+The study is divided in three categories, based on the method used to discard outliers from the input data:
+
+\begin{itemize}
+	\item Using the data from all IPPs without filtering out any outliers
+	\item Using a simple cutoff value for the VTEC
+	\item Using linear fit for the Decreasing Range method and multiple iterations for the Least Squares method, both explained in their respective chapters.
+\end{itemize}
 
 \section{Using all available data}
 
-Use all IPP data without any filter
+The main problem of this method is that outliers that are far from the sample make the mean computation unstable, leading to using incorrect epochs.
 
 \subsubsection{Decreasing range}
 
 \begin{table}[h!]
 	\centering
 	\def\arraystretch{1.2}
-	\begin{tabular}{|c c c c c|} 
+	\begin{tabular}{|c c c|} 
 		\hline
-		Data set & Right Ascension Error & Declination Error & Total estimation error & Time \\ [0.5ex] 
+		Data set & Total estimation error & Time \\ [0.5ex] 
 		\hline\hline
-		X17.2 & 3.31917 & 0.771964 & 4.09113 & 0.79132 \\
+		X17.2  & 4.09113 & 0.79132 \\
 		\hline
-		Other & 97.1888 & 84.3119 & 181.501 & 5.17015 \\
+		Other & 181.501 & 5.17015 \\
 		\hline\hline
-		Total & 4343 & 5454 & 4.09113 & 6565 \\
+		Total & 4.09113 & 6565 \\
 		\hline
 	\end{tabular}
 	\caption{Results for different epochs}
@@ -61,7 +69,17 @@ Use all IPP data without any filter
 	\caption{Results for different epochs}
 \end{table}
 
+\subsubsection{Discussion}
+
+As we can see
+
 \subsection{Direct VTEC filter}
+
+This is the first method used in the brute force approach that yielded results very similar to the real location of the Sun, but it does not work well with other data sets.
+
+The filter is done using a cutoff value for the VTEC when the data is first filtered
+
+Different cutoff values are studied to see if this is a reliable method, as it simplifies the overall computation of the algorithm considerably.
 
 \subsection{Discarding outliers}
 

@@ -1,33 +1,43 @@
-- Estudiar posicion del sol para otras epocas del mismo set de datos (todas las epocas?)
-- estudiar nuevos datos enviados, este es por segundo, no 30s!
-- HillClimbing
 - esperar correo del señor ese para la stellar flare
-
-
-
-
-- calcular recta de regresion y descartar outliers asi
-- buscar en el fichero write(* ) -> hay una variable true o false qu eindica si es valido
-
-
-
-Sobre el nuevo cambio, linearFit: el caso de nuevo sol y brute force dejarlos como ya estan. En Brute Force dejarlo igual, ya esta. Al final, ultimo apartado linearfit
-
-En BGSEES: despues de decrease range. Comentar que muy a saco en esos apartados, 0.3, -0.3 pero ahora con linearFit para descartar outliers, hacer un estudio de como afecta esto al rendimiento y usar de ejemplo decrease range, comentar que ahora se tiene que recorrer el fichero dos veces, y luego el script linear fit multiples. Asi que esto nos dara problemas
-
-
-
-
-Hacer segunda pasada least squares descartando cosx < -0.1 con el primer resultado
-
-
-
-
 buena configuracion: -10 y 10
-
 sigma 1 iteration 6
 
-
 con filtro vtec: 337.98682343647863       -61.67995151858
-					337.98682343647863       -61.679951518584659
+				337.98682343647863       -61.679951518584659
+
+
+
+2003.301.39777
+
+2011.216.13908
+
+2011.210.44134
+
+2003.308.71000-71100
+
+2002.196.72240
+
+2004.310.41370
+
+2005.020.24200-24400
+
+2006.340.67300 - 67500
+
+2004.313.52500
+
+2001.347.51800-52200
+
+2001.334.3700-4000
+
+2004.204.27800-28000
+
+2012.297.11600-12000
+
+2012.130.50600-51000
+
+2012.066.4400-4700
+
+2013.310.35970
+
+2005.258.30990
 
