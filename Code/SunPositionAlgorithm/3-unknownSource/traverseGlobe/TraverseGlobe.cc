@@ -8,9 +8,6 @@
 
 using namespace std;
 
-double sumy;
-double sumy2;
-
 const bool output = false; 
 
 TraverseGlobe::TraverseGlobe() {
@@ -176,9 +173,7 @@ void TraverseGlobe::debugSingle() {
 	bestSuns.push(bestSun);
 }
 
-void TraverseGlobe::estimateSourcePosition(double epoch, double sumyFortran, double sumy2Fortran) {
-	sumy2 = sumy2Fortran;
-	sumy = sumyFortran;
+void TraverseGlobe::estimateSourcePosition() {
 	decreasingSTEP();
 	// printRealSun();
 }

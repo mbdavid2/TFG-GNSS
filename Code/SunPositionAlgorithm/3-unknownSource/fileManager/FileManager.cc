@@ -19,6 +19,28 @@ void FileManager::setInputFile(string file) {
     filteredFile = DATA_FOLDER + "filter_" + file + ".out";
 }
 
+possibleSunInfo FileManager::getCorrectSunLocation() {
+    string resultGawkFilterSun = "firstLineData.out";
+    //Extract first line of gz file
+    string zcat = "zcat " + inputFile;
+    string gawk = " | gawk 'NR==1{print $47 \" \" $48}' > " + resultGawkFilterSun; //TODO: deberia cogerse solo el del tiempo que estamos estudiando
+    string command = zcat + gawk;
+    system(command.c_str()); 
+
+    //Read first line
+    ifstream inputData;
+    double correctRa, correctDec;
+
+    inputData.open(resultGawkFilterSun, ifstream::in);
+    inputData >> correctRa >> correctDec;
+    inputData.close();
+
+    possibleSunInfo correctSun;
+    correctSun.ra = correctRa;
+    correctSun.dec = correctDec;
+    return correctSun;
+}
+
 void FileManager::filterTiFileByBasicData() {
     if (filteredFile == "" || filterBasicAWKScript == "") {
         cout << "[ERROR] Input files not set properly (1) " << endl;

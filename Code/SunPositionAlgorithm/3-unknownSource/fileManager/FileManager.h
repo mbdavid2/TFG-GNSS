@@ -20,6 +20,8 @@ class FileManager {
 
 		void setAWKScripts(string filterBasic, string filterTime);
 
+		possibleSunInfo getCorrectSunLocation();
+
 		int filterTiFileByTime(double time);
 
 		void filterUsingAwk(double time);

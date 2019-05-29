@@ -48,7 +48,7 @@ class Auxiliary {
 
 		void chronoEnd();
 
-		void printErrorResults(double ra, double dec, string fileName);
+		void printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation);
 
 	private: 
 		clockTime startTime;

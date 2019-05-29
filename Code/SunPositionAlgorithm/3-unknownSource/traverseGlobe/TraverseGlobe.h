@@ -22,7 +22,7 @@ class TraverseGlobe {
 		
 		TraverseGlobe();
 
-		void estimateSourcePosition(double epoch, double sumyFortran, double sumy2Fortran);
+		void estimateSourcePosition();
 
 		void printCorrelationResults(possibleSunInfo bestSun, string fileName);
 
