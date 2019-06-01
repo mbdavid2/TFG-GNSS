@@ -8,7 +8,7 @@ The algorithm is tested using data from both Solar flares and flares from far-aw
 
 \section{Sun}
 
-Below is the list of the different data sets used 
+Below is the list of the different flares we studied. These flares were listed in the paper "" referencia. We obtained the ti file from the entire day and then filtered the data around the time of the flare (30 minutes before and after.)
 
 \begin{itemize}
 	\item X17: The X17.2 flare from the Halloween Solar Storm, studied in previous chapters
@@ -17,14 +17,30 @@ Below is the list of the different data sets used
 
 To perform this study, the best epoch is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, the studied factors are:
 
-The \textbf{execution time} of the algorithm and the \textbf{total estimation error}, obtained as the sum of the right ascension and declination error. The correct Sun position at that moment is obtained from the data, although we could also compute it knowing the epoch we are studying.
+The \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the data, it is one of the many fields the ti files contain} and the estimated location, using the same operations we've used in previous chapters to compute the angle. 
+
+The ti files that contain data for the entire day are filtered using this bash script, which has a list with the information of each file to be filtered: the name of the original file and the upper and lower limits of time. It then filters each file using a simple AWK one-line script that checks the field with the time:
+
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}[language=Bash, caption=Filtering the ti file]
+	#!/bin/bash	
+	
+	strings=(
+	'ti.2003.301.gz,10,11.5'
+	)
+	for i in "${strings[@]}"; do
+	
+	done
+	
+	\end{lstlisting}
+\end{minipage}
 
 The study is divided in three categories, based on the method used to discard outliers from the input data:
 
 \begin{itemize}
-	\item Using the data from all IPPs without filtering out any outliers
-	\item Using a simple cutoff value for the VTEC
-	\item Using linear fit for the Decreasing Range method and multiple iterations for the Least Squares method, both explained in their respective chapters.
+	\item Using the data from \textbf{all IPPs} without filtering out any outliers
+	\item Using a simple \textbf{cutoff value} for the VTEC
+	\item Using \textbf{linear fit} for the Decreasing Range method to discard outliers and \textbf{multiple iterations} for the Least Squares method to try to improve the solution, both explained in their respective chapters.
 \end{itemize}
 
 \section{Using all available data}

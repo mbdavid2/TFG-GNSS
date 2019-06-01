@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include "Auxiliary.h"
+#include <cmath> 
 
 using namespace std;
 using namespace std::chrono;
@@ -28,32 +29,27 @@ void Auxiliary::chronoEnd() {
 	printExecutionTime (startTime, now);
 }
 
+double Auxiliary::toDegrees(double radians) {
+	return radians*180/M_PI;
+}
+
+double Auxiliary::toRadians(double degrees) {
+	return degrees*M_PI/180;
+}
+
 void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation) {
-	double correctRa;
-	double correctDec;
-    string dataName;
+	double correctRa, correctDec, estimatedRa, estimatedDec;
+    string dataName = "salu2";
 
-    correctRa = correctSunLocation.ra;
-    correctDec = correctSunLocation.dec;
+    correctRa = toRadians(correctSunLocation.ra);
+    correctDec = toRadians(correctSunLocation.dec);
+	estimatedRa = toRadians(ra);
+    estimatedDec = toRadians(dec);
 
-	// if (fileName == "ti.2003.301.10h30m-11h30m.gz") {
- //        dataName = "X17.2";
-	// 	correctRa = 212.338;
-	// 	correctDec = -13.060;
-	// }
-	// else {
- //        dataName = "Other";
-	// 	correctRa = 253.182;
-	// 	correctDec = -22.542;
-	// }
-    double absErrorDec = abs(correctDec-dec);
-    double absErrorRa = abs(correctRa-ra);
-    double absoluteError = absErrorDec + absErrorRa;
-    // double relativeError = absoluteError/(abs(correctRa) + abs(correctDec));
-	if (latex) cout << dataName << " & " << abs(correctRa-ra) << " & " << abs(correctDec-dec) << " & " << absoluteError;
-    else cout << "Ra: " << ra << " Dec: " <<  dec << " | " <<abs(correctRa-ra) << " " << abs(correctDec-dec) << " " << absoluteError;
-	// double correctRa = 253.182;
-	// double correctDec = -22.542;
+	double cosineChi = sin(estimatedDec)*sin(correctDec) + cos(estimatedDec)*cos(correctDec)*cos(estimatedRa - correctRa);
+	double errorDegrees = toDegrees(acos(cosineChi));
+	if (latex) cout << dataName << " & " << abs(correctRa-ra) << " & " << abs(correctDec-dec) << " & ";
+    else cout << "Ra: " << ra << " Dec: " <<  dec << " | " << errorDegrees;
 	 
 	// cout << "[Results]" << endl;
 	// cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;

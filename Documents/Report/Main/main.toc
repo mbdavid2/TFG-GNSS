@@ -119,14 +119,14 @@
 \contentsline {subsubsection}{Decreasing range}{67}{subsubsection*.71}
 \contentsline {subsubsection}{Least Squares}{67}{subsubsection*.73}
 \contentsline {subsubsection}{Discussion}{67}{subsubsection*.75}
-\contentsline {subsection}{\numberline {9.2.1}Direct VTEC filter}{67}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.1}Direct VTEC filter}{68}{subsection.9.2.1}
 \contentsline {subsection}{\numberline {9.2.2}Discarding outliers}{68}{subsection.9.2.2}
 \contentsline {subsubsection}{Decreasing range: linear fit}{68}{subsubsection*.76}
 \contentsline {subsubsection}{Least Squares: Iteration}{68}{subsubsection*.77}
-\contentsline {subsection}{\numberline {9.2.3}Results}{68}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Far-away stars}{68}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Used data sets}{68}{subsection.9.3.1}
-\contentsline {section}{\numberline {9.4}Sun}{69}{section.9.4}
-\contentsline {subsection}{\numberline {9.4.1}Decrease range method}{69}{subsection.9.4.1}
-\contentsline {section}{\numberline {9.5}Far-away stars}{70}{section.9.5}
-\contentsline {chapter}{\numberline {10}Annexes}{71}{chapter.10}
+\contentsline {subsection}{\numberline {9.2.3}Results}{69}{subsection.9.2.3}
+\contentsline {section}{\numberline {9.3}Far-away stars}{69}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Used data sets}{69}{subsection.9.3.1}
+\contentsline {section}{\numberline {9.4}Sun}{70}{section.9.4}
+\contentsline {subsection}{\numberline {9.4.1}Decrease range method}{70}{subsection.9.4.1}
+\contentsline {section}{\numberline {9.5}Far-away stars}{71}{section.9.5}
+\contentsline {chapter}{\numberline {10}Annexes}{72}{chapter.10}

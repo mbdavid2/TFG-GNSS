@@ -52,6 +52,10 @@ class Auxiliary {
 
 	private: 
 		clockTime startTime;
+
+		double toDegrees(double radians);
+		
+		double toRadians(double degrees);
 };
 
 #endif

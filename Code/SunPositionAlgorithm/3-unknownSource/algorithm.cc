@@ -89,7 +89,7 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 - Outputs the results
 **/
 void mainAlgorithm(string methodId, string inputDataFile) {
-	// cout << "-- " << inputDataFile << "--" << endl;
+	cout << "-- " << inputDataFile << "--" << endl;
 
 	FileManager fileManager;
 
@@ -154,6 +154,8 @@ void methodPrompt() {
 	cin >> methodId;
 	
 	string inputDataFile = "ti.2003.301.10h30m-11h30m.gz";
+	inputDataFile = "ti.2003.301.10-11.5.gz";
+	// inputDataFile = "ti.2003.301.gz";
 	// INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 	// INPUT_DATA_FILE = "ti.2016.078.07h32m-09h32m.LARGESIZE.flare.gz";
 	mainAlgorithm(methodId, inputDataFile);
