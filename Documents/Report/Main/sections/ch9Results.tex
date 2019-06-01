@@ -8,14 +8,38 @@ The algorithm is tested using data from both Solar flares and flares from far-aw
 
 \section{Sun}
 
-Below is the list of the different flares we studied. These flares were listed in the paper "" referencia. We obtained the ti file from the entire day and then filtered the data around the time of the flare (30 minutes before and after.)
+For the solar flares, the ti files of days when a flare had taken place were used to compare the results. The data was filtered around the time of the flare (30 minutes before and after, if there was an exact moment in time).
+ 
+Below is the list of times (\textit{year.day.seconds}) of the different flares we studied. The seconds are either an exact moment in time or a range used in the plots of the papers the flares are listed in.
+
+Flares listed in \textit{"GNSS measurement of EUV photons flux rate during strong and mid solar flares"}\cite{hernandez2012gnss}
 
 \begin{itemize}
-	\item X17: The X17.2 flare from the Halloween Solar Storm, studied in previous chapters
-	\item 
+	\item 2003.301.39777
+	\item 2003.308.71000-71100
+	\item 2005.020.24200-24400
+	\item 2006.340.67300-67500
+	\item 2011.210.44134
+	\item 2011.216.13908
 \end{itemize}
 
-To perform this study, the best epoch is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, the studied factors are:
+And those listed in \textit{"GPS as a solar observational instrument: Real-time estimation of EUV photons flux rate during strong, medium, and weak solar flares"}\cite{singh2015gps}
+
+\begin{itemize}
+	\item 2001.334.3700-4000
+	\item 2001.347.51800-52200
+	\item 2002.196.72240
+	\item 2004.204.27800-28000
+	\item 2004.310.41370
+	\item 2004.313.52500
+	\item 2005.258.30990
+	\item 2012.066.4400-4700
+	\item 2012.130.50600-51000
+	\item 2012.297.11600-12000
+	\item 2013.310.35970
+\end{itemize}
+
+To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, the studied factors are:
 
 The \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the data, it is one of the many fields the ti files contain} and the estimated location, using the same operations we've used in previous chapters to compute the angle. 
 
@@ -201,3 +225,5 @@ Instead of focusing on only the best epoch\footnote{The best epoch is the one wi
 
 
 \section{Far-away stars}
+
+explicar como se hace el discard hemisphere
