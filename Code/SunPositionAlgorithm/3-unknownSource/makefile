@@ -123,4 +123,7 @@ clean:
 cleanResults:
 	@rm -rf results
 
-pristine: clean cleanResults
+cleanTiFolder:
+	rm -rf /home/mbdavid2/Documents/dataTi/*.out
+
+pristine: clean cleanResults cleanTiFolder

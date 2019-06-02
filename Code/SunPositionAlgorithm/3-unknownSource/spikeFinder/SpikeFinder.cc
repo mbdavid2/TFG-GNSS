@@ -104,7 +104,7 @@ void SpikeFinder::findQueueBestCandidates (ifstream& data) {
 	double totalEpochVTEC = vtecIn;
 	double previousEpoch = epochIn;
 	while (data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
-		if (vtecIn <= 10 and vtecIn >= -10) {
+		// if (vtecIn <= 10 and vtecIn >= -10) {
 			insertInfoIPP(epochIn, vtecIn, raIPPIn, latIPPIn);
 			totalEpochVTEC += vtecIn;
 			n++;
@@ -116,7 +116,7 @@ void SpikeFinder::findQueueBestCandidates (ifstream& data) {
 				totalEpochVTEC = 0;
 				n = 0;
 			}
-		}
+		// }
 	}
 }
 

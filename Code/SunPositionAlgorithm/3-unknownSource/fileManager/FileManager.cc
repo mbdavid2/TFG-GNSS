@@ -7,25 +7,29 @@
 
 using namespace std;
 
-const string DATA_FOLDER = "../data/";
+const string DATA_FOLDER_SCRIPTS = "../data/";
+const string DATA_FOLDER_TI_FILES = "/home/mbdavid2/Documents/dataTi/";
+
+const string SCRIPT_GET_CORRECT_LOCATION = "obtainCorrectSunPosition.awk";
 
 void FileManager::setAWKScripts(string filterBasic, string filterTime) {
-    filterBasicAWKScript = DATA_FOLDER + filterBasic;
-    filterTimeAWKScript = DATA_FOLDER + filterTime;
+    filterBasicAWKScript = DATA_FOLDER_SCRIPTS + filterBasic;
+    filterTimeAWKScript = DATA_FOLDER_SCRIPTS + filterTime;
 }
 
 void FileManager::setInputFile(string file) {
-    inputFile = DATA_FOLDER + file;
-    filteredFile = DATA_FOLDER + "filter_" + file + ".out";
+    inputFile = DATA_FOLDER_TI_FILES + file;
+    filteredFile = DATA_FOLDER_TI_FILES + "filter_" + file + ".out";
 }
 
 possibleSunInfo FileManager::getCorrectSunLocation() {
     string resultGawkFilterSun = "firstLineData.out";
     //Extract first line of gz file
-    string zcat = "zcat " + inputFile;
-    string gawk = " | gawk 'NR==1{print $47 \" \" $48}' > " + resultGawkFilterSun; //TODO: deberia cogerse solo el del tiempo que estamos estudiando
-    string command = zcat + gawk;
-    system(command.c_str()); 
+    string cat = "zcat " + inputFile;
+    string gawk = " | gawk -f " + DATA_FOLDER_SCRIPTS + SCRIPT_GET_CORRECT_LOCATION + " -v flareTime=" + epochFlare + " > " + resultGawkFilterSun;
+    // string gawk = " | gawk 'NR==1{print $47 \" \" $48}' > " + resultGawkFilterSun; //TODO: deberia cogerse solo el del tiempo que estamos estudiando
+    string command = cat + gawk;
+    system(command.c_str());  
 
     //Read first line
     ifstream inputData;
@@ -56,12 +60,15 @@ void FileManager::filterUsingAwk(double time) {
     string outputFile = "filteredByTime.out"; //Name used in Fortran compute correlation file
     stringstream stream;
     stream << fixed << setprecision(13) << time;
-    string timeS = stream.str();
-	string command = "cat " + filteredFile + " | gawk -f " + filterTimeAWKScript + " -v flareTime=" + timeS + " > " + outputFile;
+    epochFlare = stream.str();
+	string command = "cat " + filteredFile + " | gawk -f " + filterTimeAWKScript + " -v flareTime=" + epochFlare + " > " + outputFile;
 	system(command.c_str()); 
 }
 
 int FileManager::filterTiFileByTime(double time) {
+    stringstream stream;
+    stream << fixed << setprecision(13) << time;
+    epochFlare = stream.str();
     string outputFile = "filteredByTime.out"; //Name used in Fortran compute correlation file
     if (filteredFile == "" || filterTimeAWKScript == "") {
         cout << "[ERROR] Input files not set properly (2) " << endl;

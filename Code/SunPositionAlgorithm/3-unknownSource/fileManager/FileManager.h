@@ -10,6 +10,7 @@ class FileManager {
 	private:
 		string inputFile;
 		string filteredFile;
+		string epochFlare;
 		string dataFolder;
 		string filterBasicAWKScript;
 		string filterTimeAWKScript;

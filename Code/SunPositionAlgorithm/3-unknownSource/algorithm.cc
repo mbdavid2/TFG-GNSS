@@ -101,7 +101,7 @@ void mainAlgorithm(string methodId, string inputDataFile) {
 	// Find spike
 	SpikeFinder spikeFinder;
 	candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
-	// cout << "[Best epoch: " << bestCandidate.epoch << "]" << endl;
+	cout << "[Best epoch: " << bestCandidate.epoch << "]" << endl;
 
 	// Filter by time
 	int numRows = fileManager.filterTiFileByTime(bestCandidate.epoch);
@@ -153,8 +153,8 @@ void methodPrompt() {
 	cout << "Input method id (dr/ls/hc/sa/me/lsiter): ";
 	cin >> methodId;
 	
-	string inputDataFile = "ti.2003.301.10h30m-11h30m.gz";
-	inputDataFile = "ti.2003.301.10-11.5.gz";
+	string inputDataFile = "ti.2003.301.36000-41400.gz";
+	// inputDataFile = "ti.2012.066.4400-4700";
 	// inputDataFile = "ti.2003.301.gz";
 	// INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 	// INPUT_DATA_FILE = "ti.2016.078.07h32m-09h32m.LARGESIZE.flare.gz";
@@ -164,13 +164,27 @@ void methodPrompt() {
 void resultsDebugLatex () {
 	cout << "(iterations) errorRa errorDec errorAbsoluto Total time" << endl;
 	//Aqui llamar a main algorithm con los methods que yo quiera sin usar el prompt
-	string inputDataFile = "ti.2003.301.10h30m-11h30m.gz";
+	string inputDataFile = "ti.2003.301.10h30m-11h30mCLASSIC.gz";
 	mainAlgorithm("ls", inputDataFile);
 	mainAlgorithm("dr", inputDataFile);
-	inputDataFile = "ti.2003.301.10h30m-11h30m.gz";
+	inputDataFile = "ti.2003.301.10h30m-11h30mCLASSIC.gz";
 	mainAlgorithm("ls", inputDataFile);
 }
 
 int main() {
+	/*
+	ti.2003.301.36000-41400
+ti.2011.210.42334-45934
+ti.2003.308.71000-72100
+ti.2005.020.24200-24400
+ti.2001.347.51800-52200
+ti.2002.196.70440-74040
+ti.2005.258.29190-32790
+ti.2012.066.4400-4700
+ti.2012.130.50600-51000
+ti.2012.297.11600-12000
+
+	
+	*/
 	methodPrompt();
 }
