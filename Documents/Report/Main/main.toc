@@ -115,18 +115,18 @@
 \contentsline {section}{\numberline {8.4}Discarding the Sun hemisphere}{65}{section.8.4}
 \contentsline {chapter}{\numberline {9}Results}{66}{chapter.9}
 \contentsline {section}{\numberline {9.1}Sun}{66}{section.9.1}
-\contentsline {section}{\numberline {9.2}Using all available data}{68}{section.9.2}
-\contentsline {subsubsection}{Decreasing range}{68}{subsubsection*.71}
-\contentsline {subsubsection}{Least Squares}{68}{subsubsection*.73}
-\contentsline {subsubsection}{Discussion}{68}{subsubsection*.75}
-\contentsline {subsection}{\numberline {9.2.1}Direct VTEC filter}{69}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Discarding outliers}{69}{subsection.9.2.2}
-\contentsline {subsubsection}{Decreasing range: linear fit}{69}{subsubsection*.76}
-\contentsline {subsubsection}{Least Squares: Iteration}{69}{subsubsection*.77}
-\contentsline {subsection}{\numberline {9.2.3}Results}{69}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Far-away stars}{69}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Used data sets}{69}{subsection.9.3.1}
-\contentsline {section}{\numberline {9.4}Sun}{70}{section.9.4}
-\contentsline {subsection}{\numberline {9.4.1}Decrease range method}{70}{subsection.9.4.1}
-\contentsline {section}{\numberline {9.5}Far-away stars}{71}{section.9.5}
-\contentsline {chapter}{\numberline {10}Annexes}{72}{chapter.10}
+\contentsline {section}{\numberline {9.2}Using all available data}{69}{section.9.2}
+\contentsline {subsubsection}{Decreasing range}{69}{subsubsection*.71}
+\contentsline {subsubsection}{Least Squares}{69}{subsubsection*.73}
+\contentsline {subsubsection}{Discussion}{70}{subsubsection*.75}
+\contentsline {subsection}{\numberline {9.2.1}Direct VTEC filter}{70}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Discarding outliers}{70}{subsection.9.2.2}
+\contentsline {subsubsection}{Decreasing range: linear fit}{70}{subsubsection*.76}
+\contentsline {subsubsection}{Least Squares: Iteration}{70}{subsubsection*.77}
+\contentsline {subsection}{\numberline {9.2.3}Results}{70}{subsection.9.2.3}
+\contentsline {section}{\numberline {9.3}Far-away stars}{70}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Used data sets}{70}{subsection.9.3.1}
+\contentsline {section}{\numberline {9.4}Sun}{71}{section.9.4}
+\contentsline {subsection}{\numberline {9.4.1}Decrease range method}{71}{subsection.9.4.1}
+\contentsline {section}{\numberline {9.5}Far-away stars}{72}{section.9.5}
+\contentsline {chapter}{\numberline {10}Annexes}{73}{chapter.10}

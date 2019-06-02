@@ -97,7 +97,8 @@ run: $(algorithmName).x
 	./$(algorithmName).x
 
 
-
+filterTiFilesTimeRange:
+	../data/filterTiTimeRange.sh
 
 
 

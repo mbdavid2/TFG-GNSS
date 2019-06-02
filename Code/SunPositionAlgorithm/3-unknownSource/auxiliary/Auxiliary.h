@@ -42,6 +42,9 @@ typedef high_resolution_clock::time_point clockTime;
 class Auxiliary {
 
 	public:
+
+		Auxiliary();
+		
 		void printExecutionTime(clockTime start_time, clockTime end_time);
 
 		void chronoStart();
@@ -50,8 +53,14 @@ class Auxiliary {
 
 		void printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation);
 
+		void resetTotalsMethod();
+
 	private: 
 		clockTime startTime;
+
+		double totalTimeMethod;
+		
+		double totalErrorMethod;
 
 		double toDegrees(double radians);
 		

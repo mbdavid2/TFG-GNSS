@@ -1,0 +1,59 @@
+SIN NINGUN FILTRO
+
+-- Decreasing range method --
+ti.2001.347.gz Ra: 150 Dec: 12.1875 | Error:113.813 1.07508
+ti.2002.196.gz Ra: 78.75 Dec: -56.25 | Error:83.5147 0.323526
+ti.2003.301.gz Ra: 126.562 Dec: 22.5 | Error:91.1651 1.64277
+ti.2003.308.gz Ra: 75.9375 Dec: -21.5625 | Error:128.59 0.96984
+ti.2005.020.gz Ra: 296.25 Dec: -0.9375 | Error:20.1031 1.20089
+ti.2005.258.gz Ra: 17.8125 Dec: 85.3125 | Error:91.3298 0.500435
+ti.2011.210.gz Ra: 220.312 Dec: 3.75 | Error:90.5716 1.5958
+ti.2012.066.gz Ra: 143.438 Dec: -35.625 | Error:133.236 2.33009
+ti.2012.130.gz Ra: 242.812 Dec: -26.25 | Error:162.888 2.51568
+ti.2012.297.gz Ra: 0 Dec: -90 | Error:78.487 0.79012
+Total & 0 & 0
+
+FILTRO VTEC ENTRE 3 y -3 PARA TODOS LOS DATOS
+-- Decreasing range method --
+ti.2001.347.gz Ra: 261.562 Dec: -19.6875 | Error:3.53947 1.04359
+ti.2002.196.gz Ra: 127.5 Dec: 5.625 | Error:19.9326 0.386842
+ti.2003.301.gz Ra: 212.812 Dec: -11.25 | Error:1.86776 1.48354
+ti.2003.308.gz Ra: 174.375 Dec: -55.3125 | Error:52.7257 0.733377
+ti.2005.020.gz Ra: 277.5 Dec: 58.125 | Error:80.9201 1.06847
+ti.2005.258.gz Ra: 19.6875 Dec: 30 | Error:138.468 0.78212
+ti.2011.210.gz Ra: 259.688 Dec: -60 | Error:126.204 1.30879
+ti.2012.066.gz Ra: 134.062 Dec: 2.8125 | Error:147.045 2.57887
+ti.2012.130.gz Ra: 30 Dec: -4.6875 | Error:27.805 2.19665
+ti.2012.297.gz Ra: 208.125 Dec: -4.6875 | Error:6.82711 2.55082
+Total & 0 & 0
+
+FILTRO VTEC ENTRE 0.7 y -0.7 PARA TODOS LOS DATOS
+ti.2001.347.gz Ra: 261.562 Dec: -19.6875 | Error:3.53947 1.05534
+ti.2002.196.gz Ra: 127.5 Dec: 5.625 | Error:19.9326 0.357817
+ti.2003.301.gz Ra: 212.812 Dec: -11.25 | Error:1.86776 1.11746
+ti.2003.308.gz Ra: 0 Dec: -53.4375 | Error:103.25 0.306933
+ti.2005.020.gz Ra: 7.5 Dec: -76.875 | Error:64.8737 0.496902
+ti.2005.258.gz Ra: 134.062 Dec: -28.125 | Error:48.7806 0.928705
+ti.2011.210.gz Ra: 259.688 Dec: -60 | Error:126.204 1.3695
+ti.2012.066.gz Ra: 138.75 Dec: 7.5 | Error:151.879 2.73891
+ti.2012.130.gz Ra: 38.4375 Dec: 75 | Error:57.6222 1.97409
+ti.2012.297.gz Ra: 208.125 Dec: -4.6875 | Error:6.82711 2.54995
+Total & 0 & 0
+
+
+FILTRO VTEC ENTRE 3 y -3 SOLO AL BUSCAR EL PICO (esto se puede solucionar dando el momento exacto en lugar de un rango)
+-- Decreasing range method --
+ti.2001.347.gz Ra: 176.25 Dec: -60 | Error:67.4429 0.984251
+ti.2002.196.gz Ra: 127.5 Dec: 5.625 | Error:19.9326 0.347358
+ti.2003.301.gz Ra: 215.625 Dec: -14.0625 | Error:3.34608 1.45126
+ti.2003.308.gz Ra: 174.375 Dec: -55.3125 | Error:52.7257 0.787244
+ti.2005.020.gz Ra: 301.875 Dec: 28.125 | Error:48.2149 0.869509
+ti.2005.258.gz Ra: 66.5625 Dec: -28.125 | Error:106.048 0.887775
+ti.2011.210.gz Ra: 193.125 Dec: -67.5 | Error:98.1731 1.07521
+ti.2012.066.gz Ra: 219.375 Dec: -66.5625 | Error:98.7735 2.18909
+ti.2012.130.gz Ra: 360 Dec: 3.75 | Error:47.9468 1.42638
+ti.2012.297.gz Ra: 0 Dec: -90 | Error:78.486 0.819418
+Total & 0 & 0
+
+
+

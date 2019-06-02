@@ -15,6 +15,33 @@ using namespace std;
 const string FILTER_AWK_SCRIPT = "filterDataTi.awk";
 const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
 
+//Old large range
+// const vector<string> fileNames = {
+// 	"ti.2001.347.51800-52200",
+// 	"ti.2002.196.70440-74040",
+// 	"ti.2003.301.36000-41400", 
+// 	// "ti.2003.308.71000-72100",
+// 	// "ti.2005.020.24200-24400",
+// 	// "ti.2005.258.29190-32790",
+// 	// "ti.2011.210.42334-45934",
+// 	// "ti.2012.066.4400-4700",
+// 	// "ti.2012.130.50600-51000",
+// 	// "ti.2012.297.11600-12000",
+// };
+
+const vector<string> fileNames = {
+	"ti.2001.347.gz",
+	"ti.2002.196.gz",
+	"ti.2003.301.gz",
+	"ti.2003.308.gz",
+	"ti.2005.020.gz",
+	"ti.2005.258.gz", 
+	"ti.2011.210.gz",
+	"ti.2012.066.gz",
+	"ti.2012.130.gz",
+	"ti.2012.297.gz",
+};
+
 //Global variables
 int iterationsLeastSquares;
 double estimatedRa;
@@ -88,8 +115,8 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 - Uses the specified method
 - Outputs the results
 **/
-void mainAlgorithm(string methodId, string inputDataFile) {
-	cout << "-- " << inputDataFile << "--" << endl;
+void mainAlgorithm(string methodId, string inputDataFile, Auxiliary aux) {
+	// cout << "-- " << inputDataFile << "--" << endl;
 
 	FileManager fileManager;
 
@@ -101,12 +128,12 @@ void mainAlgorithm(string methodId, string inputDataFile) {
 	// Find spike
 	SpikeFinder spikeFinder;
 	candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
-	cout << "[Best epoch: " << bestCandidate.epoch << "]" << endl;
+	// cout << "[Epoch: " << bestCandidate.epoch << "]" << endl;
 
 	// Filter by time
 	int numRows = fileManager.filterTiFileByTime(bestCandidate.epoch);
 
-	Auxiliary aux;
+	
 	aux.chronoStart();
 	// Simulated Annealing
 	if (methodId == "sa") {
@@ -135,7 +162,7 @@ void mainAlgorithm(string methodId, string inputDataFile) {
 		for (int i = 0; i < 15; i++) {
 			iterationsLeastSquares = i;
 			cout << i << " ";
-			mainAlgorithm("ls", inputDataFile);
+			mainAlgorithm("ls", inputDataFile, aux);
 		}
 	}
 	
@@ -147,6 +174,28 @@ void mainAlgorithm(string methodId, string inputDataFile) {
 	}
 }
 
+void resultsDebugLatex () {
+	cout << "(iterations) errorRa errorDec errorAbsoluto Total time" << endl;
+	Auxiliary aux = Auxiliary();
+
+	//Decrease range
+	cout << "-- Decreasing range method --" << endl;
+	for (string fileName : fileNames) {
+		cout << fileName;
+		mainAlgorithm("dr", fileName, aux);
+	}
+	aux.resetTotalsMethod();
+
+	//Least Squares
+	// cout << "-- Least Squares method --" << endl;
+	// for (string fileName : fileNames) {
+	// 	cout << fileName;
+	// 	mainAlgorithm("ls", fileName, aux);
+	// }
+
+	
+}
+
 void methodPrompt() {
 	cout << endl << "### Blind GNSS Search of Extraterrestrial EUV Sources Algorithm ###" << endl << endl;
 	string methodId;
@@ -154,37 +203,15 @@ void methodPrompt() {
 	cin >> methodId;
 	
 	string inputDataFile = "ti.2003.301.36000-41400.gz";
-	// inputDataFile = "ti.2012.066.4400-4700";
+	inputDataFile = "ti.2002.196.72230-72250.gz";
 	// inputDataFile = "ti.2003.301.gz";
 	// INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 	// INPUT_DATA_FILE = "ti.2016.078.07h32m-09h32m.LARGESIZE.flare.gz";
-	mainAlgorithm(methodId, inputDataFile);
-}
-
-void resultsDebugLatex () {
-	cout << "(iterations) errorRa errorDec errorAbsoluto Total time" << endl;
-	//Aqui llamar a main algorithm con los methods que yo quiera sin usar el prompt
-	string inputDataFile = "ti.2003.301.10h30m-11h30mCLASSIC.gz";
-	mainAlgorithm("ls", inputDataFile);
-	mainAlgorithm("dr", inputDataFile);
-	inputDataFile = "ti.2003.301.10h30m-11h30mCLASSIC.gz";
-	mainAlgorithm("ls", inputDataFile);
+	Auxiliary aux;
+	mainAlgorithm(methodId, inputDataFile, aux);
 }
 
 int main() {
-	/*
-	ti.2003.301.36000-41400
-ti.2011.210.42334-45934
-ti.2003.308.71000-72100
-ti.2005.020.24200-24400
-ti.2001.347.51800-52200
-ti.2002.196.70440-74040
-ti.2005.258.29190-32790
-ti.2012.066.4400-4700
-ti.2012.130.50600-51000
-ti.2012.297.11600-12000
-
-	
-	*/
-	methodPrompt();
+	// methodPrompt();
+	resultsDebugLatex();
 }

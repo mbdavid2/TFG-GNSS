@@ -14,10 +14,9 @@ bool operator<(possibleSunInfo a, possibleSunInfo b) {
 	return a.coefficient < b.coefficient ? true : false; 
 }
 
-void Auxiliary::printExecutionTime(clockTime start_time, clockTime end_time) {
-    std::chrono::duration<double> elapsed_seconds = end_time - start_time;
-    if (latex) cout << " & " << elapsed_seconds.count() << " \\\\" << endl << "\\hline" << endl;
-    else cout << " " << elapsed_seconds.count() << endl;
+Auxiliary::Auxiliary() {
+	totalErrorMethod = 0;
+	totalTimeMethod = 0;
 }
 
 void Auxiliary::chronoStart() {
@@ -37,6 +36,21 @@ double Auxiliary::toRadians(double degrees) {
 	return degrees*M_PI/180;
 }
 
+void Auxiliary::resetTotalsMethod() {
+	cout << "Total & " << totalErrorMethod << " & " << totalTimeMethod << endl;
+	totalTimeMethod = 0;
+	totalErrorMethod = 0;
+}
+
+void Auxiliary::printExecutionTime(clockTime start_time, clockTime end_time) {
+    std::chrono::duration<double> elapsed_seconds = end_time - start_time;
+    if (latex) cout << " & " << elapsed_seconds.count() << " \\\\" << endl << "\\hline" << endl;
+    else cout << " " << elapsed_seconds.count() << endl;
+
+	// Update total error of the method
+	totalTimeMethod += elapsed_seconds.count();
+}
+
 void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation) {
 	double correctRa, correctDec, estimatedRa, estimatedDec;
     string dataName = "salu2";
@@ -48,8 +62,11 @@ void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correct
 
 	double cosineChi = sin(estimatedDec)*sin(correctDec) + cos(estimatedDec)*cos(correctDec)*cos(estimatedRa - correctRa);
 	double errorDegrees = toDegrees(acos(cosineChi));
-	if (latex) cout << dataName << " & " << abs(correctRa-ra) << " & " << abs(correctDec-dec) << " & ";
-    else cout << "Ra: " << ra << " Dec: " <<  dec << " | " << errorDegrees;
+	if (latex) cout << " & " << errorDegrees;
+    else cout << " Ra: " << ra << " Dec: " <<  dec << " | Error:" << errorDegrees;
+
+	// Update total error of the method
+	totalErrorMethod += errorDegrees;
 	 
 	// cout << "[Results]" << endl;
 	// cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;

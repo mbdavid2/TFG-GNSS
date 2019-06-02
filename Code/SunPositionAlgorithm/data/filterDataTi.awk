@@ -1,6 +1,6 @@
 BEGIN {
-	upperLimitVTEC = 10;
-	lowerLimitVTEC = -10;
+	upperLimitVTEC = 0.7;
+	lowerLimitVTEC = -0.7;
 	discardSunHemisphere = 0
 }
 {

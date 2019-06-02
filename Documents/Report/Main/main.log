@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  1 JUN 2019 15:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  2 JUN 2019 16:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2229,7 +2229,7 @@ Chapter 9.
 
 
 ]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 48--61
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 48--90
 []$[]$ 
  []
 
@@ -2240,13 +2240,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [67]
-Overfull \hbox (34.63942pt too wide) in paragraph at lines 98--109
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2254,7 +2247,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [68]
-Overfull \hbox (30.2507pt too wide) in paragraph at lines 135--148
+Overfull \hbox (34.63942pt too wide) in paragraph at lines 144--155
  [][] 
  []
 
@@ -2264,14 +2257,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[69])
+[69]
+Overfull \hbox (30.2507pt too wide) in paragraph at lines 183--196
+ [][] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[70
+[70])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[71
 
 
 ]
@@ -2281,12 +2285,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[71]
+[72]
 \openout2 = `sections/ch10Annexes.aux'.
 
  (./sections/ch10Annexes.tex
 Chapter 10.
-) [72
+) [73
 
 
 
@@ -2302,7 +2306,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 du / starlink /
  []
 
-[73
+[74
 
 
 ])
@@ -2314,7 +2318,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[74]
+[75]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
  (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
 (./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
@@ -2337,10 +2341,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 150.
  ) 
 Here is how much of TeX's memory you used:
- 19020 strings out of 494847
- 295823 string characters out of 6179080
+ 19079 strings out of 494847
+ 296656 string characters out of 6179080
  676937 words of memory out of 5000000
- 21359 multiletter control sequences out of 15000+600000
+ 21388 multiletter control sequences out of 15000+600000
  15299 words of font info for 55 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  53i,16n,101p,1990b,2077s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2363,10 +2367,10 @@ sy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on main.pdf (76 pages, 986301 bytes).
+Output written on main.pdf (77 pages, 990007 bytes).
 PDF statistics:
- 1492 PDF objects out of 1728 (max. 8388607)
- 1351 compressed objects within 14 object streams
- 544 named destinations out of 1000 (max. 500000)
+ 1530 PDF objects out of 1728 (max. 8388607)
+ 1388 compressed objects within 14 object streams
+ 574 named destinations out of 1000 (max. 500000)
  763 words of extra memory for PDF output out of 10000 (max. 10000000)
 

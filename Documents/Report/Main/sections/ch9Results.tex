@@ -43,33 +43,63 @@ To perform this study, the best epoch within the given range is found using the 
 
 The \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the data, it is one of the many fields the ti files contain} and the estimated location, using the same operations we've used in previous chapters to compute the angle. 
 
-The ti files that contain data for the entire day are filtered using this bash script, which has a list with the information of each file to be filtered: the name of the original file and the upper and lower limits of time. It then filters each file using a simple AWK one-line script that checks the field with the time:
+The ti files that contain data for the entire day are filtered using this bash script, which has a list with the information of each file to be filtered: the name of the original file and the upper and lower limits of time (or a specific moment used to compute the limits). It then filters each file using a simple AWK one-line script that checks the field with the time:
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=Bash, caption=Filtering the ti file]
-	#!/bin/bash	
+#!/bin/bash	
 	
-	strings=(
-	'ti.2003.301.gz,10,11.5'
-	)
-	for i in "${strings[@]}"; do
+strings=(
+	'2003.301,36000,41400'
+	'2011.210,44134'
+	[..All the filenames..] 
+	'2012.130,50600,51000'
+	'2012.297,11600,12000'
+)
+
+tiDataFolder="/home/mbdavid2/Documents/dataTi/"
+
+for i in "${strings[@]}"; do
+	dataInfo="$i"
 	
-	done
+	# Split the information
+	arrayInfo=(${dataInfo//,/ })
 	
-	\end{lstlisting}
+	# Use the range if specified, compute it otherwise
+	if [ ${#arrayInfo[@]} = 2 ]; then
+		let lowerLimit="${arrayInfo[1]}"-1800
+		let upperLimit="${arrayInfo[1]}"+1800
+	else
+		let lowerLimit="${arrayInfo[1]}"
+		let upperLimit="${arrayInfo[2]}"
+	fi
+	
+	# Name the file according to the parameters
+	tiDataFile="ti.""${arrayInfo[0]}"
+	outputFileName="$tiDataFile"".""$lowerLimit""-""$upperLimit"
+	echo $outputFileName
+	
+	# Filter and compress
+	zcat "$tiDataFolder""originals/""$tiDataFile" 
+	| gawk -v lower="$lowerLimit" -v upper="$upperLimit" 
+	'{/a/; if ($3 >= lower/3600 && $3 <= upper/3600) {print $0;}}' 
+	> "$tiDataFolder""$outputFileName"
+	gzip -f "$tiDataFolder""$outputFileName" # -f to force overwrite
+done\end{lstlisting}
 \end{minipage}
 
 The study is divided in three categories, based on the method used to discard outliers from the input data:
 
 \begin{itemize}
 	\item Using the data from \textbf{all IPPs} without filtering out any outliers
-	\item Using a simple \textbf{cutoff value} for the VTEC
+	\item Using a \textbf{cutoff value} for the VTEC only when \textbf{finding the spike}
+	\item Using a \textbf{cutoff value} for \textbf{all the VTEC data} that will be used for the computations of the algorithm (si ???)
 	\item Using \textbf{linear fit} for the Decreasing Range method to discard outliers and \textbf{multiple iterations} for the Least Squares method to try to improve the solution, both explained in their respective chapters.
 \end{itemize}
 
 \section{Using all available data}
 
-The main problem of this method is that outliers that are far from the sample make the mean computation unstable, leading to using incorrect epochs.
+The main problem of this method is that outliers that are far from the sample make the mean computation unstable, which causes the algorithm to use incorrect epochs.
 
 \subsubsection{Decreasing range}
 
@@ -78,13 +108,29 @@ The main problem of this method is that outliers that are far from the sample ma
 	\def\arraystretch{1.2}
 	\begin{tabular}{|c c c|} 
 		\hline
-		Data set & Total estimation error & Time \\ [0.5ex] 
+		Data set & Total estimation error (degrees) & Time (seconds) \\ [0.5ex] 
 		\hline\hline
-		X17.2  & 4.09113 & 0.79132 \\
+		ti.2003.301.36000-41400 & 1.86776 & 1.54588 \\
 		\hline
-		Other & 181.501 & 5.17015 \\
+		ti.2011.210.42334-45934 & 121.486 & 1.28509 \\
+		\hline
+		ti.2003.308.71000-72100 & 52.7257 & 0.72318 \\
+		\hline
+		ti.2005.020.24200-24400 & 80.9201 & 0.805152 \\
+		\hline
+		ti.2001.347.51800-52200 & 56.6299 & 1.10344 \\
+		\hline
+		ti.2002.196.70440-74040 & 27.3715 & 1.35669 \\
+		\hline
+		ti.2005.258.29190-32790 & 92.938 & 1.91892 \\
+		\hline
+		ti.2012.066.04400-04700 & 137.001 & 2.5184 \\
+		\hline
+		ti.2012.130.50600-51000 & 47.9468 & 1.59632 \\
+		\hline
+		ti.2012.297.11600-12000 & 41.6639 & 2.68444 \\
 		\hline\hline
-		Total & 4.09113 & 6565 \\
+		Total & 41.6639 & 2.68444 \\
 		\hline
 	\end{tabular}
 	\caption{Results for different epochs}
@@ -125,6 +171,8 @@ Different cutoff values are studied to see if this is a reliable method, as it s
 
 \subsubsection{Decreasing range: linear fit}
 
+despues iterations varios para cada caso, pero aqui parametros distintos sigma e iterations
+
 \subsubsection{Least Squares: Iteration}
 
 We iterate bla bla bla
@@ -149,6 +197,9 @@ We iterate bla bla bla
 \end{table}
 
 \subsection{Results}
+
+
+
 
 \section{Far-away stars}
 
