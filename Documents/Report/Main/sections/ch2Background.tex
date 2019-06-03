@@ -5,7 +5,7 @@ As the project has a large background in physics and astronomy, some of the rele
 
 \paragraph{GNSS and GPS}
 
-These two terms may lead to confusion as Global Navigation Satellite Systems (GNSS) is the generic term for all satellite navigation systems. The Global Positioning System (GPS), in particular, is the United States' GNSS system, the world's most used one. Other systems, for example, are the European Galileo or Russian GLONASS \cite{hegarty2008evolution}.
+These two terms may lead to confusion as Global Navigation Satellite Systems (GNSS) is the generic term for all satellite navigation systems. The Global Positioning System (GPS), in particular, is the United States' GNSS system, the world's most used GNSS. Other systems, for example, are the European Galileo or Russian GLONASS \cite{hegarty2008evolution}.
 
 Global Navigation Satellite Systems use satellites to determine the position of a given object or device in terms of latitude, longitude and height. 
 
@@ -36,19 +36,16 @@ High energy from Extreme UltraViolet (EUV) and X-ray radiation can cause its ato
 The main physical quantity used for describing the electron content of the ionosphere is the \textbf{Total Electron Content (TEC)}, the TEC is the total number of electrons between two points $(r1,r2)$ along a cylinder of base $1m^2$. 
 Slant TEC (STEC), in particular, can be defined as the TEC in which $r1$ and $r2$ are a satellite and a receiver’s positions \cite{singh2015gps}. 
 
-The unique properties the ionosphere has enable us to use the data provided by the GNSS technology to study a powerful phenomena that occurs in many stars across the universe: stellar flares.
+The unique properties of the ionosphere enable us to use the data provided by the GNSS technology to study stellar flares, a powerful phenomena that occurs in many stars across the universe.
 
 \section{Stellar flares}
 
-Flares from stars, in particular those that have the Sun as a source, more noticeable due to its proximity, are sudden flashes of brightness in the surface of stars which release large amounts of energy across the whole electromagnetic spectrum\footnote{X-rays and Extreme Ultraviolet (EUV) radiation}.
+Flares from stars, in particular those that have the Sun as a source (more noticeable due to its proximity) are sudden flashes of brightness in the surface of stars which release large amounts of energy across the whole electromagnetic spectrum\footnote{X-rays and Extreme Ultraviolet (EUV) radiation}.
 Flares that have the Sun as a source can increase the electron content of the ionosphere and have an effect on waves passing through it, affecting satellite communications and causing a delay. This phenomena is the key element of the project, as it enables us to study these events.
 
-Satellites can also be harmed by this effects: the flares heat up the outer atmosphere, which in turn increases the drag on these satellites reducing their lifetime in orbit.
-{GPS as a solar observational instrument: Real-time estimation of EUV photons flux rate during strong, medium, and weak solar flares se explica el efecto del sol sobre ionosfera}
+Satellites can also be harmed by this effects: the flares heat up the outer atmosphere, which in turn increases the drag on these satellites reducing their lifetime in orbit \cite{hernandez2012gnss}.
 
-The previous phenomena applies to flares originating in the Sun, whether a flare that has a star from outside the Solar System as a source has an effect on the Earth’s atmosphere or not is one of the topic that is going to be studied in this project.
-
-SOHO and GOES are space probes used for obtaining solar flare information \cite{hernandez2012gnss}
+The previous phenomena applies to flares originating from the Sun, whether a flare that has a star from outside the Solar System as a source has an effect on the Earth’s atmosphere or not is one of the topics that is going to be studied in this project, as the distance may reduce their effect on the Earth.
 
 \section{Gamma-Ray Bursts}
 
@@ -57,12 +54,4 @@ Throughout the project, in particular when studying the feasibility of stellar f
 GRBs are highly energetic explosions that occur in distant galaxies, releasing large amounts of radiation, in particular Gamma rays, hence the name of the event. These bursts, despite being millions of light years away from Earth are so powerful they might still have an impact on the ionosphere, like the aforementioned stellar flares. 
 The main difference with flares originating from stars is that GRBs are thought to be originated from the death of massive stars, that is, supernovas.
 
-This event, despite not being a stellar flare, the phenomena we aim to detect, is going to be studied in the following sections to test the currently working algorithms mainly for two reasons: it has been studied and cataloged by telescopes such as the Fermi Observatory and there’s is available information that we can use for our study, and the large amounts of energy they emit it make GRBs a more feasible target to detect.
-
-{Fermi Observations of High-Energy Gamma-Ray Emission from GRB 080916C}
-
-Although a study on GRBs is presented in the next chapter, other cosmic events that may be detected using our proposed methods can be studied as well later on.
-
-
-
-
+Despite not being a stellar flare, the phenomena we aim to detect, this event is going to be studied in the following section to test the currently working algorithms, mainly for two reasons: it has been studied and cataloged by telescopes such as the Fermi Observatory and there’s is available information that we can use for our study, and the large amounts of energy they emit it could mean GRBs are a more feasible target to detect.

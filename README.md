@@ -1,3 +1,5 @@
 # TFG-GNSS-Stellar-Flares
 
-[descripción cuando tenga tiempo salu2]
+Stellar flares are sudden electromagnetic emissions on a star's surface that release large amounts of energy. These flares are detected by telescopes such as Swift or Fermi by performing radiation observations from low Earth orbit. However, the radiation also has an effect on Earth’s ionosphere electron content. Another approach for detecting these events is possible: the aforementioned electron content variation can be studied using data from Global Navigation Satellite Systems (GNSS) such as GPS.
+
+Algorithms for detecting solar flares without knowing the location of the source, that is, the position of the Sun relative to Earth are presented, as well as a study on the feasibility of the detection of such events for the challenging scenario of far-away stars, aiming to find an alternative detection method to that of the telescopes and using free, open-source data.

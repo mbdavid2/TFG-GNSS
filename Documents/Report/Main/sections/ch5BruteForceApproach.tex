@@ -1,12 +1,12 @@
 \chapter{Brute Force Approach}
 
-In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was studied. Here, we aim to provide a first, brute force approach, of the \textit{Blind GNSS Search of Extraterrestrial EUV Sources (BGSEES)} algorithm to estimate the location of a EUV source. This approach is done as a first approximation to be problem to see more clearly how the algorithm will work, regardless of the performance.
+In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was studied. Here, we aim to provide a first, brute force approach, of the \textit{Blind GNSS Search of Extraterrestrial EUV Sources (BGSEES)} algorithm to estimate the location of a EUV source. This approach is done as a first approximation to the problem to see more clearly how the algorithm will work, regardless of its performance.
 
 For this first approach the Sun is used as the source (to check the corectness of the solution). It considers possible Sun locations (with a certain degree of precision) and checks the fitness of each to consider which could be the real location.
 
 \section{Key elements}
 
-\subsection{Mean VTEC as a reliable indicator of the moment of the flare}
+\subsection{Mean VTEC as a reliable indicator of the moment of the flare} -> TODO
 
 The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content throughout the provided data range. 
 In the previous chapter we already knew the specific moment of the flare: 11.05h, and could work based on this information, but the first step of the algorithm has to determine which moment is going to be studied.
@@ -47,7 +47,7 @@ As seen in the previous chapter, there exists a correlation between the VTEC val
 
 Once the moment of the flare is found, the aim of the algorithm is to study the correlation for each of the possible Suns and yield a fitness indicator for them. 
 
-The main idea for the algorithm is that the higher the correlation, the more accurate the estimated location should be, compared to the real one of the Sun. 
+The main idea for the algorithm is that the higher the correlation, the more accurate the estimated location should be, compared to the Sun's real location. 
 
 The results will be discussed in the last section of this chapter to see if the previous expectations are true.
 
@@ -70,8 +70,6 @@ r_{xy} = \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}
 \end{equation} \\
 
 With can be implemented with a single pass algorithm, as opposed to the former. Because of this we decided to initially start with this one.
-
-To ensure that the implementation of the previous method in Fortran was correct, we used the R language and its already implemented correlation function to test our results, in the previous section the Fortran implementation is shown. 
 
 \section{Algorithm}
 

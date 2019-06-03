@@ -6,19 +6,18 @@
 
 \section{Introduction}
 
-Solar flares are sudden electromagnetic emissions on the Sun’s surface that release large amounts of magnetic energy. These flares emit radiation that has an effect on Earth’s ionosphere electron content and therefore the many satellites orbiting it. \cite{hernandez2012gnss}\\
+Stellar flares are sudden electromagnetic emissions on a star's surface that release large amounts of magnetic energy. For the case of solar flares (originating from the Sun), these flares emit radiation that has an effect on Earth’s ionosphere electron content and therefore the many satellites orbiting it. \cite{hernandez2012gnss}
 
-Several NASA missions that aim to detect these and other flares from far-away stars exist, like the Swift and Fermi missions, these satellites, however, perform this by using their instruments to study the gamma-ray, x-ray and ultraviolet radiation bands. \cite{gehrels2013gamma}\\
+Several NASA missions that aim to detect these and other flares from far-away stars exist, like the Swift and Fermi missions, these satellites, however, perform this by using their instruments to study the gamma-ray, x-ray and ultraviolet radiation bands. \cite{gehrels2013gamma}
 
-The aforementioned ionosphere electron content variation, however, makes it possible to detect these flares with a more indirect approach: using data from the satellites belonging to global positioning systems.\\
+The aforementioned ionosphere electron content variation, however, makes it possible to detect these flares with a more indirect approach: using data from the satellites belonging to global positioning systems.
 
-As the sudden increase of electron content in the ionosphere has an effect on the signals these satellites receive and send, this data can be used to detect flares by using the appropriate algorithms. Parameters such as the angle between the Sun and the zenith of the Earth, or the Total Electron Content (TEC) in the air have to be taken into consideration for them to work. \\
+As the sudden increase of electron content in the ionosphere has an effect on the signals these satellites receive and send, this data can be used to detect flares by using the appropriate algorithms. Parameters such as the angle between the Sun and the zenith of the Earth, or the Total Electron Content (TEC) in the air have to be taken into consideration for them to work. 
+This is already feasible with flares that have the Sun as a source, so our goal is to, first of all, expand on that by detecting these flares without knowing the location of the Sun, and then apply that to study if it is possible to detect flares from far-away stars by developing the appropriate algorithms.
 
-This is already feasible with flares that have the Sun as a source, so our goal is to, first of all, expand on that by detecting these flares without knowing the location of the Sun, and then apply that to study if it is possible to detect flares from far-away stars by developing the appropriate algorithms.\\
+Therefore, the main objective of our project is to present algorithms able to detect Solar flares without taking into consideration the position of the Sun, so that we can later adapt it to the challenging scenario of flares from far-away stars. Finally, it could be extended to real-time detection.
 
-Therefore, the main objective of our project is to study the feasibility of the detection of stellar flares using Global Navigation Satellite System (GNSS) or Global Positioning System (GPS) measurements without knowing the location of the source. If this is possible, it could be extended to real-time detection.\\
-
-The aim of this chapter is to give a detailed description of the project, its scope and context.\\
+The aim of this chapter is to give a detailed description of the project, its scope and context, as well as the planning for the different objectives of the project and its impact: environmental, social and economic.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Scope of the project %%%%%%%%
@@ -42,31 +41,31 @@ For a possible progression we could present the objectives of the project as fol
 
 \subsection{Scope}
 
-We need to study the impact of stellar flares on the Earth’s ionosphere by adapting the already existing algorithms that work with the Sun, but without knowing the source of the flare to see if we can apply this method to the scenario of far-away stars.\\
+We need to study the impact of stellar flares on the Earth’s ionosphere by adapting the already existing algorithms that work with the Sun, but without knowing the source of the flare to see if we can apply this method to the scenario of far-away stars.
 
 And finally, if possible, using the result to adapt the solution to run in real-time.
 
 \subsection{Methodology and rigor}
 
-The project has been planned to assure that it is developed in a bottom-up style, from less to most challenging objectives because every step of the development relies on the previous one to work. Therefore, as we have specified before, the project is going to start by working with a less-challenging scenario: the Sun.\\
+The project has been planned to assure that it is developed in a bottom-up style, from less to most challenging objectives because every step of the development relies on the previous one to work. Therefore, as we have specified before, the project is going to start by working with a less-challenging scenario: the Sun.
 
 The objective is to develop an algorithm that is able to detect solar flares without knowing their location, so we can later extend it to far-away stars. Before starting with this algorithm, a first approach will be done knowing the location of the source (the location of the Sun relative to the Earth in the moment of a recorded flare) so we can assure that the computations are correct.
 
-Parallel to this, the feasibility of detecting far-away flares will be studied, using the currently existing algorithms \cite{hernandez2012gnss} but applied to recorded stellar flares, rather than Solar. If it is possible, we will adapt the previously developed algorithm so that it works not only with the Sun, but far-away stars (of which we don't know the location).\\
+Parallel to this, the feasibility of detecting far-away flares will be studied, using the currently existing algorithms \cite{hernandez2012gnss} but applied to recorded stellar flares, rather than Solar. If it is possible, we will adapt the previously developed algorithm so that it works not only with the Sun, but far-away stars (of which we don't know the location).
 
 Finally, if any of the two objectives is successful, the algorithms will be adapted to run in real time: instead of just testing them with previous data and checked against recorded events, they will be run in real time using the latest available GNSS data.
 
 \paragraph{Development tools}
 
-Git and GitHub are going to be the tools used for version control and code maintenance.\\
+Git and GitHub are going to be the tools used for version control and code maintenance.
 
-The platform we will be developing on will be Linux, and regarding programming languages, C-Shell will be used for scripts, AWK for the pre-processing of data and Fortran for the main algorithms. \\
+The platform we will be developing on will be Linux, and regarding programming languages, C-Shell will be used for scripts, AWK for the pre-processing of data and Fortran for the main algorithms. 
 
 Fortran was used for computing the relation between the Sun’s angle with the Earth’s zenith and the VTEC given by the data of a satellite, but a new part of our algorithm that didn’t have to be considered with the previous ones is how to traverse the set of GNSS satellites of the whole globe and decide which ones should compute this relation, that is, efficiently consider which satellites could possibly lead us to results, instead of checking that for all of them with a brute force algorithm.
 
-We will consider if there’s any alternative that may bring us more benefits than using Fortran for this part. \\
+We will consider if there’s any alternative that may bring us more benefits than using Fortran for this part. 
 
-Others tools might be used in the process, for example we could use something like Python to scrap the website of the Swift satellite for the data we want or download it and process it with C-shell or Bash.\\
+Others tools might be used in the process, for example we could use something like Python to scrap the website of the Swift satellite for the data we want or download it and process it with C-shell or Bash.
 
 Regarding the GNSS data we are going to be using, this is made available by the  International GNSS Service (IGS). This voluntary federation offers open access GNSS data that can be used to obtain ionospheric information. \cite{hernandez2009igs}
 

@@ -1,10 +1,10 @@
 \chapter{Solar flare detection}
 
-Before developing the main solar flare detection algorithm a first program was developed that would target a powerful solar flare for which we knew the time of the event and therefore, the location of the Sun.
+Before developing the main solar flare detection algorithm a first study is presented that targeted a powerful solar flare for which we knew the time of the event and therefore, the location of the Sun.
 
-Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this first approach was done to understand how the core of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC content.
+Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this study was done to understand how the core of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC content.
 
-This sections also provides an introduction to the formatting and use of the Global Navigation Satellite Systems data (GPS in this case) and how the main parameters necessary for the algorithms are computed.
+This chapter also provides an introduction to the formatting and use of the Global Navigation Satellite Systems data (GPS in this case) and how the main parameters necessary for the algorithms are computed.
 
 \section{Data}
 
@@ -14,7 +14,7 @@ As we have seen in previous sections, the International GNSS Service (IGS) has m
 
 Figure \ref{fig:exampleCDDIS} shows how data is stored in de CDDIS server (\url{ftp://cddis.nasa.gov/gps/data/hourly/}).
 
-The files in this server contain raw GPS data that is then pre-processed to obtain VTEC maps in the form of \textbf{ti} files. An example diagram of this complex, several step procedure is shown in figure \ref{fig:diagramIGS}, extracted from the paper "The IGS VTEC maps: a reliable source of ionospheric information since 1998" \cite{hernandez2009igs} by Manuel Hernández-Pajares, which offers a detailed explanation of this process. 
+The files in this server contain raw GPS data that is then pre-processed to obtain VTEC maps in the form of \textbf{ti} files. An example diagram of this complex, several step procedure is shown in figure \ref{fig:diagramIGS}, extracted from the paper \textit{"The IGS VTEC maps: a reliable source of ionospheric information since 1998"} \cite{hernandez2009igs} by Manuel Hernández-Pajares, which offers a detailed explanation of this process. 
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.3\textwidth}
@@ -60,14 +60,16 @@ Field number | Example value | Description
 [...]
 \end{lstlisting}
 
+The files also contain the right ascension and declination of the \textbf{Sun}, which will be used in the last chapters to study the error of the algorithm's estimations.
+
 \subsection{The Halloween Solar Storm: X17.2 flare}
 
-The data set we used was that of the so-called Halloween Storm, a powerful solar storm that took place from October to early November in the year 2003. In particular, we will try to replicate the results shown in figure \ref{fig:halloweenPaper}, shown in the paper "GNSS measurement of EUV photons flux rate during strong and mid solar flares" for a poweful flare that took place in October 28th, 2003 \cite{hernandez2012gnss}.
+The data set we used was that of the so-called Halloween Storm, a powerful solar storm that took place from October to early November in the year 2003. In particular, we will try to replicate the results shown in figure \ref{fig:halloweenPaper}, shown in the paper \textit{"GNSS measurement of EUV photons flux rate during strong and mid solar flares"} for a poweful flare that took place in October 28th, 2003 \cite{hernandez2012gnss}.
 
 \begin{figure}[!htb]
 	\begin{centering}
 		\includegraphics[width=0.5\linewidth]{images/ch4/halloweenPaper.png}
-		\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
+		\caption{VTEC as a function of the cosine of the solar-zenith angle}
 		\label{fig:halloweenPaper}
 	\end{centering}
 \end{figure}
@@ -76,19 +78,19 @@ As we can see the plot of the flare called X17.2 took place exactly at 2003.301.
 
 The ti files provided contained data from 10.5h to 11.5h (with a sampling rate of 30 seconds), so that we could see the VTEC distribution throughout the day.
 
-With this data we can obtain the two parameters that will yield the plot shown in figure \ref{fig:halloweenPaper}: the \textbf{VTEC value} and the \textbf{cosine of the solar-zenith angle}.
+With this data we can compute the two parameters that will yield the plot shown in figure \ref{fig:halloweenPaper}: the \textbf{VTEC value} and the \textbf{cosine of the solar-zenith angle}.
 
 \section{Vertical Total Electron Content (VTEC)}
 
-Fisrt we wanted to obtain VTEC distribution throughout the day, to visually see if any spikes appeared confirming that the moment we were going to study based on the paper \cite{hernandez2012gnss} was correct.
+Fisrt we wanted to obtain VTEC distribution throughout the day, to visually see if any spikes appeared confirming that the moment we were going to study based on the paper was correct.
 
 For each epoch in our data set (from 10.5 to 11.5 with a sampling rate of 30 seconds) we needed to compute an estimation of the VTEC value.
 
 \subsection{Computing the VTEC}
 
-As we have mentioned before, one of the main paramenters relevant to the computation is the \textbf{double derivate of LI}, the d2li field in the ti file. The Li is the "ionospheric combination of carrier phases" \cite{hernandez2012gnss}, a direct measurement of TEC. Because this is a derivative it is the increment in VTEC, this will be observed in figure \ref{fig:vtecDistribution}.
+As we have mentioned before, one of the main paramenters relevant to the computation is the \textbf{double derivate of LI}, the d2li field in the ti file. The Li is the "ionospheric combination of carrier phases" \cite{hernandez2012gnss}, a direct measurement of TEC. Because this is a derivative, it is the \textbf{increment in VTEC}, this will be observed in figure \ref{fig:vtecDistribution}.
 
-The VTEC increment can be estimated using the following approach:
+The VTEC increment can be estimated using the following operation:
 
 \begin{equation} \label{eq:1}
 	\frac{d^{2}V}{dt^{2}} = \frac{d^{2}Li}{M}
@@ -101,9 +103,11 @@ Therefore, we can estimate the VTEC increment of an IPP by dividing the two give
 	\Delta V \approx \frac{d^{2}Li}{M}
 \end{equation}
 
-Although the data that will be used throughout the project is going to be $\Delta V$, the VTEC increment, it will be referenced as simply VTEC from now on.
+Although the data that will be used throughout the project is going to be $\Delta V$, the VTEC increment, it will be referenced as simply VTEC from now on for readability.
 
 \paragraph{Implementation}
+
+Below is the code used to compute the VTEC value in Fortran that we will use to replicate the plot from figure \ref{fig:halloweenPaper}.
 
 \begin{lstlisting}[language=Fortran, caption=Simple Fortran function to compute the VTEC value]
 double precision function estimateVTEC (mapIon, d2Li)
@@ -118,7 +122,7 @@ end function estimateVTEC
 
 \subsection{Distribution throughout the day}
 
-Because the only operation that had to be performed was the previous division, a simple AWK script was used to filter out the two necessary fields from the data file and print the resulting value as a function of time. 
+Because the only operation that had to be performed was the previous division, for plotting the distribution throughout the day a simple AWK script was used to filter out the two necessary fields from the data file and print the resulting value as a function of time. 
 
 \begin{lstlisting}[language=Awk, caption=AWK script to estimate the VTEC]
 {
@@ -140,10 +144,11 @@ rm vtecValues
 \end{lstlisting}
 \clearpage
 
-The bash script executes the AWK process with the data as the input and outputs n rows with two columns: the time of the day and the calculated VTEC, plotting the results using Gnuplot. 
+The bash script executes the AWK process with the data as the input and outputs n rows with two columns: the \textbf{time of the day} and the \textbf{calculated VTEC}, and finally plots the results using Gnuplot. 
+
 This results can be seen in figure \ref{fig:vtecDistribution}(a), where we can see how the VTEC value evolves throught the day. Visually, a spike can be seen between 11 and 11.2 hours. 
 
-As mentioned before this value is estimated using the derivative of li, because this is the increment in VTEC, we can see that the value becomes negative after the spike, due to the VTEC value decreasing (negative gain).
+As mentioned before this value is estimated using the derivative of li, because this is the increment in VTEC, we can see that the value becomes negative after the spike, due to the VTEC value decreasing (there is a negative gain ($\Delta V < 0$)).
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -159,7 +164,7 @@ As mentioned before this value is estimated using the derivative of li, because 
 	\label{fig:vtecDistribution}
 \end{figure}
 
-To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill), we obtain the plot from figure \ref{fig:vtecDistribution}(b). At this time of the day around 11:00h the Sun would have a greater effect on the IPPs of this station, so the spike can be seen more clearly. 
+To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill in the ti files), we obtain the plot from figure \ref{fig:vtecDistribution}(b). At this time of the day around 11:00h the Sun would have a greater effect on the IPPs of this station due to its location, so the spike can be seen more clearly. 
 
 As mentioned before, the flare took place at 11.05, so we could proceed using the studied data range and this epoch in particular.
 
@@ -170,8 +175,6 @@ The solar-zenith angle (denoted $\chi$ from now onward) plays a major role when 
 Figure \ref{fig:solar-zenith-angle}, at the end of the chapter, provides a visual representation of this variable that along with the results depicts how it can affect the VTEC value. 
 
 Obtaining the angle between two celestial objects has been shown in the previous section by means of equations \ref{eq:3}, \ref{eq:4} and \ref{eq:5}, when calculating the angle between the Sun and a detected GRB.
-
-\textbf{TODO: JUSTIFICAR ESTAS DOS EQUACIONES!!!}
 
 \begin{equation} \label{eq:3}
 unitVectorObjectA =	
@@ -195,7 +198,7 @@ unitVectorObjectB =
 \cos \beta = unitVectorObjectA \cdot unitVectorObjectB
 \end{equation}\\
 
-For this case, though, the angle is computed using the IPP's Right Ascension and Latitude (equivalent to declination), yielding the cosine of $\chi$, the \textbf{solar-zenith angle}. The previous dot product can be simplified to:
+For this case, though, the cosine of the solar-zenith angle $\chi$ is computed using the IPP's Right Ascension and Latitude (equivalent to declination). The previous dot product can be simplified to:
 
 \begin{equation} \label{eq:6}
 \cos \chi = \sin\delta_{IPP}*\sin\delta_{Sun} + \cos\delta_{IPP}*\cos\delta_{Sun}*\cos(\alpha_{IPP} - \alpha_{Sun})
@@ -216,7 +219,7 @@ end function computeAngle
 
 \section{Results}
 
-Taking $212.338º$ and $-13.060º$ as the Sun's right ascension and declination, respectively, and the measurements of all IPPs at 11.05 hours, figure \ref{fig:results} shows the plot of the output of our program.
+Taking $212.338^{\circ}$ and $-13.060^{\circ}$ as the Sun's right ascension and declination, respectively, and the measurements of all IPPs at 11.05 hours, figure \ref{fig:results} shows the plot of the output of our program.
 
 \begin{figure}[!htb]
 \begin{centering}
@@ -226,31 +229,7 @@ Taking $212.338º$ and $-13.060º$ as the Sun's right ascension and declination,
 \end{centering}
 \end{figure}
 
-As we can observe, the resulting plot, similar to the one from figure \ref{fig:halloweenPaper}, shows a strong corelation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90º) to $\cos\chi = 1$ (0º) and it doesn't seem to be affected from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º). \\
-
-Visually, this can be seen as follows:
-
-TODO: SOLO FALTA ESTO, DIBUJO Y EXPLICACION DE PORQUE SUCEDE ESTO
-
-\begin{figure}[!htb]
-	\begin{subfigure}[b]{0.4\textwidth}
-		\includegraphics[width=\linewidth]{images/ch4/smallChi.jpg}
-		\caption{All IPPs}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.4\textwidth}
-		\includegraphics[width=\linewidth]{images/ch4/largeChi.jpg}
-		\caption{Villafranca station}
-	\end{subfigure}
-	\caption{Effect of the solar-zenith angle on the VTEC}
-	\label{fig:vtecDistribution}
-\end{figure}
-
-When the Sun is vertically on the...................TODO
-
-
-
-
+As we can observe, the resulting plot, similar to the one from figure \ref{fig:halloweenPaper}, shows a strong corelation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$) (the effect of the Sun on the IPP increases) and it doesn't seem to be affected from $\cos\chi = -1$ (180$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$) (when the IPP is in the night hemisphere).
 
 In conclusion, we can see that there appears to be correlation between the two variables. This correlation will be studied in more detail in the following section, where a first approach of the algorithm will be presented to detect the flare without knowing the location of its source.
 

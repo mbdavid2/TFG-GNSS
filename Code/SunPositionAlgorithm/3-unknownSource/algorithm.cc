@@ -187,13 +187,11 @@ void resultsDebugLatex () {
 	aux.resetTotalsMethod();
 
 	//Least Squares
-	// cout << "-- Least Squares method --" << endl;
-	// for (string fileName : fileNames) {
-	// 	cout << fileName;
-	// 	mainAlgorithm("ls", fileName, aux);
-	// }
-
-	
+	cout << "-- Least Squares method --" << endl;
+	for (string fileName : fileNames) {
+		cout << fileName;
+		mainAlgorithm("ls", fileName, aux);
+	}
 }
 
 void methodPrompt() {

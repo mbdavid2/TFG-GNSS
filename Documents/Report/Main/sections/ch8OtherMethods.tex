@@ -43,12 +43,12 @@ The following figure shows the results of the execution for two different starti
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/ch6/hillClimbing/resultsPathBad.png}
-		\caption{Start: ra=100$^{\circ}$, dec=-60º}
+		\caption{Start: ra=100$^{\circ}$, dec=-60$^{\circ}$}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/ch6/hillClimbing/resultsPathGood.png}
-		\caption{Start: ra=160º, dec=-20º}
+		\caption{Start: ra=160$^{\circ}$, dec=-20$^{\circ}$}
 	\end{subfigure}
 	\caption{Paths taken by the Hill Climbing algorithm}
 	\label{fig:hillClimbingPaths}
@@ -56,9 +56,9 @@ The following figure shows the results of the execution for two different starti
 
 Visually, we can see that the number of considered possibilities is inferior and the top is reached for case (b), but a problem appears: \textbf{a local maxima}.
 
-If we take a starting right ascension of 160º and a declination of -20º, the algorithm takes a path that gets to the top of our solution, yielding similar results to the previous, decrease range method.
+If we take a starting right ascension of 160$^{\circ}$ and a declination of -20$^{\circ}$, the algorithm takes a path that gets to the top of our solution, yielding similar results to the previous, decrease range method.
 
-However, with a starting right ascension of 100º and a declination of -60º, the algorithm finds a local maxima on its way and can't progress to the real best solution.
+However, with a starting right ascension of 100$^{\circ}$ and a declination of -60$^{\circ}$, the algorithm finds a local maxima on its way and can't progress to the real best solution.
 
 As a result, we can't rely on the Hill Climbing approach for all cases, considering that local maxima may exist for our type of problem. Because of this, another possibility would be to use the Simulated Annealing algorithm so that we can explore other parts of the solution space and find other paths that might lead to our desired solution, instead of only.
 
