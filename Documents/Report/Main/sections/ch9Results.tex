@@ -1,5 +1,7 @@
 \chapter{Results}
 
+\textbf{colocar resultados y plots de comparacion}
+
 In this chapter we will study different data sets using the two presented methods for the \textit{BGSEES} algorithm: the \textbf{Least Squares} and \textbf{Decrease Range} method. 
 
 The aim of the chapter is to test them against each other and using different parameters to see which method yields the best result
@@ -101,6 +103,16 @@ The study is divided in three categories, based on the method used to discard ou
 
 The main problem of this method is that outliers that are far from the sample make the mean computation unstable, which causes the algorithm to use incorrect epochs.
 
+
+
+\subsection{Direct VTEC filter}
+
+This is the first method used in the brute force approach that yielded results very similar to the real location of the Sun, but it does not work well with other data sets.
+
+The filter is done using a cutoff value for the VTEC when the data is first filtered
+
+Different cutoff values are studied to see if this is a reliable method, as it simplifies the overall computation of the algorithm considerably.
+
 \subsubsection{Decreasing range}
 
 \begin{table}[h!]
@@ -110,30 +122,30 @@ The main problem of this method is that outliers that are far from the sample ma
 		\hline
 		Data set & Total estimation error (degrees) & Time (seconds) \\ [0.5ex] 
 		\hline\hline
-		ti.2003.301.36000-41400 & 1.86776 & 1.54588 \\
+		ti.2001.347.gz & 113.813 & 1.03879 \\
 		\hline
-		ti.2011.210.42334-45934 & 121.486 & 1.28509 \\
+		ti.2002.196.gz & 83.5147 & 0.26934 \\
 		\hline
-		ti.2003.308.71000-72100 & 52.7257 & 0.72318 \\
+		ti.2003.301.gz & 24.6405 & 1.07813 \\
 		\hline
-		ti.2005.020.24200-24400 & 80.9201 & 0.805152 \\
+		ti.2003.308.gz & 128.59 & 0.971644 \\
 		\hline
-		ti.2001.347.51800-52200 & 56.6299 & 1.10344 \\
+		ti.2005.020.gz & 20.1031 & 0.916863 \\
 		\hline
-		ti.2002.196.70440-74040 & 27.3715 & 1.35669 \\
+		ti.2005.258.gz & 91.3298 & 0.498707 \\
 		\hline
-		ti.2005.258.29190-32790 & 92.938 & 1.91892 \\
+		ti.2011.210.gz & 90.5716 & 1.46812 \\
 		\hline
-		ti.2012.066.04400-04700 & 137.001 & 2.5184 \\
+		ti.2012.066.gz & 133.236 & 2.30571 \\
 		\hline
-		ti.2012.130.50600-51000 & 47.9468 & 1.59632 \\
+		ti.2012.130.gz & 162.888 & 2.49292 \\
 		\hline
-		ti.2012.297.11600-12000 & 41.6639 & 2.68444 \\
+		ti.2012.297.gz & 78.487 & 0.789705 \\
 		\hline\hline
-		Total & 41.6639 & 2.68444 \\
+		Total & 927.174 & 11.8299 \\
 		\hline
 	\end{tabular}
-	\caption{Results for different epochs}
+	\caption{Results for different data sets}
 \end{table}
 
 \subsubsection{Least Squares}
@@ -141,31 +153,114 @@ The main problem of this method is that outliers that are far from the sample ma
 \begin{table}[h!]
 	\centering
 	\def\arraystretch{1.2}
-	\begin{tabular}{|c c c c c|} 
+	\begin{tabular}{|c c c|} 
 		\hline
-		Data set & Right Ascension Error & Declination Error & Total estimation error & Time \\ [0.5ex] 
+		Data set & Total estimation error (degrees) & Time (seconds) \\ [0.5ex] 
 		\hline\hline
-		X17.2 & 3.31917 & 0.771964 & 4.09113 & 0.79132 \\
+		ti.2001.347.gz & 106.064 & 0.0175844 \\
 		\hline
-		Other & 97.1888 & 84.3119 & 181.501 & 5.17015 \\
+		ti.2002.196.gz & 66.2043 & 0.0158694 \\
+		\hline
+		ti.2003.301.gz & 42.2689 & 0.0154119 \\
+		\hline
+		ti.2003.308.gz & 55.4949 & 0.326298 \\
+		\hline
+		ti.2005.020.gz & 124.218 & 0.14858 \\
+		\hline
+		ti.2005.258.gz & 111.073 & 0.0264138 \\
+		\hline
+		ti.2011.210.gz & 98.776 & 0.0558694 \\
+		\hline
+		ti.2012.066.gz & 64.186 & 0.0143492 \\
+		\hline
+		ti.2012.130.gz & 73.1871 & 0.0321778 \\
+		\hline
+		ti.2012.297.gz & 47.0189 & 0.00680915 \\
 		\hline\hline
-		Total & 4343 & 5454 & 4.09113 & 6565 \\
+		Total & 788.491 & 0.659363 \\
 		\hline
 	\end{tabular}
-	\caption{Results for different epochs}
+	\caption{Results for different data sets}
 \end{table}
 
 \subsubsection{Discussion}
 
 As we can see
 
-\subsection{Direct VTEC filter}
+\subsubsection{Decreasing range}
 
-This is the first method used in the brute force approach that yielded results very similar to the real location of the Sun, but it does not work well with other data sets.
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c|} 
+		\hline
+		Data set & Total estimation error (degrees) & Time (seconds) \\ [0.5ex] 
+		\hline\hline
+		ti.2001.347.gz & 3.53947 & 1.03243 \\
+		\hline
+		ti.2002.196.gz & 27.6877 & 0.287287 \\
+		\hline
+		ti.2003.301.gz & 3.93239 & 1.36538 \\
+		\hline
+		ti.2003.308.gz & 131.366 & 0.891328 \\
+		\hline
+		ti.2005.020.gz & 64.8737 & 0.551884 \\
+		\hline
+		ti.2005.258.gz & 48.7806 & 1.00214 \\
+		\hline
+		ti.2011.210.gz & 126.204 & 1.23266 \\
+		\hline
+		ti.2012.066.gz & 75.1081 & 1.85402 \\
+		\hline
+		ti.2012.130.gz & 56.7937 & 2.42187 \\
+		\hline
+		ti.2012.297.gz & 1.46042 & 2.86145 \\
+		\hline
+		\hline
+		Total & 539.746 & 13.5005 \\
+		\hline
+	\end{tabular}
+	\caption{Results for different data sets}
+\end{table}
 
-The filter is done using a cutoff value for the VTEC when the data is first filtered
+\subsubsection{Least Squares}
 
-Different cutoff values are studied to see if this is a reliable method, as it simplifies the overall computation of the algorithm considerably.
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c|} 
+		\hline
+		Data set & Total estimation error (degrees) & Time (seconds) \\ [0.5ex] 
+		\hline\hline
+		ti.2001.347.gz & 3.41832 & 0.0114944 \\
+		\hline
+		ti.2002.196.gz & 46.578 & 0.00492704 \\
+		\hline
+		ti.2003.301.gz & 4.57509 & 0.00724225 \\
+		\hline
+		ti.2003.308.gz & 141.865 & 0.378145 \\
+		\hline
+		ti.2005.020.gz & 38.3263 & 0.129509 \\
+		\hline
+		ti.2005.258.gz & 1.88011 & 0.0103007 \\
+		\hline
+		ti.2011.210.gz & 38.5213 & 0.0603164 \\
+		\hline
+		ti.2012.066.gz & 70.1063 & 0.0251154 \\
+		\hline
+		ti.2012.130.gz & 9.26238 & 0.0518934 \\
+		\hline
+		ti.2012.297.gz & 3.00704 & 0.0392889 \\
+		\hline\hline
+		Total & 357.54 & 0.718233 \\
+		\hline
+	\end{tabular}
+	\caption{Results for different data sets}
+\end{table}
+
+\subsubsection{Discussion}
+
+As we can see
 
 \subsection{Discarding outliers}
 
@@ -277,4 +372,4 @@ Instead of focusing on only the best epoch\footnote{The best epoch is the one wi
 
 \section{Far-away stars}
 
-explicar como se hace el discard hemisphere
+

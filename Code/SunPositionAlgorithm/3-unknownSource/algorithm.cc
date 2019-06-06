@@ -31,21 +31,22 @@ const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
 
 const vector<string> fileNames = {
 	"ti.2001.347.gz",
-	"ti.2002.196.gz",
-	"ti.2003.301.gz",
-	"ti.2003.308.gz",
-	"ti.2005.020.gz",
-	"ti.2005.258.gz", 
-	"ti.2011.210.gz",
-	"ti.2012.066.gz",
-	"ti.2012.130.gz",
-	"ti.2012.297.gz",
+	// "ti.2002.196.gz",
+	// "ti.2003.301.gz",
+	// "ti.2003.308.gz",
+	// "ti.2005.020.gz",
+	// "ti.2005.258.gz", 
+	// "ti.2011.210.gz",
+	// "ti.2012.066.gz",
+	// "ti.2012.130.gz",
+	// "ti.2012.297.gz",
 };
 
 //Global variables
 int iterationsLeastSquares;
 double estimatedRa;
 double estimatedDec;
+double totalEstimationError;
 //= "ti.2003.301.10h30m-11h30m.gz";
 // const string INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 
@@ -74,7 +75,7 @@ void leastSquaresMethod(int numRows, int iterationsLeastSquares) {
 	string fileNameString = "filteredByTime.out";
 	//Discarding outliers by using the Sun's location? (before filtering the Sun hemisphere)
 	// fc.discardOutliersLinearFit(raSun, decSun);
-	fc.leastSquares(fileNameString.c_str(), numRows, iterationsLeastSquares, &estimatedRa, &estimatedDec);	
+	fc.leastSquares(fileNameString.c_str(), numRows, iterationsLeastSquares, &estimatedRa, &estimatedDec, &totalEstimationError);	
 }
 
 void hillClimbingMethod() {
@@ -115,7 +116,7 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 - Uses the specified method
 - Outputs the results
 **/
-void mainAlgorithm(string methodId, string inputDataFile, Auxiliary aux) {
+void mainAlgorithm(string methodId, string inputDataFile, Auxiliary* aux) {
 	// cout << "-- " << inputDataFile << "--" << endl;
 
 	FileManager fileManager;
@@ -134,7 +135,7 @@ void mainAlgorithm(string methodId, string inputDataFile, Auxiliary aux) {
 	int numRows = fileManager.filterTiFileByTime(bestCandidate.epoch);
 
 	
-	aux.chronoStart();
+	(*aux).chronoStart();
 	// Simulated Annealing
 	if (methodId == "sa") {
 		cout << "[Simulated Annealing method]" << endl;
@@ -169,29 +170,36 @@ void mainAlgorithm(string methodId, string inputDataFile, Auxiliary aux) {
 	//Print the results
 	if (methodId != "lsiter") {
 		possibleSunInfo correctSunLocation = fileManager.getCorrectSunLocation();
-		aux.printErrorResults(estimatedRa, estimatedDec, correctSunLocation);
-		aux.chronoEnd();
+		(*aux).printErrorResults(estimatedRa, estimatedDec, correctSunLocation, totalEstimationError);
+		(*aux).chronoEnd();
 	}
 }
 
 void resultsDebugLatex () {
-	cout << "(iterations) errorRa errorDec errorAbsoluto Total time" << endl;
+	// cout << "(iterations) errorRa errorDec errorAbsoluto Total time" << endl;
+	bool plotLatex = true;
 	Auxiliary aux = Auxiliary();
 
 	//Decrease range
-	cout << "-- Decreasing range method --" << endl;
-	for (string fileName : fileNames) {
-		cout << fileName;
-		mainAlgorithm("dr", fileName, aux);
-	}
-	aux.resetTotalsMethod();
+	int i = 0;
+	// if (plotLatex) cout << "-- Decreasing range method --" << endl;
+	// for (string fileName : fileNames) {
+	// 	if (!plotLatex) cout << ++i;
+	// 	else  cout << fileName;
+	// 	mainAlgorithm("dr", fileName, &aux);
+	// }
+	// (aux).resetTotalsMethod();
+	// i = 0;
 
 	//Least Squares
-	cout << "-- Least Squares method --" << endl;
+	if (plotLatex) cout << "-- Least Squares method --" << endl;
+	
 	for (string fileName : fileNames) {
-		cout << fileName;
-		mainAlgorithm("ls", fileName, aux);
+		if (!plotLatex) cout << ++i;
+		else  cout << fileName;
+		mainAlgorithm("ls", fileName, &aux);
 	}
+	(aux).resetTotalsMethod();
 }
 
 void methodPrompt() {
@@ -206,10 +214,12 @@ void methodPrompt() {
 	// INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 	// INPUT_DATA_FILE = "ti.2016.078.07h32m-09h32m.LARGESIZE.flare.gz";
 	Auxiliary aux;
-	mainAlgorithm(methodId, inputDataFile, aux);
+	mainAlgorithm(methodId, inputDataFile, &aux);
 }
 
 int main() {
 	// methodPrompt();
+	iterationsLeastSquares = 5;
+	totalEstimationError = -1; //Flag, -1 if decreasing range, LS will change the value
 	resultsDebugLatex();
 }

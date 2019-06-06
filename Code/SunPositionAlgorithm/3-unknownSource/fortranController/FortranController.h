@@ -11,19 +11,19 @@ class FortranController {
 		int consideredLocationsCounter;
 		
 	public:
-        //Linear fitting: discard outliers
-        void discardOutliersLinearFit(double* ra, double* dec);
+                //Linear fitting: discard outliers
+                void discardOutliersLinearFit(double* ra, double* dec);
 
-        //Compute correlation
-        double computeCorrelationWithLinearFit(double* ra, double* dec);
-        double computeCorrelation(double* ra, double* dec);
+                //Compute correlation
+                double computeCorrelationWithLinearFit(double* ra, double* dec);
+                double computeCorrelation(double* ra, double* dec);
 
-        void printNumberOfConsideredLocations();
+                void printNumberOfConsideredLocations();
 
-		void resetConsideredLocations();
+                void resetConsideredLocations();
 
-		//Least Squares
-        double leastSquares(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec);
+        	//Least Squares
+                double leastSquares(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec, double* totalEstimationError);
 };
 
 #endif

@@ -51,7 +51,7 @@ void Auxiliary::printExecutionTime(clockTime start_time, clockTime end_time) {
 	totalTimeMethod += elapsed_seconds.count();
 }
 
-void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation) {
+void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation, double totalEstimationErrorLeastSquares) {
 	double correctRa, correctDec, estimatedRa, estimatedDec;
     string dataName = "salu2";
 
@@ -63,8 +63,9 @@ void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correct
 	double cosineChi = sin(estimatedDec)*sin(correctDec) + cos(estimatedDec)*cos(correctDec)*cos(estimatedRa - correctRa);
 	double errorDegrees = toDegrees(acos(cosineChi));
 	if (latex) cout << " & " << errorDegrees;
-    else cout << " Ra: " << ra << " Dec: " <<  dec << " | Error:" << errorDegrees;
-
+    // else cout << " Ra: " << ra << " Dec: " <<  dec << " | Error:" << errorDegrees;
+	else cout << " " << errorDegrees;
+	// if (totalEstimationErrorLeastSquares != -1) cout << " & " << totalEstimationErrorLeastSquares;
 	// Update total error of the method
 	totalErrorMethod += errorDegrees;
 	 

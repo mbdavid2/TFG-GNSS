@@ -8,18 +8,32 @@
 using namespace std;
 
 const string DATA_FOLDER_SCRIPTS = "../data/";
-const string DATA_FOLDER_TI_FILES = "/home/mbdavid2/Documents/dataTi/";
+const string DATA_FOLDER_TI_FILES = "../data/filteredFiles/";
+// const string DATA_FOLDER_TI_FILES = "/home/mbdavid2/Documents/dataTi/";
 
 const string SCRIPT_GET_CORRECT_LOCATION = "obtainCorrectSunPosition.awk";
+
+bool fileExists(string fileName) {
+    ifstream infile(fileName);
+    return infile.good();
+}
 
 void FileManager::setAWKScripts(string filterBasic, string filterTime) {
     filterBasicAWKScript = DATA_FOLDER_SCRIPTS + filterBasic;
     filterTimeAWKScript = DATA_FOLDER_SCRIPTS + filterTime;
+    if (!fileExists(filterBasicAWKScript) or !fileExists(filterTimeAWKScript)) {
+        cout << endl << "ERROR: File doesn't exist: " << filterBasicAWKScript << " || " << filterTimeAWKScript << endl;
+        exit(1);
+    }
 }
 
 void FileManager::setInputFile(string file) {
     inputFile = DATA_FOLDER_TI_FILES + file;
     filteredFile = DATA_FOLDER_TI_FILES + "filter_" + file + ".out";
+    if (!fileExists(inputFile)) {
+        cout << endl << "ERROR: File doesn't exist: " << inputFile << endl;
+        exit(1);
+    }
 }
 
 possibleSunInfo FileManager::getCorrectSunLocation() {

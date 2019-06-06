@@ -103,6 +103,12 @@ filterTiFilesTimeRange:
 
 
 
+### Plots ###
+plotResultsDifferentDataSets: compile $(algorithmName).x # No linearfit target here :/
+	./$(algorithmName).x > tmpResults.out
+	../data/runComparisonPlot.sh
+	rm tmpResults.out
+
 
 
 
@@ -117,14 +123,15 @@ filterTiFilesTimeRange:
 # CLEANING
 # ----------
 clean:
-	@rm -rf */*.out */*.in */*.o */*.x 
-	@rm -f *.out *.in *.o *.x *.log
-	@rm -f ../data/*.out
+	rm -rf */*.out */*.in */*.o */*.x 
+	rm -f *.out *.in *.o *.x *.log
+	rm -f ../data/*.out
 
 cleanResults:
-	@rm -rf results
+	rm -rf results
 
 cleanTiFolder:
 	rm -rf /home/mbdavid2/Documents/dataTi/*.out
+	rm -rf ../data/filteredFiles/*.out
 
 pristine: clean cleanResults cleanTiFolder

@@ -1,7 +1,7 @@
 BEGIN {
 	upperLimitVTEC = 0.7;
 	lowerLimitVTEC = -0.7;
-	discardSunHemisphere = 0
+	discardSunHemisphere = 0;
 }
 {
 	/a/
@@ -13,19 +13,26 @@ BEGIN {
 
 function checkValidIPP(raSun, decSun, raIPP, decIPP) {
 	# Valid ra: If the Sun is not in the range [raIPP + 90º, raIPP - 90º].
-	lowerValidRa = ((raIPP - 90) ? raIPP - 90 : 0);
-	upperValidRa = ((raIPP + 90) ? raIPP + 90 : 360);
+	# lowerValidRa = ((raIPP - 90) ? raIPP - 90 : 0);
+	# upperValidRa = ((raIPP + 90) ? raIPP + 90 : 360);
 
-	return !(raSun >= lowerValidRa && raSun <= upperValidRa)
+	# return !(raSun >= lowerValidRa && raSun <= upperValidRa)
+	return unitVectorsCosine(raSun, decSun, raIPP, decIPP) <= -0.1
 }
 
 function printData() {
 	vtec = $21/$43;
-	if (vtec >= lowerLimitVTEC && vtec <= upperLimitVTEC) { # Activar para ls, desactivar para decrease range
-		print $3 " " vtec " " $44 " " $45;	
+	if ($20 == "F") {
+		if (vtec >= lowerLimitVTEC && vtec <= upperLimitVTEC) { # Activar para ls, desactivar para decrease range
+			print $3 " " vtec " " $44 " " $45;	
+		}
 	}
 }
 
 function abs(x){
 	return ((x < 0.0) ? -x : x)
+}
+
+function unitVectorsCosine(raSource, decSource, raIPP, decIPP) {
+	return (sin(decIPP)*sin(decSource) + cos(decIPP)*cos(decSource)*cos(raIPP - raSource));
 }

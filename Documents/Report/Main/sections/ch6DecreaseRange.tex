@@ -1,18 +1,18 @@
 \chapter{Decrease search range method}
 
+\textbf{falta revisar seccion linear fit}
+
 In the previous chapter we saw that the BGSEES algorithm for detecting the location of an EUV source (in this case, the Sun) is possible with a first, brute force approach. Here, the algorithm is studied in more detail considering a different method aiming to increase its precision and reduce its computational complexity.
-
-
 
 \section{Decreasing the range of the search}
 
-As we saw in the previous chapter, to increase the precision of the algorithm, the \textit{step} with which we iterate over the possible angles (right ascension and declination) is reduced. This causes more possible Suns to be considered. For example, with a step of one degree, we consider all possible right ascensions [0,360] and declinations [-90,90] which is  $360*180 = 64800$ Suns, minus the $2*360 - 2 = 718$ right ascensions we don't consider because as we have seen right ascensions for declinations of -90 and 90 are the same location.
+As we saw in the previous chapter, to increase the precision of the algorithm, the \textit{step} with which we iterate over the possible angles (right ascension and declination) is reduced. This causes more possible Suns to be considered. For example, with a step of one degree, we consider all possible right ascensions [0,360] and declinations [-90,90]: $360*180 = 64800$ Suns, minus the $2*360 - 2 = 718$ right ascensions we don't consider\footnote{We don't consider the 360 right ascensions of the two poles (-90 and 90), hence 2*360, but we do consider the two poles themselves (with any valid right ascension)} because as we have seen right ascensions for declinations of -90 and 90 are the same location.
 
 We want to have the highest precision possible without having to consider all $64800 - 718 = 64082$ possibilities by progressively reducing the search range.
 
 \section{Pseudocode}
 
-This first optimization works as follows: the entire possible range is considered with a large starting step (e.g 60). Once the best Sun is found within this range, the precision is increased (the step is decreased) and the search range is reduced. This way the precision is increased but the number of considered possibilities remains similar each iteration of the algorithm. The following is the pseudocode\footnote{The code for the special cases of -90 and 90 degree declinations is not included for more readability. It is included in the implantation, in the following section.} for the algorithm using this optimization:
+This first optimization works as follows: the entire possible range is considered with a large starting step (e.g 60). Once the best Sun is found within this range, the precision is increased (the step is decreased) and the search range is reduced. This way the precision is increased but the number of considered possibilities remains similar each iteration of the algorithm. The following is the pseudocode\footnote{The code for the special cases of -90 and 90 degree declinations is not included for more readability. It is included in the implementation, in the following section.} for the algorithm using this optimization:
 
 \begin{algorithm}
 	\caption{Search range decrease}\label{searchRangeDecrease}
@@ -39,16 +39,11 @@ This first optimization works as follows: the entire possible range is considere
 	\end{algorithmic}
 \end{algorithm}
 
-A very important part of the algorithm is computing the correlation. In the previous chapter we didn't consider discarding outliers from our data set because it appeared that considering all samples yielded good results, but testing with a different flare resulted in problems because of that. That is why in the previous section a method for discarding outliers was introduced. \\
-
-The main problem of discarding outliers is that while before we the correlation could be computed with a single pass, multiple are needed to be able to discard outliers.
-This is explained in more detail in the next chapter, along with the time comparison and error of both possibilities (discarding outliers or not).
-
 \section{Implementation}
 
-This first piece of code is the main loop of the method, which starts with a default range of ra=[0, 360], dec=[-90, 90] and reduces it every iteration based on the current best Sun's estimated location.
+This first piece of code is the main loop of the method, which starts with a default range of ra=[0, 360], dec=[-90, 90] and is reduced every iteration based on the current best Sun's estimated location.
 
-Furthermore, because an increase in the precision of the tested location doesn't necessarily imply an improvement in the solution, the new candidate is inserted into a \textit{priorityQueue} ordered by the coefficient to assure that the method returns the best one found throughout the entire loop.
+Furthermore, because an increase in the precision of the tested location doesn't necessarily imply an improvement in the solution, the new candidate is inserted into a \textit{priorityQueue} ordered by the coefficient to assure that the method returns the best one found throughout the entire execution.
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=c, caption=Decreasing the range and increasing the precision]
@@ -65,7 +60,7 @@ void TraverseGlobe::decreasingSTEP() {
 }\end{lstlisting}
 \end{minipage}
 
-The \textit{setRange} function sets a new range based on the estimated location that depends on the precision used for the values and assure that valid value is returned.
+The \textit{setRange} function sets a new range based on the estimated location that depends on the precision used for the values and checks that valid range values are returned.
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=c, caption=Setting the new range based on the estimated source location]
@@ -89,7 +84,7 @@ searchRange setRange(possibleSunInfo sun, bool defaultR, double step, int rangeS
 }\end{lstlisting}
 \end{minipage}
 
-Finally, the \textit{considerPossibleSuns} function has the same functionality than the one from the previous chapter, it iterates over the possible locations, this time, however, it does so over the given range, rather than just the default one.
+Finally, the \textit{considerPossibleSuns} function has the same functionality as the one from the previous chapter, it iterates over the possible locations, this time, however, it does so over the given range, rather than just the default one.
 
 The names of the lower and upper bound variables have been changed (\textit{uRa} instead of \textit{upperRa}, for example) for readability.
 
@@ -143,12 +138,13 @@ and declinations (the possible solutions to our problem) and the Y axis is the c
 \end{figure}
 
 As we can see in the plot, as we increase the precision of the search, the range decreases, this can be seen because each point
-of the plot is each of the locations considered by the algorithm: the density of considered solutions increases as the algorithm gets closer to the local maxima,
-the correct solution we are looking for.
+of the plot is each of the locations considered by the algorithm: the density of considered solutions increases as the algorithm gets closer to the local maxima, the correct solution we are looking for.
 
-Another change that could be done to improve this method's performance would be to adopt a sort of \textit{"Dynamic Programming"} strategy in order to avoid repeated calculations (the new range will always be inside the previous range). However, the problem is that because we are dealing with a different precision for the right ascension and declination values every loop, the same values are never used. TODO: justificar mejor esto? \\
+Another change that could be done to improve this method's performance would be to adopt a sort of \textit{"Dynamic Programming"} strategy in order to avoid repeated calculations (the new range will always be inside the previous range). However, the problem is that because we are dealing with a different precision for the right ascension and declination values every loop, the same values are never used.
 
 \section{Linear fitting: discarding outliers}
+
+TODO: REVISAR ESTA SECCION
 
 In the previous chapter we used a simple method to discard outliers for the VTEC value (using a cutoff value between -0.3 and 0.3). While this worked with that case in particular, using it with other data sets can lead to problems.
 

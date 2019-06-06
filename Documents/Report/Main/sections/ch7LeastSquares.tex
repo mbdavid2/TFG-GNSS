@@ -1,12 +1,14 @@
 \chapter{Least Squares method}
 
+\textbf{falta implementacion, copiar el codigo}
+
 As we have seen in previous chapters the overall process to determine the location of the source is studying the correlation between the VTEC value and the solar-zenith angle (or source-zenith angle, speaking in general terms) for a possible location.
 
-That is, for an IPP with a location and an associated VTEC value, given the location of a possible source, compute the cosine between them, and see that the closer the cosine to 1 (or 180º), the higher the VTEC value.
+That is, for an IPP with a location and an associated VTEC value, given the location of a possible source, compute the cosine between them, and see that the closer the cosine is to 1 (or 180$^{\circ}$), the higher the VTEC value.
 
 The idea that we wanted to test with this method was finding the location of the source by performing the inverse operation: having the VTEC, location of the IPP and correlation (1, assuming a near-linear correlation), obtaining the source's right ascension and declination.
 
-\section{The equation system}
+\section{The system of equations}
 
 The source-zenith cosine between the source and the IPP was computed using the following equations:
 
@@ -62,7 +64,7 @@ As we have previously seen for this case, there appears to be a linear relation 
 \Delta V = a\cos \chi + b
 \end{equation}
 
-Because the cosine is computed using the previous equations (\ref{eq:61}, \ref{eq:62}, \ref{eq:63}). It can be expressed as follows:
+Because the cosine is computed using the previous equations (\ref{eq:61}, \ref{eq:62}, \ref{eq:63}). It can be expressed as follows, the dot product of both unit vectors:
 
 \begin{equation} \label{eq:cosine}
 \cos \chi = XX' + YY' + ZZ'
@@ -70,7 +72,7 @@ Because the cosine is computed using the previous equations (\ref{eq:61}, \ref{e
 
 Where $X'$, $Y'$, $Z'$ are the components of the IPP's unit vector obtained from equation \ref{eq:61}, and $X$, $Y$, $Z$ are the unknowns of our equation: the components of the source's unit vector, which could be used to easily find the right ascension and declination of the source by using trigonometric operations.
 
-However, finding the value of this unknowns is the difficult part of this method. Taking the cosine as \ref{eq:cosine} we can express the linear function as:
+However, finding the value of these unknowns is the challenge of this method. Taking the cosine as \ref{eq:cosine} we can express the linear function as:
 
 \begin{equation} \label{eq:substitute}
 \Delta V = aXX' + aYY' + aZZ' + b
@@ -136,7 +138,61 @@ This way, X can be obtained by means of the least squares estimate equation:
 
 \section{Pseudocode}
 
+\begin{algorithm}
+	\caption{Least Squares method}\label{leastSquaresPseudo}
+	\begin{algorithmic}[1]
+		\Procedure{main}{}
+		
+		\For {i each line in file} \Comment{Read input}
+		\State $\textit{y(i)} \gets \text{vtec}$
+		\State $\textit{A(i,0)} \gets \text{cos(dec)*cos(ra)}$
+		\State $\textit{A(i,1)} \gets \text{cos(dec)*sin(ra)}$
+		\State $\textit{A(i,2)} \gets \text{sin(dec)}$
+		\State $\textit{A(i,3)} \gets \text{1}$
+		\EndFor
+		
+		\State $\textit{solution} \gets (A^{T}A)^{-1}A^{T}y$ \Comment{Compute solution to Least Squares}
+		\State $\textit{a} \gets solution(0)$
+		\State $\textit{b} \gets solution(1)$
+		\State $\textit{g} \gets solution(2)$
+		\State $\textit{mod} \gets \sqrt{a^{2} + b^{2} + g^{2}}$ \Comment{Obtain the components}
+		
+		
+		\State $\textit{a} \gets solution(0)$
+		\State $\textit{b} \gets solution(1)$
+		\State $\textit{g} \gets solution(2)$
+		X = a/mod
+		Y = b/mod
+		Z = g/mod
+		
+		\State $\textit{matrixVTEC, matrixIPP} \gets \text{storeFileInfoInMatrices()}$
+		
+		\For {$step = initStep; step >= min; step\ /= 2$}
+		\For {$ra = r.lowerRa;\ ra <= r.upperRa;\ ra += step$}
+		\For {$dec = r.lowerDec;\ dec <= r.upperDec;\ dec += step$}
+		\State $currentSun \gets computeCorrelationPossibleSun(ra, dec)$
+		\If {$currentSun.correlation > bestSun.correlation$}
+		\State $bestSun \gets currentSun$
+		\State $r \gets \text{newRange(\textit{bestSun, step})}$
+		\EndIf
+		\EndFor
+		\EndFor
+		\EndFor
+		\\
+		\Return $bestSun$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
 \section{Implementation}
+
+When
+
+One of the main advantages of this method over the others is that we don't need to compute the correlation, that it is, discard outliers. (o si????)
+
+\section{Results}
+
+hablar aqui de la pendiente? el error estimado?
 
 When
 

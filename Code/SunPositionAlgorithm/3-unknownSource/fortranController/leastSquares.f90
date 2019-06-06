@@ -1,4 +1,4 @@
-double precision function leastSquaresFortran(inputFileName, numRows, iterations, solutionRa, solutionDec)
+double precision function leastSquaresFortran(inputFileName, numRows, iterations, solutionRa, solutionDec, totalEstimatedError)
 	implicit none
 
 	!! Parameters
@@ -8,9 +8,9 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 	character(len=20), intent(in) :: inputFileName
 	double precision :: rxyPearsonCoefficient
 	integer, intent(in) :: numRows, iterations
-	double precision, intent(in) :: solutionRa, solutionDec
+	double precision :: solutionRa, solutionDec, totalEstimatedError
 
-	call iterateLeastSquares(0)
+	call iterateLeastSquares()
 	! print *, "_________________"
 	! call leastSquares(1)
 	 
@@ -20,73 +20,78 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 	return
 
 	contains
-		subroutine printMatrices(matrixVTEC, matrixIPP)
+		subroutine addToList(list, element)
 			implicit none
-			double precision, dimension (0:numRows), intent(in) :: matrixVTEC
-			double precision, dimension (0:numRows, 0:3), intent(in) :: matrixIPP
-			integer :: vtecSize, i
 
-			vtecSize = size(matrixVTEC)
-			do i = 0, vtecSize-1
-				print *, "VTEC:", matrixVTEC(i), "	|	IPP:", matrixIPP(i,0), matrixIPP(i,1), matrixIPP(i,2), matrixIPP(i,3)
-			end do
-		end subroutine printMatrices
+			integer :: i, isize
+			double precision, intent(in) :: element
+			double precision, dimension(:), allocatable, intent(inout) :: list
+			double precision, dimension(:), allocatable :: clist
 
-		subroutine openFile(inputFileName)
-			implicit none
-			character(len = 20), intent(in) :: inputFileName
-			integer :: status ! I/O status: 0 for success
 
-			open (unit = 1, file = inputFileName, status='old', action='read', iostat=status)
+			if(allocated(list)) then
+				isize = size(list)
+				allocate(clist(isize+1))
+				do i=1,isize          
+				clist(i) = list(i)
+				end do
+				clist(isize+1) = element
 
-		   	if (status /= 0) then 
-				write (*, 1040) status
-				1040 format (1X, 'File open failed, status = ', I6)
+				deallocate(list)
+				call move_alloc(clist, list)
+
+			else
+				allocate(list(1))
+				list(1) = element
 			end if
-		end subroutine openFile
+		end subroutine addToList
 
-		subroutine iterateLeastSquares(method)
+		subroutine iterateLeastSquares()
 			implicit none
-			integer, intent(in) :: method
 			integer :: iteration
+			double precision :: bestRa, bestDec, bestError
+			
+			bestError = 100
 
-			do iteration = 0, iterations
-				call leastSquares(method, iteration, solutionRa, solutionDec)
-				! print *, "Iteration: ", iteration, " | Ra, Dec: ", solutionRa, solutionDec
+			do iteration = 0, iterations-1
+				call leastSquares(iteration, solutionRa, solutionDec)
+				if (totalEstimatedError <= bestError) then
+					bestError = totalEstimatedError
+					bestRa = solutionRa
+					bestDec = solutionDec
+				end if
+				print *, "Iteration: ", iteration, " | Ra, Dec: ", solutionRa, solutionDec, " Error : ", totalEstimatedError
 			end do
+
+			! Return the best solution
+			totalEstimatedError = bestError
+			solutionRa = bestRa
+			solutionDec = bestDec
+			print *, "BEST | Ra, Dec: ", solutionRa, solutionDec, " Error : ", totalEstimatedError
 		end subroutine iterateLeastSquares
 
-		subroutine leastSquares(method, iteration, solutionRa, solutionDec)
+		subroutine leastSquares(iteration, solutionRa, solutionDec)
 			implicit none
-			integer, intent(in) :: method, iteration
+			integer, intent(in) :: iteration
 			double precision :: solutionRa, solutionDec
-			double precision, dimension (0:numRows) :: matrixVTEC
+			double precision, dimension(:), allocatable :: matrixVTEC
 			double precision, dimension (0:numRows, 0:3) :: matrixIPP
 			double precision, dimension (0:3) :: solution
 			integer :: vtecSize, i
 
 			call storeMatrixData(matrixVTEC, matrixIPP, iteration, solutionRa, solutionDec)
-			! call printMatrices(matrixVTEC, matrixIPP)
+			call printMatrices(matrixVTEC, matrixIPP)
 
-			if (method == 0) then
-				! print *, "Multiplications:"
-				call matrixComputations(solution, matrixIPP, matrixVTEC)
-				call obtainSourceLocation(solution, solutionRa, solutionDec)
-			else if (method == 1) then
-				print *, "LAPACK:"
-				call matrixComputationsLapack(solution, matrixIPP, matrixVTEC)
-				solution(0) = matrixVTEC(0)
-				solution(1) = matrixVTEC(1)
-				solution(2) = matrixVTEC(2)
-				call obtainSourceLocation(solution, solutionRa, solutionDec)
-			end if
+			call matrixComputations(solution, matrixIPP, matrixVTEC)
+			deallocate(matrixVTEC)
+			call obtainSourceLocation(solution, solutionRa, solutionDec)
 		end subroutine leastSquares
 
 		subroutine storeMatrixData(matrixVTEC, matrixIPP, iteration, solutionRa, solutionDec)
 			implicit none
 			integer, intent(in) :: iteration
 			double precision, intent(in) :: solutionRa, solutionDec
-			double precision, dimension (0:numRows), intent(out) :: matrixVTEC
+			double precision, dimension(:), allocatable, intent(out) :: matrixVTEC
 			double precision, dimension (0:numRows, 0:3), intent(out) :: matrixIPP
 			double precision :: vtec, raIPP, decIPP
 			double precision :: xIPP, yIPP, zIPP
@@ -107,6 +112,7 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 				if (validSample == 1) then
 				nUsedSamples = nUsedSamples + 1
 					call computeComponentsIPP(raIPP, decIPP, xIPP, yIPP, zIPP)
+					call addToList(matrixVTEC, vtec)
 				else
 					vtec = 0
 					xIPP = 0
@@ -114,7 +120,7 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 					zIPP = 0
 				end if
 				
-				matrixVTEC(i) = vtec
+				! matrixVTEC(i) = vtec
 				matrixIPP(i, 0) = xIPP
 				matrixIPP(i, 1) = yIPP
 				matrixIPP(i, 2) = zIPP
@@ -151,11 +157,16 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 			double precision, dimension (0:numRows, 0:3), intent(in) :: A
 			double precision, dimension (0:3, 0:numRows) :: transposedA, innerMat
 			double precision, dimension (0:numRows, 0:3) :: invMult
+			double precision, dimension (0:3, 0:3) :: covMat
 
 			transposedA = transpose(A)
+			covMat = inv(matmul(transposedA, A))
+			totalEstimatedError = sqrt(covMat(0,0)) + sqrt(covMat(1,1)) + sqrt(covMat(2,2))
+			! print *, totalEstimatedError
+			
 			! invMult = inv(matmul(transposedA, A))
 			
-			solution = matmul(matmul(inv(matmul(transposedA, A)), transposedA), y) ! esto dejarlo mas bonito???
+			solution = matmul(matmul(covMat, transposedA), y) ! esto dejarlo mas bonito???
 		end subroutine matrixComputations
 
 		subroutine obtainSourceLocation(solution, solutionRa, solutionDec)
@@ -169,6 +180,7 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 			g = solution(2)
 
 			mod = sqrt(a*a + b*b + g*g)
+			! print *, "Gradient: ", mod ! Pendiente
 
 			X = a/mod
 			Y = b/mod
@@ -291,5 +303,31 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 				stop 'Matrix inversion failed!'
 			end if
 		end function inv
+
+		subroutine openFile(inputFileName)
+			implicit none
+			character(len = 20), intent(in) :: inputFileName
+			integer :: status ! I/O status: 0 for success
+
+			open (unit = 1, file = inputFileName, status='old', action='read', iostat=status)
+
+		   	if (status /= 0) then 
+				write (*, 1040) status
+				1040 format (1X, 'File open failed, status = ', I6)
+			end if
+		end subroutine openFile
+
+		subroutine printMatrices(matrixVTEC, matrixIPP)
+			implicit none
+			double precision, dimension (:), intent(in) :: matrixVTEC
+			double precision, dimension (0:numRows, 0:3), intent(in) :: matrixIPP
+			integer :: vtecSize, i
+
+			vtecSize = size(matrixVTEC)
+			! do i = 0, vtecSize-1
+			! 	print *, "VTEC:", matrixVTEC(i), "	|	IPP:", matrixIPP(i,0), matrixIPP(i,1), matrixIPP(i,2), matrixIPP(i,3)
+			! end do
+			print *, "size: ", vtecSize
+		end subroutine printMatrices
 end function leastSquaresFortran
 

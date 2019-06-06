@@ -14,8 +14,8 @@ extern "C" double computecorrelationbasicfortran_(double* ra, double* dec);
 
 void FortranController::discardOutliersLinearFit(double* ra, double* dec) {
 	FileManager fileManager;
-	int sigma = 1;
-	int iterations = 3;
+	int sigma = 4;
+	int iterations = 4;
 	computecosinesofcurrentsourcefortran_(ra, dec);
 	fileManager.discardOutliersLinearFitFortran(sigma, iterations);	
 }
@@ -46,9 +46,9 @@ void FortranController::resetConsideredLocations() {
 
 // leastSquaresFortran //
 
-extern "C" double leastsquaresfortran_(const char* inputFileName, int* numRows, int* iterations, double* solutionRa, double* solutionDec);
+extern "C" double leastsquaresfortran_(const char* inputFileName, int* numRows, int* iterations, double* solutionRa, double* solutionDec, double* totalEstimationError);
 
-double FortranController::leastSquares(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec) {
+double FortranController::leastSquares(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec, double* totalEstimationError) {
 	numRows--; //TODO: mmmm
-	return leastsquaresfortran_(inputFileName, &numRows, &iterations, solutionRa, solutionDec);
+	return leastsquaresfortran_(inputFileName, &numRows, &iterations, solutionRa, solutionDec, totalEstimationError);
 }

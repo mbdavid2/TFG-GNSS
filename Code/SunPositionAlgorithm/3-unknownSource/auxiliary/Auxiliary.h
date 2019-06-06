@@ -51,7 +51,7 @@ class Auxiliary {
 
 		void chronoEnd();
 
-		void printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation);
+		void printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation, double totalEstimationErrorLeastSquares);
 
 		void resetTotalsMethod();
 

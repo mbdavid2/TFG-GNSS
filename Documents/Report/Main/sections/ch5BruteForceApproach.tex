@@ -1,5 +1,7 @@
 \chapter{Brute Force Approach}
 
+\textbf{falta acabar seccion mean vtec}
+
 In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was studied. Here, we aim to provide a first, brute force approach, of the \textit{Blind GNSS Search of Extraterrestrial EUV Sources (BGSEES)} algorithm to estimate the location of a EUV source. This approach is done as a first approximation to the problem to see more clearly how the algorithm will work, regardless of its performance.
 
 For this first approach the Sun is used as the source (to check the corectness of the solution). It considers possible Sun locations (with a certain degree of precision) and checks the fitness of each to consider which could be the real location.
@@ -78,7 +80,7 @@ The data is then filtered by that epoch (only the info of IPPs for that epoch wi
 
 There are $360 * 180 = 64800$ possible Sun's. Thus, in order to test the algorithm, the factor \textit{STEP} is used which defines the step between the angles of possible Suns. The smaller the step, the more Suns will be considered. 
 
-For each of these possible Suns, the VTEC value and the cosine of the solar-zenith angle ($\cos \chi$) are computed for every IPP in that epoch, but the $\cos \chi$ is computed using the location of the IPP and the one of the possible Sun. Each of this Suns yields a data set with the aforementioned variables that can be plotted to obtain images such as the one studied at the end of the previous section. This two variables are used for computing the correlation coefficient for every considered Sun.
+For each of these possible Suns, the VTEC value and the cosine of the solar-zenith angle ($\cos \chi$) are computed for every IPP in that epoch. Each of these Suns yields a data set with the aforementioned variables that can be plotted to obtain images such as the one studied at the end of the previous section. This two variables are used for computing the correlation coefficient for every considered Sun.
 
 The following is the pseudocode for the brute force approach of the algorithm. Which returns the Sun that has yielded the highest correlation coefficient.
 
@@ -105,29 +107,31 @@ The following is the pseudocode for the brute force approach of the algorithm. W
 
 \clearpage
 
-One thing that has to be taken into consideration is that all possible locations that have a declination of 90º or -90º yield the same results (figure \ref{fig:poles}).
+One thing that has to be taken into consideration is that all possible locations that have a declination of 90$^{\circ}$ or -90$^{\circ}$ yield the same results (figure \ref{fig:poles}).
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/ch4/ra180_dec-090.png}
-		\caption{ra=180º, dec=-90º}
+		\caption{ra=180$^{\circ}$, dec=-90$^{\circ}$}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/ch4/ra000_dec-090.png}
-		\caption{ra=0º, dec=-90º}
+		\caption{ra=0$^{\circ}$, dec=-90$^{\circ}$}
 	\end{subfigure}
 	\caption{Two examples of possible Sun locations}
 	\label{fig:poles}
 \end{figure}
 
-Using a \textit{diff} tool we can observe that although the data files used to plot the results \footnote{The data is $cos\chi$ as the X axis and VTEC as the Y axis} have different values, the resulting plots are exactly the same image.
+Using a \textit{diff} tool we can observe that although the data files used to plot the results \footnote{The data is $cos\chi$ for the X axis and VTEC for the Y axis} have different values, the resulting plots are exactly the same image.
 
-This is due to the fact that declinations 90º and -90º correspond to the poles, when the Sun is directly on top or below the Earth, and therefore all possible right ascensions are exactly the same position.
+This is due to the fact that declinations 90$^{\circ}$ and -90$^{\circ}$ correspond to the poles, when the Sun is directly on top or below the Earth, and therefore all possible right ascensions are exactly the same position.
 
 \subsection{Implementation}
 
 \paragraph{Finding the epoch}
+
+The following loop traverses the data and computes the mean VTEC of each epoch, inserting it in a priority queue:
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[language=c, caption=Finding a VTEC spike]
@@ -150,9 +154,11 @@ while (data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
 \end{lstlisting}
 \end{minipage}
 
-The loop traverses the data and computes the mean VTEC of each epoch, inserting it in a priority queue.
 
 \paragraph{Iterating over the possible Suns}
+
+The main loop of the algorithm considers for each possible declination, each possible right ascension (taking into consideration the special case of the poles) and uses said declination and right ascension to compute the correlation coefficient, saving the one with the max value.
+
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[language=c, caption=Main loops]
 for (int dec = -90; dec <= 90; dec += step) {
@@ -179,20 +185,9 @@ for (int dec = -90; dec <= 90; dec += step) {
 
 \paragraph{Computing the correlation}
 
-This is the main code of the Fortran function \textit{computeCorrelation(ra, dec)} called for every possible \textit{(ra, dec)} pair (a "virtual" Sun) considered in the previous loop. \textit{computeCorrelation} has more auxiliary functions such as \textit{openFile()} that are not included for readability.
+This is the main code of the Fortran function \textit{computeCorrelation(ra, dec)} called for every possible \textit{(ra, dec)} pair considered in the previous loop. Other auxiliary functions appear in the \textit{computeCorrelation(ra, dec)} function such as \textit{openFile()} (opens the file for reading) or \textit{toRadian()} (converts the degrees from the input to radians, used by Fortran's trigonometric functions). These functions are not included for readability.
 
-It reads every line of the file that contains the information of the IPPs filtered by the found epoch and computes both the solar-zenith angle and the VTEC as seen in the previous chapter.
-
-Given these results, the necessary values for computing the correlation are updated each iteration:
-
-\begin{itemize}
-	\item $\sum x_{i}$ and $\sum y_{i}$
-	\item $\sum x_{i}y_{i}$
-	\item $\sum x_{i}^{2}$ and $\sum y_{i}^{2}$
-\end{itemize}
-
-
-Once all the IPPs have been processed, the previous values are used to compute the Pearson Correlation Coefficient using equation \ref{eq:singlePass}.
+\textit{computeCorrelation(ra, dec)} reads every line of the file that contains the information of the IPPs filtered by the found epoch and computes both the solar-zenith angle and the VTEC using the same procedures seen in the previous chapter:
 
 \begin{lstlisting}[language=Fortran, caption=Correlation computation]
 double precision function traverseFile (raSunIn, decSunIn)
@@ -222,7 +217,6 @@ double precision function traverseFile (raSunIn, decSunIn)
 		vtec = estimateVTEC(mapIon, d2Li)
 		cosx = computeSolarZenithAngle (raIPP, decIPP, raSun, decSun)
 		if (cosx > CORRELATION_THRESHOLD) then
-			write(34,*) cosx, vtec
 			call updateCorrelationParameters (cosx, vtec, sumx, sumy, sumxy, sumx2, sumy2)
 			i = i + 1
 		end if	
@@ -234,7 +228,50 @@ double precision function traverseFile (raSunIn, decSunIn)
 end function traverseFile
 \end{lstlisting}
 
-As can be seen in the code, the line (IPP) is only considered if $\cos\chi$ is higher than a \textit{"correlation threshold"} (-0.1º in this case). This is done because we want to study only the "part" of the ionosphere where the Sun is having an effect. This can be seen in figure \ref{fig:solar-zenith-angle}, where we observed that the VTEC value remained the same from $\cos\chi = -1$ (180º) to $\cos\chi = 1$ (0º).
+As can be seen in the code, the line (IPP) is only considered if $\cos\chi$ is higher than a \textit{"correlation threshold"} ($-0.1^{\circ}$ in this case). This is done because we want to study only the "part" of the ionosphere where the Sun is having an effect. This can be seen in figure \ref{fig:solar-zenith-angle}, where we observed that the VTEC value remained the same from $\cos\chi = -1$ (180$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$).
+
+Once the two variables are computed (\textit{vtec} and \textit{cosx}, in the code), the necessary summations for computing the correlation are updated each iteration:
+
+\begin{itemize}
+	\item $\sum x_{i}$ and $\sum y_{i}$
+	\item $\sum x_{i}y_{i}$
+	\item $\sum x_{i}^{2}$ and $\sum y_{i}^{2}$
+\end{itemize}
+
+The following code updates this summations:
+
+\begin{lstlisting}[language=Fortran, caption=Function to update the necessary summations]
+subroutine updateCorrelationParameters (x, y, sumx, sumy, sumxy, sumx2, sumy2)
+	implicit none
+	double precision, intent(in) :: x, y
+	double precision :: sumy, sumy2, sumxy, sumx2, sumx
+
+	sumx = sumx + x
+	sumy = sumy + y
+	sumxy = sumxy + x*y
+	sumx2 = sumx2 + x*x
+	sumy2 = sumy2 + y*y
+
+	return
+end subroutine updateCorrelationParameters
+\end{lstlisting}
+
+Finally, once all the IPPs have been processed, the previous summations are used to compute the Pearson Correlation Coefficient using equation \ref{eq:singlePass}, the value the function returns to the C++ code.
+
+\begin{lstlisting}[language=Fortran, caption=Function to compute the correlation coefficient using the summations]
+double precision function computePearsonCoefficient (n, sumx, sumy, sumxy, sumx2, sumy2)
+	implicit none
+	integer, intent(in) :: n
+	double precision, intent(in) :: sumx, sumy, sumxy, sumx2, sumy2 
+	double precision :: rxyPearsonCoefficient
+
+	numerator = n*sumxy - sumx*sumy
+	denominator = sqrt(n*sumx2-sumx*sumx)*sqrt(n*sumy2-sumy*sumy)
+
+	rxyPearsonCoefficient = numerator/denominator
+	return
+end function computePearsonCoefficient
+\end{lstlisting}
 
 \paragraph{Compiling}
 
@@ -248,7 +285,7 @@ This can be done by compiling the object of the Fortran code using the $-c$ flag
 
 \subsection{Results}
 
-Executing the algorithm with a STEP of 10º, this is the output of the execution:
+Executing the algorithm with a STEP of 10$^{\circ}$, this is the output of the execution:
 
 \begin{lstlisting}[caption=Brute force approach algorithm output]
 [C++: Finding a spike in the VTEC distribution]
@@ -262,7 +299,7 @@ Executing the algorithm with a STEP of 10º, this is the output of the execution
 	-> Estimated Sun's location: [ra=210, dec=-10]
 \end{lstlisting}
 
-As we can see, the possible Sun with the highest correlation coefficient (0.9269) has a location with a right ascension of 210º and a declination of -10º. Considering that for the epoch we are working with the Sun position was $212.338º$ and $-13.060º$ as the right ascension and declination, respectively, we can see that the estimated Sun's location returned by the algorithm is close to the real one, using a step of 10º.
+As we can see, the possible Sun with the highest correlation coefficient (0.9269) has a location with a right ascension of 210$^{\circ}$ and a declination of -10$^{\circ}$. Considering that for the epoch we are working with the Sun position was $212.338^{\circ}$ and $-13.060^{\circ}$ as the right ascension and declination, respectively, we can see that the estimated Sun's location returned by the algorithm is close to the real one, using a step of 10$^{\circ}$.
 
 It can be interesting to see how the computation time grows as more precision is demanded from the algorithm, and if the precision of the results does as well. The following table shows this relation for some input cases:
 
@@ -295,4 +332,4 @@ As we can see this approach provides the expected results, but has a large compu
 
 Furthermore, we can see that a problem appears: in the last two cases there is an increase in the correlation coefficient as expected, but the estimated Sun location does not improve, it is actually less accurate than the previous one.
 
-In the next chapter, the \textit{Blind GNSS Search of Extraterrestrial EUV Sources} (BGSEES) algorithm is presented to perform this computations with several optimizations to reduce its complexity and certain special cases are studied, like the aforementioned one.
+In the next chapter, an optimization is presented for the algorithm to perform these computations, aiming to reduce its complexity.
