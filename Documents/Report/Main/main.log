@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  6 JUN 2019 21:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  9 JUN 2019 08:30
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -840,137 +840,26 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty
-Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
-
-(/usr/share/texlive/texmf-dist/tex/latex/fvextra/fvextra.sty
-Package: fvextra 2017/07/08 v1.3.1 fvextra - extensions and patches for fancyvr
-b
-
-(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2008/02/07
-
-Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
-<2008/02/07> (tvz)
-\FV@CodeLineNo=\count153
-\FV@InFile=\read1
-\FV@TabBox=\box37
-\c@FancyVerbLine=\count154
-\FV@StepNumber=\count155
-\FV@OutFile=\write3
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
-Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count156
-\output=\toks38
-\linenoprevgraf=\count157
-\linenumbersep=\dimen157
-\linenumberwidth=\dimen158
-\c@linenumber=\count158
-\c@pagewiselinenumber=\count159
-\c@LN@truepage=\count160
-\c@internallinenumber=\count161
-\c@internallinenumbers=\count162
-\quotelinenumbersep=\dimen159
-\bframerule=\dimen160
-\bframesep=\dimen161
-\bframebox=\box38
-LaTeX Info: Redefining \\ on input line 3056.
-)
-\c@FV@TrueTabGroupLevel=\count163
-\c@FV@TrueTabCounter=\count164
-\FV@TabBox@Group=\box39
-\FV@TmpLength=\skip73
-\c@FV@HighlightLinesStart=\count165
-\c@FV@HighlightLinesStop=\count166
-\FV@LoopCount=\count167
-\FV@NCharsBox=\box40
-\FV@BreakIndent=\dimen162
-\FV@BreakIndentNChars=\count168
-\FV@BreakSymbolSepLeft=\dimen163
-\FV@BreakSymbolSepLeftNChars=\count169
-\FV@BreakSymbolSepRight=\dimen164
-\FV@BreakSymbolSepRightNChars=\count170
-\FV@BreakSymbolIndentLeft=\dimen165
-\FV@BreakSymbolIndentLeftNChars=\count171
-\FV@BreakSymbolIndentRight=\dimen166
-\FV@BreakSymbolIndentRightNChars=\count172
-\c@FancyVerbLineBreakLast=\count173
-\FV@LineBox=\box41
-\FV@LineIndentBox=\box42
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count174
-\calc@Bcount=\count175
-\calc@Adimen=\dimen167
-\calc@Bdimen=\dimen168
-\calc@Askip=\skip74
-\calc@Bskip=\skip75
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count176
-\calc@Cskip=\skip76
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 67.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
-Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/catchfile.sty
-Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
-)
-runsystem(uname -s > "main.w18")...executed.
-
- (./main.w18)
-runsystem(rm -- "main.w18")...executed.
-
-) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
-(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
-\@xs@message=\write4
-\integerpart=\count177
-\decimalpart=\count178
-)
-Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
-Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip77
-\fb@frw=\dimen169
-\fb@frh=\dimen170
-\FrameRule=\dimen171
-\FrameSep=\dimen172
-)
-(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count179
-\float@exts=\toks39
-\float@box=\box43
-\@float@everytoks=\toks40
-\@floatcapt=\box44
-)
-\minted@appexistsfile=\read2
-\minted@bgbox=\box45
-\minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count180
-\c@minted@pygmentizecounter=\count181
-\@float@every@listing=\toks41
-\c@listing=\count182
-)
-runsystem(mkdir -p _minted-main)...executed.
-
-
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
-\@float@every@algorithm=\toks42
-\c@algorithm=\count183
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count153
+\float@exts=\toks38
+\float@box=\box37
+\@float@everytoks=\toks39
+\@floatcapt=\box38
+)
+\@float@every@algorithm=\toks40
+\c@algorithm=\count154
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -979,24 +868,19 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count184
-\c@ALG@rem=\count185
-\c@ALG@nested=\count186
-\ALG@tlm=\skip78
-\ALG@thistlm=\skip79
-\c@ALG@Lnr=\count187
-\c@ALG@blocknr=\count188
-\c@ALG@storecount=\count189
-\c@ALG@tmpcounter=\count190
-\ALG@tmplength=\skip80
+\c@ALG@line=\count155
+\c@ALG@rem=\count156
+\c@ALG@nested=\count157
+\ALG@tlm=\skip73
+\ALG@thistlm=\skip74
+\c@ALG@Lnr=\count158
+\c@ALG@blocknr=\count159
+\c@ALG@storecount=\count160
+\c@ALG@tmpcounter=\count161
+\ALG@tmplength=\skip75
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-)
-runsystem(which pygmentize && touch main.aex)...executed.
-
-runsystem(rm main.aex)...executed.
-
- (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
+) (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
 (./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
 (./sections/ch2Background.aux) (./sections/ch3StellarFlares.aux)
 (./sections/ch4SolarFlareAlgorithm.aux
@@ -1014,34 +898,34 @@ LaTeX Warning: Label `eq:3' multiply defined.
 (./sections/ch9Results.aux) (./sections/ch10Annexes.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count191
-\scratchdimen=\dimen173
-\scratchbox=\box46
-\nofMPsegments=\count192
-\nofMParguments=\count193
-\everyMPshowfont=\toks43
-\MPscratchCnt=\count194
-\MPscratchDim=\dimen174
-\MPnumerator=\count195
-\makeMPintoPDFobject=\count196
-\everyMPtoPDFconversion=\toks44
+\scratchcounter=\count162
+\scratchdimen=\dimen157
+\scratchbox=\box39
+\nofMPsegments=\count163
+\nofMParguments=\count164
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count165
+\MPscratchDim=\dimen158
+\MPnumerator=\count166
+\makeMPintoPDFobject=\count167
+\everyMPtoPDFconversion=\toks42
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1093,191 +977,33 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring OFF on input line 109.
+\AtBeginShipoutBox=\box40
+Package hyperref Info: Link coloring OFF on input line 130.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count197
+\c@section@level=\count168
 )
-LaTeX Info: Redefining \ref on input line 109.
-LaTeX Info: Redefining \pageref on input line 109.
-LaTeX Info: Redefining \nameref on input line 109.
+LaTeX Info: Redefining \ref on input line 130.
+LaTeX Info: Redefining \pageref on input line 130.
+LaTeX Info: Redefining \nameref on input line 130.
 
 (./main.out) (./main.out)
-\@outlinefile=\write6
-\openout6 = `main.out'.
+\@outlinefile=\write3
+\openout3 = `main.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
-Package textcomp Info: Sub-encoding information:
-(textcomp)               5 = only ISO-Adobe without \textcurrency
-(textcomp)               4 = 5 + \texteuro
-(textcomp)               3 = 4 + \textohm
-(textcomp)               2 = 3 + \textestimated + \textcurrency
-(textcomp)               1 = TS1 - \textcircled - \t
-(textcomp)               0 = TS1 (full)
-(textcomp)             Font families with sub-encoding setting implement
-(textcomp)             only a restricted character set as indicated.
-(textcomp)             Family '?' is the default used for unknown fonts.
-(textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-Now handling font encoding TS1 ...
-... processing UTF-8 mapping file for font encoding TS1
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu
-File: ts1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
-   defining Unicode char U+00A2 (decimal 162)
-   defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00A4 (decimal 164)
-   defining Unicode char U+00A5 (decimal 165)
-   defining Unicode char U+00A6 (decimal 166)
-   defining Unicode char U+00A7 (decimal 167)
-   defining Unicode char U+00A8 (decimal 168)
-   defining Unicode char U+00A9 (decimal 169)
-   defining Unicode char U+00AA (decimal 170)
-   defining Unicode char U+00AC (decimal 172)
-   defining Unicode char U+00AE (decimal 174)
-   defining Unicode char U+00AF (decimal 175)
-   defining Unicode char U+00B0 (decimal 176)
-   defining Unicode char U+00B1 (decimal 177)
-   defining Unicode char U+00B2 (decimal 178)
-   defining Unicode char U+00B3 (decimal 179)
-   defining Unicode char U+00B4 (decimal 180)
-   defining Unicode char U+00B5 (decimal 181)
-   defining Unicode char U+00B6 (decimal 182)
-   defining Unicode char U+00B7 (decimal 183)
-   defining Unicode char U+00B9 (decimal 185)
-   defining Unicode char U+00BA (decimal 186)
-   defining Unicode char U+00BC (decimal 188)
-   defining Unicode char U+00BD (decimal 189)
-   defining Unicode char U+00BE (decimal 190)
-   defining Unicode char U+00D7 (decimal 215)
-   defining Unicode char U+00F7 (decimal 247)
-   defining Unicode char U+0192 (decimal 402)
-   defining Unicode char U+02C7 (decimal 711)
-   defining Unicode char U+02D8 (decimal 728)
-   defining Unicode char U+02DD (decimal 733)
-   defining Unicode char U+0E3F (decimal 3647)
-   defining Unicode char U+2016 (decimal 8214)
-   defining Unicode char U+2020 (decimal 8224)
-   defining Unicode char U+2021 (decimal 8225)
-   defining Unicode char U+2022 (decimal 8226)
-   defining Unicode char U+2030 (decimal 8240)
-   defining Unicode char U+2031 (decimal 8241)
-   defining Unicode char U+203B (decimal 8251)
-   defining Unicode char U+203D (decimal 8253)
-   defining Unicode char U+2044 (decimal 8260)
-   defining Unicode char U+204E (decimal 8270)
-   defining Unicode char U+2052 (decimal 8274)
-   defining Unicode char U+20A1 (decimal 8353)
-   defining Unicode char U+20A4 (decimal 8356)
-   defining Unicode char U+20A6 (decimal 8358)
-   defining Unicode char U+20A9 (decimal 8361)
-   defining Unicode char U+20AB (decimal 8363)
-   defining Unicode char U+20AC (decimal 8364)
-   defining Unicode char U+20B1 (decimal 8369)
-   defining Unicode char U+2103 (decimal 8451)
-   defining Unicode char U+2116 (decimal 8470)
-   defining Unicode char U+2117 (decimal 8471)
-   defining Unicode char U+211E (decimal 8478)
-   defining Unicode char U+2120 (decimal 8480)
-   defining Unicode char U+2122 (decimal 8482)
-   defining Unicode char U+2126 (decimal 8486)
-   defining Unicode char U+2127 (decimal 8487)
-   defining Unicode char U+212E (decimal 8494)
-   defining Unicode char U+2190 (decimal 8592)
-   defining Unicode char U+2191 (decimal 8593)
-   defining Unicode char U+2192 (decimal 8594)
-   defining Unicode char U+2193 (decimal 8595)
-   defining Unicode char U+2329 (decimal 9001)
-   defining Unicode char U+232A (decimal 9002)
-   defining Unicode char U+2422 (decimal 9250)
-   defining Unicode char U+25E6 (decimal 9702)
-   defining Unicode char U+25EF (decimal 9711)
-   defining Unicode char U+266A (decimal 9834)
-))
-LaTeX Info: Redefining \oldstylenums on input line 334.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
-
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
-Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
-Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
-Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
-Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
-Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
-Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
-Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
-Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
-Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
-Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
-Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
-Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
-Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
-Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
-Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
-)
-\c@lstlisting=\count198
+\c@lstlisting=\count169
 \openout2 = `sections/cover.aux'.
 
-
-(./sections/cover.tex
-<images/cover/logo-fib.png, id=345, 1003.75pt x 150.5625pt>
+ (./sections/cover.tex
+<images/cover/logo-fib.png, id=357, 1003.75pt x 150.5625pt>
 File: images/cover/logo-fib.png Graphic file (type png)
 <use images/cover/logo-fib.png>
 Package pdftex.def Info: images/cover/logo-fib.png  used on input line 21.
@@ -1316,19 +1042,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6])
-\tf@toc=\write7
-\openout7 = `main.toc'.
+\tf@toc=\write4
+\openout4 = `main.toc'.
 
  [7] (./main.lol)
-\tf@lol=\write8
-\openout8 = `main.lol'.
+\tf@lol=\write5
+\openout5 = `main.lol'.
 
  [8
 
 
 ] (./main.lof)
-\tf@lof=\write9
-\openout9 = `main.lof'.
+\tf@lof=\write6
+\openout6 = `main.lof'.
 
  [9
 
@@ -1337,65 +1063,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 \openout2 = `sections/outline.aux'.
 
  (./sections/outline.tex
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 4.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 4.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
+ [10
 
 
-])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[11]
+]) [11]
 \openout2 = `sections/ch1ProjectManagement.aux'.
 
- (./sections/ch1ProjectManagement.tex
+
+(./sections/ch1ProjectManagement.tex
 Chapter 1.
 [12
 
 
 
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[13]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[15]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16]
+] [13] [14] [15] [16]
 Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
@@ -1415,12 +1103,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 152--153
 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [17]
 Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
@@ -1431,97 +1113,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[18]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[21]
-<images/chGEP/GanttChart.png, id=636, 743.77875pt x 376.40625pt>
+[18] [19] [20] [21]
+<images/chGEP/GanttChart.png, id=669, 743.77875pt x 376.40625pt>
 File: images/chGEP/GanttChart.png Graphic file (type png)
 <use images/chGEP/GanttChart.png>
 Package pdftex.def Info: images/chGEP/GanttChart.png  used on input line 292.
 (pdftex.def)             Requested size: 383.7507pt x 194.21034pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[22 <./images/chGEP/GanttChart.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23]
+ [22 <./images/chGEP/GanttChart.png>] [23]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
 [24]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
 [25]
 Overfull \hbox (59.19432pt too wide) in paragraph at lines 492--511
  [][] 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [26]
 Underfull \hbox (badness 10000) in paragraph at lines 555--556
 
  []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
 [27]
 Overfull \hbox (19.2431pt too wide) in paragraph at lines 564--575
@@ -1534,20 +1151,7 @@ Overfull \hbox (21.36752pt too wide) in paragraph at lines 585--586
 v/pdf/221503main[]GLAST-
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[28])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[29]
+[28]) [29]
 \openout2 = `sections/ch2Background.aux'.
 
  (./sections/ch2Background.tex
@@ -1556,21 +1160,7 @@ Chapter 2.
 
 
 
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[31])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[32]
+] [31]) [32]
 \openout2 = `sections/ch3StellarFlares.aux'.
 
  (./sections/ch3StellarFlares.tex
@@ -1579,21 +1169,7 @@ Chapter 3.
 
 
 
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[34]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35]
+] [34] [35]
 
 LaTeX Warning: Citation `de donde salen las formulas' on page 36 undefined on i
 nput line 83.
@@ -1613,31 +1189,18 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 109.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[36])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[37]
+ [36]) [37]
 \openout2 = `sections/ch4SolarFlareAlgorithm.aux'.
 
- (./sections/ch4SolarFlareAlgorithm.tex
+
+(./sections/ch4SolarFlareAlgorithm.tex
 Chapter 4.
-<images/ch4/FTPNASA.png, id=804, 641.39626pt x 804.00375pt>
+<images/ch4/FTPNASA.png, id=836, 641.39626pt x 804.00375pt>
 File: images/ch4/FTPNASA.png Graphic file (type png)
 <use images/ch4/FTPNASA.png>
 Package pdftex.def Info: images/ch4/FTPNASA.png  used on input line 23.
 (pdftex.def)             Requested size: 127.91907pt x 160.34398pt.
-<images/ch4/DataFlowIGS.png, id=805, 667.49374pt x 457.71pt>
+<images/ch4/DataFlowIGS.png, id=837, 667.49374pt x 457.71pt>
 File: images/ch4/DataFlowIGS.png Graphic file (type png)
 <use images/ch4/DataFlowIGS.png>
 Package pdftex.def Info: images/ch4/DataFlowIGS.png  used on input line 28.
@@ -1646,15 +1209,8 @@ Package pdftex.def Info: images/ch4/DataFlowIGS.png  used on input line 28.
 
 
 
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[39 <./images/ch4/FTPNASA.png> <./images/ch4/DataFlowIGS.png>]
-<images/ch4/halloweenPaper.png, id=818, 876.27374pt x 599.23875pt>
+] [39 <./images/ch4/FTPNASA.png> <./images/ch4/DataFlowIGS.png>]
+<images/ch4/halloweenPaper.png, id=850, 876.27374pt x 599.23875pt>
 File: images/ch4/halloweenPaper.png Graphic file (type png)
 <use images/ch4/halloweenPaper.png>
 Package pdftex.def Info: images/ch4/halloweenPaper.png  used on input line 73.
@@ -1665,36 +1221,9 @@ Overfull \hbox (6.51683pt too wide) in paragraph at lines 79--80
 x-actly at 2003.301.39777
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[40 <./images/ch4/halloweenPaper.png>]
+[40 <./images/ch4/halloweenPaper.png>] [41]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[41] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 132
-.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
-File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
@@ -1702,20 +1231,16 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[42]
-<images/ch4/vtecDistributionGeneral.png, id=876, 481.8pt x 361.35pt>
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+) [42]
+<images/ch4/vtecDistributionGeneral.png, id=907, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionGeneral.png Graphic file (type png)
 <use images/ch4/vtecDistributionGeneral.png>
 Package pdftex.def Info: images/ch4/vtecDistributionGeneral.png  used on input 
 line 157.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch4/vtecDistributionVill.png, id=877, 481.8pt x 361.35pt>
+<images/ch4/vtecDistributionVill.png, id=908, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionVill.png Graphic file (type png)
 <use images/ch4/vtecDistributionVill.png>
 Package pdftex.def Info: images/ch4/vtecDistributionVill.png  used on input lin
@@ -1725,12 +1250,6 @@ e 162.
 Overfull \hbox (2.61107pt too wide) in paragraph at lines 156--165
 [][]  [] 
  []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
 [43
 
@@ -1745,28 +1264,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--208
 
  []
 
-<images/ch4/resultSunTest.png, id=891, 481.8pt x 361.35pt>
+<images/ch4/resultSunTest.png, id=922, 481.8pt x 361.35pt>
 File: images/ch4/resultSunTest.png Graphic file (type png)
 <use images/ch4/resultSunTest.png>
 Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 228.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[44])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[45 <./images/ch4/resultSunTest.png>]
+[44]) [45 <./images/ch4/resultSunTest.png>]
 \openout2 = `sections/ch5BruteForceApproach.aux'.
 
- (./sections/ch5BruteForceApproach.tex
+
+(./sections/ch5BruteForceApproach.tex
 Chapter 5.
 [46
 
@@ -1777,20 +1284,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [47]
-<images/ch6/spikes/correlationDecrease.png, id=925, 481.8pt x 361.35pt>
+<images/ch6/spikes/correlationDecrease.png, id=956, 481.8pt x 361.35pt>
 File: images/ch6/spikes/correlationDecrease.png Graphic file (type png)
 <use images/ch6/spikes/correlationDecrease.png>
 Package pdftex.def Info: images/ch6/spikes/correlationDecrease.png  used on inp
 ut line 30.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch6/spikes/decreaseRangeError.png, id=926, 481.8pt x 361.35pt>
+<images/ch6/spikes/decreaseRangeError.png, id=957, 481.8pt x 361.35pt>
 File: images/ch6/spikes/decreaseRangeError.png Graphic file (type png)
 <use images/ch6/spikes/decreaseRangeError.png>
 Package pdftex.def Info: images/ch6/spikes/decreaseRangeError.png  used on inpu
@@ -1806,12 +1307,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [48
 
  <./images/ch6/spikes/correlationDecrease.png (PNG copy)> <./images/ch6/spikes/
@@ -1822,26 +1317,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 88.
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[49]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[50]
-<images/ch4/ra180_dec-090.png, id=948, 481.8pt x 361.35pt>
+[49] [50]
+<images/ch4/ra180_dec-090.png, id=980, 481.8pt x 361.35pt>
 File: images/ch4/ra180_dec-090.png Graphic file (type png)
 <use images/ch4/ra180_dec-090.png>
 Package pdftex.def Info: images/ch4/ra180_dec-090.png  used on input line 114.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch4/ra000_dec-090.png, id=949, 481.8pt x 361.35pt>
+<images/ch4/ra000_dec-090.png, id=981, 481.8pt x 361.35pt>
 File: images/ch4/ra000_dec-090.png Graphic file (type png)
 <use images/ch4/ra000_dec-090.png>
 Package pdftex.def Info: images/ch4/ra000_dec-090.png  used on input line 119.
@@ -1856,12 +1338,6 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 136--156
 []$[]$ 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [51
 
  <./images/ch4/ra180_dec-090.png> <./images/ch4/ra000_dec-090.png>]
@@ -1869,27 +1345,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 162--185
 []$[]$ 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[52]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[53]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[54]
+[52] [53] [54]
 Underfull \hbox (badness 10000) in paragraph at lines 280--281
 
  []
@@ -1902,20 +1358,7 @@ Overfull \hbox (30.50471pt too wide) in paragraph at lines 309--328
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[55])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[56]
+[55]) [56]
 \openout2 = `sections/ch6DecreaseRange.aux'.
 
  (./sections/ch6DecreaseRange.tex
@@ -1925,82 +1368,61 @@ Chapter 6.
 
 
 ]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 48--62
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 50--64
 []$[]$ 
  []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
 [58]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 65--86
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 67--88
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 91--126
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 93--128
 []$[]$ 
  []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
 [59]
-<images/ch6/hillClimbing/resultsAll.png, id=1141, 481.8pt x 361.35pt>
+<images/ch6/hillClimbing/resultsAll.png, id=1173, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsAll.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsAll.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsAll.png  used on input 
-line 134.
+line 136.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[60]
-<images/ch6/linearFit/resultAll.png, id=1183, 481.8pt x 361.35pt>
+ [60]
+<images/ch6/linearFit/resultAll.png, id=1214, 481.8pt x 361.35pt>
 File: images/ch6/linearFit/resultAll.png Graphic file (type png)
 <use images/ch6/linearFit/resultAll.png>
 Package pdftex.def Info: images/ch6/linearFit/resultAll.png  used on input line
- 159.
+ 158.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 169--180
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 168--179
+[]$[]$ 
+ []
+
+[61 <./images/ch6/hillClimbing/resultsAll.png (PNG copy)>]
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 186--192
 []$[]$ 
  []
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 193--199
+[]$[]$ 
+ []
 
-[61 <./images/ch6/hillClimbing/resultsAll.png (PNG copy)>])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[62 <./images/ch6/linearFit/resultAll.png>]
+[62 <./images/ch6/linearFit/resultAll.png>]) [63]
 \openout2 = `sections/ch7LeastSquares.aux'.
 
- (./sections/ch7LeastSquares.tex
+
+(./sections/ch7LeastSquares.tex
 Chapter 7.
 
 Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-[63
+[64
 
 
 
@@ -2009,39 +1431,59 @@ File: images/ch4/resultSunTest.png Graphic file (type png)
 <use images/ch4/resultSunTest.png>
 Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 55.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[64]
+ [65]
 Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
+[66] [67] [68]
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 222--257
+[]$[]$ 
+ []
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+[69
 
-[65]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+ []
 
-[66])
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 268--285
+[]$[]$ 
+ []
 
-[67]
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 288--327
+[]$[]$ 
+ []
+
+[70]
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 328--345
+[]$[]$ 
+ []
+
+[71]
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 348--364
+[]$[]$ 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 367--393
+[]$[]$ 
+ []
+
+[72]
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 404--409
+[]$[]$ 
+ []
+
+[73] [74]
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
+
+ []
+
+) [75]
 \openout2 = `sections/ch8OtherMethods.aux'.
 
  (./sections/ch8OtherMethods.tex
@@ -2056,18 +1498,18 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 24--42
 []$[]$ 
  []
 
-[68
+[76
 
 
 
 ]
-<images/ch6/hillClimbing/resultsPathBad.png, id=1248, 481.8pt x 361.35pt>
+<images/ch6/hillClimbing/resultsPathBad.png, id=1460, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsPathBad.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsPathBad.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsPathBad.png  used on in
 put line 47.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch6/hillClimbing/resultsPathGood.png, id=1249, 481.8pt x 361.35pt>
+<images/ch6/hillClimbing/resultsPathGood.png, id=1461, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsPathGood.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsPathGood.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsPathGood.png  used on i
@@ -2078,26 +1520,13 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 46--55
 [][]  [] 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[69 <./images/ch6/hillClimbing/resultsPathBad.png (PNG copy)> <./images/ch6/hil
-lClimbing/resultsPathGood.png (PNG copy)>])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[70]
+[77 <./images/ch6/hillClimbing/resultsPathBad.png (PNG copy)> <./images/ch6/hil
+lClimbing/resultsPathGood.png (PNG copy)>]) [78]
 \openout2 = `sections/ch9Results.aux'.
 
  (./sections/ch9Results.tex
 Chapter 9.
-[71
+[79
 
 
 
@@ -2106,30 +1535,11 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 50--92
 []$[]$ 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[72]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[73]
+[80] [81]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[74]
+[82]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2144,49 +1554,15 @@ Overfull \hbox (30.2507pt too wide) in paragraph at lines 278--291
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[75]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[76]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[77])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[78
+[83] [84] [85]) [86
 
 
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[79]
+] [87]
 \openout2 = `sections/ch10Annexes.aux'.
 
  (./sections/ch10Annexes.tex
 Chapter 10.
-) [80
+) [88
 
 
 
@@ -2202,20 +1578,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 du / starlink /
  []
 
-[81
+[89
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 149.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[82]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
+ [90]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
  (./main.aux (./sections/cover.aux) (./sections/abstract.aux)
 (./sections/outline.aux) (./sections/ch1ProjectManagement.aux)
 (./sections/ch2Background.aux) (./sections/ch3StellarFlares.aux)
@@ -2223,10 +1592,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
 (./sections/ch6DecreaseRange.aux) (./sections/ch7LeastSquares.aux)
 (./sections/ch8OtherMethods.aux) (./sections/ch9Results.aux)
 (./sections/ch10Annexes.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 149.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 149.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A2F737BC52C597CB8E2680581A496CCE;5636.
+(rerunfilecheck)             Checksum: 21381B37EC1374B41A2AE5EFB07B6B98;5908.
 
 
 LaTeX Warning: There were undefined references.
@@ -2234,38 +1603,36 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 149.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 170.
  ) 
 Here is how much of TeX's memory you used:
- 19122 strings out of 494847
- 297114 string characters out of 6179080
- 676901 words of memory out of 5000000
- 21395 multiletter control sequences out of 15000+600000
- 14958 words of font info for 54 fonts, out of 8000000 for 9000
+ 16592 strings out of 494847
+ 242390 string characters out of 6179080
+ 574372 words of memory out of 5000000
+ 18768 multiletter control sequences out of 15000+600000
+ 14324 words of font info for 52 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 53i,16n,101p,1990b,2077s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.
-600pk> </home/mbdavid2/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1
-200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on main.pdf (83 pages, 962567 bytes).
+ 59i,16n,120p,1990b,2133s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
+Output written on main.pdf (91 pages, 984970 bytes).
 PDF statistics:
- 1596 PDF objects out of 1728 (max. 8388607)
- 1451 compressed objects within 15 object streams
- 614 named destinations out of 1000 (max. 500000)
- 761 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1831 PDF objects out of 2073 (max. 8388607)
+ 1680 compressed objects within 17 object streams
+ 773 named destinations out of 1000 (max. 500000)
+ 785 words of extra memory for PDF output out of 10000 (max. 10000000)
 

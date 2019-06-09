@@ -31,11 +31,12 @@ CLASSES = $(auxiliaryF).o $(resultsDebuggerF).o $(hillClimbingF).o $(fileManager
 # ----------
 fortranControllerF = fortranController/FortranController
 leastSquaresF = fortranController/leastSquares
+leastSquaresDAF = fortranController/leastSquaresDynamicArrays
 computeCosinesF = fortranController/computeCosinesOfCurrentSource
 correlationF = fortranController/computeCorrelation
 correlationBasicF = fortranController/computeCorrelationBasic
 linearFitF = fortranController/x_y_sigmay_2_linear_fit.v2
-FORTRAN = $(fortranControllerF).o $(correlationF).o $(correlationBasicF).o $(leastSquaresF).o $(computeCosinesF).o
+FORTRAN = $(fortranControllerF).o $(correlationF).o $(correlationBasicF).o $(leastSquaresF).o $(leastSquaresDAF).o $(computeCosinesF).o
 
 
 main: linearFit compile run 
@@ -49,7 +50,7 @@ compileAll: correlation fortranController auxiliary hillClimbing resultsDebugger
 # ----------
 # Fortran and C++ Fortran Controller
 # ----------
-fortranController: computeCosines correlation correlationBasic leastSquares
+fortranController: computeCosines correlation correlationBasic leastSquares leastSquaresDA
 	@g++ $(CFLAGS) $(fortranControllerF).cc -c -o $(fortranControllerF).o
 
 correlation: $(correlationF).f90
@@ -63,6 +64,9 @@ computeCosines: $(computeCosinesF).f90
 
 leastSquares: $(leastSquaresF).f90
 	@gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o
+
+leastSquaresDA: $(leastSquaresDAF).f90
+	@gfortran $(leastSquaresDAF).f90 -c -o $(leastSquaresDAF).o
 
 linearFit: $(linearFitF).f
 	@gfortran $(linearFitF).f -o linearFit.x -lblas -llapack

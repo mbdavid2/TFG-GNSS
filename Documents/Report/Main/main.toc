@@ -100,37 +100,40 @@
 \contentsline {subsection}{\numberline {5.2.2}Results}{55}{subsection.5.2.2}
 \contentsline {chapter}{\numberline {6}Decrease search range method}{57}{chapter.6}
 \contentsline {section}{\numberline {6.1}Decreasing the range of the search}{57}{section.6.1}
-\contentsline {section}{\numberline {6.2}Pseudocode}{57}{section.6.2}
+\contentsline {section}{\numberline {6.2}Pseudocode}{58}{section.6.2}
 \contentsline {section}{\numberline {6.3}Implementation}{58}{section.6.3}
 \contentsline {section}{\numberline {6.4}Linear fitting: discarding outliers}{61}{section.6.4}
 \contentsline {section}{\numberline {6.5}Results}{62}{section.6.5}
-\contentsline {chapter}{\numberline {7}Least Squares method}{63}{chapter.7}
-\contentsline {section}{\numberline {7.1}The system of equations}{63}{section.7.1}
-\contentsline {section}{\numberline {7.2}Pseudocode}{65}{section.7.2}
-\contentsline {section}{\numberline {7.3}Implementation}{65}{section.7.3}
-\contentsline {section}{\numberline {7.4}Results}{67}{section.7.4}
-\contentsline {chapter}{\numberline {8}Other methods}{68}{chapter.8}
-\contentsline {section}{\numberline {8.1}Hill Climbing}{68}{section.8.1}
-\contentsline {section}{\numberline {8.2}Simulated Annealing}{70}{section.8.2}
-\contentsline {section}{\numberline {8.3}OpenMP}{70}{section.8.3}
-\contentsline {section}{\numberline {8.4}Discarding the Sun hemisphere}{70}{section.8.4}
-\contentsline {chapter}{\numberline {9}Results}{71}{chapter.9}
-\contentsline {section}{\numberline {9.1}Sun}{71}{section.9.1}
-\contentsline {section}{\numberline {9.2}Using all available data}{74}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Direct VTEC filter}{74}{subsection.9.2.1}
-\contentsline {subsubsection}{Decreasing range}{74}{subsubsection*.70}
-\contentsline {subsubsection}{Least Squares}{75}{subsubsection*.72}
-\contentsline {subsubsection}{Discussion}{75}{subsubsection*.74}
-\contentsline {subsubsection}{Decreasing range}{75}{subsubsection*.75}
-\contentsline {subsubsection}{Least Squares}{75}{subsubsection*.77}
-\contentsline {subsubsection}{Discussion}{75}{subsubsection*.79}
-\contentsline {subsection}{\numberline {9.2.2}Discarding outliers}{75}{subsection.9.2.2}
-\contentsline {subsubsection}{Decreasing range: linear fit}{75}{subsubsection*.80}
-\contentsline {subsubsection}{Least Squares: Iteration}{75}{subsubsection*.81}
-\contentsline {subsection}{\numberline {9.2.3}Results}{76}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Far-away stars}{76}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Used data sets}{76}{subsection.9.3.1}
-\contentsline {section}{\numberline {9.4}Sun}{78}{section.9.4}
-\contentsline {subsection}{\numberline {9.4.1}Decrease range method}{78}{subsection.9.4.1}
-\contentsline {section}{\numberline {9.5}Far-away stars}{79}{section.9.5}
-\contentsline {chapter}{\numberline {10}Annexes}{80}{chapter.10}
+\contentsline {chapter}{\numberline {7}Least Squares method}{64}{chapter.7}
+\contentsline {section}{\numberline {7.1}The system of equations}{64}{section.7.1}
+\contentsline {section}{\numberline {7.2}Pseudocode}{67}{section.7.2}
+\contentsline {section}{\numberline {7.3}Implementation}{69}{section.7.3}
+\contentsline {section}{\numberline {7.4}Results}{73}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}Single iteration}{73}{subsection.7.4.1}
+\contentsline {subsection}{\numberline {7.4.2}Multiple iterations: narrowing the search}{74}{subsection.7.4.2}
+\contentsline {subsection}{\numberline {7.4.3}Multiple iterations: Covariance matrix\IeC {\textquestiondown }?\IeC {\textquestiondown } Error}{74}{subsection.7.4.3}
+\contentsline {chapter}{\numberline {8}Other methods}{76}{chapter.8}
+\contentsline {section}{\numberline {8.1}Hill Climbing}{76}{section.8.1}
+\contentsline {section}{\numberline {8.2}Simulated Annealing}{78}{section.8.2}
+\contentsline {section}{\numberline {8.3}OpenMP}{78}{section.8.3}
+\contentsline {section}{\numberline {8.4}Discarding the Sun hemisphere}{78}{section.8.4}
+\contentsline {chapter}{\numberline {9}Results}{79}{chapter.9}
+\contentsline {section}{\numberline {9.1}Sun}{79}{section.9.1}
+\contentsline {section}{\numberline {9.2}Using all available data}{82}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Direct VTEC filter}{82}{subsection.9.2.1}
+\contentsline {subsubsection}{Decreasing range}{82}{subsubsection*.72}
+\contentsline {subsubsection}{Least Squares}{83}{subsubsection*.74}
+\contentsline {subsubsection}{Discussion}{83}{subsubsection*.76}
+\contentsline {subsubsection}{Decreasing range}{83}{subsubsection*.77}
+\contentsline {subsubsection}{Least Squares}{83}{subsubsection*.79}
+\contentsline {subsubsection}{Discussion}{83}{subsubsection*.81}
+\contentsline {subsection}{\numberline {9.2.2}Discarding outliers}{83}{subsection.9.2.2}
+\contentsline {subsubsection}{Decreasing range: linear fit}{83}{subsubsection*.82}
+\contentsline {subsubsection}{Least Squares: Iteration}{83}{subsubsection*.83}
+\contentsline {subsection}{\numberline {9.2.3}Results}{84}{subsection.9.2.3}
+\contentsline {section}{\numberline {9.3}Far-away stars}{84}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Used data sets}{84}{subsection.9.3.1}
+\contentsline {section}{\numberline {9.4}Sun}{86}{section.9.4}
+\contentsline {subsection}{\numberline {9.4.1}Decrease range method}{86}{subsection.9.4.1}
+\contentsline {section}{\numberline {9.5}Far-away stars}{87}{section.9.5}
+\contentsline {chapter}{\numberline {10}Annexes}{88}{chapter.10}

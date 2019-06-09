@@ -30,9 +30,9 @@ const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
 // };
 
 const vector<string> fileNames = {
-	"ti.2001.347.gz",
+	// "ti.2001.347.gz",
 	// "ti.2002.196.gz",
-	// "ti.2003.301.gz",
+	"ti.2003.301.gz",
 	// "ti.2003.308.gz",
 	// "ti.2005.020.gz",
 	// "ti.2005.258.gz", 
@@ -179,9 +179,9 @@ void resultsDebugLatex () {
 	// cout << "(iterations) errorRa errorDec errorAbsoluto Total time" << endl;
 	bool plotLatex = true;
 	Auxiliary aux = Auxiliary();
+	int i = 0;
 
 	//Decrease range
-	int i = 0;
 	// if (plotLatex) cout << "-- Decreasing range method --" << endl;
 	// for (string fileName : fileNames) {
 	// 	if (!plotLatex) cout << ++i;
@@ -197,7 +197,7 @@ void resultsDebugLatex () {
 	for (string fileName : fileNames) {
 		if (!plotLatex) cout << ++i;
 		else  cout << fileName;
-		mainAlgorithm("ls", fileName, &aux);
+		mainAlgorithm("lsiter", fileName, &aux);
 	}
 	(aux).resetTotalsMethod();
 }
@@ -219,7 +219,7 @@ void methodPrompt() {
 
 int main() {
 	// methodPrompt();
-	iterationsLeastSquares = 5;
+	iterationsLeastSquares = 1;
 	totalEstimationError = -1; //Flag, -1 if decreasing range, LS will change the value
 	resultsDebugLatex();
 }

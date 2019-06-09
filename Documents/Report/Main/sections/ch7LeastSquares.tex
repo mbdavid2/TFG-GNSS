@@ -84,7 +84,7 @@ Because $a$ and $b$ are unknowns as well as $X$, $Y$ and $Z$, we can group them 
 \Delta V = \alpha X' +  \beta Y' +  \gamma Z' + b
 \end{equation}
 
-Our aim now would be to solve the previous equation, but then we would need to obtain only the values of $X$, $Y$ and $Z$. We can see that:
+Our aim after solving the previous equation would be obtaining the values of $X$, $Y$ and $Z$. We can see that:
 
 \begin{equation} \label{eq:elTrucoDelAlmendruco}
 \sqrt{\alpha^{2}+\beta^{2}+\gamma^{2}} = \sqrt{a^{2}(X^{2}+Y^{2}+Z^{2})} = \sqrt{a^{2}} = a
@@ -132,18 +132,47 @@ b \\
 
 This way, X can be obtained by means of the least squares estimate equation:
 
-\begin{equation}
+\begin{equation}\label{eq:mainEq}
 	X = (A^{T}A)^{-1}A^{T}y
 \end{equation}
 
+With the Least Squares method we would obtain $X$, $Y$ and $Z$, and taking into consideration equation \ref{eq:62}, the values of the right ascension and declination angles can be obtained by performing the inverse trigonometrical operations, that is:
+
+Because we know that $Z=\sin(\delta_{s})$ we can obtain the declination by simply computing the arc sinus:
+
+\begin{equation} \label{eq:inverseTrigoTriennal}
+\delta_{s} = \arcsin(Z)
+\end{equation}
+
+But we have two operations that involve the declination, $X=\cos\delta_{s} * \cos\alpha_{s}$ and $Y=\cos\delta_{s} * \sin\alpha_{s}$. Both involve $\cos\delta_{s}$ so we can equate them:
+
+\begin{equation} \label{eq:rmCos}
+\frac{Y}{\sin\alpha_{s}} = \frac{X}{\cos\alpha_{s}}
+\end{equation}
+
+
+\begin{equation} \label{eq:inverseTrigoAtan}
+\alpha_{s} = \text{arctan2}(X,Y)
+\end{equation}
+
+The $\text{arctan2}(X,Y)$ function is a Fortran function that computes the tangent but using two .....completar explicacion
+
+Using these two operations, the algorithm finally yields our solution: the right ascension and declination estimated from using all the IPPs' information as an overdetermined system.
+
+Furthermore, another possibility would be executing the algorithm multiple iterations. Using the estimated location yielded by each iteration, the algorithm would compute the cosine of the angle between the estimated solution and the IPP (each line) and discard it considering a certain cosine threshold: -0.1 in particular, the cosine in which the linear relation starts (day hemisphere in the case of the Sun) as we have seen in previous chapters. The results of the algorithm with and without iterations are discussed in the last section.
+
+The main advantage of this method over the one introduced in the previous chapter is that it does not need to compute the correlation (which requires passing the data set once) every time a location is considered. The data set itself (the) file is only traversed once.
+
 \section{Pseudocode}
+
+The following is the pseudocode of the algorithm for a single iteration of the algorithm:
 
 \begin{algorithm}
 	\caption{Least Squares method}\label{leastSquaresPseudo}
 	\begin{algorithmic}[1]
 		\Procedure{main}{}
 		
-		\For {i each line in file} \Comment{Read input}
+		\For {i each line in file}
 		\State $\textit{y(i)} \gets \text{vtec}$
 		\State $\textit{A(i,0)} \gets \text{cos(dec)*cos(ra)}$
 		\State $\textit{A(i,1)} \gets \text{cos(dec)*sin(ra)}$
@@ -151,49 +180,299 @@ This way, X can be obtained by means of the least squares estimate equation:
 		\State $\textit{A(i,3)} \gets \text{1}$
 		\EndFor
 		
-		\State $\textit{solution} \gets (A^{T}A)^{-1}A^{T}y$ \Comment{Compute solution to Least Squares}
-		\State $\textit{a} \gets solution(0)$
-		\State $\textit{b} \gets solution(1)$
-		\State $\textit{g} \gets solution(2)$
-		\State $\textit{mod} \gets \sqrt{a^{2} + b^{2} + g^{2}}$ \Comment{Obtain the components}
+		\State $\textit{sytemSolution} \gets (A^{T}A)^{-1}A^{T}y$
 		
-		
-		\State $\textit{a} \gets solution(0)$
-		\State $\textit{b} \gets solution(1)$
-		\State $\textit{g} \gets solution(2)$
-		X = a/mod
-		Y = b/mod
-		Z = g/mod
-		
-		\State $\textit{matrixVTEC, matrixIPP} \gets \text{storeFileInfoInMatrices()}$
-		
-		\For {$step = initStep; step >= min; step\ /= 2$}
-		\For {$ra = r.lowerRa;\ ra <= r.upperRa;\ ra += step$}
-		\For {$dec = r.lowerDec;\ dec <= r.upperDec;\ dec += step$}
-		\State $currentSun \gets computeCorrelationPossibleSun(ra, dec)$
-		\If {$currentSun.correlation > bestSun.correlation$}
-		\State $bestSun \gets currentSun$
-		\State $r \gets \text{newRange(\textit{bestSun, step})}$
-		\EndIf
-		\EndFor
-		\EndFor
-		\EndFor
-		\\
-		\Return $bestSun$
+		\Return $obtainEstimatedPosition(sytemSolution)$
+		\EndProcedure
+
+		\Procedure{$obtainEstimatedPosition(systemSolution)$}{}
+			\State $\textit{a} \gets sytemSolution(0)$
+			\State $\textit{b} \gets sytemSolution(1)$
+			\State $\textit{g} \gets sytemSolution(2)$
+			\State $\textit{mod} \gets \sqrt{a^{2} + b^{2} + g^{2}}$ 
+			
+			
+			\State $\textit{X} \gets a/mod$
+			\State $\textit{Y} \gets b/mod$
+			\State $\textit{Z} \gets g/mod$
+			
+			\State $\textit{dec} \gets arcsin(Z)$
+			\State $\textit{ra} \gets arctan(X,Y)$
+			
+			\Return $(ra, dec)$
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
 
+The algorithm first stores the necessary data in the arrays and uses them to compute the system solution. The estimated location of the source is then obtained from the system solution by means of the equations presented in the previous section.
+
+\clearpage
+
 \section{Implementation}
 
-When
+For the case of no iterations, the algorithm can simply be implemented by storing each line of information in an array. On the other hand, when discarding outliers using the result of the previous iteration, two possible implementations exist:
 
-One of the main advantages of this method over the others is that we don't need to compute the correlation, that it is, discard outliers. (o si????)
+\begin{itemize}
+	\item Using the same static array for all iterations, but storing 0s in the rows of unused IPP information
+	\item Using a dynamical, allocatable array, storing only the information that will be used
+\end{itemize}
+
+When using dynamical arrays in Fortran these have to be allocated/deallocated, the following is the function that adds a new row to the array storing the information, implemented for our case with 4 columns and an unknown number of rows.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=myFortranStyle, caption=Adding a new row to a two dimensional array]
+subroutine addRowToArray(array, elem0, elem1, elem2, elem3)
+	implicit none
+	integer :: i, oldSize
+	double precision, intent(in) :: elem0, elem1, elem2, elem3
+	double precision, dimension(:,:), allocatable :: array
+	double precision, dimension(:,:), allocatable :: tmpArray
+
+	if(allocated(array)) then
+		! Allocate one more row to the tmpArray
+		oldSize = size(array,1)
+		allocate(tmpArray(0:oldSize, 0:3)) 
+
+		! Copy the original content of the array
+		tmpArray(0:oldSize,0:3) = array(0:oldSize,0:3)
+
+		! Append the new row
+		tmpArray(oldSize,0) = elem0
+		tmpArray(oldSize,1) = elem1
+		tmpArray(oldSize,2) = elem2
+		tmpArray(oldSize,3) = elem3
+
+		! Free the previous array and store the new data in it
+		deallocate(array)
+		call move_alloc(tmpArray, array)
+	else
+		allocate(array(0:0, 0:3))
+		array(0,0) = elem0
+		array(0,1) = elem1
+		array(0,2) = elem2
+		array(0,3) = elem3
+	end if
+end subroutine addRowToArray\end{lstlisting}
+\end{minipage}
+
+The function first checks if the array is already allocated, in which case the previous array is copied to a new one with one more row and then the new elements are stored in the it with the new space. If it has not been allocated yet, a new array is created but with one single row.
+
+Because of this, each time a new row is added, the processed data up until that point has to be traversed again (when copying the content of the array to the new one).
+
+On the other hand, using a static array allows us to store the data in one single pass (simply storing 0s if we are not going to use the data), consequently, using the approach with dynamic arrays has more time complexity.
+
+Both methods yield exactly the same results, as the rows that contain 0s are not used in the matrix computations, because of this, the algorithm works with the static version, to assure that there is only a single pass of the data.
+
+The following is the main function of the algorithm, which stores the data in the array reading it from the input file (listing \ref{lst:storeData}), computes the solution to the system (listing \ref{lst:solveSystem}), and then using that solution obtains the estimated location of the source (listing \ref{lst:obtainSource}). \\
+
+\begin{minipage}{\linewidth}
+	\label{lst:main}
+	\begin{lstlisting}[style=myFortranStyle, caption=Main Least Squares function]
+	subroutine leastSquares(iteration, solutionRa, solutionDec)
+		implicit none
+		integer, intent(in) :: iteration
+		double precision :: solutionRa, solutionDec
+		double precision, dimension(0:numRows) :: matrixVTEC
+		double precision, dimension (0:numRows, 0:3) :: matrixIPP
+		double precision, dimension (0:3) :: solution
+		
+		call storeMatrixData(matrixVTEC, matrixIPP, iteration, solutionRa, solutionDec)
+		call matrixComputations(solution, matrixIPP, matrixVTEC)
+		call obtainSourceLocation(solution, solutionRa, solutionDec)
+	
+	end subroutine leastSquares\end{lstlisting}
+\end{minipage}
+
+The static storeMatrixData function traverses the file and stores the information, if the method is working with multiple iterations, it also checks using the past iteration's estimation whether the IPP point is valid or not. If it is, the components are computed with function computeComponentsIPP() (listing \ref{lst:computeComponents}), otherwise, 0s are stored for that row.
+
+\begin{minipage}{\linewidth}
+	\label{lst:storeData}
+	\begin{lstlisting}[style=myFortranStyle, caption=Storing the data from the input file]
+	subroutine storeMatrixData(matrixVTEC, matrixIPP, iteration, solRa, solDec)
+		implicit none
+		integer, intent(in) :: iteration
+		double precision, intent(in) :: solRa, solDec
+		double precision, dimension(0:numRows) :: matrixVTEC
+		double precision, dimension (0:numRows, 0:3) :: matrixIPP
+		double precision :: vtec, raIPP, decIPP
+		double precision :: xIPP, yIPP, zIPP
+		integer :: i, validSample
+		
+		call openFile(inputFileName)
+		
+		do i = 0, numRows
+			read (1, *, end = 240) vtec, raIPP, decIPP
+			validSample = 1
+			if (iteration /= 0) then
+				validSample = checkOutlier(solRa, solDec, raIPP, decIPP)
+			end if
+			if (validSample == 1) then
+				call computeComponentsIPP(raIPP, decIPP, xIPP, yIPP, zIPP)
+			else
+				vtec = 0
+				xIPP = 0
+				yIPP = 0
+				zIPP = 0
+			end if
+			matrixVTEC(i) = vtec
+			matrixIPP(i, 0) = xIPP
+			matrixIPP(i, 1) = yIPP
+			matrixIPP(i, 2) = zIPP
+			matrixIPP(i, 3) = 1
+		end do
+		240 continue
+		close(1)
+	end subroutine storeMatrixData\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+	\label{lst:computeComponents}
+	\begin{lstlisting}[style=myFortranStyle, caption=Compute the components of the IPP's unit vector]
+	subroutine computeComponentsIPP(ra, dec, xIPP, yIPP, zIPP)
+		implicit none
+		double precision, intent(in) :: ra, dec
+		double precision :: raRad, decRad
+		double precision, intent(out) :: xIPP, yIPP, zIPP
+		
+		raRad = toRadian(ra)
+		decRad = toRadian(dec)
+		
+		xIPP = cos(decRad)*cos(raRad)
+		yIPP = cos(decRad)*sin(raRad)
+		zIPP = sin(decRad)
+	end subroutine computeComponentsIPP\end{lstlisting}
+\end{minipage}
+
+After storing all the necessary data in the arrays, the algorithm perform the calculations of equation \ref{eq:mainEq}. The function to compute the inverse is the only matrix operation that is not implemented by Fortran's standard library, so the \textit{LAPACK (Linear Algebra PACKage)} library for numerical linear algebra\cite{lapack}, which implements it, is used by the algorithm for this computation. 
+
+\begin{minipage}{\linewidth}
+	\label{lst:solveSystem}
+	\begin{lstlisting}[style=myFortranStyle, caption=Function matrixComputations to solve the system]
+	subroutine matrixComputations(solution, A, Y)
+		implicit none
+		double precision, dimension (0:3), intent(out) :: solution
+		double precision, dimension (0:numRows), intent(in) :: Y
+		double precision, dimension (0:numRows, 0:3), intent(in) :: A
+		double precision, dimension (0:3, 0:numRows) :: transposedA
+		double precision, dimension (0:3, 0:3) :: covMat
+		
+		transposedA = transpose(A)
+		covMat = inv(matmul(transposedA, A))
+		solution = matmul(matmul(covMat, transposedA), y)
+	end subroutine matrixComputations\end{lstlisting}
+\end{minipage}
+
+After the solution to the system has been obtained, the degrees are obtained as explained in the previous sections, and using Fortran's \textit{atan2()} function:
+
+\begin{minipage}{\linewidth}
+	\label{lst:obtainSource}
+	\begin{lstlisting}[style=myFortranStyle, caption=Function obtainSourceLocation]
+	subroutine obtainSourceLocation(solution, solRa, solDec)
+		implicit none
+		double precision, dimension (0:3), intent(in) :: solution
+		double precision, intent(out) :: solutionRa, solutionDec
+		double precision :: a, b, g, mod, radianRa, radianDec
+		double precision :: X, Y, Z
+		
+		a = solution(0)
+		b = solution(1)
+		g = solution(2)
+		mod = sqrt(a*a + b*b + g*g)
+		X = a/mod
+		Y = b/mod
+		Z = g/mod
+		radianRa = datan2(Y,X)
+		radianDec = dasin(Z)
+		if (radianRa < 0) then
+			radianRa = radianRa + 2*PI
+		end if
+		solRa = toDegree(radianRa)
+		solDec = toDegree(radianDec)
+	end subroutine obtainSourceLocation\end{lstlisting}
+\end{minipage}
+
+The solRa and solDec variables are the ones that are either returned to the C++ controller or used perform another iteration of the algorithm.
 
 \section{Results}
 
-hablar aqui de la pendiente? el error estimado?
+Here the results of the algorithm with both methods for discarding outliers are studied, using the data set from the previous chapter.
 
-When
+\subsection{Single iteration}
 
-One of the main advantages of this method over the others is that we don't need to compute the correlation, that it is, discard outliers. (o si????)
+These are the results of the algorithm with a single iteration, that is, solving the equation system once and using all the available data (with the cutoff value for the VTEC introduced in the previous chapter):
+
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}[style=myFortranStyle, caption=One iteration of the Least Squares method]
+		Estimation error: 4.57509 degrees
+		Execution time: 0.00851647 seconds\end{lstlisting}
+\end{minipage}
+
+As we can see, the error is there has been a slight increase in the error compared to the Decreasing Range method, but the execution time has been greatly reduced.
+
+\subsection{Multiple iterations: narrowing the search}
+
+A possible way introduced before to improve the result could be iterating using the estimated value of the algorithm. This is the execution using 10 iterations:
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c|} 
+		\hline
+		Iteration & Total estimation error (degrees) & Time (seconds) \\ [0.5ex] 
+		\hline\hline
+		1  & 4.57509 & 0.0134369 \\
+		\hline
+		2  & 7.98606 & 0.00955695 \\
+		\hline
+		3  & 10.9058 & 0.00946149 \\
+		\hline
+		4  & 5.50332 & 0.0102698 \\
+		\hline
+		5  & 7.25672 & 0.0149682 \\
+		\hline
+		6  & 8.48851 & 0.0115219 \\
+		\hline
+		7  & 8.46854 & 0.0136026 \\
+		\hline
+		8  & 10.206 & 0.014326 \\
+		\hline
+		9  & 6.23355 & 0.0140396 \\
+		\hline
+		10  & 7.83679 & 0.0156941 \\
+		\hline
+	\end{tabular}
+	\caption{10 iterations of the Least Squares method}
+\end{table}
+
+As we can see, multiple iterations do not present an improvement in the estimation. This is caused because each iteration IPPs are discarded and therefore the system of equations has less information to compute the estimation TODO: 457
+
+\subsection{Multiple iterations: Covariance matrix¿?¿ Error}
+
+Another possibility would be to use the error? from the Least Squares estimation (not one we obtain comparing our solution to the real position). This is peformed by simply saving the best (smallest) error and returning its location. This is the result for the first 5 iterations:
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c|} 
+		\hline
+		Iteration & Total estimation error (degrees) & Time (seconds) \\ [0.5ex] 
+		\hline\hline
+		1  & 4.57509 & 0.00756712 \\
+		\hline
+		2  & 4.57509 & 0.010272 \\
+		\hline
+		3  & 4.57509 & 0.0120997 \\
+		\hline
+		4  & 4.57509 & 0.0105663 \\
+		\hline
+		5  & 4.57509 & 0.0125787 \\
+		\hline
+	\end{tabular}
+	\caption{5 iterations of the Least Squares method using the estimation error}
+\end{table}
+
+In the next chapter the covariance matrix will be studied more in detail, so that it can be compared to other data sets and see how its value evolves.
+
+As with the previous iteration method, we are discarding rows and therefore the Least Square method reduces its precision, therefore yielding a larger error, because of this, the result of each iteration is always the one from the first iteration (the one with the most equations), because the error doesn't improve. \\
+
+Although for this specific case there the method does not present an improvement in comparison to the Decreasing Range method, the Least Squares method is significantly faster in terms of execution, and will be studied in more detail in the following chapter, where more data sets will be used, to see which yields the best results.

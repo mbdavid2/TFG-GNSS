@@ -22,45 +22,45 @@ A level-1 auxiliary file: sections/ch10Annexes.aux
 Database file #1: sections/references.bib
 Warning--to sort, need author or key in igswebsite
 Warning--to sort, need author or key in starlinkproject
-You've used 21 entries,
+You've used 22 entries,
             2118 wiz_defined-function locations,
-            637 strings with 8166 characters,
-and the built_in function-call counts, 6768 in all, are:
-= -- 633
-> -- 402
+            642 strings with 8261 characters,
+and the built_in function-call counts, 6981 in all, are:
+= -- 654
+> -- 409
 < -- 2
-+ -- 165
-- -- 140
-* -- 481
-:= -- 1162
-add.period$ -- 69
-call.type$ -- 21
-change.case$ -- 130
++ -- 168
+- -- 142
+* -- 486
+:= -- 1198
+add.period$ -- 73
+call.type$ -- 22
+change.case$ -- 134
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 201
-empty$ -- 502
-format.name$ -- 140
-if$ -- 1367
+cite$ -- 24
+duplicate$ -- 208
+empty$ -- 524
+format.name$ -- 142
+if$ -- 1414
 int.to.chr$ -- 0
-int.to.str$ -- 21
+int.to.str$ -- 22
 missing$ -- 14
-newline$ -- 114
-num.names$ -- 38
-pop$ -- 173
+newline$ -- 120
+num.names$ -- 40
+pop$ -- 183
 preamble$ -- 1
-purify$ -- 110
+purify$ -- 113
 quote$ -- 0
-skip$ -- 134
+skip$ -- 139
 stack$ -- 0
-substring$ -- 312
-swap$ -- 23
+substring$ -- 317
+swap$ -- 24
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 80
+type$ -- 84
 warning$ -- 2
-while$ -- 55
-width$ -- 23
-write$ -- 228
+while$ -- 57
+width$ -- 24
+write$ -- 239
 (There was 1 error message)

@@ -94,6 +94,12 @@ A.~P. Mitra.
 \newblock Ionospheric effects of solar flares.
 \newblock In {\em Astrophysics and space science library}, volume~46, 1974.
 
+\bibitem{lapack}
+Netlib.
+\newblock {LAPACK library}.
+\newblock \url{http://www.netlib.org/lapack/}.
+\newblock [Online; accessed 29-April-2019].
+
 \bibitem{noaa2ionosphere}
 S.~W. P. C.~N. Oceanic and A.~Administration).
 \newblock {Ionosphere}.

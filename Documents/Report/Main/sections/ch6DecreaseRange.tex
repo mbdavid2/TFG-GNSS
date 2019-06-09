@@ -10,9 +10,11 @@ As we saw in the previous chapter, to increase the precision of the algorithm, t
 
 We want to have the highest precision possible without having to consider all $64800 - 718 = 64082$ possibilities by progressively reducing the search range.
 
+This first method works as follows: the entire possible range is considered with a large starting step (e.g 60). Once the best Sun is found within this range, the precision is increased (the step is decreased) and the search range is reduced. This way the precision is increased but the number of considered possibilities remains similar each iteration of the algorithm.
+
 \section{Pseudocode}
 
-This first optimization works as follows: the entire possible range is considered with a large starting step (e.g 60). Once the best Sun is found within this range, the precision is increased (the step is decreased) and the search range is reduced. This way the precision is increased but the number of considered possibilities remains similar each iteration of the algorithm. The following is the pseudocode\footnote{The code for the special cases of -90 and 90 degree declinations is not included for more readability. It is included in the implementation, in the following section.} for the algorithm using this optimization:
+The following is the pseudocode\footnote{The code for the special cases of -90 and 90 degree declinations is not included for more readability. It is included in the implementation, in the following section.} for the algorithm using this method:
 
 \begin{algorithm}
 	\caption{Search range decrease}\label{searchRangeDecrease}
@@ -144,11 +146,8 @@ Another change that could be done to improve this method's performance would be 
 
 \section{Linear fitting: discarding outliers}
 
-TODO: REVISAR ESTA SECCION
-
-In the previous chapter we used a simple method to discard outliers for the VTEC value (using a cutoff value between -0.3 and 0.3). While this worked with that case in particular, using it with other data sets can lead to problems.
-
-Because of this, another approach is presented in order to discard outliers: linear fitting. The aim is to find the line that fits best the relation between both variables (cosine and VTEC) by means of linear regression to discard samples that do not fit in it.
+In the previous chapter we used a simple method to discard outliers for the VTEC value (using a cutoff value between -0.7 and 0.7). However, another approach to discard outliers was possible: linear fitting. 
+The aim is to find the line that fits best the relation between both variables (cosine and VTEC) by means of linear regression to discard samples that do not fit in it.
 
 We can see that this procedure has been used before in figure \ref{fig:halloweenPaper} from the paper \textit{"GNSS measurement of EUV photons flux rate during strong and mid solar flares"}\cite{hernandez2012gnss}.
 
@@ -162,7 +161,7 @@ Manuel Herández-Pajares, the author, provided the Fortran program that performs
 	\end{centering}
 \end{figure}
 
-The main problem of this method is that before the correlation could be calculated in a single pass of the data. Now, on the other hand, the algorithm needs multiple iterations: first, the solar-zenith angle cosine for each IPP is calculated; then, the outliers are discarded, and finally the filtered data is traversed one last time to compute the correlation.
+The main problem of this method without it, the correlation could be calculated in a single pass of the data. Now, on the other hand, the algorithm needs multiple iterations: first, the solar-zenith angle cosine for each IPP is calculated; then, the outliers are discarded, and finally, the filtered data is traversed one last time to compute the correlation.
 
 Here is the new code in order to compute the correlation for each possible location:
 
@@ -182,6 +181,22 @@ As we can see, the data is traversed \textbf{at least} 3 times now (more dependi
 
 \section{Results}
 
-Comparacion sencilla entre outliers/no-outliers, decir que en results mas detalle con otros ejemplos
+Executing the algorithm with both methods for discarding outliers using the data set from the previous chapter we obtain:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[caption=Decreasing range using a cutoff value for outliers]
+Estimation error: 1.86776 degrees
+Execution time: 1.07601 seconds
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[caption=Decreasing range using linear fit for outliers]
+Estimation error: 3.57674 degrees
+Execution time: 37.5578 seconds 
+\end{lstlisting}
+\end{minipage}
+
+As we can see, for this data set in particular, the solution has a similar error (although the linear fit version does not improve with respect to the one with a basic filter) and the execution time is increased considerably. This comparison will be studied in more detail in the \textit{Results} chapter, where different data sets will be used.
 
 Seeing the increase in computational complexity of this method because of the fact that outliers have to be discarded using the linear fitting method, we decided to instead focus on a different method that would rely only on the data itself, instead of considering the many possible locations of the source.

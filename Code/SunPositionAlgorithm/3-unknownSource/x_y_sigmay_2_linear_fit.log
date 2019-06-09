@@ -4,9 +4,9 @@
 
  arg2_max_iter_outliers = 4               
  max_iter_outliers =            4
- nobs,nunk=         434           2
- iter_outliers,nobs_sel=           1         434
- (At.A) =   36251.621825799608       -107262.53150776400        2621083.0425949572     
+ nobs,nunk=         171           2
+ iter_outliers,nobs_sel=           1         171
+ (At.A) =   18238.335139185987       -95685.405510434313        678367.47569616209     
 
   INVERTING At.A
 
@@ -14,23 +14,21 @@
  Error status dpptrf=           0
   Inversion...
  Error status dpptri=           0
- (At.A)**-1 =   3.1385231815231736E-005   1.2843772447311963E-006   4.3408222333711736E-007
+ (At.A)**-1 =   2.1089604087064690E-004   2.9747406699508931E-005   5.6700723586121711E-006
 
   COMPUTING x=(At.A)^-1 * (At.y)
 
- x=(At.A)^-1 * (At.y)=   6.4297192941114231E-003   3.5086168763108806E-003
+ x=(At.A)^-1 * (At.y)=   1.5159877520363768E-002  -9.0672240688974282E-004
 
   COMPUTING residuals: (y-A.x) and X**2
 
- Chi**2 =    134.99727013635663     
- iter_outliers, Std.Dev.=           1   1.8371181339408446E-002
- iter_outliers, Std.Dev.Sel.=           1   1.8371181339408446E-002
-  0.42104456048689198        9.3310699999999996E-002   6.2158152105541136E-003   8.7094884789445881E-002           1 outlier
- iter_outliers,noutliers=           1           1
- nobs,nunk=         434           2
- Warning: iter_outliers,rejected obs. #            2          63
- iter_outliers,nobs_sel=           2         433
- (At.A) =   36249.770050365536       -107266.92955872549        2621072.5970236938     
+ Chi**2 =    50.428431743243316     
+ iter_outliers, Std.Dev.=           1   1.7712387237412686E-002
+ iter_outliers, Std.Dev.Sel.=           1   1.7712387237412686E-002
+ iter_outliers,noutliers=           1           0
+ nobs,nunk=         171           2
+ iter_outliers,nobs_sel=           2         171
+ (At.A) =   18238.335139185987       -95685.405510434313        678367.47569616209     
 
   INVERTING At.A
 
@@ -38,23 +36,21 @@
  Error status dpptrf=           0
   Inversion...
  Error status dpptri=           0
- (At.A)**-1 =   3.1387427843468630E-005   1.2845248984473260E-006   4.3409215108737151E-007
+ (At.A)**-1 =   2.1089604087064690E-004   2.9747406699508931E-005   5.6700723586121711E-006
 
   COMPUTING x=(At.A)^-1 * (At.y)
 
- x=(At.A)^-1 * (At.y)=   6.4165278067457926E-003   3.5077299240859105E-003
+ x=(At.A)^-1 * (At.y)=   1.5159877520363768E-002  -9.0672240688974282E-004
 
   COMPUTING residuals: (y-A.x) and X**2
 
- Chi**2 =    121.34380120337853     
- iter_outliers, Std.Dev.=           2   1.8377636457866896E-002
- iter_outliers, Std.Dev.Sel.=           2   1.7914204426846700E-002
-  0.42104456048689198        9.3310699999999996E-002   6.2093740543291143E-003   8.7101325945670882E-002           2 outlier
- iter_outliers,noutliers=           2           1
- nobs,nunk=         434           2
- Warning: iter_outliers,rejected obs. #            3          63
- iter_outliers,nobs_sel=           3         433
- (At.A) =   36249.770050365536       -107266.92955872549        2621072.5970236938     
+ Chi**2 =    50.428431743243316     
+ iter_outliers, Std.Dev.=           2   1.7712387237412686E-002
+ iter_outliers, Std.Dev.Sel.=           2   1.7712387237412686E-002
+ iter_outliers,noutliers=           2           0
+ nobs,nunk=         171           2
+ iter_outliers,nobs_sel=           3         171
+ (At.A) =   18238.335139185987       -95685.405510434313        678367.47569616209     
 
   INVERTING At.A
 
@@ -62,23 +58,21 @@
  Error status dpptrf=           0
   Inversion...
  Error status dpptri=           0
- (At.A)**-1 =   3.1387427843468630E-005   1.2845248984473260E-006   4.3409215108737151E-007
+ (At.A)**-1 =   2.1089604087064690E-004   2.9747406699508931E-005   5.6700723586121711E-006
 
   COMPUTING x=(At.A)^-1 * (At.y)
 
- x=(At.A)^-1 * (At.y)=   6.4165278067457926E-003   3.5077299240859105E-003
+ x=(At.A)^-1 * (At.y)=   1.5159877520363768E-002  -9.0672240688974282E-004
 
   COMPUTING residuals: (y-A.x) and X**2
 
- Chi**2 =    121.34380120337853     
- iter_outliers, Std.Dev.=           3   1.8377636457866896E-002
- iter_outliers, Std.Dev.Sel.=           3   1.7914204426846700E-002
-  0.42104456048689198        9.3310699999999996E-002   6.2093740543291143E-003   8.7101325945670882E-002           3 outlier
- iter_outliers,noutliers=           3           1
- nobs,nunk=         434           2
- Warning: iter_outliers,rejected obs. #            4          63
- iter_outliers,nobs_sel=           4         433
- (At.A) =   36249.770050365536       -107266.92955872549        2621072.5970236938     
+ Chi**2 =    50.428431743243316     
+ iter_outliers, Std.Dev.=           3   1.7712387237412686E-002
+ iter_outliers, Std.Dev.Sel.=           3   1.7712387237412686E-002
+ iter_outliers,noutliers=           3           0
+ nobs,nunk=         171           2
+ iter_outliers,nobs_sel=           4         171
+ (At.A) =   18238.335139185987       -95685.405510434313        678367.47569616209     
 
   INVERTING At.A
 
@@ -86,18 +80,17 @@
  Error status dpptrf=           0
   Inversion...
  Error status dpptri=           0
- (At.A)**-1 =   3.1387427843468630E-005   1.2845248984473260E-006   4.3409215108737151E-007
+ (At.A)**-1 =   2.1089604087064690E-004   2.9747406699508931E-005   5.6700723586121711E-006
 
   COMPUTING x=(At.A)^-1 * (At.y)
 
- x=(At.A)^-1 * (At.y)=   6.4165278067457926E-003   3.5077299240859105E-003
+ x=(At.A)^-1 * (At.y)=   1.5159877520363768E-002  -9.0672240688974282E-004
 
   COMPUTING residuals: (y-A.x) and X**2
 
- Chi**2 =    121.34380120337853     
- Final SIGMA,nobs, iter_outliers=   1.8377636457866896E-002         434           4
- Final filtered SIGMA & nobs=   1.7914204426846700E-002         433
- iter_outliers, Std.Dev.=           4   1.8377636457866896E-002
- iter_outliers, Std.Dev.Sel.=           4   1.7914204426846700E-002
-  0.42104456048689198        9.3310699999999996E-002   6.2093740543291143E-003   8.7101325945670882E-002           4 outlier
- iter_outliers,noutliers=           4           1
+ Chi**2 =    50.428431743243316     
+ Final SIGMA,nobs, iter_outliers=   1.7712387237412686E-002         171           4
+ Final filtered SIGMA & nobs=   1.7712387237412686E-002         171
+ iter_outliers, Std.Dev.=           4   1.7712387237412686E-002
+ iter_outliers, Std.Dev.Sel.=           4   1.7712387237412686E-002
+ iter_outliers,noutliers=           4           0

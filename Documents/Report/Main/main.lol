@@ -14,5 +14,14 @@
 \contentsline {lstlisting}{\numberline {6.2}Setting the new range based on the estimated source location}{59}{lstlisting.6.2}
 \contentsline {lstlisting}{\numberline {6.3}Iterating over possible locations within the given range}{60}{lstlisting.6.3}
 \contentsline {lstlisting}{\numberline {6.4}Discarding outliers and computing the correlation}{62}{lstlisting.6.4}
-\contentsline {lstlisting}{\numberline {8.1}Hill Climbing}{69}{lstlisting.8.1}
-\contentsline {lstlisting}{\numberline {9.1}Filtering the ti file}{73}{lstlisting.9.1}
+\contentsline {lstlisting}{\numberline {6.5}Decreasing range using a cutoff value for outliers}{62}{lstlisting.6.5}
+\contentsline {lstlisting}{\numberline {6.6}Decreasing range using linear fit for outliers}{62}{lstlisting.6.6}
+\contentsline {lstlisting}{\numberline {7.1}Adding a new row to a two dimensional array}{69}{lstlisting.7.1}
+\contentsline {lstlisting}{\numberline {7.2}Main Least Squares function}{70}{lstlisting.7.2}
+\contentsline {lstlisting}{\numberline {7.3}Storing the data from the input file}{71}{lstlisting.7.3}
+\contentsline {lstlisting}{\numberline {7.4}Compute the components of the IPP's unit vector}{72}{lstlisting.7.4}
+\contentsline {lstlisting}{\numberline {7.5}Function matrixComputations to solve the system}{72}{lstlisting.7.5}
+\contentsline {lstlisting}{\numberline {7.6}Function obtainSourceLocation}{73}{lstlisting.7.6}
+\contentsline {lstlisting}{\numberline {7.7}One iteration of the Least Squares method}{73}{lstlisting.7.7}
+\contentsline {lstlisting}{\numberline {8.1}Hill Climbing}{77}{lstlisting.8.1}
+\contentsline {lstlisting}{\numberline {9.1}Filtering the ti file}{81}{lstlisting.9.1}

@@ -6,7 +6,7 @@
 using namespace std;
 using namespace std::chrono;
 
-bool latex = false;
+bool latex = true;
 
 typedef high_resolution_clock::time_point clockTime;
 
