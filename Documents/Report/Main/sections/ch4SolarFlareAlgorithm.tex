@@ -47,6 +47,7 @@ The ti files contain several rows of pre-processed GPS data. Each row has a Rece
 \item The \textbf{right ascension} and \textbf{declination} of the IPP
 \end{itemize}
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption=Format of the ti file]
 Field number | Example value | Description
 [...]
@@ -61,7 +62,7 @@ Field number | Example value | Description
 45 		33.092							xlation
 [...]
 \end{lstlisting}
-
+\end{minipage}
 The files also contain the right ascension and declination of the \textbf{Sun}, which will be used in the last chapters to study the error of the algorithm's estimations.
 
 \subsection{The Halloween Solar Storm: X17.2 flare}
@@ -111,6 +112,7 @@ Although the data that will be used throughout the project is going to be $\Delt
 
 Below is the code used to compute the VTEC value in Fortran that we will use to replicate the plot from figure \ref{fig:halloweenPaper}.
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=Fortran, caption=Simple Fortran function to compute the VTEC value]
 double precision function estimateVTEC (mapIon, d2Li)
 	implicit none
@@ -121,11 +123,13 @@ double precision function estimateVTEC (mapIon, d2Li)
 	return
 end function estimateVTEC
 \end{lstlisting}
+\end{minipage}
 
 \subsection{Distribution throughout the day}
 
 Because the only operation that had to be performed was the previous division, for plotting the distribution throughout the day a simple AWK script was used to filter out the two necessary fields from the data file and print the resulting value as a function of time. 
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=Awk, caption=AWK script to estimate the VTEC]
 {
 	/a/
@@ -135,7 +139,9 @@ Because the only operation that had to be performed was the previous division, f
 	print $3 " " vtec
 }
 \end{lstlisting}
+\end{minipage}
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=Bash, caption=Bash script to execute the procedures]
 #!/bin/bash
 tiDataFile="../data/ti.2003.301.10h30m-11h30m.gz"
@@ -144,6 +150,7 @@ zcat "$tiDataFile" | gawk -f previewVTECDistribution.awk > vtecValues
 gnuplot -e "set terminal png; set output 'vtecDistribution.png'; set title 'VTEC Distribution'; set xlabel 'Time of the day (hours)'; set ylabel 'VTEC'; set grid; plot \"vtecValues\" using 1:2 with point"
 rm vtecValues
 \end{lstlisting}
+\end{minipage}
 \clearpage
 
 The bash script executes the AWK process with the data as the input and outputs n rows with two columns: the \textbf{time of the day} and the \textbf{calculated VTEC}, and finally plots the results using Gnuplot. 

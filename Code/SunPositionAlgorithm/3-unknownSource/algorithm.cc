@@ -30,16 +30,16 @@ const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
 // };
 
 const vector<string> fileNames = {
-	// "ti.2001.347.gz",
-	// "ti.2002.196.gz",
+	"ti.2001.347.gz",
+	"ti.2002.196.gz",
 	"ti.2003.301.gz",
-	// "ti.2003.308.gz",
-	// "ti.2005.020.gz",
-	// "ti.2005.258.gz", 
-	// "ti.2011.210.gz",
-	// "ti.2012.066.gz",
-	// "ti.2012.130.gz",
-	// "ti.2012.297.gz",
+	"ti.2003.308.gz",
+	"ti.2005.020.gz",
+	"ti.2005.258.gz", 
+	"ti.2011.210.gz",
+	"ti.2012.066.gz",
+	"ti.2012.130.gz",
+	"ti.2012.297.gz",
 };
 
 //Global variables
@@ -197,7 +197,7 @@ void resultsDebugLatex () {
 	for (string fileName : fileNames) {
 		if (!plotLatex) cout << ++i;
 		else  cout << fileName;
-		mainAlgorithm("lsiter", fileName, &aux);
+		mainAlgorithm("ls", fileName, &aux);
 	}
 	(aux).resetTotalsMethod();
 }
