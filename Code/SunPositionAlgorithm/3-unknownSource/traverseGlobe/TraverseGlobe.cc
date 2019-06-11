@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue>
 #include <fstream>
+#include <omp.h>
 #include "TraverseGlobe.h"
 #include "../auxiliary/Auxiliary.h"
 #include "../fortranController/FortranController.h"
@@ -84,8 +85,12 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 	possibleSunInfo bestSun;
 	bestSun.coefficient = -23;
 	bestSun.location = "salu2";
+	// #pragma omp for schedule(static)
 	for (double dec = range.lowerDec; dec <= range.upperDec; dec += step) {
+		// int thread_num = sched_getcpu();
+		// cout << "Thread " << thread_num << endl;
 		if (dec != -90 and dec != 90) {
+			// #pragma omp for schedule(static)
 			for (double ra = range.lowerRa; ra <= range.upperRa; ra += step) {
 				pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
 				if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";

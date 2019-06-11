@@ -30,16 +30,17 @@ const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
 // };
 
 const vector<string> fileNames = {
-	"ti.2001.347.gz",
-	"ti.2002.196.gz",
-	"ti.2003.301.gz",
-	"ti.2003.308.gz",
-	"ti.2005.020.gz",
-	"ti.2005.258.gz", 
-	"ti.2011.210.gz",
-	"ti.2012.066.gz",
-	"ti.2012.130.gz",
-	"ti.2012.297.gz",
+	// "ti.2001.347.gz",
+	// "ti.2002.196.gz",
+	// "ti.2003.301.gz",
+	// "ti.2003.308.gz",
+	// "ti.2005.020.gz",
+	// "ti.2005.258.gz", 
+	// "ti.2011.210.gz",
+	// "ti.2012.066.gz",
+	// "ti.2012.130.gz",
+	// "ti.2012.297.gz",
+	// "ti.2016.078.gz"
 };
 
 //Global variables
@@ -98,14 +99,21 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 	spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
 	priority_queue<candidate> bestPQ = spikeFinder.getPQBestCandidates();
 	int numRows;
-
-	int n = 2;
-	int iterationsLeastSquares = 10;
+	Auxiliary aux = Auxiliary();
+	int n = 10;
+	int iterationsLeastSquares = 1;
 	while (!bestPQ.empty() and n--) {
+		possibleSunInfo correctSunLocation = fileManager.getCorrectSunLocation();
 		fileManager.filterTiFileByBasicData();
-		cout << "Epoch: " << bestPQ.top().epoch << endl;
+		cout << endl << endl << "Epoch: " << bestPQ.top().epoch << endl;
 		numRows = fileManager.filterTiFileByTime(bestPQ.top().epoch);
+		// cout << "-- LS --" << endl;
 		leastSquaresMethod(numRows, iterationsLeastSquares);
+		aux.printErrorResults(estimatedRa, estimatedDec, correctSunLocation, totalEstimationError);
+		// cout << "-- DR --" << endl;
+		cout << endl;
+		decreaseRangeMethod();
+		aux.printErrorResults(estimatedRa, estimatedDec, correctSunLocation, totalEstimationError);
 		bestPQ.pop();
 	}
 }
@@ -177,19 +185,19 @@ void mainAlgorithm(string methodId, string inputDataFile, Auxiliary* aux) {
 
 void resultsDebugLatex () {
 	// cout << "(iterations) errorRa errorDec errorAbsoluto Total time" << endl;
-	bool plotLatex = true;
+	bool plotLatex = false;
 	Auxiliary aux = Auxiliary();
 	int i = 0;
 
 	//Decrease range
-	// if (plotLatex) cout << "-- Decreasing range method --" << endl;
-	// for (string fileName : fileNames) {
-	// 	if (!plotLatex) cout << ++i;
-	// 	else  cout << fileName;
-	// 	mainAlgorithm("dr", fileName, &aux);
-	// }
-	// (aux).resetTotalsMethod();
-	// i = 0;
+	if (plotLatex) cout << "-- Decreasing range method --" << endl;
+	for (string fileName : fileNames) {
+		if (!plotLatex) cout << ++i;
+		else  cout << fileName;
+		mainAlgorithm("dr", fileName, &aux);
+	}
+	(aux).resetTotalsMethod();
+	i = 0;
 
 	//Least Squares
 	if (plotLatex) cout << "-- Least Squares method --" << endl;
@@ -219,7 +227,11 @@ void methodPrompt() {
 
 int main() {
 	// methodPrompt();
-	iterationsLeastSquares = 1;
+	iterationsLeastSquares = 10;
 	totalEstimationError = -1; //Flag, -1 if decreasing range, LS will change the value
-	resultsDebugLatex();
+
+	iterateOverMultipleEpochs("ti.2016.078.gz");
+
+
+	// resultsDebugLatex();
 }

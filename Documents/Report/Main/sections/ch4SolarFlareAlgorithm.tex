@@ -215,6 +215,7 @@ For this case, though, the cosine of the solar-zenith angle $\chi$ is computed u
 
 The following Fortran code is the function that implements equation \ref{eq:6} and returns $\cos \chi$:
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=Fortran, caption=Computation of the solar-zenith a angle's cosine]
 double precision function computeAngle (raIPP, decIPP, raSun, decSun)
 	implicit none
@@ -225,6 +226,7 @@ double precision function computeAngle (raIPP, decIPP, raSun, decSun)
 	return
 end function computeAngle
 \end{lstlisting}
+\end{minipage}
 
 \section{Results}
 

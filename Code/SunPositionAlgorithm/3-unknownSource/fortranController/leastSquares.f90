@@ -12,8 +12,9 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 	integer, intent(in) :: numRows, iterations
 	double precision :: solutionRa, solutionDec, totalEstimatedError
 
-	call iterateLeastSquares()
 	! print *, "_________________"
+	call iterateLeastSquares()
+	
 	! call leastSquares(1)
 	 
 	! TODO: we should pass the real number of rows

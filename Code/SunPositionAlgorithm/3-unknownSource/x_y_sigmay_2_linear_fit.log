@@ -1,0 +1,96 @@
+
+ arg1_res_max_sigmas = 3               
+ res_max_sigmas =    3.0000000000000000     
+
+ arg2_max_iter_outliers = 4               
+ max_iter_outliers =            4
+ nobs,nunk=         109           2
+ iter_outliers,nobs_sel=           1         109
+ (At.A) =   532.66589247065008        2952.9639426616895        75113.568707342216     
+
+  INVERTING At.A
+
+  Cholesky decomposition...
+ Error status dpptrf=           0
+  Inversion...
+ Error status dpptri=           0
+ (At.A)**-1 =   2.4005277186938622E-003  -9.4372720117743414E-005   1.7023279038446364E-005
+
+  COMPUTING x=(At.A)^-1 * (At.y)
+
+ x=(At.A)^-1 * (At.y)=   1.0883539170699064E-002   1.4696377701369331E-002
+
+  COMPUTING residuals: (y-A.x) and X**2
+
+ Chi**2 =    8.8125234386511053     
+ iter_outliers, Std.Dev.=           1   1.7464402358426431E-002
+ iter_outliers, Std.Dev.Sel.=           1   1.7464402358426431E-002
+ iter_outliers,noutliers=           1           0
+ nobs,nunk=         109           2
+ iter_outliers,nobs_sel=           2         109
+ (At.A) =   532.66589247065008        2952.9639426616895        75113.568707342216     
+
+  INVERTING At.A
+
+  Cholesky decomposition...
+ Error status dpptrf=           0
+  Inversion...
+ Error status dpptri=           0
+ (At.A)**-1 =   2.4005277186938622E-003  -9.4372720117743414E-005   1.7023279038446364E-005
+
+  COMPUTING x=(At.A)^-1 * (At.y)
+
+ x=(At.A)^-1 * (At.y)=   1.0883539170699064E-002   1.4696377701369331E-002
+
+  COMPUTING residuals: (y-A.x) and X**2
+
+ Chi**2 =    8.8125234386511053     
+ iter_outliers, Std.Dev.=           2   1.7464402358426431E-002
+ iter_outliers, Std.Dev.Sel.=           2   1.7464402358426431E-002
+ iter_outliers,noutliers=           2           0
+ nobs,nunk=         109           2
+ iter_outliers,nobs_sel=           3         109
+ (At.A) =   532.66589247065008        2952.9639426616895        75113.568707342216     
+
+  INVERTING At.A
+
+  Cholesky decomposition...
+ Error status dpptrf=           0
+  Inversion...
+ Error status dpptri=           0
+ (At.A)**-1 =   2.4005277186938622E-003  -9.4372720117743414E-005   1.7023279038446364E-005
+
+  COMPUTING x=(At.A)^-1 * (At.y)
+
+ x=(At.A)^-1 * (At.y)=   1.0883539170699064E-002   1.4696377701369331E-002
+
+  COMPUTING residuals: (y-A.x) and X**2
+
+ Chi**2 =    8.8125234386511053     
+ iter_outliers, Std.Dev.=           3   1.7464402358426431E-002
+ iter_outliers, Std.Dev.Sel.=           3   1.7464402358426431E-002
+ iter_outliers,noutliers=           3           0
+ nobs,nunk=         109           2
+ iter_outliers,nobs_sel=           4         109
+ (At.A) =   532.66589247065008        2952.9639426616895        75113.568707342216     
+
+  INVERTING At.A
+
+  Cholesky decomposition...
+ Error status dpptrf=           0
+  Inversion...
+ Error status dpptri=           0
+ (At.A)**-1 =   2.4005277186938622E-003  -9.4372720117743414E-005   1.7023279038446364E-005
+
+  COMPUTING x=(At.A)^-1 * (At.y)
+
+ x=(At.A)^-1 * (At.y)=   1.0883539170699064E-002   1.4696377701369331E-002
+
+  COMPUTING residuals: (y-A.x) and X**2
+
+ Chi**2 =    8.8125234386511053     
+ Final SIGMA,nobs, iter_outliers=   1.7464402358426431E-002         109           4
+ Final filtered SIGMA & nobs=   1.7464402358426431E-002         109
+ iter_outliers, Std.Dev.=           4   1.7464402358426431E-002
+ iter_outliers, Std.Dev.Sel.=           4   1.7464402358426431E-002
+ iter_outliers,noutliers=           4           0

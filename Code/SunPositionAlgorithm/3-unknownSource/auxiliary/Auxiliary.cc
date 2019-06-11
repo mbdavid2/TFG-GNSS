@@ -6,7 +6,7 @@
 using namespace std;
 using namespace std::chrono;
 
-bool latex = true;
+bool latex = false;
 
 typedef high_resolution_clock::time_point clockTime;
 
@@ -57,14 +57,16 @@ void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correct
 
     correctRa = toRadians(correctSunLocation.ra);
     correctDec = toRadians(correctSunLocation.dec);
+	correctRa = 217.4;
+	correctDec = -69.5;
 	estimatedRa = toRadians(ra);
     estimatedDec = toRadians(dec);
 
 	double cosineChi = sin(estimatedDec)*sin(correctDec) + cos(estimatedDec)*cos(correctDec)*cos(estimatedRa - correctRa);
 	double errorDegrees = toDegrees(acos(cosineChi));
 	if (latex) cout << " & " << errorDegrees;
-    // else cout << " Ra: " << ra << " Dec: " <<  dec << " | Error:" << errorDegrees;
-	else cout << " " << errorDegrees;
+    else cout << " Ra: " << ra << " Dec: " <<  dec << " | Error:" << errorDegrees;
+	// else cout << " " << errorDegrees;
 	// if (totalEstimationErrorLeastSquares != -1) cout << " & " << totalEstimationErrorLeastSquares;
 	// Update total error of the method
 	totalErrorMethod += errorDegrees;

@@ -1,0 +1,46 @@
+\chapter{Results: methods comparison}
+
+\textbf{colocar resultados y plots de comparacion}
+
+In this chapter we will study different data sets using the two presented methods for the \textit{BGSEES} algorithm: the \textbf{Least Squares} and \textbf{Decrease Range} method. 
+
+The aim of the chapter is to test them against each other and using different parameters to see which method yields the best result
+
+The algorithm is tested using data from both Solar flares and flares from far-away stars. Because the day hemisphere has to be discarded in order to study far-away stars (because of the Sun's effect on the ionosphere), the first section will study examples of flares originating from the Sun and the second those from outside the Solar System. -> En este capitulo al final solo sol, estrellas en el siguiente
+
+\section{Discarding the day hemisphere}
+
+One of the first things that needed to be implemented in order to study stellar flares was a way to avoid the interferences of the Sun. Because the Sun would have a greater effect on the Earth's ionosphere, the day hemisphere is discarded.
+
+This leaves the algorithm with only half the data and potential flares could be missed if they were affecting the day hemisphere.
+
+This is done by simply taking the IPP's and Sun's right ascension and declination from the ti file and computing the cosine of their angle as has been done in previous chapters, using equations \ref{eq:3}, \ref{eq:4} and \ref{eq:5}.
+
+If we want to discard the day hemisphere, then the IPP has to be ignored if the cosine of the angle, which has a range of [-1,1], is smaller than -0.1 (the point at which a linear correlation between the variables can be observed, as seen in chapter 4 (figure \ref{fig:results}).
+
+The following is the AWK script that performs this check for every IPP if we indicate the algorithm that it has to discard the hemisphere:
+
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}[language=awk, caption=Discarding the day hemisphere]
+	function checkValidIPP(raSun, decSun, raIPP, decIPP) {
+		return unitVectorsCosine(raSun, decSun, raIPP, decIPP) >= -0.1
+	}
+	
+	function unitVectorsCosine(raSource, decSource, raIPP, decIPP) {
+		return (sin(decIPP)*sin(decSource) + cos(decIPP)*cos(decSource)*cos(raIPP - raSource));
+	}
+\end{lstlisting}
+\end{minipage}
+
+With this change in the algorithm, it should be ready to try to detect stellar flares, rather than flares from the Sun. The following are some cases of strong stellar flares detected by dedicated telescopes that have been presented in research papers, using the information of them and with the help of the authors in some cases, the algorithm is tested to see if it can work with stellar flares or these are too weak to be detected without a telescope. 
+
+\section{Proxima Centauri}
+
+The first studied flare is presented in the paper \textit{"The first naked-eye superflare detected from Proxima Centauri"} (Howard, Ward S., et al.) \cite{howard2018first}, which, as the title of the paper suggests, the flare was so powerful it could even be seen with the naked eye. 
+
+This flare took place the 18th of March of 2016, with the flare peaking at 8:32 UT. Having the ti file from this day in particular, 2016.078, we filtered the time range to obtain one hour surounding that specific moment.
+
+After that, t
+
+
+

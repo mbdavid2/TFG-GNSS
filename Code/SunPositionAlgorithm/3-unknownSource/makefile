@@ -1,7 +1,7 @@
 .PHONY: *
 SHELL := /bin/bash
-CFLAGS = -Wall
-FFLAGS = -lgfortran -lblas -llapack -lgsl -lgslcblas
+CFLAGS = -Wall -fopenmp
+FFLAGS = -lgfortran -lblas -llapack -lgsl -lgslcblas -fopenmp
 
 
 

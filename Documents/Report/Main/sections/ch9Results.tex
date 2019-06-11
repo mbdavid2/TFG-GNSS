@@ -101,9 +101,7 @@ The study is divided in three categories, based on the method used to discard ou
 
 \section{Using all available data}
 
-The main problem of this method is that outliers that are far from the sample make the mean computation unstable, which causes the algorithm to use incorrect epochs. Furthermore, the outliers can cause numerical instability in some of the methods' computations.
-
-\subsection{Decreasing range}
+For this first test, all the data from the ti file is used: in the case of the Decreasing Range (DR) method, all the VTEC values that could be invalid are used to compute the correlation, and in the case of the Least Squares (LS) method, all are used for the equations of the system.
 
 \begin{table}[h!]
 	\centering
@@ -135,10 +133,8 @@ The main problem of this method is that outliers that are far from the sample ma
 		Total & 927.174 & 11.8299 \\
 		\hline
 	\end{tabular}
-	\caption{Results for different data sets}
+	\caption{Estimation error and execution time for different data sets using the DR method without any filter}
 \end{table}
-
-\subsection{Least Squares}
 
 \begin{table}[h!]
 	\centering
@@ -170,19 +166,20 @@ The main problem of this method is that outliers that are far from the sample ma
 		Total & 788.491 & 0.659363 \\
 		\hline
 	\end{tabular}
-	\caption{Results for different data sets}
+	\caption{Estimation error and execution time for different data sets using the LS method without any filter}
 \end{table}
 
 \subsection{Discussion}
 
+The main problem of this method is that outliers can cause the computation of the mean to be unstable, which causes the algorithm to use incorrect epochs. Furthermore, the outliers can cause numerical instability in some of the methods' computations, if one has a large value, for example, the computation of the correlation relies on the sum of the square of the VTEC value, so the total can lead to incorrect results.
+
+Another thing that we can see, is that the LS method is significantly faster: all data sets together add up to a total execution time of less than one second, whilst the DR method needs that time or even more for almost each of the data sets.
+
 \section{Direct VTEC filter}
 
-This is the first method used in the brute force approach that yielded results very similar to the real location of the Sun, but it does not work well with other data sets.
+Although this is a very simple method to discard outliers, it works because the value of the VTEC does not usually surpass values such as 0.8, although some IPPs present measures like this, perhaps due to other interferences in the satellite data. The flare from the day 301 of 2003, for example, studied in previous chapters, is one of the most powerful flares ever recorded, and the peak value of the Delta VTEC is 0.4.
 
-The filter is done using a cutoff value for the VTEC when the data is first filtered
-
-Different cutoff values are studied to see if this is a reliable method, as it simplifies the overall computation of the algorithm considerably.
-
+These are the results of the execution using a cutoff value of 0.7. This value was selected as it is the one that yielded the best results in a range of 0.3 to 1.
 
 \begin{table}[h!]
    	\centering
@@ -215,7 +212,7 @@ Different cutoff values are studied to see if this is a reliable method, as it s
    		Total & 539.746 & 13.5005 \\
    		\hline
    	\end{tabular}
-   	\caption{Results for different data sets}
+   	\caption{Estimation error and execution time for different data sets using the DR method with a cutoff filter}
 \end{table}
 
 \subsection{Least Squares}
@@ -250,18 +247,18 @@ Different cutoff values are studied to see if this is a reliable method, as it s
    		Total & 357.54 & 0.718233 \\
    		\hline
    	\end{tabular}
-   	\caption{Results for different data sets}\label{tab:lsDirect}
+   	\caption{Estimation error and execution time for different data sets using the LS method with a cutoff filter}
 \end{table}
 
 \subsection{Discussion}
 
 As we can see
 
-Considering how for both cases using the direct filter yields significantly better results, the next sections use this for filtering the first traversal of the data (when find the epoch and filtering by time).
+Considering how for both cases using the direct filter yields significantly better results, the next sections use this for filtering the first traversal of the data.
 
 \section{Decreasing range: linear fit}
 
-explain: best combination 3 y 4
+explain: best combination 3 y 4?
 
 \begin{table}[h!]
 	\centering
@@ -337,107 +334,17 @@ As we can see, the results in terms of estimation error are exactly the same as 
 
 \section{Least Squares estimation error}
 
-As we have seen in the previous chapter, using the estimation error to find the best estimation does not work because.... But it can be intersting to see how the estimation error evolves compared to the real error for all the studied data sets, the following plot shows:
+As we have seen in the previous chapter, using the estimation error to find the best estimation does not work because.... But it can be interesting to see how the estimation error evolves compared to the real error for all the studied data sets, the following plot shows:
 
-\section{Discussion}
+\begin{figure}[!htb]
+	\begin{centering}
+		\includegraphics[width=0.5\linewidth]{images/results/comparisonErrors.png}
+		\caption{Comparison of the real error and the estimated Least Squares error}
+		\label{fig:comparisonErrors}
+	\end{centering}
+\end{figure}
 
+\section{Conclusion}
 
-
-
-
-
-
-
-
-
-
-
-\clearpage
-\clearpage
-\clearpage
-\clearpage
-
-
-
-
-
-
-
-
-
-\section{Far-away stars}
-
-\subsection{Used data sets}
-
-
-
-
-
-
-
-
-
-
-\section{Sun}
-
-the two data sets for the best epoch
-
-the first one, study all epochs and see what happens even when there's no flare
-
-\subsection{Decrease range method}
-
-Instead of focusing on only the best epoch\footnote{The best epoch is the one with the highest mean VTEC of all its IPPs}, the following table presents the 15 best epochs from best to worst (with 11.05 at the top, the one studied in previous chapters) and their results: 
-
-\begin{itemize}
-	\item The right ascension and declination of the estimated source location (the Sun in this case)
-	\item The error of the previous results compared to the real Sun's location
-	\item The Pearson correlation coefficient of the estimated Sun
-\end{itemize}
-
-\begin{table}[h!]
-	\centering
-	\def\arraystretch{1.2}
-	\begin{tabular}{|c c c c c c|} 
-		\hline
-		\textbf{Epoch} & RA & Dec & RA Error & Dec Error & Correlation Coefficient \\ [0.5ex] 
-		\hline\hline
-		11.05 & 213.75 & -10.3125 & 1.412 & 2.7475 & 0.949659 \\ 
-		\hline
-		11.075 & 215.625 & -12.1875 & 3.287 & 0.8725 & 0.910935 \\ 
-		\hline
-		11.0417 & 210.938 & -9.375 & 1.4005 & 3.685 & 0.941128 \\ 
-		\hline
-		11.1167 & 211.875 & -19.6875 & 0.463 & 6.6275 & 0.669265 \\ 
-		\hline
-		11.0333 & 225.938 & -18.75 & 13.5995 & 5.69 & 0.564307 \\ 
-		\hline
-		11.025 & 219.375 & -16.875 & 7.037 & 3.815 & 0.49188 \\ 
-		\hline
-		11.0917 & 216.562 & -21.5625 & 4.2245 & 8.5025 & 0.48441 \\ 
-		\hline
-		11.1333 & 214.688 & -23.4375 & 2.3495 & 10.3775 & 0.397166 \\ 
-		\hline
-		11.1917 & 211.875 & -11.25 & 0.463 & 1.81 & 0.355636 \\ 
-		\hline
-		11.3667 & 185.625 & -76.875 & 26.713 & 63.815 & 0.23138 \\ 
-		\hline
-		10.8583 & 20.625 & -65.625 & 191.713 & 52.565 & 0.112926 \\ 
-		\hline
-		11.1583 & 211.875 & -32.8125 & 0.463 & 19.7525 & 0.29224 \\ 
-		\hline
-		10.9917 & 62.8125 & -71.25 & 149.525 & 58.19 & 0.130575 \\ 
-		\hline
-		11.0167 & 203.438 & 8.4375 & 8.9005 & 21.4975 & 0.211087 \\ 
-		\hline
-		11.4583 & 235.312 & -37.5 & 22.9745 & 24.44 & 0.137234 \\
-		\hline
-	\end{tabular}
-	\caption{Results for different epochs}
-\end{table}
-
-
-
-
-\section{Far-away stars}
-
+conclusion de todo el chapter?
 

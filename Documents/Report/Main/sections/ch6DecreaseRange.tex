@@ -166,7 +166,7 @@ The main problem of this method without it, the correlation could be calculated 
 Here is the new code in order to compute the correlation for each possible location:
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[style=myCStyle, caption=Discarding outliers and computing the correlation]
+\begin{lstlisting}[language=, caption=Discarding outliers and computing the correlation]
 double computeCorrelation(double* ra, double* dec) {
 	FileManager fileManager;
 	int sigma = 1;
@@ -184,7 +184,7 @@ As we can see, the data is traversed \textbf{at least} 3 times now (more dependi
 Executing the algorithm with both methods for discarding outliers using the data set from the previous chapter we obtain:
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption=Decreasing range using a cutoff value for outliers]
+\begin{lstlisting}[language=, caption=Decreasing range using a cutoff value for outliers]
 Estimation error: 1.86776 degrees
 Execution time: 1.07601 seconds
 \end{lstlisting}

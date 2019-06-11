@@ -1,5 +1,7 @@
 double precision function computeCorrelationFortran (raSunIn, decSunIn)
+	use omp_lib;
 	implicit none
+
 	double precision, intent(in) :: raSunIn, decSunIn
 
 	double precision :: sumy, sumy2, writeData
@@ -7,6 +9,19 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 	double precision, parameter :: CORRELATION_THRESHOLD = -0.2
 
 	double precision :: rxyPearsonCoefficient
+
+	
+ 
+	! write(*,*) "Running OpenMP Test 1: Environment variables"
+	! write(*,*) "Number of threads :",omp_get_num_threads()
+	! write(*,*) "Number of CPU's available:",omp_get_num_procs()
+	! call omp_set_num_threads(4) ! set the number of threads to 8
+	! write(*,*) "#Threads outside the parallel section:",omp_get_num_threads()
+	! !$OMP PARALLEL
+	! write(*,*) "Number of threads in a parallel section :",omp_get_num_threads()
+	! write(*,*) "Currently in thread with ID = ",omp_get_thread_num()
+	! !$OMP END PARALLEL
+
 
 	writeData = 0
 
@@ -74,11 +89,14 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 			
 			call openFile()
 
+			!$OMP PARALLEL DO PRIVATE(cosx, vtec) REDUCTION(-: sumx, sumy, sumxy, sumx2, sumy2, i)
 			do while (1 == 1)
+				! write(*,*) "Currently in thread with ID = ",omp_get_thread_num()
 				read (1, *, end = 240) cosx, vtec
 				call updateCorrelationParameters (cosx, vtec, sumx, sumy, sumxy, sumx2, sumy2)
 				i = i + 1
 			end do
+			!$OMP END PARALLEL DO
 			240 continue
 
 			close(1)

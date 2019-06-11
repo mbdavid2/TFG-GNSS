@@ -14,7 +14,7 @@ extern "C" double computecorrelationbasicfortran_(double* ra, double* dec);
 
 void FortranController::discardOutliersLinearFit(double* ra, double* dec) {
 	FileManager fileManager;
-	int sigma = 4;
+	int sigma = 3;
 	int iterations = 4;
 	computecosinesofcurrentsourcefortran_(ra, dec);
 	fileManager.discardOutliersLinearFitFortran(sigma, iterations);	
@@ -28,12 +28,15 @@ double FortranController::computeCorrelationWithLinearFit(double* ra, double* de
 
 double FortranController::computeCorrelation(double* ra, double* dec) {
 	consideredLocationsCounter++;
+	// cout << "Estamos en el controller " << consideredLocationsCounter++ << endl;
 	return computecorrelationbasicfortran_(ra, dec);
 }
 
 // double FortranController::computeCorrelation(double* ra, double* dec) {
+// 	// cout << "Estamos en el controller " << consideredLocationsCounter++ << endl;
 // 	return computeCorrelationWithLinearFit(ra, dec);
 // }
+ 
 
 void FortranController::printNumberOfConsideredLocations() {
 	cout << endl << consideredLocationsCounter << " locations considered" << endl;

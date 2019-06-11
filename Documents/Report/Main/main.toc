@@ -85,19 +85,19 @@
 \contentsline {paragraph}{Implementation}{41}{paragraph*.54}
 \contentsline {subsection}{\numberline {4.2.2}Distribution throughout the day}{42}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}Solar-zenith angle}{43}{section.4.3}
-\contentsline {section}{\numberline {4.4}Results}{45}{section.4.4}
+\contentsline {section}{\numberline {4.4}Results}{44}{section.4.4}
 \contentsline {chapter}{\numberline {5}Brute Force Approach}{46}{chapter.5}
 \contentsline {section}{\numberline {5.1}Key elements}{46}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Mean VTEC as a reliable indicator of the moment of the flare}{46}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Correlation}{48}{subsection.5.1.2}
-\contentsline {paragraph}{Computation}{48}{paragraph*.58}
-\contentsline {section}{\numberline {5.2}Algorithm}{49}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Implementation}{51}{subsection.5.2.1}
-\contentsline {paragraph}{Finding the epoch}{51}{paragraph*.60}
-\contentsline {paragraph}{Iterating over the possible Suns}{52}{paragraph*.61}
-\contentsline {paragraph}{Computing the correlation}{53}{paragraph*.62}
-\contentsline {paragraph}{Compiling}{55}{paragraph*.63}
-\contentsline {subsection}{\numberline {5.2.2}Results}{55}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.1.1}Correlation}{46}{subsection.5.1.1}
+\contentsline {paragraph}{Computation}{47}{paragraph*.57}
+\contentsline {section}{\numberline {5.2}Algorithm}{47}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Implementation}{49}{subsection.5.2.1}
+\contentsline {paragraph}{Finding the epoch}{49}{paragraph*.59}
+\contentsline {paragraph}{Iterating over the possible Suns}{50}{paragraph*.60}
+\contentsline {paragraph}{Computing the correlation}{51}{paragraph*.61}
+\contentsline {paragraph}{Compiling}{53}{paragraph*.62}
+\contentsline {subsection}{\numberline {5.2.2}Mean VTEC as a reliable indicator of the moment of the flare}{54}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Results}{54}{subsection.5.2.3}
 \contentsline {chapter}{\numberline {6}Decrease search range method}{57}{chapter.6}
 \contentsline {section}{\numberline {6.1}Decreasing the range of the search}{57}{section.6.1}
 \contentsline {section}{\numberline {6.2}Pseudocode}{58}{section.6.2}
@@ -119,19 +119,15 @@
 \contentsline {section}{\numberline {8.4}Discarding the Sun hemisphere}{78}{section.8.4}
 \contentsline {chapter}{\numberline {9}Results: methods comparison}{79}{chapter.9}
 \contentsline {section}{\numberline {9.1}Using all available data}{82}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Decreasing range}{82}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}Least Squares}{82}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}Discussion}{82}{subsection.9.1.3}
-\contentsline {section}{\numberline {9.2}Direct VTEC filter}{82}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Least Squares}{84}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Discussion}{84}{subsection.9.2.2}
-\contentsline {section}{\numberline {9.3}Decreasing range: linear fit}{84}{section.9.3}
+\contentsline {subsection}{\numberline {9.1.1}Discussion}{82}{subsection.9.1.1}
+\contentsline {section}{\numberline {9.2}Direct VTEC filter}{83}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Least Squares}{83}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Discussion}{83}{subsection.9.2.2}
+\contentsline {section}{\numberline {9.3}Decreasing range: linear fit}{83}{section.9.3}
 \contentsline {section}{\numberline {9.4}Least Squares: Iterations}{84}{section.9.4}
-\contentsline {section}{\numberline {9.5}Least Squares estimation error}{85}{section.9.5}
-\contentsline {section}{\numberline {9.6}Discussion}{86}{section.9.6}
-\contentsline {section}{\numberline {9.7}Far-away stars}{87}{section.9.7}
-\contentsline {subsection}{\numberline {9.7.1}Used data sets}{87}{subsection.9.7.1}
-\contentsline {section}{\numberline {9.8}Sun}{87}{section.9.8}
-\contentsline {subsection}{\numberline {9.8.1}Decrease range method}{87}{subsection.9.8.1}
-\contentsline {section}{\numberline {9.9}Far-away stars}{87}{section.9.9}
-\contentsline {chapter}{\numberline {10}Annexes}{89}{chapter.10}
+\contentsline {section}{\numberline {9.5}Least Squares estimation error}{86}{section.9.5}
+\contentsline {section}{\numberline {9.6}Conclusion}{86}{section.9.6}
+\contentsline {chapter}{\numberline {10}Results: methods comparison}{87}{chapter.10}
+\contentsline {section}{\numberline {10.1}Discarding the day hemisphere}{87}{section.10.1}
+\contentsline {section}{\numberline {10.2}Proxima Centauri}{88}{section.10.2}
+\contentsline {chapter}{\numberline {11}Annexes}{89}{chapter.11}

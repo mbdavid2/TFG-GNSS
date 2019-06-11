@@ -8,41 +8,6 @@ For this first approach the Sun is used as the source (to check the corectness o
 
 \section{Key elements}
 
-\subsection{Mean VTEC as a reliable indicator of the moment of the flare} -> TODO
-
-The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content throughout the provided data range. 
-In the previous chapter we already knew the specific moment of the flare: 11.05h, and could work based on this information, but the first step of the algorithm has to determine which moment is going to be studied.
-
-For each epoch\footnote{In our data set the epochs ranged from 10.5 to 11.5, that is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and returned the epoch which had the highest VTEC mean.
-
-??????An alternative which performs an insertion sort (by inserting the epoch candidates into a priority queue) was also considered and implemented, but for this chapter we only used the epoch with the largest mean.
-
-To see if the mean VTEC could be used as a reliable indicator, the algorithm was tested with all available epochs of the data set, in order to study the effect of this indicator in the resulting estimation of the source's location.
-
-To do this we ordered the different epochs available in our data set by their mean VTEC, inserting them into a priority queue. \\
-
-Figure \ref{fig:differentEpochs} shows the evolution of the correlation coefficient of the best estimated location (a) and its total error (right ascension error + declination error) (b) as the mean VTEC of the epoch decreases.
-
-\clearpage
-
-\begin{figure}[!htb]
-	\begin{subfigure}[b]{0.5\textwidth}
-		\includegraphics[width=\linewidth]{images/ch6/spikes/correlationDecrease.png}
-		\caption{Correlation coefficient}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.5\textwidth}
-		\includegraphics[width=\linewidth]{images/ch6/spikes/decreaseRangeError.png}
-		\caption{Error of the estimated source}
-	\end{subfigure}
-	\caption{Correlation and error of the solution as the mean VTEC decreases}
-	\label{fig:differentEpochs}
-\end{figure}
-
-As we can see, the correlation rapidly decreases from 1 (almost linear) to a negative coefficient. The error, on the other hand, doesn't experience much change for the first epochs but finally increases considerably. 
-
-The fact that the error remains near 0 as the correlation rapidly decreases for the first epochs can be due to the fact that different location of the source reduces its effect on the  the estimated location with the highest correlation coefficient is still similar to that of the source. As the position of the source changes (the Sun in this case)  TODO: este parrafo
-
 \subsection{Correlation}
 
 As seen in the previous chapter, there exists a correlation between the VTEC value and the cosine of the solar-zenith angle. 
@@ -189,6 +154,7 @@ This is the main code of the Fortran function \textit{computeCorrelation(ra, dec
 
 \textit{computeCorrelation(ra, dec)} reads every line of the file that contains the information of the IPPs filtered by the found epoch and computes both the solar-zenith angle and the VTEC using the same procedures seen in the previous chapter:
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=Fortran, caption=Correlation computation]
 double precision function traverseFile (raSunIn, decSunIn)
 	implicit none
@@ -227,6 +193,7 @@ double precision function traverseFile (raSunIn, decSunIn)
 	return
 end function traverseFile
 \end{lstlisting}
+\end{minipage}
 
 As can be seen in the code, the line (IPP) is only considered if $\cos\chi$ is higher than a \textit{"correlation threshold"} ($-0.1^{\circ}$ in this case). This is done because we want to study only the "part" of the ionosphere where the Sun is having an effect. This can be seen in figure \ref{fig:solar-zenith-angle}, where we observed that the VTEC value remained the same from $\cos\chi = -1$ (180$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$).
 
@@ -240,6 +207,7 @@ Once the two variables are computed (\textit{vtec} and \textit{cosx}, in the cod
 
 The following code updates this summations:
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=Fortran, caption=Function to update the necessary summations]
 subroutine updateCorrelationParameters (x, y, sumx, sumy, sumxy, sumx2, sumy2)
 	implicit none
@@ -255,9 +223,11 @@ subroutine updateCorrelationParameters (x, y, sumx, sumy, sumxy, sumx2, sumy2)
 	return
 end subroutine updateCorrelationParameters
 \end{lstlisting}
+\end{minipage}
 
 Finally, once all the IPPs have been processed, the previous summations are used to compute the Pearson Correlation Coefficient using equation \ref{eq:singlePass}, the value the function returns to the C++ code.
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=Fortran, caption=Function to compute the correlation coefficient using the summations]
 double precision function computePearsonCoefficient (n, sumx, sumy, sumxy, sumx2, sumy2)
 	implicit none
@@ -272,6 +242,7 @@ double precision function computePearsonCoefficient (n, sumx, sumy, sumxy, sumx2
 	return
 end function computePearsonCoefficient
 \end{lstlisting}
+\end{minipage}
 
 \paragraph{Compiling}
 
@@ -283,11 +254,80 @@ This can be done by compiling the object of the Fortran code using the $-c$ flag
 	
 \textit{g++ functions.o bruteForce.cc -o bruteForce.x -lgfortran}
 
+\subsection{Mean VTEC as a reliable indicator of the moment of the flare}
+
+The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content throughout the provided data range. 
+In the previous chapter we already knew the specific moment of the flare: 11.05h, and could work based on this information, but the first step of the algorithm has to determine which moment is going to be studied.
+
+For each epoch\footnote{In our data set the epochs ranged from 10.5 to 11.5, that is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and returned the epoch which had the highest VTEC mean.
+
+To see if the mean VTEC could be used as a reliable indicator, the algorithm was tested with all available epochs of the data set, in order to study the effect of this indicator in the resulting estimation of the source's location, before studying the one with the highest coefficient in detail.
+
+To do this we sorted the different epochs available in our data set by their mean VTEC, inserting them into a priority queue, the following table presents the 15 best epochs from best to worst and their results. Figure \ref{fig:differentEpochs} shows a visual representation of the evolution of the correlation coefficient and its total error (right ascension error + declination error) as the mean VTEC of the epoch decreases.
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c c c c|} 
+		\hline
+		\textbf{Epoch} & RA & Dec & RA Error & Dec Error & Correlation Coefficient \\ [0.5ex] 
+		\hline\hline
+		11.05 & 213.75 & -10.3125 & 1.412 & 2.7475 & 0.949659 \\ 
+		\hline
+		11.075 & 215.625 & -12.1875 & 3.287 & 0.8725 & 0.910935 \\ 
+		\hline
+		11.0417 & 210.938 & -9.375 & 1.4005 & 3.685 & 0.941128 \\ 
+		\hline
+		11.1167 & 211.875 & -19.6875 & 0.463 & 6.6275 & 0.669265 \\ 
+		\hline
+		11.0333 & 225.938 & -18.75 & 13.5995 & 5.69 & 0.564307 \\ 
+		\hline
+		11.025 & 219.375 & -16.875 & 7.037 & 3.815 & 0.49188 \\ 
+		\hline
+		11.0917 & 216.562 & -21.5625 & 4.2245 & 8.5025 & 0.48441 \\ 
+		\hline
+		11.1333 & 214.688 & -23.4375 & 2.3495 & 10.3775 & 0.397166 \\ 
+		\hline
+		11.1917 & 211.875 & -11.25 & 0.463 & 1.81 & 0.355636 \\ 
+		\hline
+		11.3667 & 185.625 & -76.875 & 26.713 & 63.815 & 0.23138 \\ 
+		\hline
+		10.8583 & 20.625 & -65.625 & 191.713 & 52.565 & 0.112926 \\ 
+		\hline
+		11.1583 & 211.875 & -32.8125 & 0.463 & 19.7525 & 0.29224 \\ 
+		\hline
+		10.9917 & 62.8125 & -71.25 & 149.525 & 58.19 & 0.130575 \\ 
+		\hline
+		11.0167 & 203.438 & 8.4375 & 8.9005 & 21.4975 & 0.211087 \\ 
+		\hline
+		11.4583 & 235.312 & -37.5 & 22.9745 & 24.44 & 0.137234 \\
+		\hline
+	\end{tabular}
+	\caption{Results for different epochs}
+\end{table}
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch6/spikes/correlationDecrease.png}
+		\caption{Correlation coefficient}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/ch6/spikes/decreaseRangeError.png}
+		\caption{Error of the estimated source}
+	\end{subfigure}
+	\caption{Correlation and error of the solution as the mean VTEC decreases}
+	\label{fig:differentEpochs}
+\end{figure}
+
+As we can see, the correlation rapidly decreases from 1 (almost linear) to a negative coefficient. The error, on the other hand, doesn't experience much change for the first epochs but finally increases considerably, because despite the correlation coefficient the estimation can still be done. Past a certain correlation, however, the estimation is harder to perform and the error spikes. 
+
 \subsection{Results}
 
 Executing the algorithm with a STEP of 10$^{\circ}$, this is the output of the execution:
 
-\begin{lstlisting}[caption=Brute force approach algorithm output]
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=, caption=Brute force approach algorithm output]
 [C++: Finding a spike in the VTEC distribution]
 	-> Spike found: 11.05
 [AWK: Filtering all data by best epoch: 11.05]
@@ -298,6 +338,7 @@ Executing the algorithm with a STEP of 10$^{\circ}$, this is the output of the e
 	-> Largest correlation coefficient: 0.926959
 	-> Estimated Sun's location: [ra=210, dec=-10]
 \end{lstlisting}
+\end{minipage}
 
 As we can see, the possible Sun with the highest correlation coefficient (0.9269) has a location with a right ascension of 210$^{\circ}$ and a declination of -10$^{\circ}$. Considering that for the epoch we are working with the Sun position was $212.338^{\circ}$ and $-13.060^{\circ}$ as the right ascension and declination, respectively, we can see that the estimated Sun's location returned by the algorithm is close to the real one, using a step of 10$^{\circ}$.
 
