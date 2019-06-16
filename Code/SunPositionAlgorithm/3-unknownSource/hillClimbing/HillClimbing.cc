@@ -47,7 +47,7 @@ vector<possibleSunInfo> getLocalNeighboursList(possibleSunInfo current, FortranC
 	        	possibleSunInfo psi;
 	        	psi.ra = ra;
 	        	psi.dec = dec;
-	        	psi.coefficient = fortranController.computeCorrelation(&ra, &dec);
+	        	// psi.coefficient = fortranController.computeCorrelation(&ra, &dec);
 	        	writeToFileForOutput(psi, "hillClimbingAll.out");
 	            locals.push_back(psi);
 	        }
@@ -79,7 +79,7 @@ void HillClimbing::estimateSourcePosition() {
     // current.dec = -60;
     current.ra = 160;
     current.dec = -20;
-    current.coefficient = fortranController.computeCorrelation(&current.ra, &current.dec);
+    // current.coefficient = fortranController.computeCorrelation(&current.ra, &current.dec);
     possibleSunInfo best;// = make_pair(-1, -1);
     int i = 0;
     while (++i < 100) {

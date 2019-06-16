@@ -2,7 +2,6 @@
 #include <vector>
 #include <queue>
 #include <fstream>
-#include <omp.h>
 #include "TraverseGlobe.h"
 #include "../auxiliary/Auxiliary.h"
 #include "../fortranController/FortranController.h"
@@ -76,7 +75,7 @@ void writeCoefficientToFile(double ra, double dec, double pearsonCoefficient, of
 	
 }
 
-possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange range, ofstream& plotData) {
+possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange range, ofstream& plotData, int numRows) {
 	FortranController fc;
 
 	if (output) printCorrelationParameters(step, range);
@@ -92,7 +91,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 		if (dec != -90 and dec != 90) {
 			// #pragma omp for schedule(static)
 			for (double ra = range.lowerRa; ra <= range.upperRa; ra += step) {
-				pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
+				pearsonCoefficient = fc.computeCorrelation(&ra, &dec, &numRows);
 				if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 				if (pearsonCoefficient > bestSun.coefficient) {
 					bestSun.coefficient = pearsonCoefficient;
@@ -107,7 +106,7 @@ possibleSunInfo TraverseGlobe::considerPossibleSuns(double step, searchRange ran
 		else {
 			//Do only once
 			double ra = 0;
-			pearsonCoefficient = fc.computeCorrelation(&ra, &dec);
+			pearsonCoefficient = fc.computeCorrelation(&ra, &dec, &numRows);
 			if (output) cout << "\r" << "[Computing: " << ++i << " possible Suns considered]";
 			if (pearsonCoefficient > bestSun.coefficient) {
 				bestSun.coefficient = pearsonCoefficient;
@@ -149,7 +148,7 @@ searchRange TraverseGlobe::setRange(possibleSunInfo sun, bool defaultRange, doub
 	return range;
 }
 
-void TraverseGlobe::decreasingSTEP() {
+void TraverseGlobe::decreasingSTEP(int numRows) {
 	ofstream plotData;
 	plotData.open("gnuplot.in", ios::trunc);
 	int rangeSize = 3;
@@ -157,7 +156,7 @@ void TraverseGlobe::decreasingSTEP() {
 	possibleSunInfo currentSun;
 	searchRange range = setRange(currentSun, true, initialStep, rangeSize);
 	for (double step = initialStep; step >= 0.5; step /= 2) {
-		currentSun = considerPossibleSuns(step, range, plotData);
+		currentSun = considerPossibleSuns(step, range, plotData, numRows);
 		bestSuns.push(currentSun);
 		// if (output) printCorrelationResults(currentSun);
 		range = setRange(currentSun, false, step, rangeSize);
@@ -169,7 +168,8 @@ void TraverseGlobe::debugSingle() {
 	FortranController fc;
 	double ra = 212.338;
 	double dec = -13.060;
-	double pearsonCoefficient = fc.computeCorrelationWithLinearFit(&ra, &dec);
+	int numRows = 532;
+	double pearsonCoefficient = fc.computeCorrelationWithLinearFit(&ra, &dec, &numRows);
 	possibleSunInfo bestSun;
 	bestSun.coefficient = pearsonCoefficient;
 	bestSun.ra = ra;
@@ -178,8 +178,8 @@ void TraverseGlobe::debugSingle() {
 	bestSuns.push(bestSun);
 }
 
-void TraverseGlobe::estimateSourcePosition() {
-	decreasingSTEP();
+void TraverseGlobe::estimateSourcePosition(int numRows) {
+	decreasingSTEP(numRows);
 	// printRealSun();
 }
 

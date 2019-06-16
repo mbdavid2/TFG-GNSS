@@ -1,13 +1,16 @@
-\chapter{Other methods}
+\chapter{Other methods and optimizations}
 
-\textbf{hill climbing ok, SA y OpenMP faltan}
+\textbf{Falta acabar las dos ultimas secciones la conclusion}
 
-Here other possible optimizations are considered that could be used to, in the future, extend the algorithm and perhaps improve its performance and accuracy.
+In the previous chapters two methods to estimate the location of a flare have been presented. 
+
+Here, other possible optimizations are considered that could be used to, in the future, extend the algorithm and perhaps improve its performance and accuracy.
+
+While some are completely different methods, others are optimizations that can be built on top of any approach.
 
 \section{Hill Climbing}
 
-explicar que no es hill climbing exactamente, algo mas simple rollo greedy 
-Using the previous optimization we can see a plot of all the possibilities the algorithm considers:
+Using the decrease range method in chapter 6 we could see the plot of all the possibilities the algorithm considers:
 
 \begin{figure}[!htb]
 	\begin{centering}
@@ -17,9 +20,11 @@ Using the previous optimization we can see a plot of all the possibilities the a
 	\end{centering}
 \end{figure}
 
-As we can see in the previous figure, there appears to be a "hill" (our solution) so an attempt to solve the problem using a \textit{Hill Climbing} approach was also considered.
+In this solution space, there appears to be a "hill" (our solution) so an attempt to solve the problem using a \textit{Hill Climbing} approach was also considered.
 
-While not exactly Hill Climbing, a simple greedy algorithm was implemented as a first attempt to test if this method could yield good results:
+Hill Climbing is an heuristic search algorithm that moves through the solution space of a problem by finding the best neighbour of the current solution until it can not progress any more. Seeing the previous figure we thought it could be interesting to test this method for our problem, so a simple greedy algorithm was implemented as a first attempt to test if the method could work.
+
+The following is the implementation of such test, which checks its surrounding neighbours and moves to the best one (the objective function is the correlation) until the solution can not be improved any further.
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=c, caption=Hill Climbing]
@@ -40,7 +45,7 @@ While not exactly Hill Climbing, a simple greedy algorithm was implemented as a 
 	\end{lstlisting}
 \end{minipage}
 
-The following figure shows the results of the execution for two different starting states. For both of them, the algorithm ran until it couldn't progress any further (wasn't interrupted by the iteration limit). The plots contain both the possibilities considered by the decrease range method (in purple, the same plot as \ref{fig:solutionSpace}) and the path taken by the Hill Climbing method (in green).
+The following figure shows the results of the execution for two different starting states. For both of them, the algorithm ran until it couldn't progress any further (wasn't interrupted by the iteration limit). The plots contain both the possibilities considered by the decrease range method (in purple, the same plot as \ref{fig:solutionSpace}), and the path taken by the greedy algorithm (in green).
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -62,21 +67,22 @@ If we take a starting right ascension of 160$^{\circ}$ and a declination of -20$
 
 However, with a starting right ascension of 100$^{\circ}$ and a declination of -60$^{\circ}$, the algorithm finds a local maxima on its way and can't progress to the real best solution.
 
-As a result, we can't rely on the Hill Climbing approach for all cases, considering that local maxima may exist for our type of problem. Because of this, another possibility would be to use the Simulated Annealing algorithm so that we can explore other parts of the solution space and find other paths that might lead to our desired solution, instead of only.
+As a result, we can't rely on the Hill Climbing approach for all cases, considering that local maxima may exist for our type of problem, leading to incorrect estimations in some cases.
 
 \section{Simulated Annealing}
 
+Simulated Annealing is an heuristic search algorithm that approximates the optimal solution of a problem, similar to Hill Climbing. The main difference is the use of probability to accept a solution as better than the current one, to be able to explore other areas of the solution space.
+
+A possible solution to the problem of local maxima seen in the previous section would be using the Simulated Annealing algorithm so that other parts of the solution space could be explored, finding other paths that might lead to our desired solution, instead of only focusing on one path that could get stuck in a local maxima.
+
+Although it might yield better results, simulated annealing approximates the optimal solution, but does not guarantee finding the global maxima. This approach could be tested in the future...but not for now...blab blabla
+
 \section{OpenMP}
 
-Explicar OpenMP
+OpenMP (Open Multi-Processing) is an specification for compiler directives and library routines available for C, C++ and Fortran used for parallel programming.
 
-\section{Discarding the Sun hemisphere}
+Using OpenMP would not be an entirely different method, but rather an optimization that could be used with all the presented methods to try to parallelize some regions of the code. It would be feasible for our case considering it is available for both C++ and Fortran, the main languages used for the algorithms.
 
-So far the algorithm has been studied for the case of the Sun, as it is a source that should be detected more easily than far-away stars. 
+An example of how multi-processing could be used for the algorithm would be parallelizating the computation of the correlation in the decrease range method: each thread could read a part of the input and compute the necessary variables used to compute the final value of the correlation. Because these variables are sums, each thread could handle a part of the input and finally we could compute the total sum using OpenMP's reduction clause (which sums the values from each thread at the end of the partial loop).
 
-The main idea is that the algorithm should detect extraterrestrial EUV sources (if possible) other than the Sun. it follows that it should, before any other computations, discard the Sun hemisphere based on the current Sun location. The greater impact of the Sun's radiation due to its proximity would blind the algorithm from detecting sources that may be having an effect on that hemisphere because of the noise.
-
-
-explicar como se hace el discard hemisphere
-
-This will be used in the next chapter, in which the presented methods will tested with flares from the Sun and far-away stars.
+Explicar que esto no se ha implementado in the future bla bla bla

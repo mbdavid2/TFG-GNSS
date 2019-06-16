@@ -84,6 +84,14 @@ W.~S. Howard, M.~A. Tilley, H.~Corbett, A.~Youngblood, R.~P. Loyd, J.~K.
 \newblock \url{http://magnetars.ice.csic.es/#/parameters}.
 \newblock [Online; accessed 3-March-2019].
 
+\bibitem{jackman2018detection}
+J.~A. Jackman, P.~J. Wheatley, C.~E. Pugh, D.~Y. Kolotkov, A.-M. Broomhall,
+  G.~M. Kennedy, S.~J. Murphy, R.~Raddi, M.~R. Burleigh, S.~L. Casewell, et~al.
+\newblock Detection of a giant flare displaying quasi-periodic pulsations from
+  a pre-main-sequence m star by the next generation transit survey.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  482(4):5553--5566, 2018.
+
 \bibitem{greinergrb}
 {Jochen Greiner, Max-Planck-Institute for extraterrestrial Physics}.
 \newblock {GRB collection}.
@@ -138,5 +146,12 @@ S.~Solar~Center.
 \newblock {Reference Systems}.
 \newblock \url{https://solarsystem.nasa.gov/basics/chapter2-2/}.
 \newblock [Online; accessed 5-March-2019].
+
+\bibitem{proximawiki}
+WikiSky.
+\newblock {Proxima Centauri location}.
+\newblock
+  \url{http://server3.wikisky.org/starview?object_type=1&object_id=2392473}.
+\newblock [Online; accessed 3-June-2019].
 
 \end{thebibliography}

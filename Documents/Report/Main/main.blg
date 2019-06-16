@@ -20,48 +20,49 @@ A level-1 auxiliary file: sections/ch8OtherMethods.aux
 A level-1 auxiliary file: sections/ch9Results.aux
 A level-1 auxiliary file: sections/ch10ResultsStellar.aux
 A level-1 auxiliary file: sections/ch10Annexes.aux
+A level-1 auxiliary file: sections/ch15Conclusions.aux
 Database file #1: sections/references.bib
 Warning--to sort, need author or key in igswebsite
 Warning--to sort, need author or key in starlinkproject
-You've used 23 entries,
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            650 strings with 8621 characters,
-and the built_in function-call counts, 7543 in all, are:
-= -- 699
-> -- 467
+            663 strings with 9259 characters,
+and the built_in function-call counts, 8383 in all, are:
+= -- 775
+> -- 532
 < -- 2
-+ -- 192
-- -- 164
-* -- 543
-:= -- 1302
-add.period$ -- 76
-call.type$ -- 23
-change.case$ -- 147
++ -- 218
+- -- 188
+* -- 612
+:= -- 1449
+add.period$ -- 83
+call.type$ -- 25
+change.case$ -- 164
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 219
-empty$ -- 547
-format.name$ -- 164
-if$ -- 1517
+cite$ -- 27
+duplicate$ -- 237
+empty$ -- 598
+format.name$ -- 188
+if$ -- 1681
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 15
-newline$ -- 125
-num.names$ -- 42
-pop$ -- 194
+int.to.str$ -- 25
+missing$ -- 16
+newline$ -- 136
+num.names$ -- 46
+pop$ -- 215
 preamble$ -- 1
-purify$ -- 125
+purify$ -- 140
 quote$ -- 0
-skip$ -- 147
+skip$ -- 160
 stack$ -- 0
-substring$ -- 332
-swap$ -- 25
+substring$ -- 373
+swap$ -- 27
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 96
 warning$ -- 2
-while$ -- 60
-width$ -- 25
-write$ -- 250
+while$ -- 66
+width$ -- 27
+write$ -- 272
 (There was 1 error message)

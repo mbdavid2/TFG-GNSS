@@ -57,17 +57,17 @@ void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correct
 
     correctRa = toRadians(correctSunLocation.ra);
     correctDec = toRadians(correctSunLocation.dec);
-	correctRa = 217.4;
-	correctDec = -69.5;
+	correctRa = 217.4294;
+	correctDec = -62.67948;
 	estimatedRa = toRadians(ra);
     estimatedDec = toRadians(dec);
 
 	double cosineChi = sin(estimatedDec)*sin(correctDec) + cos(estimatedDec)*cos(correctDec)*cos(estimatedRa - correctRa);
 	double errorDegrees = toDegrees(acos(cosineChi));
 	if (latex) cout << " & " << errorDegrees;
-    else cout << " Ra: " << ra << " Dec: " <<  dec << " | Error:" << errorDegrees;
-	// else cout << " " << errorDegrees;
-	// if (totalEstimationErrorLeastSquares != -1) cout << " & " << totalEstimationErrorLeastSquares;
+    // else cout << " Ra: " << ra << " Dec: " <<  dec << " | Error:" << errorDegrees << " Time: ";
+	else cout << " " << errorDegrees;
+	// if (totalEstimationErrorLeastSquares != -1) cout << " " << totalEstimationErrorLeastSquares;
 	// Update total error of the method
 	totalErrorMethod += errorDegrees;
 	 

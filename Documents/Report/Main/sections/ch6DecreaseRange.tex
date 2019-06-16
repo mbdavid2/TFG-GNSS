@@ -1,4 +1,4 @@
-\chapter{Decrease search range method}
+\chapter{Decreasing search range method}
 
 \textbf{falta revisar seccion linear fit}
 
@@ -6,7 +6,7 @@ In the previous chapter we saw that the BGSEES algorithm for detecting the locat
 
 \section{Decreasing the range of the search}
 
-As we saw in the previous chapter, to increase the precision of the algorithm, the \textit{step} with which we iterate over the possible angles (right ascension and declination) is reduced. This causes more possible Suns to be considered. For example, with a step of one degree, we consider all possible right ascensions [0,360] and declinations [-90,90]: $360*180 = 64800$ Suns, minus the $2*360 - 2 = 718$ right ascensions we don't consider\footnote{We don't consider the 360 right ascensions of the two poles (-90 and 90), hence 2*360, but we do consider the two poles themselves (with any valid right ascension)} because as we have seen right ascensions for declinations of -90 and 90 are the same location.
+As we saw in the previous chapter, to increase the precision of the algorithm, the \textit{step} with which we iterate over the possible angles (right ascension and declination) is reduced. This causes more possible Suns to be considered. For example, with a step of one degree, we consider all possible right ascensions [0,360] and declinations [-90,90]: $360*180 = 64800$ Suns, minus the $2*360 - 2 = 718$ right ascensions we do not consider\footnote{We do not consider the 360 right ascensions of the two poles (-90 and 90), hence 2*360, but we do consider the two poles themselves (with any valid right ascension)} because as we have seen right ascensions for declinations of -90 and 90 are the same location.
 
 We want to have the highest precision possible without having to consider all $64800 - 718 = 64082$ possibilities by progressively reducing the search range.
 
@@ -45,14 +45,14 @@ The following is the pseudocode\footnote{The code for the special cases of -90 a
 
 This first piece of code is the main loop of the method, which starts with a default range of ra=[0, 360], dec=[-90, 90] and is reduced every iteration based on the current best Sun's estimated location.
 
-Furthermore, because an increase in the precision of the tested location doesn't necessarily imply an improvement in the solution, the new candidate is inserted into a \textit{priorityQueue} ordered by the coefficient to assure that the method returns the best one found throughout the entire execution.
+Furthermore, because an increase in the precision of the tested location does not necessarily imply an improvement in the solution, the new candidate is inserted into a \textit{priorityQueue} ordered by the coefficient to assure that the method returns the best one found throughout the entire execution (it is inserted into a priority queue for debugging purposes, but simply saving the best solution would be more efficient).
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=c, caption=Decreasing the range and increasing the precision]
 void TraverseGlobe::decreasingSTEP() {
 	int rangeSize = 3;
 	int initStep = 60;
-	possibleSunInfo currentSun;
+	sourceInfo currentSun;
 	searchRange range = setRange(currentSun, true, initStep, rangeSize);
 	for (double step = initialStep; step >= 0.5; step /= 2) {
 		currentSun = considerPossibleSuns(step, range, plotData);
@@ -66,23 +66,23 @@ The \textit{setRange} function sets a new range based on the estimated location 
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=c, caption=Setting the new range based on the estimated source location]
-searchRange setRange(possibleSunInfo sun, bool defaultR, double step, int rangeSize) {
-	searchRange range;
+searchRange setRange(sourceInfo sun, bool defaultR, double step, int rangeSize) {
+	searchRange r;
 	if (defaultR) {
-		range.lowerRa = 0;
-		range.upperRa = 360;
-		range.lowerDec = -90;
-		range.upperDec = 90;
+		r.lowerRa = 0;
+		r.upperRa = 360;
+		r.lowerDec = -90;
+		r.upperDec = 90;
 	}
 	else {
-		double raRange = step*rangeSize;
-		double decRange = step*rangeSize;
-		range.lowerRa = sun.ra - raRange >= 0 ? sun.ra - raRange : 0;
-		range.upperRa = sun.ra + raRange <= 360 ? sun.ra + raRange : 360;
-		range.lowerDec = sun.dec - decRange >= -90 ? sun.dec - decRange : -90;
-		range.upperDec = sun.dec + decRange <= 90 ? sun.dec + decRange : 90;
+		double rRange = step*rangeSize;
+		double dRange = step*rangeSize;
+		r.lowerRa = sun.ra - rRange >= 0 ? sun.ra - rRange : 0;
+		r.upperRa = sun.ra + rRange <= 360 ? sun.ra + rRange : 360;
+		r.lowerDec = sun.dec - dRange >= -90 ? sun.dec - dRange : -90;
+		r.upperDec = sun.dec + dRange <= 90 ? sun.dec + dRange : 90;
 	}
-	return range;
+	return r;
 }\end{lstlisting}
 \end{minipage}
 
@@ -92,11 +92,11 @@ The names of the lower and upper bound variables have been changed (\textit{uRa}
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[style=myCStyle, caption=Iterating over possible locations within the given range]
-possibleSunInfo considerPossibleSuns(double step, searchRange range) {
+sourceInfo considerPossibleSuns(double step, searchRange range) {
 	FortranController fc;
 	double pearsonCoefficient;
 	int i = 0;
-	possibleSunInfo bestSun;
+	sourceInfo bestSun;
 	bestSun.coefficient = -23;
 	bestSun.location = "salu2";
 
@@ -142,7 +142,7 @@ and declinations (the possible solutions to our problem) and the Y axis is the c
 As we can see in the plot, as we increase the precision of the search, the range decreases, this can be seen because each point
 of the plot is each of the locations considered by the algorithm: the density of considered solutions increases as the algorithm gets closer to the local maxima, the correct solution we are looking for.
 
-Another change that could be done to improve this method's performance would be to adopt a sort of \textit{"Dynamic Programming"} strategy in order to avoid repeated calculations (the new range will always be inside the previous range). However, the problem is that because we are dealing with a different precision for the right ascension and declination values every loop, the same values are never used.
+Another change that could be done to improve this method's performance would be to adopt a sort of \textit{"Dynamic Programming"} strategy in order to avoid repeated calculations (the new range will always be inside the previous range). However, the problem is that because we are dealing with a different precision for the right ascension and declination values every loop, the algorithm is not working with the exact same value.
 
 \section{Linear fitting: discarding outliers}
 
@@ -166,7 +166,7 @@ The main problem of this method without it, the correlation could be calculated 
 Here is the new code in order to compute the correlation for each possible location:
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[language=, caption=Discarding outliers and computing the correlation]
+\begin{lstlisting}[language=C++, caption=Discarding outliers and computing the correlation]
 double computeCorrelation(double* ra, double* dec) {
 	FileManager fileManager;
 	int sigma = 1;
@@ -190,6 +190,10 @@ Execution time: 1.07601 seconds
 \end{lstlisting}
 \end{minipage}
 
+As we can see, the algorithm provides a better estimation than the brute force approach. Which took more than minute yielding a result with a precision of 1 degree.
+
+Testing the algorithm using the linear fit approach to discard outliers we obtain the following result:
+
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[caption=Decreasing range using linear fit for outliers]
 Estimation error: 3.57674 degrees
@@ -197,6 +201,6 @@ Execution time: 37.5578 seconds
 \end{lstlisting}
 \end{minipage}
 
-As we can see, for this data set in particular, the solution has a similar error (although the linear fit version does not improve with respect to the one with a basic filter) and the execution time is increased considerably. This comparison will be studied in more detail in the \textit{Results} chapter, where different data sets will be used.
+For this data set in particular, the solution has a similar error (although the linear fit version does not improve with respect to the one with a basic filter) and the execution time is increased considerably. This comparison will be studied in more detail in the \textit{Results} chapter, where different data sets will be used. \\
 
-Seeing the increase in computational complexity of this method because of the fact that outliers have to be discarded using the linear fitting method, we decided to instead focus on a different method that would rely only on the data itself, instead of considering the many possible locations of the source.
+Seeing the increase in computational complexity of this method when discarding outliers using linear fitting, we decided to focus on a different method that would rely only on the data itself, instead of considering the many possible locations of the source.

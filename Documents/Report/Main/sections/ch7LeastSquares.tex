@@ -1,6 +1,6 @@
 \chapter{Least Squares method}
 
-\textbf{falta implementacion, copiar el codigo}
+\textbf{falta explicar el discard de las iteraciones??}
 
 As we have seen in previous chapters the overall process to determine the location of the source is studying the correlation between the VTEC value and the solar-zenith angle (or source-zenith angle, speaking in general terms) for a possible location.
 
@@ -155,7 +155,7 @@ But we have two operations that involve the declination, $X=\cos\delta_{s} * \co
 \alpha_{s} = \text{arctan2}(X,Y)
 \end{equation}
 
-The $\text{arctan2}(X,Y)$ function is a Fortran function that computes the tangent but using two .....completar explicacion
+The $\text{arctan2}(X,Y)$ function is a Fortran function that computes the tangent but using two numbers. Instead of relying only on one angle (which would cause ambiguity regarding the quadrant of the angle) this function uses both angles to determine the exact value, which suits our situation.
 
 Using these two operations, the algorithm finally yields our solution: the right ascension and declination estimated from using all the IPPs' information as an overdetermined system.
 
@@ -411,7 +411,29 @@ As we can see, the error is there has been a slight increase in the error compar
 
 \subsection{Multiple iterations: narrowing the search}
 
-A possible way introduced before to improve the result could be iterating using the estimated value of the algorithm. This is the execution using 10 iterations:
+As mentioned before, a possibility to improve the result could be iterating using the estimated value of the algorithm. This is done using the \textit{checkOutlier()} function when storing the matrix data (listing \ref{lst:storeData}). The function implements the method to discard IPPs discussed earlier in the chapter:  computing the cosine of the angle between the estimated solution and the IPP and discard it considering a cosine threshold: -0.1, to work only IPPs from the day hemisphere.
+
+\begin{minipage}{\linewidth}
+	\label{lst:solveSystem}
+	\begin{lstlisting}[style=myFortranStyle, caption=Function checkOutlier to discard outliers]
+	integer function checkOutlier(solutionRa, solutionDec, raIPP, decIPP)
+		implicit none
+		double precision, intent(in) :: solutionRa, solutionDec, raIPP, decIPP
+		double precision :: sourceZenithAngle
+		integer :: validSample, returnValue
+
+		sourceZenithAngle = computeSourceZenithAngle (solutionRa, solutionDec, raIPP, decIPP)
+		if (sourceZenithAngle >= COSINE_THRESHOLD) then
+			validSample = 1
+		else
+			validSample = 0
+		end if
+		returnValue = validSample
+		return
+	end function checkOutlier\end{lstlisting}
+\end{minipage}
+
+The following table shows the results of using 10 iterations with this method:
 
 \begin{table}[h!]
 	\centering
@@ -444,11 +466,23 @@ A possible way introduced before to improve the result could be iterating using 
 	\caption{10 iterations of the Least Squares method}
 \end{table}
 
-As we can see, multiple iterations do not present an improvement in the estimation. This is caused because each iteration IPPs are discarded and therefore the system of equations has less information to compute the estimation TODO: 457
+As we can see, multiple iterations do not present an improvement in the estimation. This is caused because in each iteration IPPs are discarded and therefore the system of equations has less information to compute the estimation.
 
-\subsection{Multiple iterations: Covariance matrix¿?¿ Error}
+\subsection{Multiple iterations: residual sum}
 
-Another possibility would be to use the error? from the Least Squares estimation (not one we obtain comparing our solution to the real position). This is peformed by simply saving the best (smallest) error and returning its location. This is the result for the first 5 iterations:
+Another possibility would be to discard IPPs by using the residual sum of the Least Squares estimation (not the one we obtain comparing our solution to the real position). This value can be obtained using the real VTEC values (from the input data) with the ones we would obtain using the least squares estimated model.
+
+\begin{equation} \label{eq:residual}
+\sigma^{2} = \frac{\sum_{i = 0}^{m}(y_{i}-f(i))^{2}}{m}
+\end{equation}
+
+Which can then be used to discard IPPs based on the following comparison.
+
+\begin{equation} \label{eq:discard}
+|(y_{i}-f(i)| <= 3\sigma
+\end{equation}
+
+These are the results of executing the algorithm using this approach to discard outliers each iteration, and returning the result of the best iteration (the one with the smallest error).
 
 \begin{table}[h!]
 	\centering
@@ -471,8 +505,6 @@ Another possibility would be to use the error? from the Least Squares estimation
 	\caption{5 iterations of the Least Squares method using the estimation error}
 \end{table}
 
-In the next chapter the covariance matrix will be studied more in detail, so that it can be compared to other data sets and see how its value evolves.
+As with the previous iteration method, we are discarding rows and therefore the Least Squares method reduces its precision, therefore yielding a larger error; because the error does not improve, the result of each iteration is always the one from the first iteration (the one with the most equations). \\
 
-As with the previous iteration method, we are discarding rows and therefore the Least Square method reduces its precision, therefore yielding a larger error, because of this, the result of each iteration is always the one from the first iteration (the one with the most equations), because the error doesn't improve. \\
-
-Although for this specific case there the method does not present an improvement in comparison to the Decreasing Range method, the Least Squares method is significantly faster in terms of execution, and will be studied in more detail in the following chapter, where more data sets will be used, to see which yields the best results.
+Although for this specific case there the method does not present an improvement in comparison to the Decreasing Range method, the Least Squares method is significantly faster in terms of execution, and will be studied in more detail in the following chapter, where more data sets will be used to see which yields the best results.

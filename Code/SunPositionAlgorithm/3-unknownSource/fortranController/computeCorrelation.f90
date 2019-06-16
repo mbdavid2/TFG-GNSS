@@ -1,5 +1,5 @@
-double precision function computeCorrelationFortran (raSunIn, decSunIn)
-	use omp_lib;
+double precision function computeCorrelationFortran (raSunIn, decSunIn, numRows)
+	use omp_lib, only: OMP_Get_num_threads;
 	implicit none
 
 	double precision, intent(in) :: raSunIn, decSunIn
@@ -10,17 +10,17 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 
 	double precision :: rxyPearsonCoefficient
 
-	
- 
-	! write(*,*) "Running OpenMP Test 1: Environment variables"
-	! write(*,*) "Number of threads :",omp_get_num_threads()
-	! write(*,*) "Number of CPU's available:",omp_get_num_procs()
-	! call omp_set_num_threads(4) ! set the number of threads to 8
-	! write(*,*) "#Threads outside the parallel section:",omp_get_num_threads()
-	! !$OMP PARALLEL
-	! write(*,*) "Number of threads in a parallel section :",omp_get_num_threads()
-	! write(*,*) "Currently in thread with ID = ",omp_get_thread_num()
-	! !$OMP END PARALLEL
+	integer, intent(in) :: numRows
+
+	! print *, "----------- computeCorrelationFortran -----------"
+	! ! This will always print "1"
+	! print *,OMP_Get_num_threads()
+
+	! ! This will print the actual number of threads
+	! CALL OMP_SET_NUM_THREADS(3)
+	! !$omp parallel
+	! print *,OMP_Get_num_threads()
+	!!$omp end parallel
 
 
 	writeData = 0
@@ -89,14 +89,14 @@ double precision function computeCorrelationFortran (raSunIn, decSunIn)
 			
 			call openFile()
 
-			!$OMP PARALLEL DO PRIVATE(cosx, vtec) REDUCTION(-: sumx, sumy, sumxy, sumx2, sumy2, i)
-			do while (1 == 1)
+			!!$OMP PARALLEL DO PRIVATE(cosx, vtec) REDUCTION(-: sumx, sumy, sumxy, sumx2, sumy2)
+			do i = 0, numRows
 				! write(*,*) "Currently in thread with ID = ",omp_get_thread_num()
 				read (1, *, end = 240) cosx, vtec
 				call updateCorrelationParameters (cosx, vtec, sumx, sumy, sumxy, sumx2, sumy2)
-				i = i + 1
+				! i = i + 1
 			end do
-			!$OMP END PARALLEL DO
+			!!$OMP END PARALLEL DO
 			240 continue
 
 			close(1)

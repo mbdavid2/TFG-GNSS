@@ -26,7 +26,8 @@ gsl_siman_params_t params
 double energyFunc(void *xp) {
   possibleSunInfo x = *((possibleSunInfo *) xp);
   FortranController fc;
-  double corr = fc.computeCorrelation(&x.ra, &x.dec);
+  // double corr = fc.computeCorrelation(&x.ra, &x.dec);
+  double corr = 3;
 
   corr = -corr;
 

@@ -30,16 +30,16 @@ const string FILTER_TIME_AWK_SCRIPT = "filterDataByTime.awk";
 // };
 
 const vector<string> fileNames = {
-	// "ti.2001.347.gz",
-	// "ti.2002.196.gz",
-	// "ti.2003.301.gz",
-	// "ti.2003.308.gz",
-	// "ti.2005.020.gz",
-	// "ti.2005.258.gz", 
-	// "ti.2011.210.gz",
-	// "ti.2012.066.gz",
-	// "ti.2012.130.gz",
-	// "ti.2012.297.gz",
+	"ti.2001.347.gz",
+	"ti.2002.196.gz",
+	"ti.2003.301.gz",
+	"ti.2003.308.gz",
+	"ti.2005.020.gz",
+	"ti.2005.258.gz", 
+	"ti.2011.210.gz",
+	"ti.2012.066.gz",
+	"ti.2012.130.gz",
+	"ti.2012.297.gz",
 	// "ti.2016.078.gz"
 };
 
@@ -51,10 +51,10 @@ double totalEstimationError;
 //= "ti.2003.301.10h30m-11h30m.gz";
 // const string INPUT_DATA_FILE = "ti.2006.340.67190s-68500s.flare.gz";
 
-void decreaseRangeMethod() {
+void decreaseRangeMethod(int numRows) {
 	// Execute main algorithm
 	TraverseGlobe traverseGlobe;
-	traverseGlobe.estimateSourcePosition();
+	traverseGlobe.estimateSourcePosition(numRows);
 	possibleSunInfo best = traverseGlobe.getPriorityQueueBestSuns().top();
 	estimatedRa = best.ra;
 	estimatedDec = best.dec;
@@ -65,8 +65,8 @@ void multipleEpochsTest(SpikeFinder spikeFinder, priority_queue<candidate> candi
 	while (!candidates.empty() && ++i <= n) {
 		spikeFinder.printInfoCandidate(candidates.top());
 		cout << candidates.top().epoch;
-		fileManager.filterTiFileByTime(candidates.top().epoch);
-		decreaseRangeMethod();
+		int numRows = fileManager.filterTiFileByTime(candidates.top().epoch);
+		decreaseRangeMethod(numRows);
 		candidates.pop();
 	}
 }
@@ -90,6 +90,7 @@ void simulatedAnnealingMethod() {
 }
 
 void iterateOverMultipleEpochs(string inputDataFile) {
+	cout << "-- " << inputDataFile << "--" << endl;
 	FileManager fileManager;
 	fileManager.setInputFile(inputDataFile);
 	fileManager.setAWKScripts(FILTER_AWK_SCRIPT, FILTER_TIME_AWK_SCRIPT);
@@ -100,19 +101,18 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 	priority_queue<candidate> bestPQ = spikeFinder.getPQBestCandidates();
 	int numRows;
 	Auxiliary aux = Auxiliary();
-	int n = 10;
+	int n = 5;
 	int iterationsLeastSquares = 1;
 	while (!bestPQ.empty() and n--) {
 		possibleSunInfo correctSunLocation = fileManager.getCorrectSunLocation();
 		fileManager.filterTiFileByBasicData();
-		cout << endl << endl << "Epoch: " << bestPQ.top().epoch << endl;
+		cout << endl << "-- Epoch: " << bestPQ.top().epoch << " --" << endl;
 		numRows = fileManager.filterTiFileByTime(bestPQ.top().epoch);
-		// cout << "-- LS --" << endl;
+		cout << "LS: ";
 		leastSquaresMethod(numRows, iterationsLeastSquares);
 		aux.printErrorResults(estimatedRa, estimatedDec, correctSunLocation, totalEstimationError);
-		// cout << "-- DR --" << endl;
-		cout << endl;
-		decreaseRangeMethod();
+		cout << endl << "DR: ";
+		decreaseRangeMethod(numRows);
 		aux.printErrorResults(estimatedRa, estimatedDec, correctSunLocation, totalEstimationError);
 		bestPQ.pop();
 	}
@@ -156,7 +156,7 @@ void mainAlgorithm(string methodId, string inputDataFile, Auxiliary* aux) {
 	}
 	else if (methodId == "dr") {
 		// cout << "[Decrease range method]" << endl;
-		decreaseRangeMethod();
+		decreaseRangeMethod(numRows);
 	}
 	else if (methodId == "hc") {
 		cout << "[Hill Climbing method]" << endl;
@@ -225,13 +225,17 @@ void methodPrompt() {
 	mainAlgorithm(methodId, inputDataFile, &aux);
 }
 
+void stellarFlares() {
+	cout << "Discard day hemisphere?" << endl;
+	iterateOverMultipleEpochs("ti.2016.078.gz");
+	iterateOverMultipleEpochs("ti.2016.032.gz");
+}
+
 int main() {
 	// methodPrompt();
-	iterationsLeastSquares = 10;
+	iterationsLeastSquares = 1;
 	totalEstimationError = -1; //Flag, -1 if decreasing range, LS will change the value
 
-	iterateOverMultipleEpochs("ti.2016.078.gz");
-
-
+	stellarFlares();	
 	// resultsDebugLatex();
 }

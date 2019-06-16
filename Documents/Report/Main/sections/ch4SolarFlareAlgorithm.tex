@@ -2,9 +2,9 @@
 
 \textbf{COMPLETO Y REVISADO}
 
-Before developing the main solar flare detection algorithm a first study is presented that targeted a powerful solar flare for which we knew the time of the event and therefore, the location of the Sun.
+Before developing the main solar flare detection algorithm a first study is presented targeting a powerful solar flare for which we knew the time of the event and therefore, the location of the Sun.
 
-Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this study was done to understand how the core of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC content.
+Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this study was done to understand how the core of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC increase.
 
 This chapter also provides an introduction to the formatting and use of the Global Navigation Satellite Systems data (GPS in this case) and how the main parameters necessary for the algorithms are computed.
 
@@ -32,7 +32,7 @@ The files in this server contain raw GPS data that is then pre-processed to obta
 	\label{fig:exampleCDDIS}
 \end{figure}
 
-However, for this and the following section, only the pre-processed ti files of past dates were needed, as detecting the flares in real time is a task that will be discussed later in the project, in which this pre-processing will have to be taken into consideration. The project supervisor, Manuel Hernández-Pajares, provided me with some of data sets to use as input for the algorithms, along with information about the formatting of this files.
+However, for this and the following section, only the pre-processed ti files of past dates were needed, as detecting the flares in real time is a task that will be discussed later in the project, in which this pre-processing will have to be taken into consideration. The project supervisor, Manuel Hernández-Pajares, provided some of data sets to use as input for the algorithms, along with information about the formatting of this files.
 
 \subsection{Formatting}
 
@@ -48,7 +48,7 @@ The ti files contain several rows of pre-processed GPS data. Each row has a Rece
 \end{itemize}
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption=Format of the ti file]
+\begin{lstlisting}[language=,caption=Format of the ti file]
 Field number | Example value | Description
 [...]
 3 		0.008333333333		GPS time/hours (tsecdayobs/3600.d0)
@@ -85,13 +85,13 @@ With this data we can compute the two parameters that will yield the plot shown 
 
 \section{Vertical Total Electron Content (VTEC)}
 
-Fisrt we wanted to obtain VTEC distribution throughout the day, to visually see if any spikes appeared confirming that the moment we were going to study based on the paper was correct.
+Fisrt we wanted to obtain the VTEC distribution throughout the day, to visually see if any spikes appeared confirming that the moment we were going to study based on the paper was correct.
 
 For each epoch in our data set (from 10.5 to 11.5 with a sampling rate of 30 seconds) we needed to compute an estimation of the VTEC value.
 
 \subsection{Computing the VTEC}
 
-As we have mentioned before, one of the main paramenters relevant to the computation is the \textbf{double derivate of LI}, the d2li field in the ti file. The Li is the "ionospheric combination of carrier phases" \cite{hernandez2012gnss}, a direct measurement of TEC. Because this is a derivative, it is the \textbf{increment in VTEC}, this will be observed in figure \ref{fig:vtecDistribution}.
+As we have mentioned before, one of the main paramenters relevant to the computation is the \textbf{double derivate of LI}, the d2li field in the ti file. The Li is the "ionospheric combination of carrier phases" \cite{hernandez2012gnss}, a direct measurement of TEC. Because this is a derivative, with the following operation we obtain \textbf{increment in VTEC}, this will be observed in figure \ref{fig:vtecDistribution}.
 
 The VTEC increment can be estimated using the following operation:
 
@@ -148,16 +148,21 @@ tiDataFile="../data/ti.2003.301.10h30m-11h30m.gz"
 
 zcat "$tiDataFile" | gawk -f previewVTECDistribution.awk > vtecValues
 gnuplot -e "set terminal png; set output 'vtecDistribution.png'; set title 'VTEC Distribution'; set xlabel 'Time of the day (hours)'; set ylabel 'VTEC'; set grid; plot \"vtecValues\" using 1:2 with point"
-rm vtecValues
 \end{lstlisting}
 \end{minipage}
-\clearpage
 
-The bash script executes the AWK process with the data as the input and outputs n rows with two columns: the \textbf{time of the day} and the \textbf{calculated VTEC}, and finally plots the results using Gnuplot. 
+
+The bash script executes the AWK process with the data as the input and outputs \textit{n} rows with two columns: the \textbf{time of the day} and the \textbf{calculated VTEC}, and finally plots the results using Gnuplot. 
 
 This results can be seen in figure \ref{fig:vtecDistribution}(a), where we can see how the VTEC value evolves throught the day. Visually, a spike can be seen between 11 and 11.2 hours. 
 
 As mentioned before this value is estimated using the derivative of li, because this is the increment in VTEC, we can see that the value becomes negative after the spike, due to the VTEC value decreasing (there is a negative gain ($\Delta V < 0$)).
+
+To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill in the ti files), we obtain the plot from figure \ref{fig:vtecDistribution}(b). At this time of the day around 11:00h the Sun would have a greater effect on the IPPs of this station due to its location, so the spike can be seen more clearly. 
+
+As mentioned before, the flare took place at 11.05, so we could proceed using the studied data range and this epoch in particular.
+
+\clearpage
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -173,9 +178,7 @@ As mentioned before this value is estimated using the derivative of li, because 
 	\label{fig:vtecDistribution}
 \end{figure}
 
-To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill in the ti files), we obtain the plot from figure \ref{fig:vtecDistribution}(b). At this time of the day around 11:00h the Sun would have a greater effect on the IPPs of this station due to its location, so the spike can be seen more clearly. 
 
-As mentioned before, the flare took place at 11.05, so we could proceed using the studied data range and this epoch in particular.
 
 \section{Solar-zenith angle}
 
@@ -240,7 +243,7 @@ Taking $212.338^{\circ}$ and $-13.060^{\circ}$ as the Sun's right ascension and 
 \end{centering}
 \end{figure}
 
-As we can observe, the resulting plot, similar to the one from figure \ref{fig:halloweenPaper}, shows a strong corelation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$) (the effect of the Sun on the IPP increases) and it doesn't seem to be affected from $\cos\chi = -1$ (180$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$) (when the IPP is in the night hemisphere).
+As we can observe, the resulting plot, similar to the one from figure \ref{fig:halloweenPaper}, shows a strong corelation between the cosine of the solar-zenith angle and the VTEC content, which increases from $\cos\chi = 0$ (90$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$) (the effect of the Sun on the IPP increases) and it does not seem to be affected from $\cos\chi = -1$ (180$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$) (when the IPP is in the night hemisphere).
 
 In conclusion, we can see that there appears to be correlation between the two variables. This correlation will be studied in more detail in the following section, where a first approach of the algorithm will be presented to detect the flare without knowing the location of its source.
 

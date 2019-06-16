@@ -6,7 +6,7 @@
 
 // computeCorrelationFortran //
 
-extern "C" double computecorrelationfortran_(double* ra, double* dec);
+extern "C" double computecorrelationfortran_(double* ra, double* dec, int* numRows);
 
 extern "C" double computecosinesofcurrentsourcefortran_(double* ra, double* dec);
 
@@ -20,24 +20,24 @@ void FortranController::discardOutliersLinearFit(double* ra, double* dec) {
 	fileManager.discardOutliersLinearFitFortran(sigma, iterations);	
 }
 
-double FortranController::computeCorrelationWithLinearFit(double* ra, double* dec) {
+double FortranController::computeCorrelationWithLinearFit(double* ra, double* dec, int* numRows) {
 	consideredLocationsCounter++;
 	discardOutliersLinearFit(ra, dec);
-	return computecorrelationfortran_(ra, dec);
+	return computecorrelationfortran_(ra, dec, numRows);
 }
 
-double FortranController::computeCorrelation(double* ra, double* dec) {
-	consideredLocationsCounter++;
-	// cout << "Estamos en el controller " << consideredLocationsCounter++ << endl;
-	return computecorrelationbasicfortran_(ra, dec);
-}
-
-// double FortranController::computeCorrelation(double* ra, double* dec) {
+// double FortranController::computeCorrelation(double* ra, double* dec, int* numRows) {
+// 	consideredLocationsCounter++;
 // 	// cout << "Estamos en el controller " << consideredLocationsCounter++ << endl;
-// 	return computeCorrelationWithLinearFit(ra, dec);
+// 	return computecorrelationbasicfortran_(ra, dec);
 // }
- 
 
+
+double FortranController::computeCorrelation(double* ra, double* dec, int* numRows) {
+	// cout << "Estamos en el controller " << consideredLocationsCounter++ << endl;
+	return computeCorrelationWithLinearFit(ra, dec, numRows);
+}
+ 
 void FortranController::printNumberOfConsideredLocations() {
 	cout << endl << consideredLocationsCounter << " locations considered" << endl;
 }
@@ -52,7 +52,6 @@ extern "C" double leastsquaresfortran_(const char* inputFileName, int* numRows, 
 
 extern "C" double leastsquaresfortranda_(const char* inputFileName, int* numRows, int* iterations, double* solutionRa, double* solutionDec, double* totalEstimationError);
 
-
 double FortranController::leastSquares(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec, double* totalEstimationError) {
 	int version = 0;
 	if (version == 0) {
@@ -60,4 +59,13 @@ double FortranController::leastSquares(const char* inputFileName, int numRows, i
 		return leastsquaresfortran_(inputFileName, &numRows, &iterations, solutionRa, solutionDec, totalEstimationError);
 	}
 	else return leastsquaresfortranda_(inputFileName, &numRows, &iterations, solutionRa, solutionDec, totalEstimationError);
+}
+
+double FortranController::leastSquaresLinearFit(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec, double* totalEstimationError) {
+	numRows--;
+	leastsquaresfortran_(inputFileName, &numRows, &iterations, solutionRa, solutionDec, totalEstimationError);
+	// cout << "Ra: " << (*solutionRa) << "Dec: " << (*solutionDec) << endl;
+	string fileNameString = "cosineDataFitted.out";
+	discardOutliersLinearFit(solutionRa, solutionDec);
+	return leastsquaresfortran_(fileNameString.c_str(), &numRows, &iterations, solutionRa, solutionDec, totalEstimationError);
 }

@@ -25,7 +25,8 @@
 # )
 
 strings=(
-	'2016.078,29600,31000'
+	# '2016.078,29600,31000'
+	'2016.032,13600,15200'
 	# '2001.334,3900,4000'
 	# '2001.347,51900,52100'
 	# '2002.196,72240'
@@ -63,7 +64,8 @@ for i in "${strings[@]}"; do
 
 	# Name the file according to the parameters
 	tiDataFile="ti.""${arrayInfo[0]}"
-	# outputFileName="$tiDataFile"".""$lowerLimit""-""$upperLimit"
+	outputFileName="$tiDataFile"".""$lowerLimit""-""$upperLimit"
+	echo "$outputFileName"
 	outputFileName="$tiDataFile"
 	echo "$outputFileName"".gz"
 

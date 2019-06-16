@@ -42,10 +42,10 @@ FORTRAN = $(fortranControllerF).o $(correlationF).o $(correlationBasicF).o $(lea
 main: linearFit compile run 
 
 compile: fortranController $(CLASSES) $(FORTRAN)
-	@g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
+	@g++ $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS) $(CFLAGS)
 
 compileAll: correlation fortranController auxiliary hillClimbing resultsDebugger fileManager spikeFinder traverseGlobe
-	g++ $(CFLAGS) $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS)
+	g++ $(CLASSES) $(FORTRAN) $(algorithmName).cc -o $(algorithmName).x $(FFLAGS) $(CFLAGS)
 
 # ----------
 # Fortran and C++ Fortran Controller
@@ -54,22 +54,22 @@ fortranController: computeCosines correlation correlationBasic leastSquares leas
 	@g++ $(CFLAGS) $(fortranControllerF).cc -c -o $(fortranControllerF).o
 
 correlation: $(correlationF).f90
-	@gfortran $(correlationF).f90 -c -o $(correlationF).o
+	@gfortran $(FFLAGS) $(correlationF).f90 -c -o $(correlationF).o
 
 correlationBasic: $(correlationBasicF).f90
-	@gfortran $(correlationBasicF).f90 -c -o $(correlationBasicF).o
+	@gfortran $(FFLAGS)  $(correlationBasicF).f90 -c -o $(correlationBasicF).o
 
 computeCosines: $(computeCosinesF).f90
-	@gfortran $(computeCosinesF).f90 -c -o $(computeCosinesF).o
+	@gfortran $(FFLAGS) $(computeCosinesF).f90 -c -o $(computeCosinesF).o
 
 leastSquares: $(leastSquaresF).f90
-	@gfortran $(leastSquaresF).f90 -c -o $(leastSquaresF).o
+	@gfortran $(FFLAGS) $(leastSquaresF).f90 -c -o $(leastSquaresF).o
 
 leastSquaresDA: $(leastSquaresDAF).f90
-	@gfortran $(leastSquaresDAF).f90 -c -o $(leastSquaresDAF).o
+	@gfortran $(FFLAGS) $(leastSquaresDAF).f90 -c -o $(leastSquaresDAF).o
 
 linearFit: $(linearFitF).f
-	@gfortran $(linearFitF).f -o linearFit.x -lblas -llapack
+	@gfortran $(FFLAGS) $(linearFitF).f -o linearFit.x -lblas -llapack
 
 # ----------
 # C++
@@ -78,7 +78,7 @@ spikeFinder: $(spikeFinderF).cc $(spikeFinderF).h
 	g++ $(CFLAGS) $(spikeFinderF).cc -c -o $(spikeFinderF).o
 
 traverseGlobe: $(traverseGlobeF).cc $(traverseGlobeF).h
-	g++ $(CFLAGS) $(traverseGlobeF).cc -c -o $(traverseGlobeF).o
+	g++ $(CFLAGS) $(traverseGlobeF).cc -c -o $(traverseGlobeF).o -fopenmp
 
 fileManager: $(fileManagerF).cc $(fileManagerF).h
 	g++ $(CFLAGS) $(fileManagerF).cc -c -o $(fileManagerF).o
@@ -104,14 +104,16 @@ run: $(algorithmName).x
 filterTiFilesTimeRange:
 	../data/filterTiTimeRange.sh
 
-
-
-
 ### Plots ###
 plotResultsDifferentDataSets: compile $(algorithmName).x # No linearfit target here :/
 	./$(algorithmName).x > tmpResults.out
 	../data/runComparisonPlot.sh
 	rm tmpResults.out
+
+plotFinal: compile $(algorithmName).x # No linearfit target here :/
+	# ./$(algorithmName).x > tmpResults.out
+	../data/compareResultsDR_LS.sh
+	# rm tmpResults.out DecreasingRange.out LeastSquares.out
 
 
 
@@ -130,6 +132,7 @@ clean:
 	rm -rf */*.out */*.in */*.o */*.x 
 	rm -f *.out *.in *.o *.x *.log
 	rm -f ../data/*.out
+	rm -f Least\ Squares Decreasing\ Range DecreasingRange LeastSquares
 
 cleanResults:
 	rm -rf results

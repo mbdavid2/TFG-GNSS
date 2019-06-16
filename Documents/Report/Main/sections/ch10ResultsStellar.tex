@@ -1,12 +1,12 @@
-\chapter{Results: methods comparison}
+\chapter{Results: stellar flares}
 
-\textbf{colocar resultados y plots de comparacion}
+As we have seen detecting stellar flares is a really challenging task. Even when knowing the location of the star. (hacer referencia al capitulo de swift?) The aim of the project was to provide algorithms to detect Solar flares without knowing the location of the Sun to try this method  to do so with this method. 
 
-In this chapter we will study different data sets using the two presented methods for the \textit{BGSEES} algorithm: the \textbf{Least Squares} and \textbf{Decrease Range} method. 
 
-The aim of the chapter is to test them against each other and using different parameters to see which method yields the best result
+Only two, they are harder to detect
+More challenging
 
-The algorithm is tested using data from both Solar flares and flares from far-away stars. Because the day hemisphere has to be discarded in order to study far-away stars (because of the Sun's effect on the ionosphere), the first section will study examples of flares originating from the Sun and the second those from outside the Solar System. -> En este capitulo al final solo sol, estrellas en el siguiente
+and flares from far-away stars. Because the day hemisphere has to be discarded in order to study far-away stars (because of the Sun's effect on the ionosphere), the first section will study examples of flares originating from the Sun and the second those from outside the Solar System. -> En este capitulo al final solo sol, estrellas en el siguiente
 
 \section{Discarding the day hemisphere}
 
@@ -32,15 +32,25 @@ The following is the AWK script that performs this check for every IPP if we ind
 \end{lstlisting}
 \end{minipage}
 
-With this change in the algorithm, it should be ready to try to detect stellar flares, rather than flares from the Sun. The following are some cases of strong stellar flares detected by dedicated telescopes that have been presented in research papers, using the information of them and with the help of the authors in some cases, the algorithm is tested to see if it can work with stellar flares or these are too weak to be detected without a telescope. 
+With this change in the algorithm, it should be ready to try to detect stellar flares, rather than flares from the Sun. The following are some cases of strong stellar flares detected by dedicated telescopes that have been presented in research papers, using the information of them and with the help of the authors in some cases, the algorithm is tested to see if it can work with stellar flares or these are too weak to be detected without a dedicated telescope. 
 
 \section{Proxima Centauri}
 
-The first studied flare is presented in the paper \textit{"The first naked-eye superflare detected from Proxima Centauri"} (Howard, Ward S., et al.) \cite{howard2018first}, which, as the title of the paper suggests, the flare was so powerful it could even be seen with the naked eye. 
+The first studied flare is presented in the paper \textit{"The first naked-eye superflare detected from Proxima Centauri"} (Howard, Ward S., et al.) \cite{howard2018first}, which, as the title of the paper suggests, was a flare so powerful it could even be seen with the naked eye. However, the flare could not be detected by pointing directly at it (knowing the location). This star is located in the Centaurus constellation, 4.22 light-years away
 
-This flare took place the 18th of March of 2016, with the flare peaking at 8:32 UT. Having the ti file from this day in particular, 2016.078, we filtered the time range to obtain one hour surounding that specific moment.
+The flare was detected the 18th of March of 2016, with the flare peaking at 8:32 UT. Having the ti file from this day in particular, 2016.078, we filtered the time range to obtain one hour surrounding that specific moment. Because this was a more challenging scenario, instead of finding the moment of the peak and only focusing on that time, the algorithm iterates over all epochs to see if any of them provided good results.
 
-After that, t
+Taking into consideration that Proxima Centauri has a right ascension of $217.4294^{\circ}$ and a declination of $-62.67948^{\circ}$ \cite{proximawiki}, the algorithm was executed using only the night hemisphere to try to detect this flare, using this location to calculate the error of the estimation.
+
+ITERATE OVER ALL EPOCHS
+
+\section{NGTS J121939.5-355557}
+
+Another studied stellar flare is presented in the paper \textit{"Detection of a giant flare displaying quasi-periodic pulsations from a pre-main-sequence M star by the Next Generation Transit Survey"} (Jackman, James AG, et al.) \cite{jackman2018detection}. 
+
+Although the date was specified in the paper (2016.032), the specific moment of the flare was not indicated. We got in touch with the authors of the paper, who kindly provided us information about the moment of the flare. The event was detected only at the moment of the peak (04:00 UT), so the start and end of the flare were unknown. Because of this, we worked with one hour of data surrounding the peak.
+
+ITERATE OVER ALL EPOCHS
 
 
 

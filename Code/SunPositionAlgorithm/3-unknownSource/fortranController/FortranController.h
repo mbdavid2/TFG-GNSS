@@ -15,8 +15,8 @@ class FortranController {
                 void discardOutliersLinearFit(double* ra, double* dec);
 
                 //Compute correlation
-                double computeCorrelationWithLinearFit(double* ra, double* dec);
-                double computeCorrelation(double* ra, double* dec);
+                double computeCorrelationWithLinearFit(double* ra, double* dec, int* numRows);
+                double computeCorrelation(double* ra, double* dec, int* numRows);
 
                 void printNumberOfConsideredLocations();
 
@@ -24,6 +24,8 @@ class FortranController {
 
         	//Least Squares
                 double leastSquares(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec, double* totalEstimationError);
+
+                double leastSquaresLinearFit(const char* inputFileName, int numRows, int iterations, double* solutionRa, double* solutionDec, double* totalEstimationError);
 };
 
 #endif

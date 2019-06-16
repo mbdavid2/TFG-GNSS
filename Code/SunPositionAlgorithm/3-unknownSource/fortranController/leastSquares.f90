@@ -27,11 +27,12 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 			implicit none
 			integer :: iteration
 			double precision :: bestRa, bestDec, bestError
+			double precision, dimension(0:numRows) :: estimationMatrix
 			
 			bestError = 100
 
 			do iteration = 0, iterations-1
-				call leastSquares(iteration, solutionRa, solutionDec)
+				call leastSquares(iteration, solutionRa, solutionDec, estimationMatrix)
 				if (totalEstimatedError <= bestError) then
 					bestError = totalEstimatedError
 					bestRa = solutionRa
@@ -47,30 +48,37 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 			! print *, "BEST | Ra, Dec: ", solutionRa, solutionDec, " Error : ", totalEstimatedError
 		end subroutine iterateLeastSquares
 
-		subroutine leastSquares(iteration, solutionRa, solutionDec)
+		subroutine leastSquares(iteration, solutionRa, solutionDec, estimationMatrix)
 			implicit none
 			integer, intent(in) :: iteration
-			double precision :: solutionRa, solutionDec
-			double precision, dimension(0:numRows) :: matrixVTEC
+			double precision :: solutionRa, solutionDec, pof
+			double precision, dimension(0:numRows) :: matrixVTEC, estimationMatrix, resultsSum
 			double precision, dimension (0:numRows, 0:3) :: matrixIPP
 			double precision, dimension (0:3) :: solution
 
-			call storeMatrixData(matrixVTEC, matrixIPP, iteration, solutionRa, solutionDec)
+			call storeMatrixData(matrixVTEC, matrixIPP, iteration, solutionRa, solutionDec, estimationMatrix)
 			! call printMatrices(matrixVTEC, matrixIPP)
-
 			call matrixComputations(solution, matrixIPP, matrixVTEC)
 			call obtainSourceLocation(solution, solutionRa, solutionDec)
+			estimationMatrix = matmul(matrixIPP, solution)
+			pof = computePOF(matrixVTEC, estimationMatrix, resultsSum)
+			totalEstimatedError = totalEstimatedError
 		end subroutine leastSquares
 
-		subroutine storeMatrixData(matrixVTEC, matrixIPP, iteration, solutionRa, solutionDec)
+		subroutine storeMatrixData(matrixVTEC, matrixIPP, iteration, solutionRa, solutionDec, estimationMatrix)
 			implicit none
 			integer, intent(in) :: iteration
 			double precision, intent(in) :: solutionRa, solutionDec
-			double precision, dimension(0:numRows) :: matrixVTEC
+			double precision, dimension(0:numRows) :: matrixVTEC, estimationMatrix, resultsSum
 			double precision, dimension (0:numRows, 0:3), intent(out) :: matrixIPP
-			double precision :: vtec, raIPP, decIPP
+			double precision :: vtec, raIPP, decIPP, pof
 			double precision :: xIPP, yIPP, zIPP
 			integer :: i, validSample, nUsedSamples
+
+			if (iteration /= 0) then
+				pof = computePOF(matrixVTEC, estimationMatrix, resultsSum)
+				print *, "pof", pof
+			end if
 
 			nUsedSamples = 0
 
@@ -81,7 +89,11 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 				validSample = 1
 
 				if (iteration /= 0) then
-					validSample = checkOutlier(solutionRa, solutionDec, raIPP, decIPP)
+					! validSample = checkOutlier(solutionRa, solutionDec, raIPP, decIPP)
+					print *, "(valor real - estimado) =", abs(resultsSum(i)), " | pof =", pof
+					if (abs(resultsSum(i)) > 3*pof) then
+						validSample = 0
+					end if
 				end if
 
 				if (validSample == 1) then
@@ -104,6 +116,27 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 			! print *, "Number of used samples: ", nUsedSamples
 			close(1)
 		end subroutine storeMatrixData
+
+		double precision function computePOF(matrixVTEC, estimationMatrix, resultsSum)
+			implicit none
+			integer :: i, vtecSize, consideredSamples
+			double precision :: pof, totalSum
+			double precision, dimension(0:numRows) :: matrixVTEC, estimationMatrix, resultsSum
+
+			vtecSize = size(matrixVTEC)
+			totalSum = 0
+			consideredSamples = 0
+			do i = 0, vtecSize-1
+				! print *, "Real: ", matrixVTEC(i), "Est: ", estimationMatrix(i)
+				if (matrixVTEC(i) /= 0) then
+					resultsSum(i) = matrixVTEC(i) - estimationMatrix(i)
+					totalSum = totalSum + resultsSum(i)*resultsSum(i)
+					consideredSamples = consideredSamples + 1
+				end if
+			end do
+			pof = sqrt(totalSum/consideredSamples)
+			return
+		end function computePOF
 
 		subroutine matrixComputationsLapack(solution, A, Y)
 			implicit none
