@@ -11,12 +11,15 @@ class FortranController {
 		int consideredLocationsCounter;
 		
 	public:
+                
+                FortranController();
+
                 //Linear fitting: discard outliers
                 void discardOutliersLinearFit(double* ra, double* dec);
 
                 //Compute correlation
                 double computeCorrelationWithLinearFit(double* ra, double* dec, int* numRows);
-                double computeCorrelation(double* ra, double* dec, int* numRows);
+                double computeCorrelation(double* ra, double* dec, int* numRows, bool discardOutliers);
 
                 void printNumberOfConsideredLocations();
 

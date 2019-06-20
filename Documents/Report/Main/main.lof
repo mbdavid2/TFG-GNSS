@@ -20,6 +20,7 @@
 \contentsline {figure}{\numberline {8.2}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{76}{figure.caption.70}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Comparison of the real error (purple) and the estimated Least Squares error (green)\relax }}{85}{figure.caption.75}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods\relax }}{87}{figure.caption.77}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

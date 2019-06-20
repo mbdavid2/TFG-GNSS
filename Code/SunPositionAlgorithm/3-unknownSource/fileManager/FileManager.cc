@@ -64,10 +64,16 @@ void FileManager::filterTiFileByBasicData() {
         cout << "[ERROR] Input files not set properly (1) " << endl;
         exit(0);
     }
-    string zcat = "zcat " + inputFile;
-    string gawk = " | gawk -f " + filterBasicAWKScript + " > " + filteredFile;
-	string command = zcat + gawk;
-	system(command.c_str()); 
+    // if (!fileExists(filteredFile)) {
+        // cout << "Filtering base file" << endl;
+        string zcat = "zcat " + inputFile;
+        string gawk = " | gawk -f " + filterBasicAWKScript + " > " + filteredFile;
+        string command = zcat + gawk;
+        system(command.c_str());
+    // }
+    // else {
+        // cout << "Using current filtered file" << endl;
+    // }
 }
 
 void FileManager::filterUsingAwk(double time) {
@@ -79,7 +85,7 @@ void FileManager::filterUsingAwk(double time) {
 	system(command.c_str()); 
 }
 
-int FileManager::filterTiFileByTime(double time) {
+int FileManager::filterTiFileByTime(double time, double time2, double time3) {
     stringstream stream;
     stream << fixed << setprecision(13) << time;
     epochFlare = stream.str();
@@ -88,6 +94,7 @@ int FileManager::filterTiFileByTime(double time) {
         cout << "[ERROR] Input files not set properly (2) " << endl;
         exit(0);
     } 
+    // cout << time << " " << time2 << " " << time3;
 
     ifstream inputData;
     ofstream writeData;
@@ -99,7 +106,7 @@ int FileManager::filterTiFileByTime(double time) {
 
     inputData >> epochIn >> vtecIn >> raIPPIn >> latIPPIn;
 	while (inputData >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
-        if (epochIn == time) {
+        if (epochIn == time || epochIn == time2 || epochIn == time3) {
             i++;
             writeData << " " << vtecIn << " " << raIPPIn << " " << latIPPIn << endl;
         }

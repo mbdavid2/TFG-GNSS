@@ -10,9 +10,9 @@ using namespace std;
 class TraverseGlobe {
 
 	private:
-		void decreasingSTEP(int numRows);
+		void decreasingSTEP(int numRows, bool discardOutliers);
 
-		possibleSunInfo considerPossibleSuns(double step, searchRange range, ofstream& plotData, int numRows);
+		possibleSunInfo considerPossibleSuns(double step, searchRange range, ofstream& plotData, int numRows, bool discardOutliers);
 
 		searchRange setRange(possibleSunInfo sun, bool defaultRange, double step, int rangeSize);
 
@@ -22,7 +22,7 @@ class TraverseGlobe {
 		
 		TraverseGlobe();
 
-		void estimateSourcePosition(int numRows);
+		void estimateSourcePosition(int numRows, bool discardOutliers);
 
 		void printCorrelationResults(possibleSunInfo bestSun, string fileName);
 

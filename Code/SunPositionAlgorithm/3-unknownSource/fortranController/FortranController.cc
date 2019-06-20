@@ -4,6 +4,10 @@
 #include "../auxiliary/Auxiliary.h"
 #include "../fileManager/FileManager.h"
 
+FortranController::FortranController() {
+	consideredLocationsCounter = 0;
+}
+
 // computeCorrelationFortran //
 
 extern "C" double computecorrelationfortran_(double* ra, double* dec, int* numRows);
@@ -17,7 +21,9 @@ void FortranController::discardOutliersLinearFit(double* ra, double* dec) {
 	int sigma = 3;
 	int iterations = 4;
 	computecosinesofcurrentsourcefortran_(ra, dec);
+	// cout << "discard antes" << endl;
 	fileManager.discardOutliersLinearFitFortran(sigma, iterations);	
+	// cout << "discard hecho" << endl;
 }
 
 double FortranController::computeCorrelationWithLinearFit(double* ra, double* dec, int* numRows) {
@@ -26,17 +32,22 @@ double FortranController::computeCorrelationWithLinearFit(double* ra, double* de
 	return computecorrelationfortran_(ra, dec, numRows);
 }
 
-// double FortranController::computeCorrelation(double* ra, double* dec, int* numRows) {
-// 	consideredLocationsCounter++;
-// 	// cout << "Estamos en el controller " << consideredLocationsCounter++ << endl;
-// 	return computecorrelationbasicfortran_(ra, dec);
-// }
-
-
-double FortranController::computeCorrelation(double* ra, double* dec, int* numRows) {
+double FortranController::computeCorrelation(double* ra, double* dec, int* numRows, bool discardOutliers) {
+	consideredLocationsCounter++;
 	// cout << "Estamos en el controller " << consideredLocationsCounter++ << endl;
-	return computeCorrelationWithLinearFit(ra, dec, numRows);
+	if (discardOutliers) {
+		return computeCorrelationWithLinearFit(ra, dec, numRows);
+	}
+	else {
+		return computecorrelationbasicfortran_(ra, dec);
+	}
 }
+
+
+// double FortranController::computeCorrelation(double* ra, double* dec, int* numRows) {
+// 	// cout << "Estamos en el controller " << consideredLocationsCounter++ << endl;
+// 	return computeCorrelationWithLinearFit(ra, dec, numRows);
+// }
  
 void FortranController::printNumberOfConsideredLocations() {
 	cout << endl << consideredLocationsCounter << " locations considered" << endl;

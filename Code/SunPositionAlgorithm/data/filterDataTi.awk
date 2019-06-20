@@ -2,6 +2,8 @@ BEGIN {
 	upperLimitVTEC = 0.7;
 	lowerLimitVTEC = -0.7;
 	discardSunHemisphere = 0;
+	PI = 4*atan2(1,1);
+	COSINE_THRESHOLD = -0.2;
 }
 {
 	/a/
@@ -17,7 +19,7 @@ function checkValidIPP(raSun, decSun, raIPP, decIPP) {
 	# upperValidRa = ((raIPP + 90) ? raIPP + 90 : 360);
 
 	# return !(raSun >= lowerValidRa && raSun <= upperValidRa)
-	return unitVectorsCosine(raSun, decSun, raIPP, decIPP) <= -0.1
+	return unitVectorsCosine(raSun, decSun, raIPP, decIPP) <= COSINE_THRESHOLD
 }
 
 function printData() {
@@ -33,6 +35,14 @@ function abs(x){
 	return ((x < 0.0) ? -x : x)
 }
 
+function toRadian(degree) {
+	return (degree*PI)/180;
+}
+
 function unitVectorsCosine(raSource, decSource, raIPP, decIPP) {
+	raSource = toRadian(raSource)
+	decSource = toRadian(decSource)
+	raIPP = toRadian(raIPP)
+	decIPP = toRadian(decIPP)
 	return (sin(decIPP)*sin(decSource) + cos(decIPP)*cos(decSource)*cos(raIPP - raSource));
 }

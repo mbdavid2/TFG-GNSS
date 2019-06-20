@@ -23,7 +23,7 @@ class FileManager {
 
 		possibleSunInfo getCorrectSunLocation();
 
-		int filterTiFileByTime(double time);
+		int filterTiFileByTime(double time, double time2, double time3);
 
 		void filterUsingAwk(double time);
 

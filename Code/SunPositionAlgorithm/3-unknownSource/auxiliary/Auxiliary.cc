@@ -51,14 +51,23 @@ void Auxiliary::printExecutionTime(clockTime start_time, clockTime end_time) {
 	totalTimeMethod += elapsed_seconds.count();
 }
 
-void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation, double totalEstimationErrorLeastSquares) {
+double Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correctSunLocation, double totalEstimationErrorLeastSquares, string fileName) {
 	double correctRa, correctDec, estimatedRa, estimatedDec;
     string dataName = "salu2";
 
     correctRa = toRadians(correctSunLocation.ra);
     correctDec = toRadians(correctSunLocation.dec);
-	correctRa = 217.4294;
-	correctDec = -62.67948;
+    if (fileName == "ti.2016.078.gz") {
+		// cout << "  Proxima Centauri  " << endl;
+    	correctRa = 217.4294;
+			correctDec = -62.67948;
+    }
+    else if (fileName == "ti.2016.032.gz") {
+		// cout << "  datos por completar   ";
+    	correctRa = 184.9145833;
+		correctDec = -35.9325;
+    }
+	
 	estimatedRa = toRadians(ra);
     estimatedDec = toRadians(dec);
 
@@ -70,6 +79,8 @@ void Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo correct
 	// if (totalEstimationErrorLeastSquares != -1) cout << " " << totalEstimationErrorLeastSquares;
 	// Update total error of the method
 	totalErrorMethod += errorDegrees;
+
+	return errorDegrees;
 	 
 	// cout << "[Results]" << endl;
 	// cout << "   -> Largest correlation coefficient: " << bestSun.coefficient << " || Error: [" + to_string(abs(correctRa-bestSun.ra)) + ", " + to_string(abs(correctDec-bestSun.dec)) + "]" << endl;

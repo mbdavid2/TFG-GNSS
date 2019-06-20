@@ -115,18 +115,15 @@
 \contentsline {section}{\numberline {8.3}OpenMP}{76}{section.8.3}
 \contentsline {chapter}{\numberline {9}Results: solar flares}{78}{chapter.9}
 \contentsline {section}{\numberline {9.1}Using all available data}{81}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Discussion}{81}{subsection.9.1.1}
 \contentsline {section}{\numberline {9.2}Direct VTEC filter}{82}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Discussion}{82}{subsection.9.2.1}
 \contentsline {section}{\numberline {9.3}Decreasing range: linear fit}{83}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Discussion}{83}{subsection.9.3.1}
 \contentsline {section}{\numberline {9.4}Least Squares: Iterations}{84}{section.9.4}
-\contentsline {subsection}{\numberline {9.4.1}Discussion}{84}{subsection.9.4.1}
-\contentsline {subsection}{\numberline {9.4.2}Error comparison}{84}{subsection.9.4.2}
-\contentsline {section}{\numberline {9.5}Conclusion}{85}{section.9.5}
-\contentsline {chapter}{\numberline {10}Results: stellar flares}{86}{chapter.10}
-\contentsline {section}{\numberline {10.1}Discarding the day hemisphere}{86}{section.10.1}
-\contentsline {section}{\numberline {10.2}Proxima Centauri}{87}{section.10.2}
-\contentsline {section}{\numberline {10.3}NGTS J121939.5-355557}{87}{section.10.3}
-\contentsline {chapter}{\numberline {11}Annexes}{89}{chapter.11}
-\contentsline {chapter}{\numberline {12}Conclusions}{90}{chapter.12}
+\contentsline {subsection}{\numberline {9.4.1}Error comparison}{84}{subsection.9.4.1}
+\contentsline {section}{\numberline {9.5}Using multiple epochs}{86}{section.9.5}
+\contentsline {section}{\numberline {9.6}Conclusion}{87}{section.9.6}
+\contentsline {chapter}{\numberline {10}Results: stellar flares}{89}{chapter.10}
+\contentsline {section}{\numberline {10.1}Discarding the day hemisphere}{89}{section.10.1}
+\contentsline {section}{\numberline {10.2}Proxima Centauri}{90}{section.10.2}
+\contentsline {section}{\numberline {10.3}NGTS J121939.5-355557}{90}{section.10.3}
+\contentsline {chapter}{\numberline {11}Conclusions}{92}{chapter.11}
+\contentsline {chapter}{\numberline {12}Annexes}{93}{chapter.12}

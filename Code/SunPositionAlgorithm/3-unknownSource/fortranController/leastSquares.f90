@@ -33,11 +33,11 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 
 			do iteration = 0, iterations-1
 				call leastSquares(iteration, solutionRa, solutionDec, estimationMatrix)
-				if (totalEstimatedError <= bestError) then
+				! if (totalEstimatedError <= bestError) then
 					bestError = totalEstimatedError
 					bestRa = solutionRa
 					bestDec = solutionDec
-				end if
+				! end if
 				! print *, "Iteration: ", iteration, " | Ra, Dec: ", solutionRa, solutionDec, " Error : ", totalEstimatedError
 			end do
 
@@ -77,7 +77,7 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 
 			if (iteration /= 0) then
 				pof = computePOF(matrixVTEC, estimationMatrix, resultsSum)
-				print *, "pof", pof
+				! print *, "pof", pof
 			end if
 
 			nUsedSamples = 0
@@ -90,8 +90,8 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 
 				if (iteration /= 0) then
 					! validSample = checkOutlier(solutionRa, solutionDec, raIPP, decIPP)
-					print *, "(valor real - estimado) =", abs(resultsSum(i)), " | pof =", pof
-					if (abs(resultsSum(i)) > 3*pof) then
+					! print *, "(valor real - estimado) =", abs(resultsSum(i)), " | pof =", pof
+					if (abs(resultsSum(i)) > 2.5d0*pof) then
 						validSample = 0
 					end if
 				end if

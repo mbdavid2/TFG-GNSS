@@ -111,11 +111,8 @@ plotResultsDifferentDataSets: compile $(algorithmName).x # No linearfit target h
 	rm tmpResults.out
 
 plotFinal: compile $(algorithmName).x # No linearfit target here :/
-	# ./$(algorithmName).x > tmpResults.out
+	./$(algorithmName).x > tmpResults.out
 	../data/compareResultsDR_LS.sh
-	# rm tmpResults.out DecreasingRange.out LeastSquares.out
-
-
 
 
 

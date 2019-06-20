@@ -158,8 +158,6 @@ For this first test, all the data from the ti file is used: in the case of the D
 	\caption{Estimation error and execution time for different data sets using the DR (left) and LS (right) methods without any filter}
 \end{table}
 
-\subsection{Discussion}
-
 The main problem of this method is that outliers can cause the computation of the mean to be unstable, which causes the algorithm to use incorrect epochs.
 
 Furthermore, the outliers can cause numerical instability in some of the methods' computations, if one has a large value, for example, the computation of the correlation relies on the sum of the square of the VTEC value, so the total can lead to incorrect results because of the rapid increase of this variable.
@@ -236,8 +234,6 @@ These are the results of the execution using a cutoff value of 0.7. This value w
 	\caption{Estimation error and execution time for different data sets using the DR (left) and LS (right) methods with a cutoff filter}
 \end{table}
 
-\subsection{Discussion}
-
 As we can see, there has been a significant improvement in for both methods by discarding outliers, and because this filter is applied when performing the filtering by time of the data, it doesn't have an impact on the complexity of the execution. 
 
 Because the direct filter yields significantly better results for both cases, the next sections use it for filtering the first traversal of the data, before performing an additional filter to attempt to discard outliers.
@@ -246,7 +242,7 @@ Because the direct filter yields significantly better results for both cases, th
 
 \section{Decreasing range: linear fit}
 
-This approach, introduced in chapter 6, discards outliers by finding the line that fits the data set and discarding outliers based on a sigma parameter. This filter can be performed several times (the number of iterations). The results of the decreasing range method using a sigma of 3 and 4 iterations (the best combination of those values in a range from 1 to 10) is shown below
+This approach, introduced in chapter 6, discards outliers by finding the line that fits the data set and discarding outliers based on a sigma parameter. This filter can be performed several times (the number of iterations). The results of the decreasing range method using a sigma of 3 and 4 iterations (the best combination of those values in a range from 1 to 10) is shown below:
 
 \begin{table}[h!]
 	\centering
@@ -281,13 +277,13 @@ This approach, introduced in chapter 6, discards outliers by finding the line th
 	\caption{Results for different data sets using linear fit with the DR method}
 \end{table}
 
-\subsection{Discussion}
-
 While this approach improves upon the solution of the Least Squares method, it requires significantly higher execution time (each execution takes almost a minute).
 
 \clearpage
 
 \section{Least Squares: Iterations}
+
+\textbf{INACABADO????}
 
 Although we have seen in the previous chapter that the iterations didn't work for a specific case, we decided to test it using all data sets. These are the results of executing the algorithm with 10 iterations, saving the result of the best iteration:
 
@@ -298,25 +294,25 @@ Although we have seen in the previous chapter that the iterations didn't work fo
 		\hline
 		Data set & Error (º) & Time (s) \\ [0.5ex] 
 		\hline\hline
-		2001.347.gz & 3.41832 & 0.0194832 \\
+		2001.347 & 3.41832 & 0.0194832 \\
 		\hline
-		2002.196.gz & 46.578 & 0.00818968 \\
+		2002.196 & 46.578 & 0.00818968 \\
 		\hline
-		2003.301.gz & 4.57509 & 0.0171783 \\
+		2003.301 & 4.57509 & 0.0171783 \\
 		\hline
-		2003.308.gz & 141.865 & 0.366494 \\
+		2003.308 & 141.865 & 0.366494 \\
 		\hline
-		2005.020.gz & 38.3263 & 0.141508 \\
+		2005.020 & 38.3263 & 0.141508 \\
 		\hline
-		2005.258.gz & 1.88011 & 0.0177967 \\
+		2005.258 & 1.88011 & 0.0177967 \\
 		\hline
-		2011.210.gz & 38.5213 & 0.0704044 \\
+		2011.210 & 38.5213 & 0.0704044 \\
 		\hline
-		2012.066.gz & 70.1063 & 0.049831 \\
+		2012.066 & 70.1063 & 0.049831 \\
 		\hline
-		2012.130.gz & 9.26238 & 0.0711422 \\
+		2012.130 & 9.26238 & 0.0711422 \\
 		\hline
-		2012.297.gz & 3.00704 & 0.0592826 \\
+		2012.297 & 3.00704 & 0.0592826 \\
 		\hline
 		Total & 357.54 & 0.82131 \\
 		\hline
@@ -325,31 +321,131 @@ Although we have seen in the previous chapter that the iterations didn't work fo
 	\label{tab:lsDirect}
 \end{table}
 
-\subsection{Discussion}
-
 As we can see, the results in terms of estimation error are exactly the same as the ones seen in table \ref{tab:lsDirect} with a slight increase in execution time due to the number of iterations. Because there is no improvement with consecutive iterations, the algorithm just keeps the best result from the first one, hence the same results.
 
 \subsection{Error comparison}
 
-Despite the fact that using this approach does not improve the results, it can be interesting to see how the covariance matrix error evolves compared to the real error for all the studied data sets, figure \ref{fig:comparisonErrors} shows a comparison for all the tested data sets the real error and LS error:
+Despite the fact that using this approach does not improve the results, it can be interesting to see how the covariance matrix error evolves compared to the real error for all the studied data sets, figure \ref{fig:comparisonErrorsLS} shows a comparison for all the tested data sets the real error and LS error:
 
 \begin{figure}[!htb]
 	\begin{centering}
 		\includegraphics[width=0.5\linewidth]{images/results/comparisonErrors.png}
 		\caption{Comparison of the real error (purple) and the estimated Least Squares error (green)}
-		\label{fig:comparisonErrors}
+		\label{fig:comparisonErrorsLS}
 	\end{centering}
 \end{figure}
 
 As we can see, both functions seem to have similar spikes. If the solution has a large error, it is because the Least Squares method could not provide a good solution with the available data. As we have seen, some of the studied flares are hard to detect for both methods, due to their intensity.
 
+\clearpage
+
+\section{Using multiple epochs}
+
+Although this change was not implemented when testing the data sets from the Sun but those from far-away stars (in the next chapter), using multiple epochs resulted in better estimations with the Sun so it is included in this chapter.
+
+As we have seen when reducing the number of samples when discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, that is, when filtering by the time of the best found epoch, also filtering by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one:
+
+\begin{table}[h!]
+	\centering
+	\def\arraystretch{1.2}
+	\begin{tabular}{|c c c|} 
+		\hline
+		Data set & Error (º) & Time (s) \\ [0.5ex] 
+		\hline\hline
+		2001.347 & 6.47413 & 2.14455 \\
+		\hline
+		2002.196 & 23.1275 & 0.59226 \\
+		\hline
+		2003.301 & 1.86704 & 2.0248 \\
+		\hline
+		2003.308 & 94.6148 & 1.19993 \\
+		\hline
+		2005.020 & 72.4195 & 1.18676 \\
+		\hline
+		2005.258 & 44.2516 & 1.92844 \\
+		\hline
+		2011.210 & 11.4821 & 2.54239 \\
+		\hline
+		2012.066 & 89.4625 & 3.97582 \\
+		\hline
+		2012.130 & 20.645 & 4.37908 \\
+		\hline
+		2012.297 & 4.82785 & 4.78413 \\
+		\hline
+		Total & 369.172 & 24.7582\\
+		\hline
+	\end{tabular}
+	\quad\quad\quad
+	\begin{tabular}{|c c c|} 
+		\hline
+		Data set & Error (º) & Time (s) \\ [0.5ex] 
+		\hline\hline
+		2001.347 & 4.49127 & 0.161254 \\
+		\hline
+		2002.196 & 8.30599 & 0.00555821 \\
+		\hline
+		2003.301 & 4.25894 & 0.00930464 \\
+		\hline
+		2003.308 & 129.135 & 0.363268 \\
+		\hline
+		2005.020 & 40.0696 & 0.13032 \\
+		\hline
+		2005.258 & 12.3223 & 0.011427 \\
+		\hline
+		2011.210 & 6.11407 & 0.0623802 \\
+		\hline
+		2012.066 & 43.7512 & 0.0282298 \\
+		\hline
+		2012.130 & 7.72546 & 0.0567187 \\
+		\hline
+		2012.297 & 3.8804 & 0.0432351 \\
+		\hline
+		Total & 260.055 & 0.871695\\
+		\hline
+	\end{tabular}
+	\caption{Estimation error and execution time for different data sets using the DR (left) and LS (right) methods with a cutoff filter and using data from two epochs}
+\end{table}
+
+Although using linear fit to discard outliers with the DR method seemed to improve the results in previous sections, using it with multiple epochs does not present any improvement (the total error of the DR with linear fit for two epochs is 400.146). Although it is still an improvement in comparison to the DR method using only the cutoff filter.
+
+Furthermore, using 3 epochs instead of 2 resulted in a total error of 390.954 for the DR method and 294.689 for the LS method, and there is no improvement beyond using 3 epochs. This change was very important for some tests presented in the next chapter.
+
+\clearpage
+
 \section{Conclusion}
 
-In this chapter we have seen that working with the entire data set of IPPs does not yield good results, there is too much noise and the results differ considerably from the real position of the Sun. Considering that this is a new method to detect flares, however, this could have been the case in general (the detection could not have been possible, or at least not with enough precision), but using a direct filter for the VTEC values we have seen that some of the data sets yield results with errors as little as 4 degrees.
+In this chapter we have seen that working with the entire data set of IPPs does not yield good results, there is too much noise and the results differ considerably from the real position of the Sun. Considering that this is a new method to detect flares, however, this could have been the case in general (the detection could not have been possible, or at least not with enough precision), but using a direct filter for the VTEC values we have seen that some of the data sets yield results with errors as small as 4 degrees.
 
-It can be interesting to see, however, how some data sets still have a high error, due to the nature of the flare (perhaps it was not sufficiently strong to have an impact on the ionosphere), the following plot compares the Least Squares method error of the direct filter approach and using all the data.
+It can be interesting to see, however, how some data sets still have a high error, due to the nature of the flare (perhaps it was not sufficiently strong to have an impact on the ionosphere), figure \ref{fig:comparisonDRLS} (a) compares the Least Squares method error of the direct filter approach and using all the data.
 
-We can see
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/results/comparisonErrorsDRLS.png}
+		\caption{Estimation error}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/results/comparisonTimeDRLS.png}
+		\caption{Execution time}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/results/errorVSmeanVTEC.png}
+		\caption{Mean VTEC as a functiondsadasr}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\linewidth]{images/results/meanVTECVSerror.png}
+		\caption{Execution time}
+	\end{subfigure}
+	\caption{Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods}
+	\label{fig:comparisonDRLS}
+\end{figure}
+
+Furthermore, this can be seen if we consider the mean VTEC of the best epoch that the algorithm uses (representative of the strength of the flare) and the estimation error.
+
+As we can see....decreases bla blab
+
 
 In conclusion, the Decreasing Range method (using linear fit to discard outliers) and the Least Squares method (using a direct filter) provide good results for some of the data sets with powerful flares, therefore, these two methods will
 
