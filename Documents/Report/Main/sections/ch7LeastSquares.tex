@@ -102,7 +102,17 @@ For each of these IPPs, we have an equation of the form $\Delta V = \alpha X' + 
 
 Knowing how to obtain $X$, $Y$ and $Z$ from $\alpha$, $\beta$ and $\gamma$, we can now focus on solving the system of equations to obtain the latter unknowns .
 
-Because we have an overdetermined system of equations, the solution can be approximated using the Least Squares approach. The system can be represented in matrix form $y = AX$ as follows:
+Because we have an overdetermined system of equations, the solution can be approximated using the \textbf{Least Squares} approach. 
+
+Least Squares is a method to estimate the solution of an overdetermined system of equations (more equations than unknowns, as in our case), by minimizing the sum of the squared residuals. Residuals will be studied in more detail in the lasts sections of this chapter.
+
+The method estimates the solution of a matrix system of the form $y = AX$ using the following equation:
+
+\begin{equation}\label{eq:mainEq}
+X = (A^{T}A)^{-1}A^{T}y
+\end{equation} 
+
+Our system can be represented in matrix form  as follows:
 
 \begin{equation} \label{eq:matrixSystem}
 \begin{bmatrix}
@@ -130,15 +140,11 @@ b \\
 \end{bmatrix}
 \end{equation}
 
-This way, X can be obtained by means of the least squares estimate equation:
+Where y is the VTEC, A the components of the IPP, and X the solution to the system, $\alpha$, $\beta$, $\gamma$ and $b$.
 
-\begin{equation}\label{eq:mainEq}
-	X = (A^{T}A)^{-1}A^{T}y
-\end{equation}
+With the Least Squares method we could obtain $X$, $Y$ and $Z$ using the solution to the system ($\alpha$, $\beta$, $\gamma$). Taking into consideration equation \ref{eq:62}, the values of the right ascension and declination angles can be obtained by performing the inverse trigonometrical operations, that is:
 
-With the Least Squares method we would obtain $X$, $Y$ and $Z$, and taking into consideration equation \ref{eq:62}, the values of the right ascension and declination angles can be obtained by performing the inverse trigonometrical operations, that is:
-
-Because we know that $Z=\sin(\delta_{s})$ we can obtain the declination by simply computing the arc sinus:
+Because we know that $Z=\sin(\delta_{s})$ we the declination is obtained by simply computing the arc sinus:
 
 \begin{equation} \label{eq:inverseTrigoTriennal}
 \delta_{s} = \arcsin(Z)
@@ -409,7 +415,7 @@ These are the results of the algorithm with a single iteration, that is, solving
 
 As we can see, the error is there has been a slight increase in the error compared to the Decreasing Range method, but the execution time has been greatly reduced.
 
-\subsection{Multiple iterations: narrowing the search}
+\subsection{Multiple iterations: narrowing the search} \label{sssec:covariance}
 
 As mentioned before, a possibility to improve the result could be iterating using the estimated value of the algorithm. This is done using the \textit{checkOutlier()} function when storing the matrix data (listing \ref{lst:storeData}). The function implements the method to discard IPPs discussed earlier in the chapter:  computing the cosine of the angle between the estimated solution and the IPP and discard it considering a cosine threshold: -0.1, to work only IPPs from the day hemisphere.
 
@@ -468,9 +474,11 @@ The following table shows the results of using 10 iterations with this method:
 
 As we can see, multiple iterations do not present an improvement in the estimation. This is caused because in each iteration IPPs are discarded and therefore the system of equations has less information to compute the estimation.
 
+Because there does not appear to be any improvement, another option could be to use the estimation error obtained from the covariance matrix as an indicator of how precise the estimation is. This is obtained by adding the covariances of the the components of the system's solution. These covariances are the elements of the diagonal from the matrix $(A^{T}A)^{-1}$ from equation \ref{eq:mainEq}. This option using the \textit{LS estimation error} (not the estimation error, obtained from comparing our estimation to the real position of the source) will be tested with more data sets in the results chapter.
+
 \subsection{Multiple iterations: residual sum}
 
-Another possibility would be to discard IPPs by using the residual sum of the Least Squares estimation (not the one we obtain comparing our solution to the real position). This value can be obtained using the real VTEC values (from the input data) with the ones we would obtain using the least squares estimated model.
+Another possibility would be to discard IPPs by using the residual sum of the Least Squares estimation (not the one we obtain comparing our solution to the real position), rather than by discarding the night hemisphere. This value can be obtained using the real VTEC values (from the input data) with the ones we would obtain using the least squares estimated model.
 
 \begin{equation} \label{eq:residual}
 \sigma^{2} = \frac{\sum_{i = 0}^{m}(y_{i}-f(i))^{2}}{m}
@@ -482,7 +490,7 @@ Which can then be used to discard IPPs based on the following comparison.
 |(y_{i}-f(i)| <= 3\sigma
 \end{equation}
 
-These are the results of executing the algorithm using this approach to discard outliers each iteration, and returning the result of the best iteration (the one with the smallest error).
+In this case the algorithm does not consider the estimation error to keep the best possible solution, but rather iterates and returns the result of the last iteration.
 
 \begin{table}[h!]
 	\centering
@@ -493,18 +501,18 @@ These are the results of executing the algorithm using this approach to discard 
 		\hline\hline
 		1  & 4.57509 & 0.00756712 \\
 		\hline
-		2  & 4.57509 & 0.010272 \\
+		2  & 4.71719 & 0.010272 \\
 		\hline
-		3  & 4.57509 & 0.0120997 \\
+		3  & 4.7942 & 0.0120997 \\
 		\hline
-		4  & 4.57509 & 0.0105663 \\
+		4  & 4.47241 & 0.0105663 \\
 		\hline
-		5  & 4.57509 & 0.0125787 \\
+		5  & 4.47009 & 0.0125787 \\
 		\hline
 	\end{tabular}
-	\caption{5 iterations of the Least Squares method using the estimation error}
+	\caption{5 iterations of the Least Squares method using the residual sum of squares to discard outliers}
 \end{table}
 
-As with the previous iteration method, we are discarding rows and therefore the Least Squares method reduces its precision, therefore yielding a larger error; because the error does not improve, the result of each iteration is always the one from the first iteration (the one with the most equations). \\
+As with the previous iteration method, we are discarding rows and therefore the Least Squares method reduces its precision, therefore yielding a larger error. However, the error seems to decrease after iteration 4 and slightly improve the original solution for this case in particular, but whether it improves the solution or not for other cases will be studied in the results chapter. \\
 
-Although for this specific case there the method does not present an improvement in comparison to the Decreasing Range method, the Least Squares method is significantly faster in terms of execution, and will be studied in more detail in the following chapter, where more data sets will be used to see which yields the best results.
+Although for this specific case the method does not present an improvement in comparison to the Decreasing Range method, the Least Squares method is significantly faster in terms of execution, and will be studied in more detail, where more data sets will be used to see which yields the best results.

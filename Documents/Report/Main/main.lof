@@ -2,25 +2,25 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Gantt chart with the planning of the project \relax }}{20}{figure.caption.26}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces CDDIS server (a) and data flow to obtain IGS data (b)\relax }}{32}{figure.caption.49}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces VTEC as a function of the cosine of the solar-zenith angle\relax }}{33}{figure.caption.50}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)\relax }}{36}{figure.caption.52}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces VTEC value as a function of the solar-zenith angle cosine\relax }}{38}{figure.caption.53}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces CDDIS server (a) and data flow to obtain IGS data (b)\relax }}{38}{figure.caption.51}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces VTEC as a function of the cosine of the solar-zenith angle\relax }}{39}{figure.caption.52}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)\relax }}{42}{figure.caption.54}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces VTEC value as a function of the solar-zenith angle cosine\relax }}{43}{figure.caption.55}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Two examples of possible Sun locations\relax }}{41}{figure.caption.55}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Correlation and error of the solution as the mean VTEC decreases\relax }}{47}{figure.caption.60}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Two examples of possible Sun locations\relax }}{47}{figure.caption.57}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Correlation and error of the solution as the mean VTEC decreases\relax }}{53}{figure.caption.62}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces All visited candidates of the solution space\relax }}{53}{figure.caption.62}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces All data (red) and fitted samples (blue)\relax }}{54}{figure.caption.63}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces All visited candidates of the solution space\relax }}{59}{figure.caption.64}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces All data (red) and fitted samples (blue)\relax }}{60}{figure.caption.65}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces VTEC as a function of the solar-zenith angle's cosine\relax }}{57}{figure.caption.64}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces VTEC as a function of the solar-zenith angle's cosine\relax }}{63}{figure.caption.66}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces All visited candidates of the solution space\relax }}{69}{figure.caption.67}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{71}{figure.caption.68}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces All visited candidates of the solution space\relax }}{74}{figure.caption.69}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{76}{figure.caption.70}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Results of LS method with 10 iterations based on the estimated LS error\relax }}{79}{figure.caption.72}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods\relax }}{82}{figure.caption.75}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Comparison of the real error (purple) and the estimated Least Squares error (green)\relax }}{85}{figure.caption.75}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods\relax }}{87}{figure.caption.77}
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Comparison of the real error (purple) and the estimated Least Squares error (green)\relax }}{87}{figure.caption.78}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

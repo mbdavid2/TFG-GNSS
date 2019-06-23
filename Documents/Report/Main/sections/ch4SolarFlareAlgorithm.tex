@@ -178,15 +178,17 @@ As mentioned before, the flare took place at 11.05, so we could proceed using th
 	\label{fig:vtecDistribution}
 \end{figure}
 
-
-
 \section{Solar-zenith angle}
 
 The solar-zenith angle (denoted $\chi$ from now onward) plays a major role when studying this event: it is the angle formed by the Sun and the Earth's zenith and indicates the effect the flare is having on a particular IPP. It is expected that this variable presents a correlation with the increase in VTEC, which is what we aim to observe in this chapter.
 
 Figure \ref{fig:solar-zenith-angle}, at the end of the chapter, provides a visual representation of this variable that along with the results depicts how it can affect the VTEC value. 
 
-Obtaining the angle between two celestial objects has been shown in the previous section by means of equations \ref{eq:3}, \ref{eq:4} and \ref{eq:5}, when calculating the angle between the Sun and a detected GRB.
+Right Ascension and Declination are two concepts similar to longitude and latitude, respectively, used to describe the location of objects in the sky, in particular in a sphere of infinite radius that with the Earth as its center called the \textbf{celestial sphere}.
+
+Taking this into account, Right Ascension is the equivalent of longitude, expressed in degrees (or more commonly in hours, minutes and seconds) and Declination, the equivalent of latitude, is expressed in degrees between the two poles: +90$^{\circ}$ and -90$^{\circ}$. \cite{nasareferencesystem}
+
+This reference system is used to describe the position of objects in the sky, and. The angle between two celestial objects is obtained by means of equations \ref{eq:3}, \ref{eq:4} and \ref{eq:5}, by performing the dot product of the two unit vectors that define the position of the objects using their right ascension ($\alpha$) and declination ($\delta$).
 
 \begin{equation} \label{eq:3}
 unitVectorObjectA =	
@@ -210,7 +212,7 @@ unitVectorObjectB =
 \cos \beta = unitVectorObjectA \cdot unitVectorObjectB
 \end{equation}\\
 
-For this case, though, the cosine of the solar-zenith angle $\chi$ is computed using the IPP's Right Ascension and Latitude (equivalent to declination). The previous dot product can be simplified to:
+For this case, the cosine of the solar-zenith angle $\chi$ is computed using the IPP's Right Ascension and Latitude (equivalent to declination). The previous dot product can be simplified to:
 
 \begin{equation} \label{eq:6}
 \cos \chi = \sin\delta_{IPP}*\sin\delta_{Sun} + \cos\delta_{IPP}*\cos\delta_{Sun}*\cos(\alpha_{IPP} - \alpha_{Sun})

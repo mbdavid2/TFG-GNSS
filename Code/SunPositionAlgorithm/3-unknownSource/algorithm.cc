@@ -180,21 +180,21 @@ void resultsDebugLatex () {
 	int i = 0;
 
 	//Decrease range
-	if (plotLatex) cout << "-- Decreasing range method --" << endl;
-	for (string fileName : fileNames) {
-		if (!plotLatex) cout << ++i;
-		else  cout << fileName;
-		mainAlgorithm("dr", fileName, &aux, false);
-	}
-	(aux).resetTotalsMethod();
-	i = 0;
+	// if (plotLatex) cout << "-- Decreasing range method --" << endl;
+	// for (string fileName : fileNames) {
+	// 	if (!plotLatex) cout << ++i;
+	// 	else  cout << fileName;
+	// 	mainAlgorithm("dr", fileName, &aux, false);
+	// }
+	// (aux).resetTotalsMethod();
+	// i = 0;
 
 	//Least Squares
 	if (plotLatex) cout << "-- Least Squares method --" << endl;
 	
 	for (string fileName : fileNames) {
-		if (!plotLatex) cout << ++i;
-		else  cout << fileName;
+		// if (!plotLatex) cout << ++i;
+		// else  cout << fileName;
 		mainAlgorithm("ls", fileName, &aux, false);
 	}
 	(aux).resetTotalsMethod();
@@ -318,10 +318,15 @@ void stellarFlares() {
 
 int main() {
 	// methodPrompt();
-	iterationsLeastSquares = 1;
+	iterationsLeastSquares = 2;
 	totalEstimationError = -1; //Flag, -1 if decreasing range, LS will change the value
 	
-	nEpochsUsed = 1;
+	nEpochsUsed = 3;
+	for (int i = 2; i <= 30; i++) {
+		cout << "Iterations: " << i << endl;
+		iterationsLeastSquares = i;
+		resultsDebugLatex();
+	}
 	resultsDebugLatex();
 
 	// cout << "2 epochs" << endl;

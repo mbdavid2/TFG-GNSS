@@ -75,35 +75,35 @@ As mentioned before, the Swift archive gives us the Right Ascension (Ra) and Dec
 
 The location of the Sun, on the other hand, is unknown. But we do know the time when the burst was detected.
 
-The supervisor, Manuel Hernández-Pajares, provided me an algorithm which takes date (year, month, day and UT) and a planet of the Solar System (or the Sun, our case) as the input and returns its location in the celestial sphere, that is, its Ra and Dec. 
+The supervisor, Manuel Hernández-Pajares, provided me with an algorithm which takes date (year, month, day and UT) and a planet of the Solar System (or the Sun, our case) as the input and returns its location in the celestial sphere, that is, its Ra and Dec. 
 
 This algorithm belongs to the \textbf{Starlink Project} (Rutherford Appleton Laboratory), which provided open-source software like the one at hand to astronomical institutions. Although it was shut down in 2005, the code is still available and we could use it for our study \cite{starlinkproject}.
 
 Knowing the location of the GRB: ($\delta_{g}, \alpha_{g}$), declination and right ascension, respectively. And that of the Sun: ($\delta_{s}, \alpha_{s}$), the cosine of the angle between both can be computed and used as a parameter for the objective function.
 
-This computation is done by performing the dot product of the two unit vectors that can be obtained defined by the following formulas:
-
-\begin{equation} \label{eq:1}
-	unitVectorGRB =	
-	\begin{bmatrix}
-	\cos\delta_{g} * \cos\alpha_{g} \\ 
-	\cos\delta_{g} * \sin\alpha_{g} \\
-	\sin\delta_{g}
-	\end{bmatrix}
-\end{equation}
-
-\begin{equation} \label{eq:2}
-	unitVectorSun =	
-	\begin{bmatrix}
-	\cos\delta_{s} * \cos\alpha_{s} \\ 
-	\cos\delta_{s} * \sin\alpha_{s} \\
-	\sin\delta_{s}
-	\end{bmatrix}
-\end{equation}
-
-\begin{equation} \label{eq:3}
-	\cos angleSunGRB = unitVectorGRB \cdot unitVectorSun
-\end{equation}\\
+%This computation is done by performing the dot product of the two unit vectors that can be obtained defined by the following formulas:
+%
+%\begin{equation} \label{eq:1}
+%	unitVectorGRB =	
+%	\begin{bmatrix}
+%	\cos\delta_{g} * \cos\alpha_{g} \\ 
+%	\cos\delta_{g} * \sin\alpha_{g} \\
+%	\sin\delta_{g}
+%	\end{bmatrix}
+%\end{equation}
+%
+%\begin{equation} \label{eq:2}
+%	unitVectorSun =	
+%	\begin{bmatrix}
+%	\cos\delta_{s} * \cos\alpha_{s} \\ 
+%	\cos\delta_{s} * \sin\alpha_{s} \\
+%	\sin\delta_{s}
+%	\end{bmatrix}
+%\end{equation}
+%
+%\begin{equation} \label{eq:3}
+%	\cos angleSunGRB = unitVectorGRB \cdot unitVectorSun
+%\end{equation}\\
 
 The code for the previous computation is shown here:\\
 

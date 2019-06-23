@@ -232,6 +232,7 @@ These are the results of the execution using a cutoff value of 0.7. This value w
 		\hline
 	\end{tabular}
 	\caption{Estimation error and execution time for different data sets using the DR (left) and LS (right) methods with a cutoff filter}
+	\label{tb:basicCutoff}
 \end{table}
 
 As we can see, there has been a significant improvement in for both methods by discarding outliers, and because this filter is applied when performing the filtering by time of the data, it doesn't have an impact on the complexity of the execution. 
@@ -285,57 +286,130 @@ While this approach improves upon the solution of the Least Squares method, it r
 
 \textbf{INACABADO????}
 
-Although we have seen in the previous chapter that the iterations didn't work for a specific case, we decided to test it using all data sets. These are the results of executing the algorithm with 10 iterations, saving the result of the best iteration:
+\subsection{Discarding by source position}
+
+Although we have seen in the previous chapter that the iterations did not work for a specific case, we decided to test it using all data sets. These are the results of executing the algorithm with 10 iterations, saving the result of the best iteration. The best iteration is that which has the least estimation error, given by the covariance matrix (as seen in \ref{sssec:covariance}):
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\begin{centering}
+		\def\arraystretch{1.2}
+		\begin{tabular}{|c c c|} 
+			\hline
+			Data set & Error (º) & Time (s) \\ [0.5ex] 
+			\hline\hline
+			2001.347 & 3.41832 & 0.0194832 \\
+			\hline
+			2002.196 & 46.578 & 0.00818968 \\
+			\hline
+			2003.301 & 4.57509 & 0.0171783 \\
+			\hline
+			2003.308 & 141.865 & 0.366494 \\
+			\hline
+			2005.020 & 38.3263 & 0.141508 \\
+			\hline
+			2005.258 & 1.88011 & 0.0177967 \\
+			\hline
+			2011.210 & 38.5213 & 0.0704044 \\
+			\hline
+			2012.066 & 70.1063 & 0.049831 \\
+			\hline
+			2012.130 & 9.26238 & 0.0711422 \\
+			\hline
+			2012.297 & 3.00704 & 0.0592826 \\
+			\hline
+			Total & 357.54 & 0.82131 \\
+			\hline
+		\end{tabular}
+		\caption{Results for different data sets}
+	\end{centering}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}	
+		\includegraphics[width=\linewidth]{images/results/comparisonErrors.png}
+		\caption{Comparison of the real error (purple) and the estimated Least Squares error (green)}
+		\label{fig:comparisonErrorsLS}
+	\end{subfigure}
+	\caption{Results of LS method with 10 iterations based on the estimated LS error}
+	\label{fig:iterationsLSwithFigure}
+\end{figure}
+
+As we can see, the results in terms of estimation error are exactly the same as the ones seen in table \ref{tb:basicCutoff} with a slight increase in execution time due to the number of iterations. Because there is no improvement with consecutive iterations, the algorithm just keeps the best result from the first one, hence the same results.
+
+Despite the fact that using this approach does not improve the results, it can be interesting to see how the estimated LS error evolves compared to the real error for all the studied data sets, figure \ref{fig:comparisonErrorsLS} shows a comparison for all the tested data sets.
+
+%\begin{figure}[!htb]
+%	\begin{centering}
+%		\includegraphics[width=0.5\linewidth]{images/results/comparisonErrors.png}
+%		\caption{Comparison of the real error (purple) and the estimated Least Squares error (green)}
+%		\label{fig:comparisonErrorsLS}
+%	\end{centering}
+%\end{figure}
+
+We can observe that both functions have similar spikes: if the solution has a large error, it is because the Least Squares method could not provide a good solution with the available data. As we have seen, some of the studied flares are hard to detect for both methods, due to their intensity.
+
+\subsection{Discarding by the residual sum of squares}
+
+In the Least Squares chapter a slight improvement could be observed when discarding outliers based on the residual sum of squares of each iteration, but only for a specific flare. These are the results of the total error and total execution time for all 10 data sets using up to 30 iterations.
 
 \begin{table}[h!]
 	\centering
 	\def\arraystretch{1.2}
 	\begin{tabular}{|c c c|} 
 		\hline
-		Data set & Error (º) & Time (s) \\ [0.5ex] 
+		Iterations & Error (º) & Time (s) \\ [0.5ex] 
 		\hline\hline
-		2001.347 & 3.41832 & 0.0194832 \\
+		2 & 375.793 & 0.741631 \\
 		\hline
-		2002.196 & 46.578 & 0.00818968 \\
+		3 & 458.501 & 0.752343 \\
 		\hline
-		2003.301 & 4.57509 & 0.0171783 \\
+		4 & 454.244 & 0.736867 \\
 		\hline
-		2003.308 & 141.865 & 0.366494 \\
+		5 & 422.8 & 0.744048 \\
 		\hline
-		2005.020 & 38.3263 & 0.141508 \\
+		6 & 447.083 & 0.767054 \\
 		\hline
-		2005.258 & 1.88011 & 0.0177967 \\
+		7 & 445.304 & 0.813639 \\
 		\hline
-		2011.210 & 38.5213 & 0.0704044 \\
+		8 & 457.769 & 0.80455 \\
 		\hline
-		2012.066 & 70.1063 & 0.049831 \\
+		9 & 401.549 & 0.87425 \\
 		\hline
-		2012.130 & 9.26238 & 0.0711422 \\
+		10 & 385.327 & 0.824476 \\
 		\hline
-		2012.297 & 3.00704 & 0.0592826 \\
-		\hline
-		Total & 357.54 & 0.82131 \\
+		11 & 370.055 & 0.838879 \\
 		\hline
 	\end{tabular}
-	\caption{Results for different data sets}
-	\label{tab:lsDirect}
+	\quad\quad\quad
+	\begin{tabular}{|c c c|} 
+		\hline
+		Iterations & Error (º) & Time (s) \\ [0.3ex] 
+		\hline\hline
+		12 & 387.599 & 0.893248 \\
+		\hline
+		13 & 371.906 & 0.893959 \\
+		\hline
+		14 & 376.933 & 0.910624 \\
+		\hline
+		15 & 365.973 & 0.934418 \\
+		\hline
+		... & ... & ... \\
+		\hline
+		22 & 376.933 & 0.939168 \\
+		\hline
+		23 & 365.973 & 0.915974 \\
+		\hline
+		... & ... & ... \\
+		\hline
+		29 & 376.933 & 0.95647 \\
+		\hline
+		30 & 365.973 & 1.16539 \\
+		\hline
+	\end{tabular}
+	\caption{Total estimation error and total execution time for different data sets using LS method with iterations}
 \end{table}
 
-As we can see, the results in terms of estimation error are exactly the same as the ones seen in table \ref{tab:lsDirect} with a slight increase in execution time due to the number of iterations. Because there is no improvement with consecutive iterations, the algorithm just keeps the best result from the first one, hence the same results.
-
-\subsection{Error comparison}
-
-Despite the fact that using this approach does not improve the results, it can be interesting to see how the covariance matrix error evolves compared to the real error for all the studied data sets, figure \ref{fig:comparisonErrorsLS} shows a comparison for all the tested data sets the real error and LS error:
-
-\begin{figure}[!htb]
-	\begin{centering}
-		\includegraphics[width=0.5\linewidth]{images/results/comparisonErrors.png}
-		\caption{Comparison of the real error (purple) and the estimated Least Squares error (green)}
-		\label{fig:comparisonErrorsLS}
-	\end{centering}
-\end{figure}
-
-As we can see, both functions seem to have similar spikes. If the solution has a large error, it is because the Least Squares method could not provide a good solution with the available data. As we have seen, some of the studied flares are hard to detect for both methods, due to their intensity.
+As we can see, the total error increases significantly once the algorithm starts iterating but the results slowly improve (and the execution time increases) until iterations 14 and 15, where the algorithm periodically yields the same results every two iterations. Still, no iteration presents any improvement in comparison to the first one: 357.54 degrees.
 
 \clearpage
 
@@ -343,7 +417,7 @@ As we can see, both functions seem to have similar spikes. If the solution has a
 
 Although this change was not implemented when testing the data sets from the Sun but those from far-away stars (in the next chapter), using multiple epochs resulted in better estimations with the Sun so it is included in this chapter.
 
-As we have seen when reducing the number of samples when discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, that is, when filtering by the time of the best found epoch, also filtering by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one:
+As we have seen when reducing the number of samples when discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, that is, when filtering by the time of the best found epoch, also filtering by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one, and only using a cutoff filter:
 
 \begin{table}[h!]
 	\centering
@@ -406,7 +480,7 @@ As we have seen when reducing the number of samples when discarding oultiers wit
 	\caption{Estimation error and execution time for different data sets using the DR (left) and LS (right) methods with a cutoff filter and using data from two epochs}
 \end{table}
 
-Although using linear fit to discard outliers with the DR method seemed to improve the results in previous sections, using it with multiple epochs does not present any improvement (the total error of the DR with linear fit for two epochs is 400.146). Although it is still an improvement in comparison to the DR method using only the cutoff filter.
+Although using linear fit to discard outliers with the DR method seemed to improve the results in previous sections, using it with multiple epochs does not present any improvement (the total error of the DR with linear fit for two epochs is 400.146). But it is still an improvement in comparison to the DR method using only the cutoff filter. Using multiple iterations with two epochs reduces the error too, but the combination that yields the least error is using one single iteration.
 
 Furthermore, using 3 epochs instead of 2 resulted in a total error of 390.954 for the DR method and 294.689 for the LS method, and there is no improvement beyond using 3 epochs. This change was very important for some tests presented in the next chapter.
 
