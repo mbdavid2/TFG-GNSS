@@ -114,17 +114,17 @@
 \contentsline {subsection}{\numberline {8.4.1}Discarding by source position}{79}{subsection.8.4.1}
 \contentsline {subsection}{\numberline {8.4.2}Discarding by the residual sum of squares}{80}{subsection.8.4.2}
 \contentsline {section}{\numberline {8.5}Using multiple epochs}{81}{section.8.5}
-\contentsline {section}{\numberline {8.6}Conclusion}{82}{section.8.6}
-\contentsline {chapter}{\numberline {9}Results: stellar flares}{84}{chapter.9}
-\contentsline {section}{\numberline {9.1}Study on the feasibility of stellar flare detection}{84}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Sources of data and possible candidates}{84}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}The Neil Gehrels Swift Observatory and its data}{85}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}Objective function}{86}{subsection.9.1.3}
-\contentsline {paragraph}{Computing the angle}{86}{paragraph*.76}
-\contentsline {subsection}{\numberline {9.1.4}Obtaining the data}{87}{subsection.9.1.4}
-\contentsline {section}{\numberline {9.2}Testing the BGSEES algorithm}{88}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Discarding the day hemisphere}{88}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Proxima Centauri}{89}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}NGTS J121939.5-355557}{89}{subsection.9.2.3}
-\contentsline {chapter}{\numberline {10}Conclusions}{90}{chapter.10}
-\contentsline {chapter}{\numberline {11}Annexes}{91}{chapter.11}
+\contentsline {section}{\numberline {8.6}Conclusion}{83}{section.8.6}
+\contentsline {chapter}{\numberline {9}Stellar flares}{85}{chapter.9}
+\contentsline {section}{\numberline {9.1}Study on the feasibility of stellar flare detection}{85}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Sources of data and possible candidates}{85}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}The Neil Gehrels Swift Observatory and its data}{86}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Objective function}{87}{subsection.9.1.3}
+\contentsline {paragraph}{Computing the angle}{87}{paragraph*.76}
+\contentsline {subsection}{\numberline {9.1.4}Obtaining the data}{88}{subsection.9.1.4}
+\contentsline {section}{\numberline {9.2}Testing the BGSEES algorithm}{89}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Discarding the day hemisphere}{89}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Proxima Centauri}{90}{subsection.9.2.2}
+\contentsline {subsection}{\numberline {9.2.3}NGTS J121939.5-355557}{90}{subsection.9.2.3}
+\contentsline {chapter}{\numberline {10}Conclusions}{91}{chapter.10}
+\contentsline {chapter}{\numberline {11}Annexes}{92}{chapter.11}

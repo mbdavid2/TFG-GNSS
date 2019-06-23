@@ -1,16 +1,14 @@
 \chapter{Results: solar flares}
 
-\textbf{colocar resultados finales de las iteraciones de LS con residual y plots de comparacion de ambos metodos}
-
 In this chapter different data sets will be studied using the two presented methods for the \textit{BGSEES} algorithm: the \textbf{Least Squares} and \textbf{Decrease Range} methods. 
 
-The aim of the chapter is to test them against each other and using different parameters to see which method yields the best result
+The aim of the chapter is to test them against each other and using different parameters to see which method yields the best results.
 
 The algorithm is tested using data from Solar flares, for these, the ti files of days when a flare had taken place were used to compare the results. The data was filtered around the time of the flare (30 minutes before and after, if there was an exact moment in time).
  
 Below is the list of times (\textit{year.day.seconds}) of the different flares we studied. The seconds are either an exact moment in time or a range used in the plots of the papers the flares are listed in.
 
-Flares listed in \textit{"GNSS measurement of EUV photons flux rate during strong and mid solar flares"}\cite{hernandez2012gnss}
+These are the flares listed in the paper \textit{"GNSS measurement of EUV photons flux rate during strong and mid solar flares"}\cite{hernandez2012gnss}
 
 \begin{itemize}
 	\item 2003.301.39777
@@ -37,16 +35,11 @@ And those listed in \textit{"GPS as a solar observational instrument: Real-time 
 %	\item 2013.310.35970
 \end{itemize}
 
-To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, the studied factors are:
-
-The \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the data, it is one of the many fields the ti files contain} and the estimated location, using the same operations we've used in previous chapters to compute the angle. 
-
-The ti files that contain data for the entire day are filtered using this bash script, which has a list with the information of each file to be filtered: the name of the original file and the upper and lower limits of time (or a specific moment used to compute the limits). It then filters each file using a simple AWK one-line script that checks the field with the time:
+To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, outputing the \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the data, it is one of the many fields the ti files contain} and the estimated location, using the same operations we've used in previous chapters to compute the angle. 
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=Bash, caption=Filtering the ti file]
 #!/bin/bash	
-	
 strings=(
 	'2003.301,36000,41400'
 	'2011.210,44134'
@@ -54,7 +47,6 @@ strings=(
 	'2012.297,11600,12000'
 )
 tiDataFolder="/home/mbdavid2/Documents/dataTi/"
-
 for i in "${strings[@]}"; do
 	dataInfo="$i"
 	
@@ -83,19 +75,22 @@ for i in "${strings[@]}"; do
 done\end{lstlisting}
 \end{minipage}
 
+The ti files that contain data for the entire day are filtered using the previous bash script, which has a list with the information of each file to be filtered: the name of the original file and the upper and lower limits of time (or a specific moment used to compute the limits). It then filters each file using a simple AWK one-line script that checks the field with the time.
+
 The study is divided in three categories, based on the method used to discard outliers from the input data:
 
 \begin{itemize}
 	\item Using the data from \textbf{all IPPs} without filtering out any outliers
 	\item Using a \textbf{cutoff value} for \textbf{all the VTEC data} that will be used for the computations of the algorithm
 	\item Using \textbf{linear fit} for the Decreasing Range method to discard outliers and \textbf{multiple iterations} for the Least Squares method to try to improve the solution, both presented in their respective chapters.
+	\item Using data from \textbf{multiple epochs} rather than just one.
 \end{itemize}
 
 \clearpage
 
 \section{Using all available data}
 
-For this first test, all the data from the ti file is used: in the case of the Decreasing Range (DR) method, all the VTEC values that could be invalid are used to compute the correlation, and in the case of the Least Squares (LS) method, all are used for the equations of the system.
+For this first test, all the data from the ti file is used: in the case of the Decreasing Range (DR) method, all the VTEC values that could be outliers are used to compute the correlation, and in the case of the Least Squares (LS) method, all are used for the equations of the system.
 
 \begin{table}[h!]
 	\centering
@@ -164,12 +159,13 @@ Furthermore, the outliers can cause numerical instability in some of the methods
 
 Additionally, the LS method is significantly faster: all data sets together add up to a total execution time of less than one second, whilst the DR method needs that time or even more for almost each of the data sets.
 
-TODO: Comentar el tema de que no esperabamos que fuera perfecto, pero de hecho el siguiente section mejora: (se comenta algo parecido en la conclusion del capitulo)
-Considering that this is a new method to detect flares, however, this could have been the case in general (the detection could not have been possible, or at least not with enough precision
+While in all previous sections a direct VTEC filter has been used, using all data was tested too to compare the results.
+
+\clearpage
 
 \section{Direct VTEC filter}
 
-Although this is a very simple approach to discard outliers, we decided to test it because the value of the Delta VTEC does not usually surpass values such as 0.8, only some IPPs might present values like this, due to other interferences in the satellite data. The flare from the day 301 of 2003, for example, studied in previous chapters, is one of the most powerful flares ever recorded, and the peak value of the Delta VTEC is 0.4.
+Although this is a very simple approach to discard outliers, we decided to test it because the value of the Delta VTEC does not usually surpass values such as 0.7, only some IPPs might present values like this, due to other interferences in the satellite data. The flare from the day 301 of 2003, for example, studied in previous chapters, is one of the most powerful flares ever recorded, and the peak value of the Delta VTEC is 0.4.
 
 These are the results of the execution using a cutoff value of 0.7. This value was selected as it is the one that yielded the best results in a range of 0.3 to 1:
 
@@ -235,15 +231,15 @@ These are the results of the execution using a cutoff value of 0.7. This value w
 	\label{tb:basicCutoff}
 \end{table}
 
-As we can see, there has been a significant improvement in for both methods by discarding outliers, and because this filter is applied when performing the filtering by time of the data, it doesn't have an impact on the complexity of the execution. 
+As we can see, there has been a significant improvement for both methods in some of the flares with low error values (although some still present a high error), and because this filter is applied when performing the filtering by time of the data, it doesn't have an impact on the complexity of the execution. 
 
-Because the direct filter yields significantly better results for both cases, the next sections use it for filtering the first traversal of the data, before performing an additional filter to attempt to discard outliers.
+Because the direct filter yields significantly better results for both cases, the next sections use it for filtering the first traversal of the data (when the necessary data is obtained from the ti file), before performing an additional filter to attempt to discard outliers.
 
 \clearpage
 
 \section{Decreasing range: linear fit}
 
-This approach, introduced in chapter 6, discards outliers by finding the line that fits the data set and discarding outliers based on a sigma parameter. This filter can be performed several times (the number of iterations). The results of the decreasing range method using a sigma of 3 and 4 iterations (the best combination of those values in a range from 1 to 10) is shown below:
+This approach, introduced in chapter \ref{decRangeChapter}, finds the straight line that fits the data set and discards outliers based on a sigma parameter. This filter can be performed several times (the number of iterations). The results of the decreasing range method using a sigma of 3 and 4 iterations (the best combination of those values in a range from 1 to 10) is shown below:
 
 \begin{table}[h!]
 	\centering
@@ -278,17 +274,15 @@ This approach, introduced in chapter 6, discards outliers by finding the line th
 	\caption{Results for different data sets using linear fit with the DR method}
 \end{table}
 
-While this approach improves upon the solution of the Least Squares method, it requires significantly higher execution time (each execution takes almost a minute).
+While this approach improves upon the solution of the Least Squares method (from 357.54 to 335.701), it requires a significantly higher execution time: each execution takes almost a minute, which is more than the total execution time for all data sets using the same method in the previous section.
 
 \clearpage
 
 \section{Least Squares: Iterations}
 
-\textbf{INACABADO????}
-
 \subsection{Discarding by source position}
 
-Although we have seen in the previous chapter that the iterations did not work for a specific case, we decided to test it using all data sets. These are the results of executing the algorithm with 10 iterations, saving the result of the best iteration. The best iteration is that which has the least estimation error, given by the covariance matrix (as seen in \ref{sssec:covariance}):
+In chapter \ref{LSmethodChapter} iterations did not provide better results for a specific case, but we decided to test it using all data sets in case there was any overall improvement. These are the results of executing the algorithm with 10 iterations, saving the result of the best iteration. The best iteration is that which has the least estimation error, given by the covariance matrix (as seen in \ref{sssec:covariance}):
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -346,7 +340,7 @@ Despite the fact that using this approach does not improve the results, it can b
 %	\end{centering}
 %\end{figure}
 
-We can observe that both functions have similar spikes: if the solution has a large error, it is because the Least Squares method could not provide a good solution with the available data. As we have seen, some of the studied flares are hard to detect for both methods, due to their intensity.
+As we have seen in previous sections, some of the studied flares are hard to detect for both methods, due to their intensity. We can observe that both functions have similar spikes: if the solution has a large error, it is because the Least Squares method could not provide a good solution with the available data. 
 
 \subsection{Discarding by the residual sum of squares}
 
@@ -409,15 +403,15 @@ In the Least Squares chapter a slight improvement could be observed when discard
 	\caption{Total estimation error and total execution time for different data sets using LS method with iterations}
 \end{table}
 
-As we can see, the total error increases significantly once the algorithm starts iterating but the results slowly improve (and the execution time increases) until iterations 14 and 15, where the algorithm periodically yields the same results every two iterations. Still, no iteration presents any improvement in comparison to the first one: 357.54 degrees.
+As we can see, the total error increases significantly once the algorithm starts iterating but the results slowly improve (and the execution time increases) until iterations 14 and 15, where the algorithm periodically yields the same results every two iterations. Still, no iteration presents any improvement in comparison to the first one: 357.54 degrees, so using a single iteration appears to be the best option for the Least Squares method.
 
 \clearpage
 
 \section{Using multiple epochs}
 
-Although this change was not implemented when testing the data sets from the Sun but those from far-away stars (in the next chapter), using multiple epochs resulted in better estimations with the Sun so it is included in this chapter.
+Although this change did not come up when testing the data sets from the Sun but those from far-away stars (in the next chapter), using multiple epochs resulted in better estimations with the Sun as well so it is included in this chapter.
 
-As we have seen when reducing the number of samples when discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, that is, when filtering by the time of the best found epoch, also filtering by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one, and only using a cutoff filter:
+As we have seen when reducing the number of samples by discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, that is, when filtering by the time of the best found epoch, also filtering by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one, and only using a cutoff filter:
 
 \begin{table}[h!]
 	\centering
@@ -480,7 +474,7 @@ As we have seen when reducing the number of samples when discarding oultiers wit
 	\caption{Estimation error and execution time for different data sets using the DR (left) and LS (right) methods with a cutoff filter and using data from two epochs}
 \end{table}
 
-Although using linear fit to discard outliers with the DR method seemed to improve the results in previous sections, using it with multiple epochs does not present any improvement (the total error of the DR with linear fit for two epochs is 400.146). But it is still an improvement in comparison to the DR method using only the cutoff filter. Using multiple iterations with two epochs reduces the error too, but the combination that yields the least error is using one single iteration.
+Although using linear fit to discard outliers with the DR method seemed to improve the results in previous sections, using it with multiple epochs does not present any improvement (the total error of the DR with linear fit for two epochs is 400.146). But it is still an improvement in comparison to the DR method using only the cutoff filter. Regarding the LS method, using multiple iterations with two epochs reduces the error, but not iterating at all is again the combination that yields the lowest error values, a total of 260.055 degrees. Although some of the flares are detected with a slightly higher error, the total is significantly lower.
 
 Furthermore, using 3 epochs instead of 2 resulted in a total error of 390.954 for the DR method and 294.689 for the LS method, and there is no improvement beyond using 3 epochs. This change was very important for some tests presented in the next chapter.
 
@@ -488,9 +482,9 @@ Furthermore, using 3 epochs instead of 2 resulted in a total error of 390.954 fo
 
 \section{Conclusion}
 
-In this chapter we have seen that working with the entire data set of IPPs does not yield good results, there is too much noise and the results differ considerably from the real position of the Sun. Considering that this is a new method to detect flares, however, this could have been the case in general (the detection could not have been possible, or at least not with enough precision), but using a direct filter for the VTEC values we have seen that some of the data sets yield results with errors as small as 4 degrees.
+In this chapter we have seen that working with the entire data set of IPPs does not yield good results, there is too much noise and the results differ considerably from the real position of the Sun. Considering that this is a new method to detect flares, however, this could have been the case in general (the detection could not have been possible, or at least not with enough precision), but when using a direct filter for the VTEC values we have seen that some of the data sets yield results with errors as small as 4 degrees.
 
-It can be interesting to see, however, how some data sets still have a high error, due to the nature of the flare (perhaps it was not sufficiently strong to have an impact on the ionosphere), figure \ref{fig:comparisonDRLS} (a) compares the Least Squares method error of the direct filter approach and using all the data.
+It can be interesting to see, however, how some data sets still have a high error, due to the nature of the flare (perhaps it was not sufficiently strong to have an impact on the ionosphere), figure \ref{fig:comparisonDRLS}a compares the Least Squares and Decreasing Range methods' error of the direct filter approach.
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -510,20 +504,17 @@ It can be interesting to see, however, how some data sets still have a high erro
 	\hfill
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/results/meanVTECVSerror.png}
-		\caption{Execution time}
+		\caption{dsadasdMean VTEC as a functiondsadas}
 	\end{subfigure}
 	\caption{Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods}
 	\label{fig:comparisonDRLS}
 \end{figure}
 
-Furthermore, this can be seen if we consider the mean VTEC of the best epoch that the algorithm uses (representative of the strength of the flare) and the estimation error.
+Furthermore, the correlation between the intensity of the flare and the error of the estimation can be seen in figure \ref{fig:comparisonDRLS}c if we plot the mean VTEC of the best epoch that the algorithm uses (representative of the strength of the flare) as a function of the estimation error. Or the inverse (figure \ref{fig:comparisonDRLS}d. These two plots are representative of how the estimation error increases as the power of the flare decrease.
 
-As we can see....decreases bla blab
+Regarding the performance of the algorithm, figure \ref{fig:comparisonDRLS}b compares the execution time of both the LS (green) and DR (purple) methods. The DR method takes more time for all data sets and there would be an even greater difference would we compare the method using linear fit.
 
+In conclusion, the Decreasing Range method (using linear fit to discard outliers) and the Least Squares method (using a direct filter) provide good results for some of the data sets with powerful flares, therefore, these two methods will. However, the combination that yields the best results is the Least Squares method using a direct filter and data from the two best epochs rather than just one.
 
-In conclusion, the Decreasing Range method (using linear fit to discard outliers) and the Least Squares method (using a direct filter) provide good results for some of the data sets with powerful flares, therefore, these two methods will
-
-conclusion de todo el chapter? comparar aqui ambos metodos, \textbf{hacer plot de comparacion del error y el tiempo para ver que ambos tienen errores en los mismos flares debido a la debilidad de algunos}
-
-Decidir cual es el mejor metodo para usar en stellar flares? pero decir que igualmente probamos con ambos
+Therefore, this will be the main method used to study stellar flares in the next chapter, although the other presented options will be taken into consideration as well.
 
