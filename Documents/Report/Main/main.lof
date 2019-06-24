@@ -21,6 +21,8 @@
 \contentsline {figure}{\numberline {8.1}{\ignorespaces Results of LS method with 10 iterations based on the estimated LS error\relax }}{79}{figure.caption.72}
 \contentsline {figure}{\numberline {8.2}{\ignorespaces Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods\relax }}{83}{figure.caption.75}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Comparison of the real error (purple) and the estimated Least Squares error (green)\relax }}{88}{figure.caption.78}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Result of the GSFLAI algorithm for the 181228A GRB\relax }}{88}{figure.caption.78}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Estimation error surrounding the moment of the flare\relax }}{92}{figure.caption.80}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Estimation error surrounding the moment of the flare\relax }}{95}{figure.caption.82}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

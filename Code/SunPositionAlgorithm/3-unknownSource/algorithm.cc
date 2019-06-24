@@ -289,7 +289,7 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 		totalError += tmpError;
 
 		// cout << endl << "DR: ";
-		// decreaseRangeMethod(numRows, false);
+		// decreaseRangeMethod(numRows, true);
 		// tmpError = aux.printErrorResults(estimatedRa, estimatedDec, correctSunLocation, totalEstimationError, inputDataFile);
 		// if (tmpError < bestError) bestError = tmpError;
 		// totalError += tmpError;
@@ -301,7 +301,8 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 		totalError += tmpError;
 
 		
-		cout << " " << totalError/5 << endl;
+		cout << " & " << totalError/5 << endl;
+		// cout << " \\\\" << endl << "\\hline" << endl;
 		// bestPQ.pop();
 		tmpError = 10000;
 		bestError = 10000;
@@ -312,25 +313,20 @@ void stellarFlares() {
 	cout << "Discard day hemisphere?" << endl;
 	// iterateOverMultipleEpochs("ti.2016.078.gz");
 	cout << endl << endl;
+
 	iterateOverMultipleEpochs("ti.2016.032.gz");
 	cout << endl;
 }
 
 int main() {
 	// methodPrompt();
-	iterationsLeastSquares = 2;
+	iterationsLeastSquares = 1;
 	totalEstimationError = -1; //Flag, -1 if decreasing range, LS will change the value
 	
-	nEpochsUsed = 3;
-	for (int i = 2; i <= 30; i++) {
-		cout << "Iterations: " << i << endl;
-		iterationsLeastSquares = i;
-		resultsDebugLatex();
-	}
-	resultsDebugLatex();
+	// resultsDebugLatex();
 
 	// cout << "2 epochs" << endl;
-	// nEpochsUsed = 2;
+	nEpochsUsed = 1;
 	// resultsDebugLatex();
 
 	// cout << endl << "3 epochs" << endl;
@@ -343,6 +339,6 @@ int main() {
 
 	// Parameters
 	n = 10; // Number of epochs that are going to be tested
-	 //Number of epochs that are going to be used at the same time by the method 
-	// stellarFlares();	
+	//Number of epochs that are going to be used at the same time by the method 
+	stellarFlares();	
 }

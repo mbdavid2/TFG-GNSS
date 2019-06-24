@@ -109,6 +109,7 @@ void SpikeFinder::findQueueBestCandidates (ifstream& data) {
 			totalEpochVTEC += vtecIn;
 			n++;
 			if (previousEpoch != epochIn) {
+				// cout << "Diferencia: " << previousEpoch - epochIn << endl;
 				priorityQueuesEpochs[previousEpoch] = IPPsOfEpoch;
 				IPPsOfEpoch = priority_queue<infoIPP> ();
 				insertCandidate(previousEpoch, totalEpochVTEC/n);

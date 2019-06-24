@@ -1,7 +1,7 @@
 BEGIN {
 	upperLimitVTEC = 0.7;
 	lowerLimitVTEC = -0.7;
-	discardSunHemisphere = 0;
+	discardSunHemisphere = 1;
 	PI = 4*atan2(1,1);
 	COSINE_THRESHOLD = -0.2;
 }

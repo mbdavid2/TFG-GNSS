@@ -4,7 +4,7 @@
 
 In the previous chapter the correlation between the solar-zenith angle's cosine and the estimated VTEC value was studied. Here, we aim to provide a first, brute force approach, of the \textit{Blind GNSS Search of Extraterrestrial EUV Sources (BGSEES)} algorithm to estimate the location of a EUV source. This approach is done as a first approximation to the problem to see more clearly how the algorithm will work, regardless of its performance.
 
-For this first approach the Sun is used as the source (to check the corectness of the solution). It considers possible Sun locations (with a certain degree of precision) and checks the fitness of each to consider which could be the real location.
+For this first approach the Sun is used as the source we are trying to find (to check the corectness of the solution). It considers possible Sun locations (with a certain degree of precision) and checks the fitness of each to consider which could be the real location.
 
 \section{Key elements}
 
@@ -12,7 +12,7 @@ For this first approach the Sun is used as the source (to check the corectness o
 
 As seen in the previous chapter, there exists a correlation between the VTEC value and the cosine of the solar-zenith angle. 
 
-Once the moment of the flare is found, the aim of the algorithm is to study the correlation for each of the possible Suns and yield a fitness indicator for them. 
+The aim of the algorithm is to study the correlation for each of the possible Suns locations considered and yield a fitness indicator for each of them. 
 
 The main idea behind the search is that the higher the correlation, the more accurate the estimated location should be, compared to the Sun's real location. 
 
@@ -250,16 +250,15 @@ The following loop traverses the data and computes the mean VTEC of each epoch, 
 	double totalEpochVTEC = vtecIn;
 	double previousEpoch = epochIn;
 	while (data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
-	totalEpochVTEC += vtecIn;
-	n++;
-	if (previousEpoch != epochIn) {
-	insertCandidate(previousEpoch, totalEpochVTEC/n);
-	previousEpoch = epochIn;
-	totalEpochVTEC = 0;
-	n = 0;
-	}
-	}
-	\end{lstlisting}
+		totalEpochVTEC += vtecIn;
+		n++;
+		if (previousEpoch != epochIn) {
+			insertCandidate(previousEpoch, totalEpochVTEC/n);
+			previousEpoch = epochIn;
+			totalEpochVTEC = 0;
+			n = 0;
+		}
+	}\end{lstlisting}
 \end{minipage}
 
 The following table presents the 10 best epochs from best to worst and their results. Figure \ref{fig:differentEpochs} shows a visual representation of the evolution of the correlation coefficient and its total error (right ascension error + declination error) as the mean VTEC of the epoch decreases (using 15 different epochs).
@@ -311,7 +310,7 @@ The following table presents the 10 best epochs from best to worst and their res
 	\label{fig:differentEpochs}
 \end{figure}
 
-As we can see, the correlation rapidly decreases from 1 (almost linear) to almost 0. The error, on the other hand, doesn't experience much change for the first epochs but finally increases considerably, because despite the correlation coefficient the estimation can still be done. Past a certain correlation, however, the estimation is harder to perform and the error spikes. 
+As we can see, the correlation rapidly decreases from 1 (almost linear) to almost 0. The error, on the other hand, does not experience much change for the first epochs but finally increases considerably, because despite the correlation coefficient the estimation can still be done. Past a certain correlation, however, the estimation is harder to perform and the error spikes. 
 
 \subsection{Results}
 
@@ -357,7 +356,7 @@ It can be interesting to see how the computation time grows as more precision is
 		1 & 64621 & 0.939114 & [ra=214, dec=-11] & 1m 9s 564ms \\
 		\hline 
 	\end{tabular}
-	\caption{Results}
+	\caption{Results using different STEP values}
 \end{table}
 
 As we can see this approach provides the expected results, but has a large computational complexity that increases with the precision we demand. 

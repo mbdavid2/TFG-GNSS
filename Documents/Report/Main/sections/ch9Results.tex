@@ -35,7 +35,7 @@ And those listed in \textit{"GPS as a solar observational instrument: Real-time 
 %	\item 2013.310.35970
 \end{itemize}
 
-To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, outputing the \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the data, it is one of the many fields the ti files contain} and the estimated location, using the same operations we've used in previous chapters to compute the angle. 
+To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, outputing the \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the data, it is one of the many fields the ti files contain} and the estimated location, using the same operations we have used in previous chapters to compute the angle. 
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=Bash, caption=Filtering the ti file]
@@ -231,7 +231,7 @@ These are the results of the execution using a cutoff value of 0.7. This value w
 	\label{tb:basicCutoff}
 \end{table}
 
-As we can see, there has been a significant improvement for both methods in some of the flares with low error values (although some still present a high error), and because this filter is applied when performing the filtering by time of the data, it doesn't have an impact on the complexity of the execution. 
+As we can see, there has been a significant improvement for both methods in some of the flares with low error values (although some still present a high error), and because this filter is applied when performing the filtering by time of the data, it does not have an impact on the complexity of the execution. 
 
 Because the direct filter yields significantly better results for both cases, the next sections use it for filtering the first traversal of the data (when the necessary data is obtained from the ti file), before performing an additional filter to attempt to discard outliers.
 
@@ -480,7 +480,7 @@ Furthermore, using 3 epochs instead of 2 resulted in a total error of 390.954 fo
 
 \clearpage
 
-\section{Conclusion}
+\section{Discussion}
 
 In this chapter we have seen that working with the entire data set of IPPs does not yield good results, there is too much noise and the results differ considerably from the real position of the Sun. Considering that this is a new method to detect flares, however, this could have been the case in general (the detection could not have been possible, or at least not with enough precision), but when using a direct filter for the VTEC values we have seen that some of the data sets yield results with errors as small as 4 degrees.
 

@@ -1,7 +1,5 @@
 \chapter{Least Squares method}\label{LSmethodChapter}
 
-\textbf{falta explicar el discard de las iteraciones??}
-
 As we have seen in previous chapters the overall process to determine the location of the source is studying the correlation between the VTEC value and the solar-zenith angle (or source-zenith angle, speaking in general terms) for a possible location.
 
 That is, for an IPP with a location and an associated VTEC value, given the location of a possible source, compute the cosine between them, and see that the closer the cosine is to 1 (or 180$^{\circ}$), the higher the VTEC value.
@@ -372,7 +370,7 @@ After the solution to the system has been obtained, the degrees are obtained as 
 
 \begin{minipage}{\linewidth}
 	\label{lst:obtainSource}
-	\begin{lstlisting}[style=myFortranStyle, caption=Function obtainSourceLocation]
+	\begin{lstlisting}[style=myFortranStyle, caption=Obtaining the source's location using the system's solution]
 	subroutine obtainSourceLocation(solution, solRa, solDec)
 		implicit none
 		double precision, dimension (0:3), intent(in) :: solution

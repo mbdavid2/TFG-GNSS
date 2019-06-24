@@ -45,7 +45,7 @@ The following is the implementation of such test, which checks its surrounding n
 	\end{lstlisting}
 \end{minipage}
 
-The following figure shows the results of the execution for two different starting states. For both of them, the algorithm ran until it couldn't progress any further (wasn't interrupted by the iteration limit). The plots contain both the possibilities considered by the decrease range method (in purple, the same plot as \ref{fig:solutionSpace}), and the path taken by the greedy algorithm (in green).
+The following figure shows the results of the execution for two different starting states. For both of them, the algorithm ran until it could not progress any further (wasn not interrupted by the iteration limit). The plots contain both the possibilities considered by the decrease range method (in purple, the same plot as \ref{fig:solutionSpace}), and the path taken by the greedy algorithm (in green).
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -65,9 +65,9 @@ Visually, we can see that the number of considered possibilities is inferior and
 
 If we take a starting right ascension of 160$^{\circ}$ and a declination of -20$^{\circ}$, the algorithm takes a path that gets to the top of our solution, yielding similar results to the previous, decrease range method.
 
-However, with a starting right ascension of 100$^{\circ}$ and a declination of -60$^{\circ}$, the algorithm finds a local maxima on its way and can't progress to the real best solution.
+However, with a starting right ascension of 100$^{\circ}$ and a declination of -60$^{\circ}$, the algorithm finds a local maxima on its way and cannot progress to the real best solution.
 
-As a result, we can't rely on the Hill Climbing approach for all cases, considering that local maxima may exist for our type of problem, leading to incorrect estimations in some cases.
+As a result, the Hill Climbing approach is not reliable for all cases, considering that local maxima may exist for our type of problem, leading to incorrect estimations in some cases.
 
 \section{Simulated Annealing}
 

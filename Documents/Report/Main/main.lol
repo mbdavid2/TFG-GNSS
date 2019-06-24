@@ -20,7 +20,7 @@
 \contentsline {lstlisting}{\numberline {6.3}Storing the data from the input file}{63}{lstlisting.6.3}
 \contentsline {lstlisting}{\numberline {6.4}Compute the components of the IPP's unit vector}{64}{lstlisting.6.4}
 \contentsline {lstlisting}{\numberline {6.5}Function matrixComputations to solve the system}{64}{lstlisting.6.5}
-\contentsline {lstlisting}{\numberline {6.6}Function obtainSourceLocation}{65}{lstlisting.6.6}
+\contentsline {lstlisting}{\numberline {6.6}Obtaining the source's location using the system's solution}{65}{lstlisting.6.6}
 \contentsline {lstlisting}{\numberline {6.7}One iteration of the Least Squares method}{65}{lstlisting.6.7}
 \contentsline {lstlisting}{\numberline {6.8}Function checkOutlier to discard outliers}{66}{lstlisting.6.8}
 \contentsline {lstlisting}{\numberline {7.1}Hill Climbing}{70}{lstlisting.7.1}

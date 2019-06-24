@@ -45,7 +45,7 @@ void Auxiliary::resetTotalsMethod() {
 void Auxiliary::printExecutionTime(clockTime start_time, clockTime end_time) {
     std::chrono::duration<double> elapsed_seconds = end_time - start_time;
     if (latex) cout << " & " << elapsed_seconds.count() << " \\\\" << endl << "\\hline" << endl;
-    // else cout << " " << elapsed_seconds.count() << endl;
+    else cout << " " << elapsed_seconds.count() << endl;
 
 	// Update total error of the method
 	totalTimeMethod += elapsed_seconds.count();
@@ -75,7 +75,7 @@ double Auxiliary::printErrorResults(double ra, double dec, possibleSunInfo corre
 	double errorDegrees = toDegrees(acos(cosineChi));
 	if (latex) cout << " & " << errorDegrees;
     // else cout << " Ra: " << ra << " Dec: " <<  dec << " | Error:" << errorDegrees << " Time: ";
-	// else cout << " " << errorDegrees;
+	else cout << " " << errorDegrees;
 	// if (totalEstimationErrorLeastSquares != -1) cout << " " << totalEstimationErrorLeastSquares;
 	// Update total error of the method
 	totalErrorMethod += errorDegrees;

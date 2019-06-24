@@ -91,7 +91,7 @@ double precision function leastSquaresFortran(inputFileName, numRows, iterations
 				if (iteration /= 0) then
 					! validSample = checkOutlier(solutionRa, solutionDec, raIPP, decIPP)
 					! print *, "(valor real - estimado) =", abs(resultsSum(i)), " | pof =", pof
-					if (abs(resultsSum(i)) > 2.5d0*pof) then
+					if (abs(resultsSum(i)) > 2d0*pof) then
 						validSample = 0
 					end if
 				end if
