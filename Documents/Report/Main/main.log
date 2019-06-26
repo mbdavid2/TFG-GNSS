@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  24 JUN 2019 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  26 JUN 2019 18:26
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -888,8 +888,7 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 LaTeX Warning: Label `lst:solveSystem' multiply defined.
 
 ) (./sections/ch8OtherMethods.aux) (./sections/ch9Results.aux)
-(./sections/ch10ResultsStellar.aux) (./sections/ch15Conclusions.aux)
-(./sections/ch10Annexes.aux))
+(./sections/ch10ResultsStellar.aux) (./sections/ch15Conclusions.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
@@ -997,7 +996,7 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `sections/cover.aux'.
 
  (./sections/cover.tex
-<images/cover/logo-fib.png, id=369, 1003.75pt x 150.5625pt>
+<images/cover/logo-fib.png, id=361, 1003.75pt x 150.5625pt>
 File: images/cover/logo-fib.png Graphic file (type png)
 <use images/cover/logo-fib.png>
 Package pdftex.def Info: images/cover/logo-fib.png  used on input line 21.
@@ -1063,48 +1062,48 @@ Chapter 1.
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 35.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 35.
  [11] [12]
 [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
 [15]
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-
- []
-
 [16] [17] [18] [19]
-<images/chGEP/GanttChart.png, id=688, 743.77875pt x 376.40625pt>
+<images/chGEP/GanttChart.png, id=678, 743.77875pt x 376.40625pt>
 File: images/chGEP/GanttChart.png Graphic file (type png)
 <use images/chGEP/GanttChart.png>
-Package pdftex.def Info: images/chGEP/GanttChart.png  used on input line 292.
+Package pdftex.def Info: images/chGEP/GanttChart.png  used on input line 290.
 (pdftex.def)             Requested size: 383.7507pt x 194.21034pt.
  [20 <./images/chGEP/GanttChart.png>] [21]
 
@@ -1118,22 +1117,22 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [23]
-Overfull \hbox (59.19432pt too wide) in paragraph at lines 492--511
+Overfull \hbox (59.19432pt too wide) in paragraph at lines 490--509
  [][] 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 555--556
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
 
  []
 
 [25]
-Overfull \hbox (19.2431pt too wide) in paragraph at lines 564--575
+Overfull \hbox (19.2431pt too wide) in paragraph at lines 562--573
  [] 
  []
 
 
-Overfull \hbox (21.36752pt too wide) in paragraph at lines 585--586
+Overfull \hbox (21.36752pt too wide) in paragraph at lines 583--584
 []\OT1/cmr/m/n/12 As seen in its spec-i-fi-ca-tion man-ual (https://www.nasa.go
 v/pdf/221503main[]GLAST-
  []
@@ -1152,15 +1151,15 @@ Chapter 2.
 
  (./sections/ch4SolarFlareAlgorithm.tex
 Chapter 3.
-<images/ch4/FTPNASA.png, id=790, 641.39626pt x 804.00375pt>
+<images/ch4/FTPNASA.png, id=780, 641.39626pt x 804.00375pt>
 File: images/ch4/FTPNASA.png Graphic file (type png)
 <use images/ch4/FTPNASA.png>
-Package pdftex.def Info: images/ch4/FTPNASA.png  used on input line 23.
+Package pdftex.def Info: images/ch4/FTPNASA.png  used on input line 21.
 (pdftex.def)             Requested size: 127.91907pt x 160.34398pt.
-<images/ch4/DataFlowIGS.png, id=791, 667.49374pt x 457.71pt>
+<images/ch4/DataFlowIGS.png, id=781, 667.49374pt x 457.71pt>
 File: images/ch4/DataFlowIGS.png Graphic file (type png)
 <use images/ch4/DataFlowIGS.png>
-Package pdftex.def Info: images/ch4/DataFlowIGS.png  used on input line 28.
+Package pdftex.def Info: images/ch4/DataFlowIGS.png  used on input line 26.
 (pdftex.def)             Requested size: 213.19627pt x 146.19083pt.
 [31
 
@@ -1168,26 +1167,26 @@ Package pdftex.def Info: images/ch4/DataFlowIGS.png  used on input line 28.
 
 ]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 51.
+nput line 49.
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 50--67
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 48--65
 []$[]$
  []
 
 [32 <./images/ch4/FTPNASA.png> <./images/ch4/DataFlowIGS.png>]
-<images/ch4/halloweenPaper.png, id=804, 876.27374pt x 599.23875pt>
+<images/ch4/halloweenPaper.png, id=794, 876.27374pt x 599.23875pt>
 File: images/ch4/halloweenPaper.png Graphic file (type png)
 <use images/ch4/halloweenPaper.png>
-Package pdftex.def Info: images/ch4/halloweenPaper.png  used on input line 74.
+Package pdftex.def Info: images/ch4/halloweenPaper.png  used on input line 72.
 (pdftex.def)             Requested size: 213.19627pt x 145.78612pt.
 
-Overfull \hbox (6.51683pt too wide) in paragraph at lines 80--81
+Overfull \hbox (6.51683pt too wide) in paragraph at lines 78--79
 []\OT1/cmr/m/n/12 As we can see the plot of the flare called X17.2 took place e
 x-actly at 2003.301.39777
  []
 
 [33 <./images/ch4/halloweenPaper.png>]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 115--127
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 108--120
 []$[]$ 
  []
 
@@ -1197,7 +1196,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 132--143
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 125--136
 []$[]$ 
  []
 
@@ -1207,25 +1206,25 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 144--153
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 137--146
 []$[]$ 
  []
 
 [35]
-<images/ch4/vtecDistributionGeneral.png, id=861, 481.8pt x 361.35pt>
+<images/ch4/vtecDistributionGeneral.png, id=850, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionGeneral.png Graphic file (type png)
 <use images/ch4/vtecDistributionGeneral.png>
 Package pdftex.def Info: images/ch4/vtecDistributionGeneral.png  used on input 
-line 169.
+line 160.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch4/vtecDistributionVill.png, id=862, 481.8pt x 361.35pt>
+<images/ch4/vtecDistributionVill.png, id=851, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionVill.png Graphic file (type png)
 <use images/ch4/vtecDistributionVill.png>
 Package pdftex.def Info: images/ch4/vtecDistributionVill.png  used on input lin
-e 174.
+e 165.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 168--177
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 159--168
 [][]  [] 
  []
 
@@ -1233,24 +1232,24 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 168--177
 
  <./images/ch4/vtecDistributionGeneral.png> <./images/ch4/vtecDistributionVill.
 png>]
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 223--235
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 214--226
 []$[]$ 
  []
 
-<images/ch4/resultSunTest.png, id=884, 481.8pt x 361.35pt>
+<images/ch4/resultSunTest.png, id=873, 481.8pt x 361.35pt>
 File: images/ch4/resultSunTest.png Graphic file (type png)
 <use images/ch4/resultSunTest.png>
-Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 242.
+Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 233.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 [37]) [38 <./images/ch4/resultSunTest.png>]
 \openout2 = `sections/ch5BruteForceApproach.aux'.
@@ -1258,90 +1257,90 @@ Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 242.
 
 (./sections/ch5BruteForceApproach.tex
 Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
 [39
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
 [40]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 55.
-<images/ch4/ra180_dec-090.png, id=918, 481.8pt x 361.35pt>
+put line 51.
+<images/ch4/ra180_dec-090.png, id=907, 481.8pt x 361.35pt>
 File: images/ch4/ra180_dec-090.png Graphic file (type png)
 <use images/ch4/ra180_dec-090.png>
-Package pdftex.def Info: images/ch4/ra180_dec-090.png  used on input line 79.
+Package pdftex.def Info: images/ch4/ra180_dec-090.png  used on input line 75.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch4/ra000_dec-090.png, id=919, 481.8pt x 361.35pt>
+<images/ch4/ra000_dec-090.png, id=908, 481.8pt x 361.35pt>
 File: images/ch4/ra000_dec-090.png Graphic file (type png)
 <use images/ch4/ra000_dec-090.png>
-Package pdftex.def Info: images/ch4/ra000_dec-090.png  used on input line 84.
+Package pdftex.def Info: images/ch4/ra000_dec-090.png  used on input line 80.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 78--87
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 74--83
 [][]  [] 
  []
 
 [41
 
  <./images/ch4/ra180_dec-090.png> <./images/ch4/ra000_dec-090.png>]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 101--124
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 97--120
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 131--171
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 127--167
 []$[]$ 
  []
 
 [42] [43]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 184--201
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 180--197
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 204--220
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 200--216
 []$[]$ 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 244--263
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 240--259
 []$[]$ 
  []
 
 [45] [46]
-<images/ch6/spikes/correlationDecrease.png, id=1058, 481.8pt x 361.35pt>
+<images/ch6/spikes/correlationDecrease.png, id=1047, 481.8pt x 361.35pt>
 File: images/ch6/spikes/correlationDecrease.png Graphic file (type png)
 <use images/ch6/spikes/correlationDecrease.png>
 Package pdftex.def Info: images/ch6/spikes/correlationDecrease.png  used on inp
-ut line 301.
+ut line 297.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch6/spikes/decreaseRangeError.png, id=1059, 481.8pt x 361.35pt>
+<images/ch6/spikes/decreaseRangeError.png, id=1048, 481.8pt x 361.35pt>
 File: images/ch6/spikes/decreaseRangeError.png Graphic file (type png)
 <use images/ch6/spikes/decreaseRangeError.png>
 Package pdftex.def Info: images/ch6/spikes/decreaseRangeError.png  used on inpu
-t line 306.
+t line 302.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 300--309
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 296--305
 [][]  [] 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 319--332
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 315--328
 []$[]$ 
  []
 
@@ -1361,53 +1360,53 @@ Chapter 5.
 
 
 ]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 50--64
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 48--62
 []$[]$ 
  []
 
 [50]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 67--88
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 65--86
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 93--128
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 91--126
 []$[]$ 
  []
 
 [51]
-<images/ch6/hillClimbing/resultsAll.png, id=1127, 481.8pt x 361.35pt>
+<images/ch6/hillClimbing/resultsAll.png, id=1116, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsAll.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsAll.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsAll.png  used on input 
-line 136.
+line 134.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
  [52]
-<images/ch6/linearFit/resultAll.png, id=1167, 481.8pt x 361.35pt>
+<images/ch6/linearFit/resultAll.png, id=1156, 481.8pt x 361.35pt>
 File: images/ch6/linearFit/resultAll.png Graphic file (type png)
 <use images/ch6/linearFit/resultAll.png>
 Package pdftex.def Info: images/ch6/linearFit/resultAll.png  used on input line
- 158.
+ 156.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 168--179
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 166--177
 []$[]$ 
  []
 
 [53 <./images/ch6/hillClimbing/resultsAll.png (PNG copy)>]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 186--192
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 184--190
 []$[]$ 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 197--203
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 195--201
 []$[]$ 
  []
 
 [54 <./images/ch6/linearFit/resultAll.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
 
  []
 
@@ -1498,40 +1497,44 @@ Chapter 7.
 File: images/ch6/hillClimbing/resultsAll.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsAll.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsAll.png  used on input 
-line 17.
+line 15.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 [69
 
 
 
 ]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 29--47
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 27--45
 []$[]$ 
  []
 
-<images/ch6/hillClimbing/resultsPathBad.png, id=1438, 481.8pt x 361.35pt>
+<images/ch6/hillClimbing/resultsPathBad.png, id=1427, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsPathBad.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsPathBad.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsPathBad.png  used on in
-put line 52.
+put line 50.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch6/hillClimbing/resultsPathGood.png, id=1439, 481.8pt x 361.35pt>
+<images/ch6/hillClimbing/resultsPathGood.png, id=1428, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsPathGood.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsPathGood.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsPathGood.png  used on i
-nput line 57.
+nput line 55.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 51--60
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 49--58
 [][]  [] 
  []
 
-[70] [71 <./images/ch6/hillClimbing/resultsPathBad.png (PNG copy)> <./images/ch
-6/hillClimbing/resultsPathGood.png (PNG copy)>]) [72]
+[70]
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+
+ []
+
+[71 <./images/ch6/hillClimbing/resultsPathBad.png (PNG copy)> <./images/ch6/hil
+lClimbing/resultsPathGood.png (PNG copy)>]) [72]
 \openout2 = `sections/ch9Results.aux'.
 
-
-(./sections/ch9Results.tex
+ (./sections/ch9Results.tex
 Chapter 8.
 [73
 
@@ -1549,7 +1552,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 40--77
 ] [78
 
 ]
-<images/results/comparisonErrors.png, id=1538, 481.8pt x 361.35pt>
+<images/results/comparisonErrors.png, id=1527, 481.8pt x 361.35pt>
 File: images/results/comparisonErrors.png Graphic file (type png)
 <use images/results/comparisonErrors.png>
 Package pdftex.def Info: images/results/comparisonErrors.png  used on input lin
@@ -1565,25 +1568,25 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 288--327
  <./images/results/comparisonErrors.png (PNG copy)>] [80] [81
 
 ] [82]
-<images/results/comparisonErrorsDRLS.png, id=1560, 481.8pt x 361.35pt>
+<images/results/comparisonErrorsDRLS.png, id=1549, 481.8pt x 361.35pt>
 File: images/results/comparisonErrorsDRLS.png Graphic file (type png)
 <use images/results/comparisonErrorsDRLS.png>
 Package pdftex.def Info: images/results/comparisonErrorsDRLS.png  used on input
  line 491.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/results/comparisonTimeDRLS.png, id=1561, 481.8pt x 361.35pt>
+<images/results/comparisonTimeDRLS.png, id=1550, 481.8pt x 361.35pt>
 File: images/results/comparisonTimeDRLS.png Graphic file (type png)
 <use images/results/comparisonTimeDRLS.png>
 Package pdftex.def Info: images/results/comparisonTimeDRLS.png  used on input l
 ine 496.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/results/errorVSmeanVTEC.png, id=1562, 481.8pt x 361.35pt>
+<images/results/errorVSmeanVTEC.png, id=1551, 481.8pt x 361.35pt>
 File: images/results/errorVSmeanVTEC.png Graphic file (type png)
 <use images/results/errorVSmeanVTEC.png>
 Package pdftex.def Info: images/results/errorVSmeanVTEC.png  used on input line
  501.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/results/meanVTECVSerror.png, id=1563, 481.8pt x 361.35pt>
+<images/results/meanVTECVSerror.png, id=1552, 481.8pt x 361.35pt>
 File: images/results/meanVTECVSerror.png Graphic file (type png)
 <use images/results/meanVTECVSerror.png>
 Package pdftex.def Info: images/results/meanVTECVSerror.png  used on input line
@@ -1614,18 +1617,18 @@ Chapter 9.
 
 
 ] [86] [87]
-<images/swift/gsflai.png, id=1607, 642.4pt x 481.8pt>
+<images/swift/gsflai.png, id=1596, 642.4pt x 481.8pt>
 File: images/swift/gsflai.png Graphic file (type png)
 <use images/swift/gsflai.png>
 Package pdftex.def Info: images/swift/gsflai.png  used on input line 111.
 (pdftex.def)             Requested size: 213.19627pt x 159.89874pt.
  [88 <./images/swift/gsflai.png>]
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 138--149
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 137--148
 []$[]$ 
  []
 
 [89]
-Overfull \hbox (6.34473pt too wide) in paragraph at lines 160--161
+Overfull \hbox (6.34473pt too wide) in paragraph at lines 159--160
 []\OT1/cmr/m/n/12 Taking into con-sid-er-a-tion that Prox-ima Cen-tauri has a r
 ight as-cen-sion of $217\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 4294[]$
  []
@@ -1633,45 +1636,45 @@ ight as-cen-sion of $217\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 4294[]$
 [90] [91
 
 ]
-<images/resultsStellar/proximaCentauri/DR2Epochs10.png, id=1647, 481.8pt x 361.
+<images/resultsStellar/proximaCentauri/DR2Epochs10.png, id=1636, 481.8pt x 361.
 35pt>
 File: images/resultsStellar/proximaCentauri/DR2Epochs10.png Graphic file (type 
 png)
 <use images/resultsStellar/proximaCentauri/DR2Epochs10.png>
 Package pdftex.def Info: images/resultsStellar/proximaCentauri/DR2Epochs10.png 
- used on input line 207.
+ used on input line 206.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/proximaCentauri/LS2Epochs10.png, id=1648, 481.8pt x 361.
+<images/resultsStellar/proximaCentauri/LS2Epochs10.png, id=1637, 481.8pt x 361.
 35pt>
 File: images/resultsStellar/proximaCentauri/LS2Epochs10.png Graphic file (type 
 png)
 <use images/resultsStellar/proximaCentauri/LS2Epochs10.png>
 Package pdftex.def Info: images/resultsStellar/proximaCentauri/LS2Epochs10.png 
- used on input line 212.
+ used on input line 211.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/proximaCentauri/LS2iters2Epochs10.png, id=1649, 481.8pt 
+<images/resultsStellar/proximaCentauri/LS2iters2Epochs10.png, id=1638, 481.8pt 
 x 361.35pt>
 File: images/resultsStellar/proximaCentauri/LS2iters2Epochs10.png Graphic file 
 (type png)
 <use images/resultsStellar/proximaCentauri/LS2iters2Epochs10.png>
 Package pdftex.def Info: images/resultsStellar/proximaCentauri/LS2iters2Epochs1
-0.png  used on input line 217.
+0.png  used on input line 216.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/proximaCentauri/LS10iters2Epochs10.png, id=1650, 481.8pt
+<images/resultsStellar/proximaCentauri/LS10iters2Epochs10.png, id=1639, 481.8pt
  x 361.35pt>
 File: images/resultsStellar/proximaCentauri/LS10iters2Epochs10.png Graphic file
  (type png)
 <use images/resultsStellar/proximaCentauri/LS10iters2Epochs10.png>
 Package pdftex.def Info: images/resultsStellar/proximaCentauri/LS10iters2Epochs
-10.png  used on input line 222.
+10.png  used on input line 221.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 206--225
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 205--224
 [][]  []
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 206--225
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 205--224
 []  [] 
  []
 
@@ -1681,45 +1684,41 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 206--225
 /resultsStellar/proximaCentauri/LS2Epochs10.png (PNG copy)> <./images/resultsSt
 ellar/proximaCentauri/LS2iters2Epochs10.png (PNG copy)> <./images/resultsStella
 r/proximaCentauri/LS10iters2Epochs10.png (PNG copy)>] [93]
-<images/resultsStellar/DR2Epochs.png, id=1661, 481.8pt x 361.35pt>
+<images/resultsStellar/DR2Epochs.png, id=1650, 481.8pt x 361.35pt>
 File: images/resultsStellar/DR2Epochs.png Graphic file (type png)
 <use images/resultsStellar/DR2Epochs.png>
 Package pdftex.def Info: images/resultsStellar/DR2Epochs.png  used on input lin
-e 280.
+e 279.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/LS2Epochs.png, id=1662, 481.8pt x 361.35pt>
+<images/resultsStellar/LS2Epochs.png, id=1651, 481.8pt x 361.35pt>
 File: images/resultsStellar/LS2Epochs.png Graphic file (type png)
 <use images/resultsStellar/LS2Epochs.png>
 Package pdftex.def Info: images/resultsStellar/LS2Epochs.png  used on input lin
-e 285.
+e 284.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 279--288
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 278--287
 [][]  [] 
  []
 
-) [94
+[94
 
-] [95 <./images/resultsStellar/DR2Epochs.png (PNG copy)> <./images/resultsStell
-ar/LS2Epochs.png (PNG copy)>]
+]) [95 <./images/resultsStellar/DR2Epochs.png (PNG copy)> <./images/resultsStel
+lar/LS2Epochs.png (PNG copy)>]
 \openout2 = `sections/ch15Conclusions.aux'.
 
  (./sections/ch15Conclusions.tex
 Chapter 10.
-) [96
+[96
 
 
 
 ]
-\openout2 = `sections/ch10Annexes.aux'.
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
- (./sections/ch10Annexes.tex
-Chapter 11.
-) [97
+ []
 
-
-
-] (./main.bbl
+) [97] (./main.bbl
 Underfull \hbox (badness 2269) in paragraph at lines 4--8
 []\OT1/cmr/m/n/12 (Archived web-site) The Star-link Project.  []$\OT1/cmtt/m/n/
 12 https : / / web . archive . org /
@@ -1749,12 +1748,11 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
 (./sections/ch4SolarFlareAlgorithm.aux) (./sections/ch5BruteForceApproach.aux)
 (./sections/ch6DecreaseRange.aux) (./sections/ch7LeastSquares.aux)
 (./sections/ch8OtherMethods.aux) (./sections/ch9Results.aux)
-(./sections/ch10ResultsStellar.aux) (./sections/ch15Conclusions.aux)
-(./sections/ch10Annexes.aux))
+(./sections/ch10ResultsStellar.aux) (./sections/ch15Conclusions.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3778B7C28D8B2152DF73F1EEDA2B697C;6233.
+(rerunfilecheck)             Checksum: 02F79B4C18B5F305FC13C0B8F04C8AD9;6126.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1762,10 +1760,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
  ) 
 Here is how much of TeX's memory you used:
- 16621 strings out of 494847
- 244910 string characters out of 6179080
- 575850 words of memory out of 5000000
- 18772 multiletter control sequences out of 15000+600000
+ 16608 strings out of 494847
+ 244666 string characters out of 6179080
+ 575206 words of memory out of 5000000
+ 18769 multiletter control sequences out of 15000+600000
  14324 words of font info for 52 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  59i,16n,120p,1990b,1500s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1785,10 +1783,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on main.pdf (101 pages, 1356218 bytes).
+Output written on main.pdf (101 pages, 1356796 bytes).
 PDF statistics:
- 1933 PDF objects out of 2073 (max. 8388607)
- 1758 compressed objects within 18 object streams
- 782 named destinations out of 1000 (max. 500000)
- 869 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1922 PDF objects out of 2073 (max. 8388607)
+ 1747 compressed objects within 18 object streams
+ 779 named destinations out of 1000 (max. 500000)
+ 853 words of extra memory for PDF output out of 10000 (max. 10000000)
 

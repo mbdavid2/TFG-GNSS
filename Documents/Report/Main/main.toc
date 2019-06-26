@@ -78,9 +78,8 @@
 \contentsline {section}{\numberline {3.3}Solar-zenith angle}{36}{section.3.3}
 \contentsline {section}{\numberline {3.4}Results}{37}{section.3.4}
 \contentsline {chapter}{\numberline {4}Brute Force Approach}{39}{chapter.4}
-\contentsline {section}{\numberline {4.1}Key elements}{39}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Correlation}{39}{subsection.4.1.1}
-\contentsline {paragraph}{Computation}{40}{paragraph*.54}
+\contentsline {section}{\numberline {4.1}Correlation}{39}{section.4.1}
+\contentsline {paragraph}{Computation}{39}{paragraph*.54}
 \contentsline {section}{\numberline {4.2}Algorithm}{40}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Implementation}{42}{subsection.4.2.1}
 \contentsline {paragraph}{Iterating over the possible Suns}{42}{paragraph*.56}
@@ -126,6 +125,5 @@
 \contentsline {subsection}{\numberline {9.2.1}Discarding the day hemisphere}{89}{subsection.9.2.1}
 \contentsline {subsection}{\numberline {9.2.2}Proxima Centauri}{90}{subsection.9.2.2}
 \contentsline {subsection}{\numberline {9.2.3}NGTS J121939.5-355557}{94}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Discussion}{95}{section.9.3}
 \contentsline {chapter}{\numberline {10}Conclusions}{96}{chapter.10}
-\contentsline {chapter}{\numberline {11}Annexes}{97}{chapter.11}
+\contentsline {section}{\numberline {10.1}Future work}{96}{section.10.1}

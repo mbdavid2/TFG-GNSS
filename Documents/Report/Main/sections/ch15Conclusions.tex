@@ -1,7 +1,26 @@
 \chapter{Conclusions}
 
-El objetivo era adiviniar la posicion del sol usando flares para poder usarlo con estrellas de posicion desconocida.
+The main aim of the project was developing an algorithm capable of detecting solar flares without considering the location of the Sun, so that this could then be applied to the challenging scenario of stellar flares.
 
-No ha funcionado con estrellas debido a la debilidad de los flares, pero con el sol va bastante bien -> ? que mas poner aqui?
+In the first chapters we studied the main factor that has to be taken into consideration in the algorithm: the correlation between the source-zenith angle's cosine and the VTEC value.
 
-Regarding the real time...simply use new input tis and execute the algorithm for every new epoch (every 1 second or 30 depending on the sample rate) ? possible with LS
+Then, an first approach of algorithm was developed to traverse the globe and consider possible Suns, the Decreasing Range method, which choose the best candidate based on its correlation.
+
+An alternative method, the Least Squares method, was also developed. This approach solved an equation system to estimate the source's location, and yielded similar results.
+
+Finally, both methods were tested with several solar flares using different parameters to study which one yielded better estimations, which provided positive results regarding the detection of solar flares. Using this information, the algorithm was tested with stellar flares as well.
+
+This was a very challenging task due to stellar flares having a weaker effect on the ionosphere, but the algorithm has provided interesting results with the studied cases, where it seems to be sensible to the event, considering the estimation error is reduced at the moment of the flare.
+ 
+\section{Future work}
+
+The results obtained when studying the detection of stellar flares have presented an opportunity to proceed with the project, by improving on it and using the algorithm to test more flares to see if similar results are obtained.
+
+In the next weeks more tests will be performed with other cases and a brief research paper presenting the results and new proposed methods will be written to be submitted to the \textit{"Geophysical Research Letters"} journal.
+
+Furthermore, some of the proposals presented in chapter \ref{otherMethods} will be implemented as well, such as the parallelization of some parts of the algorithm for increased performance. \\
+
+In conclusion, the aim of the project was to develop an algorithm to be able to detect solar flares without knowing the location of the Sun to try to detect stellar flares and the tests performed with flares from outside the Solar System have provided promising results that have encouraged us to keep working on the project, which we hope can be of help to the scientific community in the future.
+
+
+

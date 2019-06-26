@@ -254,6 +254,7 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 		if (nEpochsUsed == 2) {
 			second = bestPQ.top().epoch;
 			bestPQ.pop();
+			cout << " " << second;
 		}
 		else if (nEpochsUsed == 3) {
 			second = bestPQ.top().epoch;
@@ -311,10 +312,10 @@ void iterateOverMultipleEpochs(string inputDataFile) {
 
 void stellarFlares() {
 	cout << "Discard day hemisphere?" << endl;
-	// iterateOverMultipleEpochs("ti.2016.078.gz");
+	iterateOverMultipleEpochs("ti.2016.078.gz");
 	cout << endl << endl;
 
-	iterateOverMultipleEpochs("ti.2016.032.gz");
+	// iterateOverMultipleEpochs("ti.2016.032.gz");
 	cout << endl;
 }
 
@@ -326,7 +327,7 @@ int main() {
 	// resultsDebugLatex();
 
 	// cout << "2 epochs" << endl;
-	nEpochsUsed = 1;
+	nEpochsUsed = 2;
 	// resultsDebugLatex();
 
 	// cout << endl << "3 epochs" << endl;

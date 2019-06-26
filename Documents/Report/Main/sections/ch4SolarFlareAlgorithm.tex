@@ -1,7 +1,5 @@
 \chapter{Solar flare detection}\label{solarFlareChapter}
 
-\textbf{COMPLETO Y REVISADO}
-
 Before developing the main solar flare detection algorithm a first study is presented targeting a powerful solar flare for which we knew the time of the event and therefore, the location of the Sun.
 
 Although the aim of the main algorithm is detecting the solar flare without taking into consideration the position of the Sun, this study was done to understand how the core of the algorithm works: studying the correlation between the cosine of the solar-zenith angle and the VTEC increase.
@@ -91,9 +89,9 @@ For each epoch in our data set (from 10.5 to 11.5 with a sampling rate of 30 sec
 
 \subsection{Computing the VTEC}
 
-As we have mentioned before, one of the main paramenters relevant to the computation is the \textbf{double derivate of LI}, the d2li field in the ti file. The Li is the "ionospheric combination of carrier phases" \cite{hernandez2012gnss}, a direct measurement of TEC. Because this is a derivative, with the following operation we obtain \textbf{increment in VTEC}, this will be observed in figure \ref{fig:vtecDistribution}.
+As we have mentioned before, one of the main paramenters relevant to the computation is the \textbf{double derivate of LI}, the d2li field in the ti file. The Li is the "ionospheric combination of carrier phases" \cite{hernandez2012gnss}, a direct measurement of TEC. Because this is the double derivative, with the following operation we obtain \textbf{curvature of the VTEC}, this will be observed in figure \ref{fig:vtecDistribution}.
 
-The VTEC increment can be estimated using the following operation:
+This value can be estimated using the following operation:
 
 \begin{equation} \label{eq:1}
 	\frac{d^{2}V}{dt^{2}} = \frac{d^{2}Li}{M}
@@ -101,12 +99,7 @@ The VTEC increment can be estimated using the following operation:
 
 Where $M=\frac{1}{\cos Z}$ is the "ionospheric mapping function", the inverse of the cosine of the satellite-zenith angle that we have for each IPP. \cite{hernandez2012gnss}. This is the \textbf{xmappingion} field in the ti file.
 
-Therefore, we can estimate the VTEC increment of an IPP by dividing the two given parameters:
-\begin{equation} \label{eq:2}
-	\Delta V \approx \frac{d^{2}Li}{M}
-\end{equation}
-
-Although the data that will be used throughout the project is going to be $\Delta V$, the VTEC increment, it will be referenced as simply VTEC from now on for readability.
+Although the data that will be used throughout the project is going to be the VTEC curvature, it will be referenced simply as VTEC from now on for readability. This value indicates whether a point is a maximum or a minimum, so it can work as an indicator of the VTEC.
 
 \paragraph{Implementation}
 
@@ -155,8 +148,6 @@ gnuplot -e "set terminal png; set output 'vtecDistribution.png'; set title 'VTEC
 The bash script executes the AWK process with the data as the input and outputs \textit{n} rows with two columns: the \textbf{time of the day} and the \textbf{calculated VTEC}, and finally plots the results using Gnuplot. 
 
 The result can be seen in figure \ref{fig:vtecDistribution}a, where we can see how the VTEC value evolves throught the day. Visually, a spike can be seen between 11 and 11.2 hours. 
-
-As mentioned before this value is estimated using the derivative of li, because this is the increment in VTEC, we can see that the value becomes negative after the spike, due to the VTEC value decreasing (there is a negative gain ($\Delta V < 0$)).
 
 To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill in the ti files), we obtain the plot from figure \ref{fig:vtecDistribution}(b). At this time of the day around 11:00h the Sun would have a greater effect on the IPPs of this station due to its location, so the spike can be seen more clearly. 
 

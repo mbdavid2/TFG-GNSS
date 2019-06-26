@@ -1,6 +1,4 @@
-\chapter{Other methods and optimizations}
-
-\textbf{Falta acabar las dos ultimas secciones la conclusion}
+\chapter{Other methods and optimizations}\label{otherMethods}
 
 In the previous chapters two methods to estimate the location of a flare have been presented. 
 
@@ -75,7 +73,7 @@ Simulated Annealing is an heuristic search algorithm that approximates the optim
 
 A possible solution to the problem of local maxima seen in the previous section would be using the Simulated Annealing algorithm so that other parts of the solution space could be explored, finding other paths that might lead to our desired solution, instead of only focusing on one path that could get stuck in a local maxima.
 
-Although it might yield better results, simulated annealing approximates the optimal solution, but does not guarantee finding the global maxima. This approach could be tested in the future...but not for now...blab blabla
+Although it might yield better results, simulated annealing approximates the optimal solution, but does not guarantee finding the global maxima.
 
 \section{OpenMP}
 
@@ -83,6 +81,6 @@ OpenMP (Open Multi-Processing) is an specification for compiler directives and l
 
 Using OpenMP would not be an entirely different method, but rather an optimization that could be used with all the presented methods to try to parallelize some regions of the code. It would be feasible for our case considering it is available for both C++ and Fortran, the main languages used for the algorithms.
 
-An example of how multi-processing could be used for the algorithm would be parallelizating the computation of the correlation in the decrease range method: each thread could read a part of the input and compute the necessary variables used to compute the final value of the correlation. Because these variables are sums, each thread could handle a part of the input and finally we could compute the total sum using OpenMP's reduction clause (which sums the values from each thread at the end of the partial loop).
+An example of how multi-processing could be used for the algorithm would be parallelizating the computation of the correlation in the decrease range method: each thread could read a part of the input and compute the necessary variables used to compute the final value of the correlation. Because these variables are sums, each thread could handle a part of the input and finally we could compute the total sum using OpenMP's reduction clause (which sums the values from each thread at the end of the partial loop). \\
 
-Explicar que esto no se ha implementado in the future bla bla bla
+These two possibilities (using OpenMP and Simmulated Annealing) could be implemented in the future if more tests were done with the algorithm, but for now we decided to focus on the methods from previous chapters.
