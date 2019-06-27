@@ -2,10 +2,13 @@
 strings=(
 	# 'LS10Epochs'
 	# 'proximaCentauri'
-	'test'
+	'1Epoch'
 	# 'nightHemisphere.2Epochs.cos0.2.txt'
 	# 'allIPPs2Epochscos0.1.txt'
 )
+
+# Caso A: 1 epoca sola (20 samples) + 2 epocas (10 samples) pero pintando con la primera y la segunda sobrepuestas
+# Caso B: 1 epoca sola (20 samples) + 2 epocas (10 samples) pero pintando con la primera y la segunda sobrepuestas
 
 for i in "${strings[@]}"; do
     fileName="$i"

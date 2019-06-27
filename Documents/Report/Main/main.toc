@@ -1,129 +1,135 @@
-\contentsline {chapter}{\numberline {1}Project Management}{10}{chapter.1}
-\contentsline {section}{\numberline {1.1}Introduction}{10}{section.1.1}
-\contentsline {section}{\numberline {1.2}Scope of the project}{11}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Objectives}{11}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Scope}{11}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Methodology and rigor}{12}{subsection.1.2.3}
-\contentsline {paragraph}{Development tools}{12}{paragraph*.4}
-\contentsline {paragraph}{Progress monitoring}{13}{paragraph*.5}
-\contentsline {paragraph}{Validation of the results}{13}{paragraph*.6}
-\contentsline {subsection}{\numberline {1.2.4}Obstacles and risks of the project}{13}{subsection.1.2.4}
-\contentsline {paragraph}{Understanding of the problem}{13}{paragraph*.7}
-\contentsline {paragraph}{Unfeasibility of the solution}{13}{paragraph*.8}
-\contentsline {paragraph}{Interferences with the Sun}{14}{paragraph*.9}
-\contentsline {paragraph}{Understanding previous algorithms}{14}{paragraph*.10}
-\contentsline {paragraph}{Bugs}{14}{paragraph*.11}
-\contentsline {paragraph}{Computational power}{14}{paragraph*.12}
-\contentsline {section}{\numberline {1.3}Contextualization}{15}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Areas of interest}{15}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Stakeholders}{15}{subsection.1.3.2}
-\contentsline {paragraph}{Developers}{15}{paragraph*.13}
-\contentsline {paragraph}{Directors}{15}{paragraph*.14}
-\contentsline {paragraph}{Benefited Actors}{16}{paragraph*.15}
-\contentsline {subsection}{\numberline {1.3.3}State of the art}{16}{subsection.1.3.3}
-\contentsline {paragraph}{Far-away stars}{16}{paragraph*.16}
-\contentsline {paragraph}{Solar Flares}{16}{paragraph*.17}
-\contentsline {section}{\numberline {1.4}Planning and scheduling}{17}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Task description}{17}{subsection.1.4.1}
-\contentsline {paragraph}{1 Introduction to the problem}{17}{paragraph*.18}
-\contentsline {paragraph}{2 GEP}{17}{paragraph*.19}
-\contentsline {paragraph}{3 Feasibility of the detection of flares from far-away stars}{18}{paragraph*.20}
-\contentsline {paragraph}{4 Detection of solar flares with no information about the location of the Sun}{18}{paragraph*.21}
-\contentsline {paragraph}{5 Detection of stellar flares in real-time}{18}{paragraph*.22}
-\contentsline {paragraph}{6 Writing the report}{19}{paragraph*.23}
-\contentsline {paragraph}{7 Final presentation}{19}{paragraph*.24}
-\contentsline {subsection}{\numberline {1.4.2}Time table}{19}{subsection.1.4.2}
-\contentsline {subsection}{\numberline {1.4.3}Scheduling: Gantt chart}{19}{subsection.1.4.3}
-\contentsline {subsection}{\numberline {1.4.4}Action plan}{20}{subsection.1.4.4}
-\contentsline {paragraph}{Understanding of the problem}{20}{paragraph*.27}
-\contentsline {paragraph}{Understanding previous algorithms}{21}{paragraph*.28}
-\contentsline {paragraph}{Bugs}{21}{paragraph*.29}
-\contentsline {subsection}{\numberline {1.4.5}Resources}{21}{subsection.1.4.5}
-\contentsline {paragraph}{Software resources}{21}{paragraph*.30}
-\contentsline {paragraph}{Hardware resources}{21}{paragraph*.31}
-\contentsline {paragraph}{Human resources}{21}{paragraph*.32}
-\contentsline {section}{\numberline {1.5}Cost estimation}{21}{section.1.5}
-\contentsline {subsection}{\numberline {1.5.1}Software resources}{22}{subsection.1.5.1}
-\contentsline {paragraph}{Common resources}{22}{paragraph*.33}
-\contentsline {paragraph}{Developing the algorithms}{22}{paragraph*.35}
-\contentsline {paragraph}{GEP and writing the report}{22}{paragraph*.37}
-\contentsline {subsection}{\numberline {1.5.2}Hardware resources}{22}{subsection.1.5.2}
-\contentsline {subsection}{\numberline {1.5.3}Human resources}{23}{subsection.1.5.3}
-\contentsline {subsection}{\numberline {1.5.4}Indirect costs}{23}{subsection.1.5.4}
-\contentsline {subsection}{\numberline {1.5.5}Budget per task}{24}{subsection.1.5.5}
-\contentsline {subsection}{\numberline {1.5.6}Total budget}{25}{subsection.1.5.6}
-\contentsline {subsection}{\numberline {1.5.7}Budget control}{25}{subsection.1.5.7}
-\contentsline {section}{\numberline {1.6}Sustainability}{25}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}Environmental sustainability}{26}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}Economic sustainability}{27}{subsection.1.6.2}
-\contentsline {subsection}{\numberline {1.6.3}Social sustainability}{27}{subsection.1.6.3}
-\contentsline {chapter}{\numberline {2}Background}{28}{chapter.2}
-\contentsline {section}{\numberline {2.1}Global Navigation Satellite Systems}{28}{section.2.1}
-\contentsline {paragraph}{GNSS and GPS}{28}{paragraph*.45}
-\contentsline {paragraph}{Positioning}{28}{paragraph*.46}
-\contentsline {paragraph}{Ionospheric Pierce Points}{29}{paragraph*.47}
-\contentsline {paragraph}{The International GNSS Service}{29}{paragraph*.48}
-\contentsline {section}{\numberline {2.2}Ionosphere}{29}{section.2.2}
-\contentsline {section}{\numberline {2.3}Stellar flares}{30}{section.2.3}
-\contentsline {section}{\numberline {2.4}Gamma-Ray Bursts}{30}{section.2.4}
-\contentsline {chapter}{\numberline {3}Solar flare detection}{31}{chapter.3}
-\contentsline {section}{\numberline {3.1}Data}{31}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}GPS Data}{31}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Formatting}{32}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}The Halloween Solar Storm: X17.2 flare}{33}{subsection.3.1.3}
-\contentsline {section}{\numberline {3.2}Vertical Total Electron Content (VTEC)}{34}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Computing the VTEC}{34}{subsection.3.2.1}
-\contentsline {paragraph}{Implementation}{34}{paragraph*.51}
-\contentsline {subsection}{\numberline {3.2.2}Distribution throughout the day}{35}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Solar-zenith angle}{36}{section.3.3}
-\contentsline {section}{\numberline {3.4}Results}{37}{section.3.4}
-\contentsline {chapter}{\numberline {4}Brute Force Approach}{39}{chapter.4}
-\contentsline {section}{\numberline {4.1}Correlation}{39}{section.4.1}
-\contentsline {paragraph}{Computation}{39}{paragraph*.54}
-\contentsline {section}{\numberline {4.2}Algorithm}{40}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Implementation}{42}{subsection.4.2.1}
-\contentsline {paragraph}{Iterating over the possible Suns}{42}{paragraph*.56}
-\contentsline {paragraph}{Computing the correlation}{42}{paragraph*.57}
-\contentsline {paragraph}{Compiling}{44}{paragraph*.58}
-\contentsline {subsection}{\numberline {4.2.2}Mean VTEC as a reliable indicator of the moment of the flare}{45}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Results}{47}{subsection.4.2.3}
-\contentsline {chapter}{\numberline {5}Decreasing search range method}{49}{chapter.5}
-\contentsline {section}{\numberline {5.1}Decreasing the range of the search}{49}{section.5.1}
-\contentsline {section}{\numberline {5.2}Pseudocode}{50}{section.5.2}
-\contentsline {section}{\numberline {5.3}Implementation}{50}{section.5.3}
-\contentsline {section}{\numberline {5.4}Linear fitting: discarding outliers}{53}{section.5.4}
-\contentsline {section}{\numberline {5.5}Results}{54}{section.5.5}
-\contentsline {chapter}{\numberline {6}Least Squares method}{56}{chapter.6}
-\contentsline {section}{\numberline {6.1}The system of equations}{56}{section.6.1}
-\contentsline {section}{\numberline {6.2}Pseudocode}{59}{section.6.2}
-\contentsline {section}{\numberline {6.3}Implementation}{61}{section.6.3}
-\contentsline {section}{\numberline {6.4}Results}{65}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Single iteration}{65}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Multiple iterations: narrowing the search}{66}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Multiple iterations: residual sum}{66}{subsection.6.4.3}
-\contentsline {chapter}{\numberline {7}Other methods and optimizations}{69}{chapter.7}
-\contentsline {section}{\numberline {7.1}Hill Climbing}{69}{section.7.1}
-\contentsline {section}{\numberline {7.2}Simulated Annealing}{71}{section.7.2}
-\contentsline {section}{\numberline {7.3}OpenMP}{71}{section.7.3}
-\contentsline {chapter}{\numberline {8}Results: solar flares}{73}{chapter.8}
-\contentsline {section}{\numberline {8.1}Using all available data}{76}{section.8.1}
-\contentsline {section}{\numberline {8.2}Direct VTEC filter}{77}{section.8.2}
-\contentsline {section}{\numberline {8.3}Decreasing range: linear fit}{78}{section.8.3}
-\contentsline {section}{\numberline {8.4}Least Squares: Iterations}{79}{section.8.4}
-\contentsline {subsection}{\numberline {8.4.1}Discarding by source position}{79}{subsection.8.4.1}
-\contentsline {subsection}{\numberline {8.4.2}Discarding by the residual sum of squares}{80}{subsection.8.4.2}
-\contentsline {section}{\numberline {8.5}Using multiple epochs}{81}{section.8.5}
-\contentsline {section}{\numberline {8.6}Discussion}{83}{section.8.6}
-\contentsline {chapter}{\numberline {9}Stellar flares}{85}{chapter.9}
-\contentsline {section}{\numberline {9.1}Study on the feasibility of stellar flare detection}{85}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Sources of data and possible candidates}{85}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}The Neil Gehrels Swift Observatory and its data}{86}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}Objective function}{87}{subsection.9.1.3}
-\contentsline {paragraph}{Computing the angle}{87}{paragraph*.76}
-\contentsline {subsection}{\numberline {9.1.4}Obtaining the data}{88}{subsection.9.1.4}
-\contentsline {section}{\numberline {9.2}Testing the BGSEES algorithm}{89}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Discarding the day hemisphere}{89}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Proxima Centauri}{90}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}NGTS J121939.5-355557}{94}{subsection.9.2.3}
-\contentsline {chapter}{\numberline {10}Conclusions}{96}{chapter.10}
-\contentsline {section}{\numberline {10.1}Future work}{96}{section.10.1}
+\contentsline {chapter}{\numberline {1}Project Management}{11}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{11}{section.1.1}
+\contentsline {section}{\numberline {1.2}Scope of the project}{12}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Objectives}{12}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Scope}{12}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Methodology and rigor}{13}{subsection.1.2.3}
+\contentsline {paragraph}{Development tools}{13}{paragraph*.4}
+\contentsline {paragraph}{Progress monitoring}{14}{paragraph*.5}
+\contentsline {paragraph}{Validation of the results}{14}{paragraph*.6}
+\contentsline {subsection}{\numberline {1.2.4}Obstacles and risks of the project}{14}{subsection.1.2.4}
+\contentsline {paragraph}{Understanding of the problem}{14}{paragraph*.7}
+\contentsline {paragraph}{Unfeasibility of the solution}{14}{paragraph*.8}
+\contentsline {paragraph}{Interferences with the Sun}{15}{paragraph*.9}
+\contentsline {paragraph}{Understanding previous algorithms}{15}{paragraph*.10}
+\contentsline {paragraph}{Bugs}{15}{paragraph*.11}
+\contentsline {paragraph}{Computational power}{15}{paragraph*.12}
+\contentsline {section}{\numberline {1.3}Contextualization}{16}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Areas of interest}{16}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Stakeholders}{16}{subsection.1.3.2}
+\contentsline {paragraph}{Developers}{16}{paragraph*.13}
+\contentsline {paragraph}{Directors}{16}{paragraph*.14}
+\contentsline {paragraph}{Benefited Actors}{17}{paragraph*.15}
+\contentsline {subsection}{\numberline {1.3.3}State of the art}{17}{subsection.1.3.3}
+\contentsline {paragraph}{Far-away stars}{17}{paragraph*.16}
+\contentsline {paragraph}{Solar Flares}{17}{paragraph*.17}
+\contentsline {section}{\numberline {1.4}Planning and scheduling}{18}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Task description}{18}{subsection.1.4.1}
+\contentsline {paragraph}{1 Introduction to the problem}{18}{paragraph*.18}
+\contentsline {paragraph}{2 GEP}{18}{paragraph*.19}
+\contentsline {paragraph}{3 Feasibility of the detection of flares from far-away stars}{19}{paragraph*.20}
+\contentsline {paragraph}{4 Detection of solar flares with no information about the location of the Sun}{19}{paragraph*.21}
+\contentsline {paragraph}{5 Detection of stellar flares in real-time}{19}{paragraph*.22}
+\contentsline {paragraph}{6 Writing the report}{20}{paragraph*.23}
+\contentsline {paragraph}{7 Final presentation}{20}{paragraph*.24}
+\contentsline {subsection}{\numberline {1.4.2}Time table}{20}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Scheduling: Gantt chart}{20}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Action plan}{21}{subsection.1.4.4}
+\contentsline {paragraph}{Understanding of the problem}{21}{paragraph*.27}
+\contentsline {paragraph}{Understanding previous algorithms}{22}{paragraph*.28}
+\contentsline {paragraph}{Bugs}{22}{paragraph*.29}
+\contentsline {subsection}{\numberline {1.4.5}Resources}{22}{subsection.1.4.5}
+\contentsline {paragraph}{Software resources}{22}{paragraph*.30}
+\contentsline {paragraph}{Hardware resources}{22}{paragraph*.31}
+\contentsline {paragraph}{Human resources}{22}{paragraph*.32}
+\contentsline {section}{\numberline {1.5}Cost estimation}{22}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Software resources}{23}{subsection.1.5.1}
+\contentsline {paragraph}{Common resources}{23}{paragraph*.33}
+\contentsline {paragraph}{Developing the algorithms}{23}{paragraph*.35}
+\contentsline {paragraph}{GEP and writing the report}{23}{paragraph*.37}
+\contentsline {subsection}{\numberline {1.5.2}Hardware resources}{23}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Human resources}{24}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}Indirect costs}{24}{subsection.1.5.4}
+\contentsline {subsection}{\numberline {1.5.5}Budget per task}{25}{subsection.1.5.5}
+\contentsline {subsection}{\numberline {1.5.6}Total budget}{26}{subsection.1.5.6}
+\contentsline {subsection}{\numberline {1.5.7}Budget control}{26}{subsection.1.5.7}
+\contentsline {section}{\numberline {1.6}Sustainability}{26}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Environmental sustainability}{27}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Economic sustainability}{28}{subsection.1.6.2}
+\contentsline {subsection}{\numberline {1.6.3}Social sustainability}{28}{subsection.1.6.3}
+\contentsline {chapter}{\numberline {2}Background}{29}{chapter.2}
+\contentsline {section}{\numberline {2.1}Global Navigation Satellite Systems}{29}{section.2.1}
+\contentsline {paragraph}{GNSS and GPS}{29}{paragraph*.45}
+\contentsline {paragraph}{Positioning}{29}{paragraph*.46}
+\contentsline {paragraph}{Ionospheric Pierce Points}{30}{paragraph*.47}
+\contentsline {paragraph}{The International GNSS Service}{30}{paragraph*.48}
+\contentsline {section}{\numberline {2.2}Ionosphere}{30}{section.2.2}
+\contentsline {section}{\numberline {2.3}Stellar flares}{31}{section.2.3}
+\contentsline {section}{\numberline {2.4}Gamma-Ray Bursts}{31}{section.2.4}
+\contentsline {chapter}{\numberline {3}Solar flare detection}{32}{chapter.3}
+\contentsline {section}{\numberline {3.1}Data}{32}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}GPS Data}{32}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Formatting}{33}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}The Halloween Solar Storm: X17.2 flare}{34}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Vertical Total Electron Content (VTEC)}{35}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Computing the VTEC}{35}{subsection.3.2.1}
+\contentsline {paragraph}{Implementation}{35}{paragraph*.51}
+\contentsline {subsection}{\numberline {3.2.2}Distribution throughout the day}{36}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Solar-zenith angle}{37}{section.3.3}
+\contentsline {section}{\numberline {3.4}Results}{38}{section.3.4}
+\contentsline {chapter}{\numberline {4}Brute Force Approach}{40}{chapter.4}
+\contentsline {section}{\numberline {4.1}Correlation}{40}{section.4.1}
+\contentsline {paragraph}{Computation}{40}{paragraph*.54}
+\contentsline {section}{\numberline {4.2}Algorithm}{41}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Implementation}{43}{subsection.4.2.1}
+\contentsline {paragraph}{Iterating over the possible Suns}{43}{paragraph*.56}
+\contentsline {paragraph}{Computing the correlation}{43}{paragraph*.57}
+\contentsline {paragraph}{Compiling}{45}{paragraph*.58}
+\contentsline {subsection}{\numberline {4.2.2}Mean VTEC as a reliable indicator of the moment of the flare}{46}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Results}{48}{subsection.4.2.3}
+\contentsline {chapter}{\numberline {5}Decreasing search range method}{50}{chapter.5}
+\contentsline {section}{\numberline {5.1}Decreasing the range of the search}{50}{section.5.1}
+\contentsline {section}{\numberline {5.2}Pseudocode}{51}{section.5.2}
+\contentsline {section}{\numberline {5.3}Implementation}{51}{section.5.3}
+\contentsline {section}{\numberline {5.4}Linear fitting: discarding outliers}{54}{section.5.4}
+\contentsline {section}{\numberline {5.5}Results}{55}{section.5.5}
+\contentsline {chapter}{\numberline {6}Least Squares method}{57}{chapter.6}
+\contentsline {section}{\numberline {6.1}The system of equations}{57}{section.6.1}
+\contentsline {section}{\numberline {6.2}Pseudocode}{60}{section.6.2}
+\contentsline {section}{\numberline {6.3}Implementation}{62}{section.6.3}
+\contentsline {section}{\numberline {6.4}Results}{66}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Single iteration}{66}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Multiple iterations: narrowing the search}{67}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Multiple iterations: residual sum}{67}{subsection.6.4.3}
+\contentsline {chapter}{\numberline {7}Other methods and optimizations}{70}{chapter.7}
+\contentsline {section}{\numberline {7.1}Hill Climbing}{70}{section.7.1}
+\contentsline {section}{\numberline {7.2}Simulated Annealing}{72}{section.7.2}
+\contentsline {section}{\numberline {7.3}OpenMP}{72}{section.7.3}
+\contentsline {chapter}{\numberline {8}Results: solar flares}{74}{chapter.8}
+\contentsline {section}{\numberline {8.1}Using all available data}{77}{section.8.1}
+\contentsline {section}{\numberline {8.2}Direct VTEC filter}{78}{section.8.2}
+\contentsline {section}{\numberline {8.3}Decreasing range: linear fit}{79}{section.8.3}
+\contentsline {section}{\numberline {8.4}Least Squares: Iterations}{80}{section.8.4}
+\contentsline {subsection}{\numberline {8.4.1}Discarding by source position}{80}{subsection.8.4.1}
+\contentsline {subsection}{\numberline {8.4.2}Discarding by the residual sum of squares}{81}{subsection.8.4.2}
+\contentsline {section}{\numberline {8.5}Using multiple epochs}{82}{section.8.5}
+\contentsline {section}{\numberline {8.6}Discussion}{84}{section.8.6}
+\contentsline {chapter}{\numberline {9}Stellar flares}{86}{chapter.9}
+\contentsline {section}{\numberline {9.1}Study on the feasibility of stellar flare detection}{86}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Sources of data and possible candidates}{86}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}The Neil Gehrels Swift Observatory and its data}{87}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Objective function}{88}{subsection.9.1.3}
+\contentsline {paragraph}{Computing the angle}{88}{paragraph*.76}
+\contentsline {subsection}{\numberline {9.1.4}Obtaining the data}{89}{subsection.9.1.4}
+\contentsline {section}{\numberline {9.2}Testing the BGSEES algorithm}{90}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Discarding the day hemisphere}{90}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Proxima Centauri}{91}{subsection.9.2.2}
+\contentsline {subsubsection}{Result of the 20 best epochs}{91}{subsubsection*.79}
+\contentsline {subsubsection}{Result of the 10 best epochs}{93}{subsubsection*.81}
+\contentsline {subsubsection}{Result of the 20 best epochs using 2 simultaneously}{94}{subsubsection*.83}
+\contentsline {subsection}{\numberline {9.2.3}NGTS J121939.5-355557}{96}{subsection.9.2.3}
+\contentsline {subsubsection}{Result of the 20 best epochs}{96}{subsubsection*.85}
+\contentsline {subsubsection}{Result of the 10 best epochs}{98}{subsubsection*.87}
+\contentsline {subsubsection}{Result of the 20 best epochs using 2 simultaneously}{99}{subsubsection*.89}
+\contentsline {chapter}{\numberline {10}Conclusions}{101}{chapter.10}
+\contentsline {section}{\numberline {10.1}Future work}{101}{section.10.1}

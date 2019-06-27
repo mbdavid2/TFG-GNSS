@@ -109,7 +109,7 @@ void mainAlgorithm(string methodId, string inputDataFile, Auxiliary* aux, bool l
 
 	// Find spike
 	SpikeFinder spikeFinder;
-	candidate bestCandidate = spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
+	spikeFinder.computeInfoBestCandidate(fileManager.getFilteredFile(), 1);
 	priority_queue<candidate> bestPQ = spikeFinder.getPQBestCandidates();
 
 	double timeFirst = bestPQ.top().epoch;
@@ -180,21 +180,21 @@ void resultsDebugLatex () {
 	int i = 0;
 
 	//Decrease range
-	// if (plotLatex) cout << "-- Decreasing range method --" << endl;
-	// for (string fileName : fileNames) {
-	// 	if (!plotLatex) cout << ++i;
-	// 	else  cout << fileName;
-	// 	mainAlgorithm("dr", fileName, &aux, false);
-	// }
-	// (aux).resetTotalsMethod();
-	// i = 0;
+	if (plotLatex) cout << "-- Decreasing range method --" << endl;
+	for (string fileName : fileNames) {
+		if (!plotLatex) cout << ++i;
+		else  cout << fileName;
+		mainAlgorithm("dr", fileName, &aux, false);
+	}
+	(aux).resetTotalsMethod();
+	i = 0;
 
 	//Least Squares
 	if (plotLatex) cout << "-- Least Squares method --" << endl;
 	
 	for (string fileName : fileNames) {
-		// if (!plotLatex) cout << ++i;
-		// else  cout << fileName;
+		if (!plotLatex) cout << ++i;
+		else  cout << fileName;
 		mainAlgorithm("ls", fileName, &aux, false);
 	}
 	(aux).resetTotalsMethod();
@@ -326,20 +326,9 @@ int main() {
 	
 	// resultsDebugLatex();
 
-	// cout << "2 epochs" << endl;
-	nEpochsUsed = 2;
-	// resultsDebugLatex();
-
-	// cout << endl << "3 epochs" << endl;
-	// nEpochsUsed = 3;
-	// resultsDebugLatex();
-
-	
-
-
-
+	//Number of epochs that are going to be used at the same time by the method
 	// Parameters
-	n = 10; // Number of epochs that are going to be tested
-	//Number of epochs that are going to be used at the same time by the method 
+	n = 20; // Number of epochs that are going to be tested
+	nEpochsUsed = 2;
 	stellarFlares();	
 }

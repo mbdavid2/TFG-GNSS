@@ -8,7 +8,8 @@ using namespace std;
 
 const int MAX_STORED_IPPS = 10;
 
-bool operator<(candidate a, candidate b) { 
+bool operator<(candidate a, candidate b) {
+	// return a.epoch < b.epoch ? true : false;
 	return a.maxMeanVTEC < b.maxMeanVTEC ? true : false; 
 }
 
@@ -104,11 +105,13 @@ void SpikeFinder::findQueueBestCandidates (ifstream& data) {
 	double totalEpochVTEC = vtecIn;
 	double previousEpoch = epochIn;
 	while (data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn) {
+		// if (epochIn >= 8.43 and epochIn <= 8.59) {
 		// if (vtecIn <= 0.4 and vtecIn >= -0.4) {
 			insertInfoIPP(epochIn, vtecIn, raIPPIn, latIPPIn);
 			totalEpochVTEC += vtecIn;
 			n++;
 			if (previousEpoch != epochIn) {
+				// cout << "new: " << epochIn << endl;
 				// cout << "Diferencia: " << previousEpoch - epochIn << endl;
 				priorityQueuesEpochs[previousEpoch] = IPPsOfEpoch;
 				IPPsOfEpoch = priority_queue<infoIPP> ();
@@ -118,7 +121,9 @@ void SpikeFinder::findQueueBestCandidates (ifstream& data) {
 				n = 0;
 			}
 		// }
+		// }
 	}
+	// printAllCandidates();
 }
 
 candidate SpikeFinder::findSingleBestCandidate (ifstream& data) {

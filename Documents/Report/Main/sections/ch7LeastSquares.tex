@@ -156,10 +156,10 @@ But we have two operations that involve the declination, $X=\cos\delta_{s} * \co
 
 
 \begin{equation} \label{eq:inverseTrigoAtan}
-\alpha_{s} = \text{arctan2}(X,Y)
+\alpha_{s} = \text{arctan2}(Y,X)
 \end{equation}
 
-The $\text{arctan2}(X,Y)$ function is a Fortran function that computes the tangent but using two numbers. Instead of relying only on one angle (which would cause ambiguity regarding the quadrant of the angle) this function uses both angles to determine the exact value, which suits our situation.
+The $\text{arctan2}(Y,X)$ function is a Fortran function that computes the tangent but using two numbers. Instead of relying only on one angle (which would cause ambiguity regarding the quadrant of the angle) this function uses both angles to determine the exact value, which suits our situation.
 
 Using these two operations, the algorithm finally yields our solution: the right ascension and declination estimated from using all the IPPs' information as an overdetermined system.
 
