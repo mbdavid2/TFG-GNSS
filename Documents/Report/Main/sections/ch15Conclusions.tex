@@ -1,22 +1,22 @@
 \chapter{Conclusions}
 
-The main aim of the project was developing an algorithm capable of detecting solar flares without considering the location of the Sun, so that this could then be applied to the challenging scenario of stellar flares.
+The main aim of the project was developing an algorithm capable of detecting solar flares without considering the location of the Sun i.e. both in time and space, so that this could then be applied to the challenging scenario of stellar flares.
 
 In the first chapters we studied the main factor that has to be taken into consideration in the algorithm: the correlation between the source-zenith angle's cosine and the VTEC value.
 
-Then, an first approach of algorithm was developed to traverse the globe and consider possible Suns, the Decreasing Range method, which choose the best candidate based on its correlation.
+Then, a first approach of algorithm was developed to traverse the globe and consider possible sources (Suns), the Decreasing Range method, which choose the best candidate based on its correlation.
 
 An alternative method, the Least Squares method, was also developed. This approach solved an equation system to estimate the source's location, and yielded similar results.
 
 Finally, both methods were tested with several solar flares using different parameters to study which one yielded better estimations, which provided positive results regarding the detection of solar flares. Using this information, the algorithm was tested with stellar flares as well.
 
-This was a very challenging task due to stellar flares having a weaker effect on the ionosphere, but the algorithm has provided interesting results with the studied cases, where it seems to be sensible to the event, considering the estimation error is reduced at the moment of the flare.
+This was a very challenging task due to stellar flares having a weaker effect on the ionosphere, but the algorithm has provided interesting results with the studied cases, where it seems to be sensible to the event, considering the estimation error of the stellar source is reduced at the moment of the flare.
  
 \section{Future work}
 
 The results obtained when studying the detection of stellar flares have presented an opportunity to proceed with the project, by improving on it and using the algorithm to test more flares to see if similar results are obtained.
 
-In the next weeks more tests will be performed with other cases and a brief research paper presenting the results and new proposed methods will be written to be submitted to the \textit{"Geophysical Research Letters"} journal.
+In the next weeks more tests will be performed with other cases and a brief research paper presenting the results and new proposed methods will be written to be submitted to a first class peer-reviewed journal like the \textit{"Geophysical Research Letters"} journal, and the results of this project have motivated the preparation of a dedicated ERC Advanced Grant proposal to be submitted by the end of next August.
 
 Furthermore, some of the proposals presented in chapter \ref{otherMethods} will be implemented as well, such as the parallelization of some parts of the algorithm for increased performance. \\
 

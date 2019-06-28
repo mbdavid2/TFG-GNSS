@@ -2,31 +2,29 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Gantt chart with the planning of the project \relax }}{20}{figure.caption.26}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces CDDIS server (a) and data flow to obtain IGS data (b)\relax }}{32}{figure.caption.49}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces VTEC as a function of the cosine of the solar-zenith angle\relax }}{33}{figure.caption.50}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)\relax }}{36}{figure.caption.52}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces VTEC value as a function of the solar-zenith angle cosine\relax }}{38}{figure.caption.53}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces VTEC as a function of the cosine of the solar-zenith angle\relax }}{34}{figure.caption.49}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces VTEC distribution throughout the day for IPPs that have Vill as the receiver\relax }}{37}{figure.caption.51}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces VTEC value as a function of the solar-zenith angle cosine\relax }}{39}{figure.caption.52}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Two examples of possible Sun locations\relax }}{41}{figure.caption.55}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Correlation and error of the solution as the mean VTEC decreases\relax }}{47}{figure.caption.60}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Correlation and error of the solution as the mean VTEC decreases\relax }}{48}{figure.caption.58}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces All visited candidates of the solution space\relax }}{53}{figure.caption.62}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces All data (red) and fitted samples (blue)\relax }}{54}{figure.caption.63}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces All visited candidates of the solution space\relax }}{54}{figure.caption.60}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces All data (red) and fitted samples (blue)\relax }}{55}{figure.caption.61}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces VTEC as a function of the solar-zenith angle's cosine\relax }}{57}{figure.caption.64}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces VTEC as a function of the solar-zenith angle's cosine\relax }}{58}{figure.caption.62}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces All visited candidates of the solution space\relax }}{69}{figure.caption.67}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{71}{figure.caption.68}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces All visited candidates of the solution space\relax }}{70}{figure.caption.65}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{72}{figure.caption.66}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Results of LS method with 10 iterations based on the estimated LS error\relax }}{79}{figure.caption.72}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods\relax }}{83}{figure.caption.75}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Results of LS method with 10 iterations based on the estimated LS error\relax }}{81}{figure.caption.70}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods\relax }}{85}{figure.caption.73}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Result of the GSFLAI algorithm for the 181228A GRB\relax }}{88}{figure.caption.78}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs (Proxima Centauri)\relax }}{91}{figure.caption.80}
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Estimation error surrounding the moment of the flare using 10 epochs (Proxima Centauri)\relax }}{92}{figure.caption.82}
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs in groups of 2 (Proxima Centauri)\relax }}{93}{figure.caption.84}
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs (NGTS)\relax }}{96}{figure.caption.86}
-\contentsline {figure}{\numberline {9.6}{\ignorespaces Estimation error surrounding the moment of the flare using 10 epochs (NGTS)\relax }}{97}{figure.caption.88}
-\contentsline {figure}{\numberline {9.7}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs in groups of 2 (NGTS)\relax }}{98}{figure.caption.90}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Result of the GSFLAI algorithm for the 181228A GRB\relax }}{91}{figure.caption.76}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs (Proxima Centauri)\relax }}{93}{figure.caption.78}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Estimation error surrounding the moment of the flare using 10 epochs (Proxima Centauri)\relax }}{94}{figure.caption.80}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs in groups of 2 (Proxima Centauri)\relax }}{95}{figure.caption.82}
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs (NGTS)\relax }}{98}{figure.caption.84}
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Estimation error surrounding the moment of the flare using 10 epochs (NGTS)\relax }}{99}{figure.caption.86}
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs in groups of 2 (NGTS)\relax }}{100}{figure.caption.88}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

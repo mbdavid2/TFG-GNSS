@@ -4,7 +4,7 @@ In the previous chapter we saw that the BGSEES algorithm for detecting the locat
 
 \section{Decreasing the range of the search}
 
-As we saw in the previous chapter, to increase the precision of the algorithm, the \textit{step} with which we iterate over the possible angles (right ascension and declination) is reduced. This causes more possible Suns to be considered. For example, with a step of one degree, we consider all possible right ascensions [0,360] and declinations [-90,90]: $360*180 = 64800$ Suns, minus the $2*360 - 2 = 718$ right ascensions we do not consider\footnote{We do not consider the 360 right ascensions of the two poles (-90 and 90), hence 2*360, but we do consider the two poles themselves (with any valid right ascension)} because as we have seen right ascensions for declinations of -90 and 90 are the same location.
+As we saw in the previous chapter, to increase the precision of the algorithm, the \textit{step} with which we iterate over the possible angles (right ascension and declination) is reduced. This causes more possible Suns to be considered. For example, with a step of one degree, we consider all possible right ascensions [0,360] and declinations [-90,90]: $360*180 = 64800$ Suns, minus the $2*360 - 2 = 718$ right ascensions we do not consider\footnote{We do not consider the 360 right ascensions at one degree of resolution of the two poles (-90 and 90), hence 2*360, but we do consider the two poles themselves (with any valid right ascension)} because as we have seen right ascensions for declinations of -90 and 90 are the same location.
 
 We want to have the highest precision possible without having to consider all $64800 - 718 = 64082$ possibilities by progressively reducing the search range.
 

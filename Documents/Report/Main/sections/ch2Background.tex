@@ -28,12 +28,12 @@ GNSS is a key component to this project because, as mentioned before, many varia
 
 The ionosphere is a layer of the Earth’s atmosphere that lies 75-1000km above the surface of the planet \cite{ionospherestandford}. 
 
-High energy from Extreme UltraViolet (EUV) and X-ray radiation can cause its atoms to be ionized and create a layer of electrons \cite{noaa2ionosphere}. Due to these free electrons and ionized molecules, it is capable of affecting radio wave propagation, thus having an effect on Global Navigation Satellite Systems (GNSS) technology, this phenomena allows these satellites to be used as a global scanner for the ionosphere \cite{hernandez2011ionosphere}. 
+High energy from Extreme UltraViolet (EUV) and X-ray radiation can cause its atoms to be ionized and create a layer of electrons \cite{noaa2ionosphere}. Due to these free electrons and ionized molecules, it is capable of affecting radio wave propagation, thus having an effect on Global Navigation Satellite Systems (GNSS) technology, this phenomena allows these satellites to be used as a global scanner for the ionosphere. The free electrons, with a charge-to-mass ratio more than three order of magnitude larger than the one of positive ions, are much more effective interacting with the crossing electromagnetic signals. \cite{hernandez2011ionosphere}.
 
-The main physical quantity used for describing the electron content of the ionosphere is the \textbf{Vertical Total Electron Content (TEC)}, the TEC is the total number of free electrons between two points $(r1,r2)$ along a cylinder of base $1m^2$. 
+The main physical quantity used for describing the electron content of the ionosphere is the \textbf{Vertical Total Electron Content (TEC)}, the VTEC is the total number of free electrons between two points $(r1,r2)$ along a cylinder of base $1m^2$. 
 Slant TEC (STEC), in particular, can be defined as the TEC in which $r1$ and $r2$ are a satellite and a receiver’s positions \cite{singh2015gps}. 
 
-The unique properties of the ionosphere enable us to use the data provided by the GNSS technology to study stellar flares, a powerful phenomena that occurs in many stars across the universe.
+The unique properties of the ionosphere enable us to use the data provided by the GNSS technology to study stellar flares, a powerful phenomena that occurs in many stars across the universe, which can generate a sudden overionization with a well defined pattern dependent on the cosine of the source-IPP angle \cite{hernandez2012gnss}. 
 
 \paragraph{Ionospheric Pierce Points}
 
@@ -42,17 +42,16 @@ Ionospheric Pierce Points (IPP) are going to be very relevant throughout the dev
 \section{Stellar flares}
 
 Flares from stars, in particular those that have the Sun as a source (more noticeable due to its proximity) are sudden flashes of brightness in the surface of stars which release large amounts of energy across the whole electromagnetic spectrum\footnote{X-rays and Extreme Ultraviolet (EUV) radiation}.
-Flares that have the Sun as a source can increase the electron content of the ionosphere and have an effect on waves passing through it, affecting satellite communications and causing a delay. This phenomena is the key element of the project, as it enables us to study these events.
+Flares that have the Sun as a source can increase the electron content of the ionosphere and have an effect on waves passing through it, affecting satellite communications and causing a delay in the pseudo-range and an advance in the carrier phase. This phenomena is the key element of the project, as it enables us to study these events.
 
-Satellites can also be harmed by this effects: the flares heat up the outer atmosphere, which in turn increases the drag on these satellites reducing their lifetime in orbit \cite{hernandez2012gnss}.
+Satellites can also be harmed by the effects of these events: the flares heat up the outer atmosphere, which in turn increases the drag on these satellites reducing their lifetime in orbit \cite{hernandez2012gnss}.
 
-The previous phenomena applies to flares originating from the Sun, whether a flare that has a star from outside the Solar System as a source has an effect on the Earth’s atmosphere or not is one of the topics that is going to be studied in this project, as the distance may reduce their effect on the Earth.
+The previous phenomena applies to flares originating from the Sun, whether a flare that has a star from outside the Solar System as a source has an effect on the Earth’s atmosphere (detected using GNSS measurements) or not is one of the topics that is going to be studied in this project, as the distance will dramatically reduce their effect on the Earth.
 
 \section{Gamma-Ray Bursts}
 
-Throughout the project, in particular when studying the feasibility of stellar flares detection, another type of event will be mentioned and studied as well: Gamma-Ray Bursts (GRBs):
+Throughout the project, in particular when studying the feasibility of stellar flares detection, a more specific type of event will be mentioned and studied as well: Gamma-Ray Bursts (GRBs):
 
-GRBs are highly energetic explosions that occur in distant galaxies, releasing large amounts of radiation, in particular Gamma rays, hence the name of the event. These bursts, despite being millions of light years away from Earth are so powerful they might still have an impact on the ionosphere, like the aforementioned stellar flares. 
-The main difference with flares originating from stars is that GRBs are thought to be originated from the death of massive stars, that is, supernovas.
+GRBs are highly energetic explosions that occur in distant galaxies, releasing large amounts of radiation, in particular Gamma rays, hence the name of the event. These bursts, despite being millions of light years away from the Earth, are so powerful they might still have an impact on the ionosphere, like the aforementioned stellar flares. 
 
-Despite not being a stellar flare, the phenomena we aim to detect, this event is going to be studied in the following section to test the currently working algorithms, mainly for two reasons: it has been studied and cataloged by telescopes such as the Fermi Observatory and there’s is available information that we can use for our study, and the large amounts of energy they emit it could mean GRBs are a more feasible target to detect.
+Despite not being a typical stellar flare, the phenomena we aim to detect, this event is going to be studied in the following section to test the currently working algorithms, mainly for two reasons: it has been studied and cataloged by telescopes such as the Fermi Observatory and there’s is available information that we can use for our study, and the large amounts of energy they emit it could mean GRBs are a more feasible target to detect.

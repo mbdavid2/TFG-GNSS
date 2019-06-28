@@ -43,7 +43,7 @@ The following is the implementation of such test, which checks its surrounding n
 	\end{lstlisting}
 \end{minipage}
 
-The following figure shows the results of the execution for two different starting states. For both of them, the algorithm ran until it could not progress any further (wasn not interrupted by the iteration limit). The plots contain both the possibilities considered by the decrease range method (in purple, the same plot as \ref{fig:solutionSpace}), and the path taken by the greedy algorithm (in green).
+The following figure shows the results of the execution for two different starting states. For both of them, the algorithm ran until no more improvements to the solution could be performed. The plots contain both the possibilities considered by the decrease range method (in purple, the same plot as \ref{fig:solutionSpace}), and the path taken by the greedy algorithm (in green).
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -81,6 +81,6 @@ OpenMP (Open Multi-Processing) is an specification for compiler directives and l
 
 Using OpenMP would not be an entirely different method, but rather an optimization that could be used with all the presented methods to try to parallelize some regions of the code. It would be feasible for our case considering it is available for both C++ and Fortran, the main languages used for the algorithms.
 
-An example of how multi-processing could be used for the algorithm would be parallelizating the computation of the correlation in the decrease range method: each thread could read a part of the input and compute the necessary variables used to compute the final value of the correlation. Because these variables are sums, each thread could handle a part of the input and finally we could compute the total sum using OpenMP's reduction clause (which sums the values from each thread at the end of the partial loop). \\
+An example of how multi-processing could be used for the algorithm would be parallelizating the computation of the correlation in the decrease range method: each thread could read a part of the input and compute the necessary variables used to obtain the final value of the correlation. Because these variables are sums, each thread could handle a part of the input and finally we could compute the total sum using OpenMP's reduction clause (which sums the values from each thread at the end of the partial loop). \\
 
 These two possibilities (using OpenMP and Simmulated Annealing) could be implemented in the future if more tests were done with the algorithm, but for now we decided to focus on the methods from previous chapters.

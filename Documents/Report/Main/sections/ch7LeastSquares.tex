@@ -68,7 +68,7 @@ Because the cosine is computed using the previous equations (\ref{eq:61}, \ref{e
 \cos \chi = XX' + YY' + ZZ'
 \end{equation}
 
-Where $X'$, $Y'$, $Z'$ are the components of the IPP's unit vector obtained from equation \ref{eq:61}, and $X$, $Y$, $Z$ are the unknowns of our equation: the components of the source's unit vector, which could be used to easily find the right ascension and declination of the source by using trigonometric operations.
+Where $X'$, $Y'$, $Z'$ are the components of the IPP's unit vector obtained from equation \ref{eq:61}, and $X$, $Y$, $Z$ are the unknowns of our equation: the components of the source's unit vector.
 
 However, finding the value of these unknowns is the challenge of this method. Taking the cosine as \ref{eq:cosine} we can express the linear function as:
 
@@ -82,21 +82,21 @@ Because $a$ and $b$ are unknowns as well as $X$, $Y$ and $Z$, we can group them 
 \Delta V = \alpha X' +  \beta Y' +  \gamma Z' + b
 \end{equation}
 
-Our aim after solving the previous equation would be obtaining the values of $X$, $Y$ and $Z$. We can see that:
+Being $\alpha = aX, \beta = aY$ and $\gamma = aZ$. Our aim after solving the previous equation would be obtaining the values of $X$, $Y$ and $Z$. We can see that:
 
 \begin{equation} \label{eq:elTrucoDelAlmendruco}
-\sqrt{\alpha^{2}+\beta^{2}+\gamma^{2}} = \sqrt{a^{2}(X^{2}+Y^{2}+Z^{2})} = \sqrt{a^{2}} = a
+\sqrt{\alpha^{2}+\beta^{2}+\gamma^{2}} = \sqrt{a^{2}(X^{2}+Y^{2}+Z^{2})} = \sqrt{a^{2}} = |a|
 \end{equation}
 
 Because $X$, $Y$ and $Z$ are the components of a unit vector\footnote{$\sqrt{(X^{2}+Y^{2}+Z^{2})} = 1$}. The previous allows us to, once we know the values of $\alpha$, $\beta$ and $\gamma$, obtain $X$, $Y$ and $Z$ by doing:
 
 \begin{equation} \label{eq:iso}
-\frac{\alpha}{\sqrt{\alpha^{2}+\beta^{2}+\gamma^{2}}} = \frac{\alpha}{a} = \frac{aX}{a} = X
+\frac{\alpha}{\sqrt{\alpha^{2}+\beta^{2}+\gamma^{2}}} = \frac{\alpha}{|a|} = \frac{aX}{|a|} = \pm X
 \end{equation} \\
 
 In our data we can find, for each IPP: $\Delta V$, $X'$, $Y'$, $Z'$ (because we have the right ascension and declination of the point).
 
-For each of these IPPs, we have an equation of the form $\Delta V = \alpha X' +  \beta Y' +  \gamma Z' + b$ and, therefore, we have an overdetermined system of equations, with more equations (unknown, depends on the input data) than variables (four: $\alpha$, $\beta$, $\gamma$ and $b$)
+For each of these IPPs, we have an equation of the form $\Delta V = \alpha X' +  \beta Y' +  \gamma Z' + b$ and, therefore, we have an overdetermined system of equations, with more equations (a variable number, depends on the input data) than unknowns (four: $\alpha$, $\beta$, $\gamma$ and $b$)
 
 Knowing how to obtain $X$, $Y$ and $Z$ from $\alpha$, $\beta$ and $\gamma$, we can now focus on solving the system of equations to obtain the latter unknowns .
 
@@ -156,12 +156,12 @@ But we have two operations that involve the declination, $X=\cos\delta_{s} * \co
 
 
 \begin{equation} \label{eq:inverseTrigoAtan}
-\alpha_{s} = \text{arctan2}(Y,X)
+\alpha_{s} = \text{atan2}(Y,X)
 \end{equation}
 
-The $\text{arctan2}(Y,X)$ function is a Fortran function that computes the tangent but using two numbers. Instead of relying only on one angle (which would cause ambiguity regarding the quadrant of the angle) this function uses both angles to determine the exact value, which suits our situation.
+The $\text{arctan2}(Y,X)$ function is a FORTRAN function that computes the tangent but using two numbers. Instead of relying only on one angle (which would cause ambiguity regarding the quadrant of the angle) this function uses both angles to determine the exact value, which suits our situation.
 
-Using these two operations, the algorithm finally yields our solution: the right ascension and declination estimated from using all the IPPs' information as an overdetermined system.
+Using these two operations, the algorithm finally yields our solution: the right ascension and declination estimated from using all the IPPs' information as an overdetermined system, with the exception of the aforementioned initial ambiguity.
 
 Furthermore, another possibility would be executing the algorithm multiple iterations. Using the estimated location yielded by each iteration, the algorithm would compute the cosine of the angle between the estimated solution and the IPP (each line) and discard it considering a certain cosine threshold: -0.1 in particular, the cosine in which the linear relation starts (day hemisphere in the case of the Sun) as we have seen in previous chapters. The results of the algorithm with and without iterations are discussed in the last section.
 
@@ -347,7 +347,7 @@ The static storeMatrixData function traverses the file and stores the informatio
 	end subroutine computeComponentsIPP\end{lstlisting}
 \end{minipage}
 
-After storing all the necessary data in the arrays, the algorithm perform the calculations of equation \ref{eq:mainEq}. The function to compute the inverse is the only matrix operation that is not implemented by Fortran's standard library, so the \textit{LAPACK (Linear Algebra PACKage)} library for numerical linear algebra\cite{lapack}, which implements it, is used by the algorithm for this computation. 
+After storing all the necessary data in the arrays, the algorithm perform the calculations of equation \ref{eq:mainEq}. The function to compute the inverse is the only matrix operation that is not implemented by Fortran's standard library, so the \textit{LAPACK (Linear Algebra PACKage)} library for numerical linear algebra\cite{lapack}, which implements it, is used by the algorithm for this computation. This library would allow us to distribute the inversion of the symmetrical matrix in different threads using Scalapack.
 
 \begin{minipage}{\linewidth}
 	\label{lst:solveSystem}
@@ -366,7 +366,7 @@ After storing all the necessary data in the arrays, the algorithm perform the ca
 	end subroutine matrixComputations\end{lstlisting}
 \end{minipage}
 
-After the solution to the system has been obtained, the degrees are obtained as explained in the previous sections, and using Fortran's \textit{atan2()} function:
+After the solution to the system has been obtained, the angles are obtained as explained in the previous sections, and using Fortran's \textit{atan2()} function:
 
 \begin{minipage}{\linewidth}
 	\label{lst:obtainSource}
@@ -411,14 +411,14 @@ These are the results of the algorithm with a single iteration, that is, solving
 		Execution time: 0.00851647 seconds\end{lstlisting}
 \end{minipage}
 
-As we can see, the error is there has been a slight increase in the error compared to the Decreasing Range method, but the execution time has been greatly reduced.
+As we can see, the error has been slightly increased compared to the Decreasing Range method, but the execution time has been greatly reduced.
 
 \subsection{Multiple iterations: narrowing the search} \label{sssec:covariance}
 
 As mentioned before, a possibility to improve the result could be iterating using the estimated value of the algorithm. This is done using the \textit{checkOutlier()} function when storing the matrix data (listing \ref{lst:storeData}). The function implements the method to discard IPPs discussed earlier in the chapter:  computing the cosine of the angle between the estimated solution and the IPP and discard it considering a cosine threshold: -0.1, to work only IPPs from the day hemisphere.
 
 \begin{minipage}{\linewidth}
-	\label{lst:solveSystem}
+	\label{lst:checkOutlier}
 	\begin{lstlisting}[style=myFortranStyle, caption=Function checkOutlier to discard outliers]
 	integer function checkOutlier(solutionRa, solutionDec, raIPP, decIPP)
 		implicit none
@@ -472,7 +472,7 @@ The following table shows the results of using 10 iterations with this method:
 
 As we can see, multiple iterations do not present an improvement in the estimation. This is caused because in each iteration IPPs are discarded and therefore the system of equations has less information to compute the estimation.
 
-Because there does not appear to be any improvement, another option could be to use the estimation error obtained from the covariance matrix as an indicator of how precise the estimation is. This is obtained by adding the covariances of the the components of the system's solution. These covariances are the elements of the diagonal from the matrix $(A^{T}A)^{-1}$ from equation \ref{eq:mainEq}. This option using the \textit{LS estimation error} (not the estimation error, obtained from comparing our estimation to the real position of the source) will be tested with more data sets in the results chapter.
+Because there does not appear to be any improvement, another option could be to use the estimation error obtained from the covariance matrix as an indicator of how precise the estimation is. This is obtained by adding the covariances of the the components of the system's solution. These covariances are the elements of the diagonal from the matrix $(A^{T}A)^{-1}$ from equation \ref{eq:mainEq}. This option using the \textit{LS estimation error} (not the actual error, obtained from comparing our estimation to the real position of the source) will be tested with more data sets in the results chapter.
 
 \subsection{Multiple iterations: residual sum}
 
@@ -485,7 +485,7 @@ Another possibility would be to discard IPPs by using the residual sum of the Le
 Which can then be used to discard IPPs based on the following comparison.
 
 \begin{equation} \label{eq:discard}
-|(y_{i}-f(i)| <= 3\sigma
+|y_{i}-f(i)| <= 3\sigma
 \end{equation}
 
 In this case the algorithm does not consider the estimation error to keep the best possible solution, but rather iterates and returns the result of the last iteration.
@@ -511,6 +511,6 @@ In this case the algorithm does not consider the estimation error to keep the be
 	\caption{5 iterations of the Least Squares method using the residual sum of squares to discard outliers}
 \end{table}
 
-As with the previous iteration method, we are discarding rows and therefore the Least Squares method reduces its precision, therefore yielding a larger error. However, the error seems to decrease after iteration 4 and slightly improve the original solution for this case in particular, but whether it improves the solution or not for other cases will be studied in the results chapter. \\
+As with the previous iteration method, we are discarding rows and therefore the Least Squares method reduces its precision, therefore yielding a larger error. However, the error seems to decrease after iteration 4 and slightly improve the original solution for this case in particular, but whether it improves the solution or not for other cases will be studied in the Results chapter. \\
 
 Although for this specific case the method does not present an improvement in comparison to the Decreasing Range method, the Least Squares method is significantly faster in terms of execution, and will be studied in more detail, where more data sets will be used to see which yields the best results.

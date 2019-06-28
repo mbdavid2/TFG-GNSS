@@ -63,74 +63,74 @@
 \contentsline {paragraph}{Positioning}{28}{paragraph*.46}
 \contentsline {paragraph}{The International GNSS Service}{29}{paragraph*.47}
 \contentsline {section}{\numberline {2.2}Ionosphere}{29}{section.2.2}
-\contentsline {paragraph}{Ionospheric Pierce Points}{29}{paragraph*.48}
+\contentsline {paragraph}{Ionospheric Pierce Points}{30}{paragraph*.48}
 \contentsline {section}{\numberline {2.3}Stellar flares}{30}{section.2.3}
 \contentsline {section}{\numberline {2.4}Gamma-Ray Bursts}{30}{section.2.4}
-\contentsline {chapter}{\numberline {3}Solar flare detection}{31}{chapter.3}
-\contentsline {section}{\numberline {3.1}Data}{31}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}GPS Data}{31}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Formatting}{32}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}The Halloween Solar Storm: X17.2 flare}{33}{subsection.3.1.3}
+\contentsline {chapter}{\numberline {3}Solar flare detection}{32}{chapter.3}
+\contentsline {section}{\numberline {3.1}Data}{32}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}GPS Data}{32}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Formatting}{33}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}The Halloween Solar Storm: X17.2 flare}{34}{subsection.3.1.3}
 \contentsline {section}{\numberline {3.2}Vertical Total Electron Content (VTEC)}{34}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Computing the VTEC}{34}{subsection.3.2.1}
-\contentsline {paragraph}{Implementation}{34}{paragraph*.51}
+\contentsline {paragraph}{Implementation}{35}{paragraph*.50}
 \contentsline {subsection}{\numberline {3.2.2}Distribution throughout the day}{35}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Solar-zenith angle}{36}{section.3.3}
-\contentsline {section}{\numberline {3.4}Results}{37}{section.3.4}
-\contentsline {chapter}{\numberline {4}Brute Force Approach}{39}{chapter.4}
-\contentsline {section}{\numberline {4.1}Correlation}{39}{section.4.1}
-\contentsline {paragraph}{Computation}{39}{paragraph*.54}
-\contentsline {section}{\numberline {4.2}Algorithm}{40}{section.4.2}
+\contentsline {section}{\numberline {3.3}Solar-zenith angle}{38}{section.3.3}
+\contentsline {section}{\numberline {3.4}Results}{39}{section.3.4}
+\contentsline {chapter}{\numberline {4}Brute Force Approach}{40}{chapter.4}
+\contentsline {section}{\numberline {4.1}Correlation}{40}{section.4.1}
+\contentsline {paragraph}{Computation}{40}{paragraph*.53}
+\contentsline {section}{\numberline {4.2}Algorithm}{41}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Implementation}{42}{subsection.4.2.1}
-\contentsline {paragraph}{Iterating over the possible Suns}{42}{paragraph*.56}
-\contentsline {paragraph}{Computing the correlation}{42}{paragraph*.57}
-\contentsline {paragraph}{Compiling}{44}{paragraph*.58}
-\contentsline {subsection}{\numberline {4.2.2}Mean VTEC as a reliable indicator of the moment of the flare}{45}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Results}{47}{subsection.4.2.3}
-\contentsline {chapter}{\numberline {5}Decreasing search range method}{49}{chapter.5}
-\contentsline {section}{\numberline {5.1}Decreasing the range of the search}{49}{section.5.1}
-\contentsline {section}{\numberline {5.2}Pseudocode}{50}{section.5.2}
-\contentsline {section}{\numberline {5.3}Implementation}{50}{section.5.3}
-\contentsline {section}{\numberline {5.4}Linear fitting: discarding outliers}{53}{section.5.4}
-\contentsline {section}{\numberline {5.5}Results}{54}{section.5.5}
-\contentsline {chapter}{\numberline {6}Least Squares method}{56}{chapter.6}
-\contentsline {section}{\numberline {6.1}The system of equations}{56}{section.6.1}
-\contentsline {section}{\numberline {6.2}Pseudocode}{59}{section.6.2}
-\contentsline {section}{\numberline {6.3}Implementation}{61}{section.6.3}
-\contentsline {section}{\numberline {6.4}Results}{65}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Single iteration}{65}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Multiple iterations: narrowing the search}{66}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Multiple iterations: residual sum}{66}{subsection.6.4.3}
-\contentsline {chapter}{\numberline {7}Other methods and optimizations}{69}{chapter.7}
-\contentsline {section}{\numberline {7.1}Hill Climbing}{69}{section.7.1}
-\contentsline {section}{\numberline {7.2}Simulated Annealing}{71}{section.7.2}
-\contentsline {section}{\numberline {7.3}OpenMP}{71}{section.7.3}
-\contentsline {chapter}{\numberline {8}Results: solar flares}{73}{chapter.8}
-\contentsline {section}{\numberline {8.1}Using all available data}{76}{section.8.1}
-\contentsline {section}{\numberline {8.2}Direct VTEC filter}{77}{section.8.2}
-\contentsline {section}{\numberline {8.3}Decreasing range: linear fit}{78}{section.8.3}
-\contentsline {section}{\numberline {8.4}Least Squares: Iterations}{79}{section.8.4}
-\contentsline {subsection}{\numberline {8.4.1}Discarding by source position}{79}{subsection.8.4.1}
-\contentsline {subsection}{\numberline {8.4.2}Discarding by the residual sum of squares}{80}{subsection.8.4.2}
-\contentsline {section}{\numberline {8.5}Using multiple epochs}{81}{section.8.5}
-\contentsline {section}{\numberline {8.6}Discussion}{83}{section.8.6}
-\contentsline {chapter}{\numberline {9}Stellar flares}{85}{chapter.9}
-\contentsline {section}{\numberline {9.1}Study on the feasibility of stellar flare detection}{85}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Sources of data and possible candidates}{85}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}The Neil Gehrels Swift Observatory and its data}{86}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}Objective function}{87}{subsection.9.1.3}
-\contentsline {paragraph}{Computing the angle}{87}{paragraph*.76}
-\contentsline {subsection}{\numberline {9.1.4}Obtaining the data}{88}{subsection.9.1.4}
-\contentsline {section}{\numberline {9.2}Testing the BGSEES algorithm}{89}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Discarding the day hemisphere}{89}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Proxima Centauri}{90}{subsection.9.2.2}
-\contentsline {subsubsection}{Result of the 20 best epochs}{90}{subsubsection*.79}
-\contentsline {subsubsection}{Result of the 10 best epochs}{92}{subsubsection*.81}
-\contentsline {subsubsection}{Result of the 20 best epochs using 2 simultaneously}{93}{subsubsection*.83}
-\contentsline {subsection}{\numberline {9.2.3}NGTS J121939.5-355557}{95}{subsection.9.2.3}
-\contentsline {subsubsection}{Result of the 20 best epochs}{95}{subsubsection*.85}
-\contentsline {subsubsection}{Result of the 10 best epochs}{97}{subsubsection*.87}
-\contentsline {subsubsection}{Result of the 20 best epochs using 2 simultaneously}{98}{subsubsection*.89}
-\contentsline {chapter}{\numberline {10}Conclusions}{100}{chapter.10}
-\contentsline {section}{\numberline {10.1}Future work}{100}{section.10.1}
-\contentsline {chapter}{\numberline {11}Annexes}{102}{chapter.11}
+\contentsline {paragraph}{Iterating over the possible Suns}{42}{paragraph*.54}
+\contentsline {paragraph}{Computing the correlation}{43}{paragraph*.55}
+\contentsline {paragraph}{Compiling}{45}{paragraph*.56}
+\contentsline {subsection}{\numberline {4.2.2}Mean VTEC as a reliable indicator of the moment of the flare}{46}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Results}{48}{subsection.4.2.3}
+\contentsline {chapter}{\numberline {5}Decreasing search range method}{50}{chapter.5}
+\contentsline {section}{\numberline {5.1}Decreasing the range of the search}{50}{section.5.1}
+\contentsline {section}{\numberline {5.2}Pseudocode}{51}{section.5.2}
+\contentsline {section}{\numberline {5.3}Implementation}{51}{section.5.3}
+\contentsline {section}{\numberline {5.4}Linear fitting: discarding outliers}{54}{section.5.4}
+\contentsline {section}{\numberline {5.5}Results}{55}{section.5.5}
+\contentsline {chapter}{\numberline {6}Least Squares method}{57}{chapter.6}
+\contentsline {section}{\numberline {6.1}The system of equations}{57}{section.6.1}
+\contentsline {section}{\numberline {6.2}Pseudocode}{60}{section.6.2}
+\contentsline {section}{\numberline {6.3}Implementation}{62}{section.6.3}
+\contentsline {section}{\numberline {6.4}Results}{66}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Single iteration}{66}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Multiple iterations: narrowing the search}{67}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Multiple iterations: residual sum}{67}{subsection.6.4.3}
+\contentsline {chapter}{\numberline {7}Other methods and optimizations}{70}{chapter.7}
+\contentsline {section}{\numberline {7.1}Hill Climbing}{70}{section.7.1}
+\contentsline {section}{\numberline {7.2}Simulated Annealing}{72}{section.7.2}
+\contentsline {section}{\numberline {7.3}OpenMP}{72}{section.7.3}
+\contentsline {chapter}{\numberline {8}Results: solar flares}{74}{chapter.8}
+\contentsline {section}{\numberline {8.1}Using all available data}{78}{section.8.1}
+\contentsline {section}{\numberline {8.2}Direct VTEC filter}{79}{section.8.2}
+\contentsline {section}{\numberline {8.3}Decreasing range: linear fit}{80}{section.8.3}
+\contentsline {section}{\numberline {8.4}Least Squares: Iterations}{81}{section.8.4}
+\contentsline {subsection}{\numberline {8.4.1}Discarding by source position}{81}{subsection.8.4.1}
+\contentsline {subsection}{\numberline {8.4.2}Discarding the measurements with high residuals}{82}{subsection.8.4.2}
+\contentsline {section}{\numberline {8.5}Using multiple epochs}{83}{section.8.5}
+\contentsline {section}{\numberline {8.6}Discussion}{85}{section.8.6}
+\contentsline {chapter}{\numberline {9}Stellar flares}{87}{chapter.9}
+\contentsline {section}{\numberline {9.1}Study on the feasibility of stellar flare detection}{87}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Sources of data and possible candidates}{87}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}The Neil Gehrels Swift Observatory and its data}{88}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Objective function}{89}{subsection.9.1.3}
+\contentsline {paragraph}{Computing the angle}{89}{paragraph*.74}
+\contentsline {subsection}{\numberline {9.1.4}Obtaining the data}{90}{subsection.9.1.4}
+\contentsline {section}{\numberline {9.2}Testing the BGSEES algorithm}{90}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Discarding the day Ionosphere}{91}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Proxima Centauri}{92}{subsection.9.2.2}
+\contentsline {subsubsection}{Result of the 20 best epochs}{92}{subsubsection*.77}
+\contentsline {subsubsection}{Result of the 10 best epochs}{94}{subsubsection*.79}
+\contentsline {subsubsection}{Result of the 20 best epochs using 2 simultaneously}{95}{subsubsection*.81}
+\contentsline {subsection}{\numberline {9.2.3}NGTS J121939.5-355557}{97}{subsection.9.2.3}
+\contentsline {subsubsection}{Result of the 20 best epochs}{97}{subsubsection*.83}
+\contentsline {subsubsection}{Result of the 10 best epochs}{99}{subsubsection*.85}
+\contentsline {subsubsection}{Result of the 20 best epochs using 2 simultaneously}{100}{subsubsection*.87}
+\contentsline {chapter}{\numberline {10}Conclusions}{102}{chapter.10}
+\contentsline {section}{\numberline {10.1}Future work}{102}{section.10.1}
+\contentsline {chapter}{\numberline {11}Annexes}{104}{chapter.11}

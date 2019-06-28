@@ -35,7 +35,7 @@ And those listed in \textit{"GPS as a solar observational instrument: Real-time 
 %	\item 2013.310.35970
 \end{itemize}
 
-To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, outputing the \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the data, it is one of the many fields the ti files contain} and the estimated location, using the same operations we have used in previous chapters to compute the angle. 
+To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, outputing the \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the Starlink astronomical software developped by the Rutherford Appleton Laboratory, included in two of the many fields the ti files contain} and the estimated location, using the same operations we have used in previous chapters to compute the angle. 
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=Bash, caption=Filtering the ti file]
@@ -165,7 +165,7 @@ While in all previous sections a direct VTEC filter has been used, using all dat
 
 \section{Direct VTEC filter}
 
-Although this is a very simple approach to discard outliers, we decided to test it because the value of the Delta VTEC does not usually surpass values such as 0.7, only some IPPs might present values like this, due to other interferences in the satellite data. The flare from the day 301 of 2003, for example, studied in previous chapters, is one of the most powerful flares ever recorded, and the peak value of the Delta VTEC is 0.4.
+Although this is a very simple approach to discard outliers, we decided to test it because the value of the Delta VTEC does not usually surpass values such as 0.7, only some IPPs might present values like this, due to other ionospheric variability sources in the satellite data. The flare from the day 301 of 2003, for example, studied in previous chapters, is one of the most powerful flares ever recorded, and the peak value of the Delta VTEC is 0.4.
 
 These are the results of the execution using a cutoff value of 0.7. This value was selected as it is the one that yielded the best results in a range of 0.3 to 1:
 
@@ -231,7 +231,7 @@ These are the results of the execution using a cutoff value of 0.7. This value w
 	\label{tb:basicCutoff}
 \end{table}
 
-As we can see, there has been a significant improvement for both methods in some of the flares with low error values (although some still present a high error), and because this filter is applied when performing the filtering by time of the data, it does not have an impact on the complexity of the execution. 
+As we can see, there has been a significant improvement for both methods in some of the flares with low error values (although some still present a high error), and because this filter is applied when performing the selection by time of the data, it does not have an impact on the complexity of the execution. 
 
 Because the direct filter yields significantly better results for both cases, the next sections use it for filtering the first traversal of the data (when the necessary data is obtained from the ti file), before performing an additional filter to attempt to discard outliers.
 
@@ -342,9 +342,9 @@ Despite the fact that using this approach does not improve the results, it can b
 
 As we have seen in previous sections, some of the studied flares are hard to detect for both methods, due to their intensity. We can observe that both functions have similar spikes: if the solution has a large error, it is because the Least Squares method could not provide a good solution with the available data. 
 
-\subsection{Discarding by the residual sum of squares}
+\subsection{Discarding the measurements with high residuals}
 
-In the Least Squares chapter a slight improvement could be observed when discarding outliers based on the residual sum of squares of each iteration, but only for a specific flare. These are the results of the total error and total execution time for all 10 data sets using up to 30 iterations.
+In the Least Squares chapter a slight improvement could be observed when discarding outliers based on the post-fit residuals Root Mean Squared (RMS) of each iteration (when the residual absolute value is higher than 3*RMS), but only for a specific flare. These are the results of the total error and total execution time for all 10 data sets using up to 30 iterations.
 
 \begin{table}[h!]
 	\centering
@@ -411,7 +411,7 @@ As we can see, the total error increases significantly once the algorithm starts
 
 Although this change did not come up when testing the data sets from the Sun but those from far-away stars (in the next chapter), using multiple epochs resulted in better estimations with the Sun as well so it is included in this chapter.
 
-As we have seen when reducing the number of samples by discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, that is, when filtering by the time of the best found epoch, also filtering by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one, and only using a cutoff filter:
+As we have seen when reducing the number of samples by discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, but with similar mean DTEC, and then similar expected ionospheric footprint, that is, when filtering by the time of the best found epoch, also filtering by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one, and only using a cutoff filter:
 
 \begin{table}[h!]
 	\centering
@@ -489,32 +489,32 @@ It can be interesting to see, however, how some data sets still have a high erro
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/results/comparisonErrorsDRLS.png}
-		\caption{Estimation error}
+		\caption{Estimation error (degrees)}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/results/comparisonTimeDRLS.png}
-		\caption{Execution time}
+		\caption{Execution time (seconds)}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/results/errorVSmeanVTEC.png}
-		\caption{Mean VTEC as a functiondsadasr}
+		\caption{Mean VTEC as a function of the error}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{images/results/meanVTECVSerror.png}
-		\caption{dsadasdMean VTEC as a functiondsadas}
+		\caption{Error as a function of mean VTEC}
 	\end{subfigure}
 	\caption{Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods}
 	\label{fig:comparisonDRLS}
 \end{figure}
 
-Furthermore, the correlation between the intensity of the flare and the error of the estimation can be seen in figure \ref{fig:comparisonDRLS}c if we plot the mean VTEC of the best epoch that the algorithm uses (representative of the strength of the flare) as a function of the estimation error. Or the inverse (figure \ref{fig:comparisonDRLS}d. These two plots are representative of how the estimation error increases as the power of the flare decrease.
+Furthermore, the correlation between the intensity of the flare and the error of the estimation can be seen in figure \ref{fig:comparisonDRLS}c if we plot the mean VTEC of the best epoch that the algorithm uses (representative of the strength of the flare) as a function of the estimation error. Or the inverse (figure \ref{fig:comparisonDRLS}d). These two plots are representative of how the estimation error increases as the power of the flare decrease.
 
 Regarding the performance of the algorithm, figure \ref{fig:comparisonDRLS}b compares the execution time of both the LS (green) and DR (purple) methods. The DR method takes more time for all data sets and there would be an even greater difference would we compare the method using linear fit.
 
-In conclusion, the Decreasing Range method (using linear fit to discard outliers) and the Least Squares method (using a direct filter) provide good results for some of the data sets with powerful flares, therefore, these two methods will. However, the combination that yields the best results is the Least Squares method using a direct filter and data from the two best epochs rather than just one.
+In conclusion, the Decreasing Range method (using linear fit to discard outliers) and the Least Squares method (using a direct filter) provide good results for some of the data sets with powerful flares, therefore, these two methods can be used. However, the combination that yields the best results is the Least Squares method using a direct filter and data from the two best epochs rather than just one.
 
 Therefore, this will be the main method used to study stellar flares in the next chapter, although the other presented options will be taken into consideration as well.
 

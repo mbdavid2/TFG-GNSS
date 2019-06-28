@@ -6,7 +6,7 @@ For this first approach the Sun is used as the source we are trying to find (to 
 
 \section{Correlation}
 
-As seen in the previous chapter, there exists a correlation between the VTEC value and the cosine of the solar-zenith angle. 
+As seen in the previous chapter, there exists a correlation between the VTEC value and the cosine of the solar-zenith angle during solar flares. 
 
 The aim of the algorithm is to study the correlation for each of the possible Suns locations considered and yield a fitness indicator for each of them. 
 
@@ -68,25 +68,25 @@ The following is the pseudocode for the brute force approach of the algorithm. W
 	\end{algorithmic}
 \end{algorithm}
 
-One thing that has to be taken into consideration is that all possible locations that have a declination of 90$^{\circ}$ or -90$^{\circ}$ yield the same results (figure \ref{fig:poles}).
-
-\begin{figure}[!htb]
-	\begin{subfigure}[b]{0.5\textwidth}
-		\includegraphics[width=\linewidth]{images/ch4/ra180_dec-090.png}
-		\caption{ra=180$^{\circ}$, dec=-90$^{\circ}$}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.5\textwidth}
-		\includegraphics[width=\linewidth]{images/ch4/ra000_dec-090.png}
-		\caption{ra=0$^{\circ}$, dec=-90$^{\circ}$}
-	\end{subfigure}
-	\caption{Two examples of possible Sun locations}
-	\label{fig:poles}
-\end{figure}
-
-Using a \textit{diff} tool we can observe that although the data files used to plot the results \footnote{The data is $cos\chi$ for the X axis and VTEC for the Y axis} have different values, the resulting plots are exactly the same image.
-
-This is due to the fact that declinations 90$^{\circ}$ and -90$^{\circ}$ correspond to the poles, with the Sun exactly on top or below the Earth, and therefore all possible right ascensions are exactly the same position.
+%One thing that has to be taken into consideration is that all possible locations that have a declination of 90$^{\circ}$ or -90$^{\circ}$ yield the same results (figure \ref{fig:poles}).
+%
+%\begin{figure}[!htb]
+%	\begin{subfigure}[b]{0.5\textwidth}
+%		\includegraphics[width=\linewidth]{images/ch4/ra180_dec-090.png}
+%		\caption{ra=180$^{\circ}$, dec=-90$^{\circ}$}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.5\textwidth}
+%		\includegraphics[width=\linewidth]{images/ch4/ra000_dec-090.png}
+%		\caption{ra=0$^{\circ}$, dec=-90$^{\circ}$}
+%	\end{subfigure}
+%	\caption{Two examples of possible Sun locations}
+%	\label{fig:poles}
+%\end{figure}
+%
+%Using a \textit{diff} tool we can observe that although the data files used to plot the results \footnote{The data is $cos\chi$ for the X axis and VTEC for the Y axis} have different values, the resulting plots are exactly the same image.
+%
+%This is due to the fact that declinations 90$^{\circ}$ and -90$^{\circ}$ correspond to the poles, with the Sun exactly on top or below the Earth, and therefore all possible right ascensions are exactly the same position.
 
 \subsection{Implementation}
 
@@ -167,7 +167,7 @@ end function traverseFile
 
 As can be seen in the code, the line (IPP) is only considered if $\cos\chi$ is higher than a \textit{"correlation threshold"} ($-0.1^{\circ}$ in this case). This is done because we want to study only the "part" of the ionosphere where the Sun is having an effect. This can be seen in figure \ref{fig:solar-zenith-angle}, where we observed that the VTEC value remained the same from $\cos\chi = -1$ (180$^{\circ}$) to $\cos\chi = 1$ (0$^{\circ}$).
 
-Once the two variables are computed (\textit{vtec} and \textit{cosx}, in the code), the necessary summations for computing the correlation are updated each iteration:
+Once the two variables are computed (\textit{vtec} and \textit{cosx}, in the code), the necessary summations for computing the correlation are updated at each iteration:
 
 \begin{itemize}
 	\item $\sum x_{i}$ and $\sum y_{i}$
@@ -227,7 +227,7 @@ This can be done by compiling the object of the Fortran code using the $-c$ flag
 \subsection{Mean VTEC as a reliable indicator of the moment of the flare}
 
 The first part of the algorithm was, without going into the actual computations regarding the position of the IPPs, the possible Sun locations, etc, finding out when to perform the study, that is, detecting a spike in the VTEC content throughout the provided data range. 
-In the previous chapter we already knew the specific moment of the flare: 11.05h, and could work based on this information, but the first step of the algorithm has to determine which moment is going to be studied.
+In the previous chapter we already knew the specific moment of the flare: 11.05h (2003.301.39777), and could work based on this information, but the first step of the algorithm has to determine which moment is going to be studied.
 
 For each epoch\footnote{In our data set the epochs ranged from 10.5 to 11.5, that is, 10:30AM to 11:30AM with a sampling rate of 1/120 hours or 30 seconds} we computed the mean VTEC of all IPPs and returned the epoch which had the highest VTEC mean.
 
@@ -326,7 +326,7 @@ Executing the algorithm with a STEP of 10$^{\circ}$, this is the output of the e
 \end{lstlisting}
 \end{minipage}
 
-As we can see, the possible Sun with the highest correlation coefficient (0.9269) has a location with a right ascension of 210$^{\circ}$ and a declination of -10$^{\circ}$. Considering that for the epoch we are working with the Sun position was $212.338^{\circ}$ and $-13.060^{\circ}$ as the right ascension and declination, respectively, we can see that the estimated Sun's location returned by the algorithm is close to the real one, using a step of 10$^{\circ}$.
+As we can see, the possible Sun with the highest correlation coefficient (0.9269) has a location with a right ascension of 210$^{\circ}$ and a declination of -10$^{\circ}$. Considering that for the epoch the Sun position was $212.338^{\circ}$ and $-13.060^{\circ}$ as the right ascension and declination, respectively, we can see that the estimated Sun's location returned by the algorithm is close to the real one, using a step of 10$^{\circ}$.
 
 It can be interesting to see how the computation time grows as more precision is demanded from the algorithm, and if the precision of the results does as well. The following table shows this relation for some input cases:
 
@@ -357,6 +357,6 @@ It can be interesting to see how the computation time grows as more precision is
 
 As we can see this approach provides the expected results, but has a large computational complexity that increases with the precision we demand. 
 
-Furthermore, we can see that a problem appears: in the last two cases there is an increase in the correlation coefficient as expected, but the estimated Sun location does not improve, it is actually less accurate than the previous one. This could be caused by other interferences in the VTEC measurement.
+Furthermore, we can see that a problem appears: in the last two cases there is an increase in the correlation coefficient as expected, but the estimated Sun location does not improve, it is actually less accurate than the previous one. This could be caused by other interferences in the VTEC measurement from other origins.
 
 In the next chapter, an optimization is presented for the algorithm to perform these computations, aiming to reduce its complexity.
