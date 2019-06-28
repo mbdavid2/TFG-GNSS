@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  27 JUN 2019 22:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.24)  28 JUN 2019 17:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -888,7 +888,8 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 LaTeX Warning: Label `lst:solveSystem' multiply defined.
 
 ) (./sections/ch8OtherMethods.aux) (./sections/ch9Results.aux)
-(./sections/ch10ResultsStellar.aux) (./sections/ch15Conclusions.aux))
+(./sections/ch10ResultsStellar.aux) (./sections/ch15Conclusions.aux)
+(./sections/ch10Annexes.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
@@ -996,11 +997,11 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `sections/cover.aux'.
 
  (./sections/cover.tex
-<images/cover/logo-fib.png, id=361, 1003.75pt x 150.5625pt>
+<images/cover/logo-fib.png, id=365, 1003.75pt x 150.5625pt>
 File: images/cover/logo-fib.png Graphic file (type png)
 <use images/cover/logo-fib.png>
-Package pdftex.def Info: images/cover/logo-fib.png  used on input line 21.
-(pdftex.def)             Requested size: 298.47348pt x 44.77164pt.
+Package pdftex.def Info: images/cover/logo-fib.png  used on input line 24.
+(pdftex.def)             Requested size: 341.11534pt x 51.16759pt.
  [1
 
 
@@ -1012,18 +1013,35 @@ g>])
 ifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.16 \clearpage
+l.14 \clearpage
                 [1
 
 
 
-] [2
+]
+Overfull \hbox (13.01816pt too wide) in paragraph at lines 21--22
+\OT1/cmr/m/n/12 Las ful-gu-ra-ciones es-te-lares son in-cre-men-tos re-penti-no
+s de ra-dia-ciones elec-tro-magn^^Seticas
+ []
 
-] [3
+[2
 
-]) [4
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 34.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 34.
 
-] (./main.toc [5
+Overfull \hbox (26.79457pt too wide) in paragraph at lines 36--37
+[]\OT1/cmr/m/n/12 Es pro-posa l'algoritme \OT1/cmr/m/it/12 Blind GNSS Search of
+ Ex-trater-res-trial EUV Sources \OT1/cmr/m/n/12 (BGSEES)
+ []
+
+) [3
+
+] (./main.toc [4
 
 
 
@@ -1034,43 +1052,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6])
+[5])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [7] (./main.lol)
+ [6] (./main.lol)
 \tf@lol=\write5
 \openout5 = `main.lol'.
 
- [8
+ [7
 
 
-] (./main.lof [9
+] (./main.lof [8
 
 
 ])
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [10]
+ [9]
 \openout2 = `sections/ch1ProjectManagement.aux'.
 
 
 (./sections/ch1ProjectManagement.tex
 Chapter 1.
-[11
+[10
 
 
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 35.
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 35.
- [12] [13]
-[14] [15]
+] [11] [12] [13] [14]
 Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
@@ -1090,7 +1100,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
-[16]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
@@ -1100,34 +1110,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
-[17] [18] [19] [20]
-<images/chGEP/GanttChart.png, id=696, 743.77875pt x 376.40625pt>
+[16] [17] [18] [19]
+<images/chGEP/GanttChart.png, id=698, 743.77875pt x 376.40625pt>
 File: images/chGEP/GanttChart.png Graphic file (type png)
 <use images/chGEP/GanttChart.png>
 Package pdftex.def Info: images/chGEP/GanttChart.png  used on input line 290.
 (pdftex.def)             Requested size: 383.7507pt x 194.21034pt.
- [21 <./images/chGEP/GanttChart.png>] [22]
+ [20 <./images/chGEP/GanttChart.png>] [21]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [23]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[24]
 Overfull \hbox (59.19432pt too wide) in paragraph at lines 490--509
  [][] 
  []
 
-[25]
+[24]
 Underfull \hbox (badness 10000) in paragraph at lines 553--554
 
  []
 
-[26]
+[25]
 Overfull \hbox (19.2431pt too wide) in paragraph at lines 562--573
  [] 
  []
@@ -1138,31 +1148,31 @@ Overfull \hbox (21.36752pt too wide) in paragraph at lines 583--584
 v/pdf/221503main[]GLAST-
  []
 
-[27]) [28]
+[26]) [27]
 \openout2 = `sections/ch2Background.aux'.
 
  (./sections/ch2Background.tex
 Chapter 2.
-[29
+[28
 
 
 
-] [30]) [31]
+] [29]) [30]
 \openout2 = `sections/ch4SolarFlareAlgorithm.aux'.
 
  (./sections/ch4SolarFlareAlgorithm.tex
 Chapter 3.
-<images/ch4/FTPNASA.png, id=798, 641.39626pt x 804.00375pt>
+<images/ch4/FTPNASA.png, id=800, 641.39626pt x 804.00375pt>
 File: images/ch4/FTPNASA.png Graphic file (type png)
 <use images/ch4/FTPNASA.png>
 Package pdftex.def Info: images/ch4/FTPNASA.png  used on input line 21.
 (pdftex.def)             Requested size: 127.91907pt x 160.34398pt.
-<images/ch4/DataFlowIGS.png, id=799, 667.49374pt x 457.71pt>
+<images/ch4/DataFlowIGS.png, id=801, 667.49374pt x 457.71pt>
 File: images/ch4/DataFlowIGS.png Graphic file (type png)
 <use images/ch4/DataFlowIGS.png>
 Package pdftex.def Info: images/ch4/DataFlowIGS.png  used on input line 26.
 (pdftex.def)             Requested size: 213.19627pt x 146.19083pt.
-[32
+[31
 
 
 
@@ -1174,8 +1184,8 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 48--65
 []$[]$
  []
 
-[33 <./images/ch4/FTPNASA.png> <./images/ch4/DataFlowIGS.png>]
-<images/ch4/halloweenPaper.png, id=812, 876.27374pt x 599.23875pt>
+[32 <./images/ch4/FTPNASA.png> <./images/ch4/DataFlowIGS.png>]
+<images/ch4/halloweenPaper.png, id=814, 876.27374pt x 599.23875pt>
 File: images/ch4/halloweenPaper.png Graphic file (type png)
 <use images/ch4/halloweenPaper.png>
 Package pdftex.def Info: images/ch4/halloweenPaper.png  used on input line 72.
@@ -1186,12 +1196,12 @@ Overfull \hbox (6.51683pt too wide) in paragraph at lines 78--79
 x-actly at 2003.301.39777
  []
 
-[34 <./images/ch4/halloweenPaper.png>]
+[33 <./images/ch4/halloweenPaper.png>]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 108--120
 []$[]$ 
  []
 
-[35] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[34] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1211,14 +1221,14 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 137--146
 []$[]$ 
  []
 
-[36]
-<images/ch4/vtecDistributionGeneral.png, id=870, 481.8pt x 361.35pt>
+[35]
+<images/ch4/vtecDistributionGeneral.png, id=871, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionGeneral.png Graphic file (type png)
 <use images/ch4/vtecDistributionGeneral.png>
 Package pdftex.def Info: images/ch4/vtecDistributionGeneral.png  used on input 
 line 160.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch4/vtecDistributionVill.png, id=871, 481.8pt x 361.35pt>
+<images/ch4/vtecDistributionVill.png, id=872, 481.8pt x 361.35pt>
 File: images/ch4/vtecDistributionVill.png Graphic file (type png)
 <use images/ch4/vtecDistributionVill.png>
 Package pdftex.def Info: images/ch4/vtecDistributionVill.png  used on input lin
@@ -1229,7 +1239,7 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 159--168
 [][]  [] 
  []
 
-[37
+[36
 
  <./images/ch4/vtecDistributionGeneral.png> <./images/ch4/vtecDistributionVill.
 png>]
@@ -1247,12 +1257,12 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 214--226
 []$[]$ 
  []
 
-<images/ch4/resultSunTest.png, id=891, 481.8pt x 361.35pt>
+<images/ch4/resultSunTest.png, id=893, 481.8pt x 361.35pt>
 File: images/ch4/resultSunTest.png Graphic file (type png)
 <use images/ch4/resultSunTest.png>
 Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 233.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-[38]) [39 <./images/ch4/resultSunTest.png>]
+[37]) [38 <./images/ch4/resultSunTest.png>]
 \openout2 = `sections/ch5BruteForceApproach.aux'.
 
 
@@ -1263,7 +1273,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-[40
+[39
 
 
 
@@ -1272,15 +1282,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-[41]
+[40]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 51.
-<images/ch4/ra180_dec-090.png, id=925, 481.8pt x 361.35pt>
+<images/ch4/ra180_dec-090.png, id=927, 481.8pt x 361.35pt>
 File: images/ch4/ra180_dec-090.png Graphic file (type png)
 <use images/ch4/ra180_dec-090.png>
 Package pdftex.def Info: images/ch4/ra180_dec-090.png  used on input line 75.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch4/ra000_dec-090.png, id=926, 481.8pt x 361.35pt>
+<images/ch4/ra000_dec-090.png, id=928, 481.8pt x 361.35pt>
 File: images/ch4/ra000_dec-090.png Graphic file (type png)
 <use images/ch4/ra000_dec-090.png>
 Package pdftex.def Info: images/ch4/ra000_dec-090.png  used on input line 80.
@@ -1290,7 +1300,7 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 74--83
 [][]  [] 
  []
 
-[42
+[41
 
  <./images/ch4/ra180_dec-090.png> <./images/ch4/ra000_dec-090.png>]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 97--120
@@ -1302,7 +1312,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 127--167
 []$[]$ 
  []
 
-[43] [44]
+[42] [43]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 180--197
 []$[]$ 
  []
@@ -1312,7 +1322,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 200--216
 []$[]$ 
  []
 
-[45]
+[44]
 Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
@@ -1322,14 +1332,14 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 240--259
 []$[]$ 
  []
 
-[46] [47]
-<images/ch6/spikes/correlationDecrease.png, id=1065, 481.8pt x 361.35pt>
+[45] [46]
+<images/ch6/spikes/correlationDecrease.png, id=1067, 481.8pt x 361.35pt>
 File: images/ch6/spikes/correlationDecrease.png Graphic file (type png)
 <use images/ch6/spikes/correlationDecrease.png>
 Package pdftex.def Info: images/ch6/spikes/correlationDecrease.png  used on inp
 ut line 297.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch6/spikes/decreaseRangeError.png, id=1066, 481.8pt x 361.35pt>
+<images/ch6/spikes/decreaseRangeError.png, id=1068, 481.8pt x 361.35pt>
 File: images/ch6/spikes/decreaseRangeError.png Graphic file (type png)
 <use images/ch6/spikes/decreaseRangeError.png>
 Package pdftex.def Info: images/ch6/spikes/decreaseRangeError.png  used on inpu
@@ -1348,15 +1358,15 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 315--328
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48
+[47
 
  <./images/ch6/spikes/correlationDecrease.png (PNG copy)> <./images/ch6/spikes/
-decreaseRangeError.png (PNG copy)>]) [49]
+decreaseRangeError.png (PNG copy)>]) [48]
 \openout2 = `sections/ch6DecreaseRange.aux'.
 
  (./sections/ch6DecreaseRange.tex
 Chapter 5.
-[50
+[49
 
 
 
@@ -1365,7 +1375,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 48--62
 []$[]$ 
  []
 
-[51]
+[50]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 65--86
 []$[]$ 
  []
@@ -1375,15 +1385,15 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 91--126
 []$[]$ 
  []
 
-[52]
-<images/ch6/hillClimbing/resultsAll.png, id=1134, 481.8pt x 361.35pt>
+[51]
+<images/ch6/hillClimbing/resultsAll.png, id=1136, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsAll.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsAll.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsAll.png  used on input 
 line 134.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
- [53]
-<images/ch6/linearFit/resultAll.png, id=1174, 481.8pt x 361.35pt>
+ [52]
+<images/ch6/linearFit/resultAll.png, id=1176, 481.8pt x 361.35pt>
 File: images/ch6/linearFit/resultAll.png Graphic file (type png)
 <use images/ch6/linearFit/resultAll.png>
 Package pdftex.def Info: images/ch6/linearFit/resultAll.png  used on input line
@@ -1396,7 +1406,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 166--177
 []$[]$ 
  []
 
-[54 <./images/ch6/hillClimbing/resultsAll.png (PNG copy)>]
+[53 <./images/ch6/hillClimbing/resultsAll.png (PNG copy)>]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 184--190
 []$[]$ 
  []
@@ -1406,12 +1416,12 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 195--201
 []$[]$ 
  []
 
-[55 <./images/ch6/linearFit/resultAll.png>]
+[54 <./images/ch6/linearFit/resultAll.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 202--203
 
  []
 
-) [56]
+) [55]
 \openout2 = `sections/ch7LeastSquares.aux'.
 
  (./sections/ch7LeastSquares.tex
@@ -1421,7 +1431,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
-[57
+[56
 
 
 
@@ -1430,17 +1440,17 @@ File: images/ch4/resultSunTest.png Graphic file (type png)
 <use images/ch4/resultSunTest.png>
 Package pdftex.def Info: images/ch4/resultSunTest.png  used on input line 53.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
- [58]
+ [57]
 Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
-[59] [60] [61]
+[58] [59] [60]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 226--261
 []$[]$ 
  []
 
-[62
+[61
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 270--271
@@ -1457,12 +1467,12 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 292--331
 []$[]$ 
  []
 
-[63]
+[62]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 332--349
 []$[]$ 
  []
 
-[64]
+[63]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 352--368
 []$[]$ 
  []
@@ -1472,12 +1482,12 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 371--397
 []$[]$ 
  []
 
-[65]
+[64]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 408--413
 []$[]$ 
  []
 
-[66]
+[65]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 420--439
 []$[]$ 
  []
@@ -1485,12 +1495,12 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 420--439
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[67]
+[66]
 Underfull \hbox (badness 10000) in paragraph at lines 514--515
 
  []
 
-[68]) [69]
+[67]) [68]
 \openout2 = `sections/ch8OtherMethods.aux'.
 
  (./sections/ch8OtherMethods.tex
@@ -1500,7 +1510,7 @@ File: images/ch6/hillClimbing/resultsAll.png Graphic file (type png)
 Package pdftex.def Info: images/ch6/hillClimbing/resultsAll.png  used on input 
 line 15.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-[70
+[69
 
 
 
@@ -1509,13 +1519,13 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 27--45
 []$[]$ 
  []
 
-<images/ch6/hillClimbing/resultsPathBad.png, id=1445, 481.8pt x 361.35pt>
+<images/ch6/hillClimbing/resultsPathBad.png, id=1447, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsPathBad.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsPathBad.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsPathBad.png  used on in
 put line 50.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/ch6/hillClimbing/resultsPathGood.png, id=1446, 481.8pt x 361.35pt>
+<images/ch6/hillClimbing/resultsPathGood.png, id=1448, 481.8pt x 361.35pt>
 File: images/ch6/hillClimbing/resultsPathGood.png Graphic file (type png)
 <use images/ch6/hillClimbing/resultsPathGood.png>
 Package pdftex.def Info: images/ch6/hillClimbing/resultsPathGood.png  used on i
@@ -1526,18 +1536,18 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 49--58
 [][]  [] 
  []
 
-[71]
+[70]
 Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
-[72 <./images/ch6/hillClimbing/resultsPathBad.png (PNG copy)> <./images/ch6/hil
-lClimbing/resultsPathGood.png (PNG copy)>]) [73]
+[71 <./images/ch6/hillClimbing/resultsPathBad.png (PNG copy)> <./images/ch6/hil
+lClimbing/resultsPathGood.png (PNG copy)>]) [72]
 \openout2 = `sections/ch9Results.aux'.
 
  (./sections/ch9Results.tex
 Chapter 8.
-[74
+[73
 
 
 
@@ -1546,14 +1556,14 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 40--77
 []$[]$ 
  []
 
-[75] [76] [77
+[74] [75] [76
+
+] [77
 
 ] [78
 
-] [79
-
 ]
-<images/results/comparisonErrors.png, id=1545, 481.8pt x 361.35pt>
+<images/results/comparisonErrors.png, id=1547, 481.8pt x 361.35pt>
 File: images/results/comparisonErrors.png Graphic file (type png)
 <use images/results/comparisonErrors.png>
 Package pdftex.def Info: images/results/comparisonErrors.png  used on input lin
@@ -1564,30 +1574,30 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 288--327
 [][]  [] 
  []
 
-[80
+[79
 
- <./images/results/comparisonErrors.png (PNG copy)>] [81] [82
+ <./images/results/comparisonErrors.png (PNG copy)>] [80] [81
 
-] [83]
-<images/results/comparisonErrorsDRLS.png, id=1567, 481.8pt x 361.35pt>
+] [82]
+<images/results/comparisonErrorsDRLS.png, id=1569, 481.8pt x 361.35pt>
 File: images/results/comparisonErrorsDRLS.png Graphic file (type png)
 <use images/results/comparisonErrorsDRLS.png>
 Package pdftex.def Info: images/results/comparisonErrorsDRLS.png  used on input
  line 491.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/results/comparisonTimeDRLS.png, id=1568, 481.8pt x 361.35pt>
+<images/results/comparisonTimeDRLS.png, id=1570, 481.8pt x 361.35pt>
 File: images/results/comparisonTimeDRLS.png Graphic file (type png)
 <use images/results/comparisonTimeDRLS.png>
 Package pdftex.def Info: images/results/comparisonTimeDRLS.png  used on input l
 ine 496.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/results/errorVSmeanVTEC.png, id=1569, 481.8pt x 361.35pt>
+<images/results/errorVSmeanVTEC.png, id=1571, 481.8pt x 361.35pt>
 File: images/results/errorVSmeanVTEC.png Graphic file (type png)
 <use images/results/errorVSmeanVTEC.png>
 Package pdftex.def Info: images/results/errorVSmeanVTEC.png  used on input line
  501.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/results/meanVTECVSerror.png, id=1570, 481.8pt x 361.35pt>
+<images/results/meanVTECVSerror.png, id=1572, 481.8pt x 361.35pt>
 File: images/results/meanVTECVSerror.png Graphic file (type png)
 <use images/results/meanVTECVSerror.png>
 Package pdftex.def Info: images/results/meanVTECVSerror.png  used on input line
@@ -1603,38 +1613,38 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 490--509
 []  [] 
  []
 
-[84
+[83
 
  <./images/results/comparisonErrorsDRLS.png (PNG copy)> <./images/results/compa
 risonTimeDRLS.png (PNG copy)> <./images/results/errorVSmeanVTEC.png (PNG copy)>
- <./images/results/meanVTECVSerror.png (PNG copy)>]) [85]
+ <./images/results/meanVTECVSerror.png (PNG copy)>]) [84]
 \openout2 = `sections/ch10ResultsStellar.aux'.
 
 
 (./sections/ch10ResultsStellar.tex
 Chapter 9.
-[86
+[85
 
 
 
-] [87] [88]
-<images/swift/gsflai.png, id=1614, 642.4pt x 481.8pt>
+] [86] [87]
+<images/swift/gsflai.png, id=1616, 642.4pt x 481.8pt>
 File: images/swift/gsflai.png Graphic file (type png)
 <use images/swift/gsflai.png>
 Package pdftex.def Info: images/swift/gsflai.png  used on input line 111.
 (pdftex.def)             Requested size: 213.19627pt x 159.89874pt.
- [89 <./images/swift/gsflai.png>]
+ [88 <./images/swift/gsflai.png>]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 137--148
 []$[]$ 
  []
 
-[90]
+[89]
 Overfull \hbox (6.34473pt too wide) in paragraph at lines 159--160
 []\OT1/cmr/m/n/12 Taking into con-sid-er-a-tion that Prox-ima Cen-tauri has a r
 ight as-cen-sion of $217\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 4294[]$
  []
 
-<images/resultsStellar/20Epochs1Epoch/1EpochProximaDR.png, id=1642, 481.8pt x 3
+<images/resultsStellar/20Epochs1Epoch/1EpochProximaDR.png, id=1643, 481.8pt x 3
 61.35pt>
 File: images/resultsStellar/20Epochs1Epoch/1EpochProximaDR.png Graphic file (ty
 pe png)
@@ -1642,7 +1652,7 @@ pe png)
 Package pdftex.def Info: images/resultsStellar/20Epochs1Epoch/1EpochProximaDR.p
 ng  used on input line 171.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs1Epoch/1EpochProximaLS1.png, id=1643, 481.8pt x 
+<images/resultsStellar/20Epochs1Epoch/1EpochProximaLS1.png, id=1644, 481.8pt x 
 361.35pt>
 File: images/resultsStellar/20Epochs1Epoch/1EpochProximaLS1.png Graphic file (t
 ype png)
@@ -1650,7 +1660,7 @@ ype png)
 Package pdftex.def Info: images/resultsStellar/20Epochs1Epoch/1EpochProximaLS1.
 png  used on input line 176.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs1Epoch/1EpochProximaLS2.png, id=1644, 481.8pt x 
+<images/resultsStellar/20Epochs1Epoch/1EpochProximaLS2.png, id=1645, 481.8pt x 
 361.35pt>
 File: images/resultsStellar/20Epochs1Epoch/1EpochProximaLS2.png Graphic file (t
 ype png)
@@ -1658,7 +1668,7 @@ ype png)
 Package pdftex.def Info: images/resultsStellar/20Epochs1Epoch/1EpochProximaLS2.
 png  used on input line 181.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs1Epoch/1EpochProximaLS10.png, id=1645, 481.8pt x
+<images/resultsStellar/20Epochs1Epoch/1EpochProximaLS10.png, id=1646, 481.8pt x
  361.35pt>
 File: images/resultsStellar/20Epochs1Epoch/1EpochProximaLS10.png Graphic file (
 type png)
@@ -1676,11 +1686,11 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 170--189
 []  [] 
  []
 
-[91] [92 <./images/resultsStellar/20Epochs1Epoch/1EpochProximaDR.png (PNG copy)
+[90] [91 <./images/resultsStellar/20Epochs1Epoch/1EpochProximaDR.png (PNG copy)
 > <./images/resultsStellar/20Epochs1Epoch/1EpochProximaLS1.png (PNG copy)> <./i
 mages/resultsStellar/20Epochs1Epoch/1EpochProximaLS2.png (PNG copy)> <./images/
 resultsStellar/20Epochs1Epoch/1EpochProximaLS10.png (PNG copy)>]
-<images/resultsStellar/10Epochs1Epoch/proxima/1EpochDR.png, id=1659, 481.8pt x 
+<images/resultsStellar/10Epochs1Epoch/proxima/1EpochDR.png, id=1661, 481.8pt x 
 361.35pt>
 File: images/resultsStellar/10Epochs1Epoch/proxima/1EpochDR.png Graphic file (t
 ype png)
@@ -1688,7 +1698,7 @@ ype png)
 Package pdftex.def Info: images/resultsStellar/10Epochs1Epoch/proxima/1EpochDR.
 png  used on input line 203.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS.png, id=1660, 481.8pt x 
+<images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS.png, id=1662, 481.8pt x 
 361.35pt>
 File: images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS.png Graphic file (t
 ype png)
@@ -1696,7 +1706,7 @@ ype png)
 Package pdftex.def Info: images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS.
 png  used on input line 208.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS2.png, id=1661, 481.8pt x
+<images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS2.png, id=1663, 481.8pt x
  361.35pt>
 File: images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS2.png Graphic file (
 type png)
@@ -1704,7 +1714,7 @@ type png)
 Package pdftex.def Info: images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS2
 .png  used on input line 213.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS3.png, id=1662, 481.8pt x
+<images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS3.png, id=1664, 481.8pt x
  361.35pt>
 File: images/resultsStellar/10Epochs1Epoch/proxima/1EpochLS3.png Graphic file (
 type png)
@@ -1722,13 +1732,13 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 202--221
 []  [] 
  []
 
-[93
+[92
 
  <./images/resultsStellar/10Epochs1Epoch/proxima/1EpochDR.png (PNG copy)> <./im
 ages/resultsStellar/10Epochs1Epoch/proxima/1EpochLS.png (PNG copy)> <./images/r
 esultsStellar/10Epochs1Epoch/proxima/1EpochLS2.png (PNG copy)> <./images/result
 sStellar/10Epochs1Epoch/proxima/1EpochLS3.png (PNG copy)>]
-<images/resultsStellar/20Epochs2Epochs/2EpochsProximaDR.png, id=1668, 481.8pt x
+<images/resultsStellar/20Epochs2Epochs/2EpochsProximaDR.png, id=1670, 481.8pt x
  361.35pt>
 File: images/resultsStellar/20Epochs2Epochs/2EpochsProximaDR.png Graphic file (
 type png)
@@ -1736,7 +1746,7 @@ type png)
 Package pdftex.def Info: images/resultsStellar/20Epochs2Epochs/2EpochsProximaDR
 .png  used on input line 235.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS1.png, id=1669, 481.8pt 
+<images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS1.png, id=1671, 481.8pt 
 x 361.35pt>
 File: images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS1.png Graphic file 
 (type png)
@@ -1744,7 +1754,7 @@ File: images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS1.png Graphic file
 Package pdftex.def Info: images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS
 1.png  used on input line 240.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS2.png, id=1670, 481.8pt 
+<images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS2.png, id=1672, 481.8pt 
 x 361.35pt>
 File: images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS2.png Graphic file 
 (type png)
@@ -1752,7 +1762,7 @@ File: images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS2.png Graphic file
 Package pdftex.def Info: images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS
 2.png  used on input line 245.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS3.png, id=1671, 481.8pt 
+<images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS3.png, id=1673, 481.8pt 
 x 361.35pt>
 File: images/resultsStellar/20Epochs2Epochs/2EpochsProximaLS3.png Graphic file 
 (type png)
@@ -1775,13 +1785,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 257--258
 
  []
 
-[94
+[93
 
  <./images/resultsStellar/20Epochs2Epochs/2EpochsProximaDR.png (PNG copy)> <./i
 mages/resultsStellar/20Epochs2Epochs/2EpochsProximaLS1.png (PNG copy)> <./image
 s/resultsStellar/20Epochs2Epochs/2EpochsProximaLS2.png (PNG copy)> <./images/re
-sultsStellar/20Epochs2Epochs/2EpochsProximaLS3.png (PNG copy)>] [95]
-<images/resultsStellar/20Epochs1Epoch/1EpochOtroDR.png, id=1686, 481.8pt x 361.
+sultsStellar/20Epochs2Epochs/2EpochsProximaLS3.png (PNG copy)>] [94]
+<images/resultsStellar/20Epochs1Epoch/1EpochOtroDR.png, id=1688, 481.8pt x 361.
 35pt>
 File: images/resultsStellar/20Epochs1Epoch/1EpochOtroDR.png Graphic file (type 
 png)
@@ -1789,7 +1799,7 @@ png)
 Package pdftex.def Info: images/resultsStellar/20Epochs1Epoch/1EpochOtroDR.png 
  used on input line 385.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs1Epoch/1EpochOtroLS1.png, id=1687, 481.8pt x 361
+<images/resultsStellar/20Epochs1Epoch/1EpochOtroLS1.png, id=1689, 481.8pt x 361
 .35pt>
 File: images/resultsStellar/20Epochs1Epoch/1EpochOtroLS1.png Graphic file (type
  png)
@@ -1797,7 +1807,7 @@ File: images/resultsStellar/20Epochs1Epoch/1EpochOtroLS1.png Graphic file (type
 Package pdftex.def Info: images/resultsStellar/20Epochs1Epoch/1EpochOtroLS1.png
   used on input line 390.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs1Epoch/1EpochOtroLS2.png, id=1688, 481.8pt x 361
+<images/resultsStellar/20Epochs1Epoch/1EpochOtroLS2.png, id=1690, 481.8pt x 361
 .35pt>
 File: images/resultsStellar/20Epochs1Epoch/1EpochOtroLS2.png Graphic file (type
  png)
@@ -1805,7 +1815,7 @@ File: images/resultsStellar/20Epochs1Epoch/1EpochOtroLS2.png Graphic file (type
 Package pdftex.def Info: images/resultsStellar/20Epochs1Epoch/1EpochOtroLS2.png
   used on input line 395.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs1Epoch/1EpochOtroLS10.png, id=1689, 481.8pt x 36
+<images/resultsStellar/20Epochs1Epoch/1EpochOtroLS10.png, id=1691, 481.8pt x 36
 1.35pt>
 File: images/resultsStellar/20Epochs1Epoch/1EpochOtroLS10.png Graphic file (typ
 e png)
@@ -1823,13 +1833,13 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 384--403
 []  [] 
  []
 
-[96
+[95
 
-] [97 <./images/resultsStellar/20Epochs1Epoch/1EpochOtroDR.png (PNG copy)> <./i
+] [96 <./images/resultsStellar/20Epochs1Epoch/1EpochOtroDR.png (PNG copy)> <./i
 mages/resultsStellar/20Epochs1Epoch/1EpochOtroLS1.png (PNG copy)> <./images/res
 ultsStellar/20Epochs1Epoch/1EpochOtroLS2.png (PNG copy)> <./images/resultsStell
 ar/20Epochs1Epoch/1EpochOtroLS10.png (PNG copy)>]
-<images/resultsStellar/10Epochs1Epoch/otro/1EpochDR.png, id=1703, 481.8pt x 361
+<images/resultsStellar/10Epochs1Epoch/otro/1EpochDR.png, id=1704, 481.8pt x 361
 .35pt>
 File: images/resultsStellar/10Epochs1Epoch/otro/1EpochDR.png Graphic file (type
  png)
@@ -1837,7 +1847,7 @@ File: images/resultsStellar/10Epochs1Epoch/otro/1EpochDR.png Graphic file (type
 Package pdftex.def Info: images/resultsStellar/10Epochs1Epoch/otro/1EpochDR.png
   used on input line 417.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/10Epochs1Epoch/otro/1EpochLS1.png, id=1704, 481.8pt x 36
+<images/resultsStellar/10Epochs1Epoch/otro/1EpochLS1.png, id=1705, 481.8pt x 36
 1.35pt>
 File: images/resultsStellar/10Epochs1Epoch/otro/1EpochLS1.png Graphic file (typ
 e png)
@@ -1845,7 +1855,7 @@ e png)
 Package pdftex.def Info: images/resultsStellar/10Epochs1Epoch/otro/1EpochLS1.pn
 g  used on input line 422.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/10Epochs1Epoch/otro/1EpochLS2.png, id=1705, 481.8pt x 36
+<images/resultsStellar/10Epochs1Epoch/otro/1EpochLS2.png, id=1706, 481.8pt x 36
 1.35pt>
 File: images/resultsStellar/10Epochs1Epoch/otro/1EpochLS2.png Graphic file (typ
 e png)
@@ -1853,7 +1863,7 @@ e png)
 Package pdftex.def Info: images/resultsStellar/10Epochs1Epoch/otro/1EpochLS2.pn
 g  used on input line 427.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/10Epochs1Epoch/otro/1EpochLS10.png, id=1706, 481.8pt x 3
+<images/resultsStellar/10Epochs1Epoch/otro/1EpochLS10.png, id=1707, 481.8pt x 3
 61.35pt>
 File: images/resultsStellar/10Epochs1Epoch/otro/1EpochLS10.png Graphic file (ty
 pe png)
@@ -1871,71 +1881,71 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 416--435
 []  [] 
  []
 
-[98
+[97
 
  <./images/resultsStellar/10Epochs1Epoch/otro/1EpochDR.png (PNG copy)> <./image
 s/resultsStellar/10Epochs1Epoch/otro/1EpochLS1.png (PNG copy)> <./images/result
 sStellar/10Epochs1Epoch/otro/1EpochLS2.png (PNG copy)> <./images/resultsStellar
 /10Epochs1Epoch/otro/1EpochLS10.png (PNG copy)>]
-<images/resultsStellar/20Epochs2Epochs/2EpochsOtroDR.png, id=1712, 481.8pt x 36
+<images/resultsStellar/20Epochs2Epochs/2EpochsOtroDR.png, id=1717, 481.8pt x 36
 1.35pt>
 File: images/resultsStellar/20Epochs2Epochs/2EpochsOtroDR.png Graphic file (typ
 e png)
 <use images/resultsStellar/20Epochs2Epochs/2EpochsOtroDR.png>
 Package pdftex.def Info: images/resultsStellar/20Epochs2Epochs/2EpochsOtroDR.pn
-g  used on input line 449.
+g  used on input line 448.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS1.png, id=1713, 481.8pt x 3
+<images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS1.png, id=1718, 481.8pt x 3
 61.35pt>
 File: images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS1.png Graphic file (ty
 pe png)
 <use images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS1.png>
 Package pdftex.def Info: images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS1.p
-ng  used on input line 454.
+ng  used on input line 453.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS2.png, id=1714, 481.8pt x 3
+<images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS2.png, id=1719, 481.8pt x 3
 61.35pt>
 File: images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS2.png Graphic file (ty
 pe png)
 <use images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS2.png>
 Package pdftex.def Info: images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS2.p
-ng  used on input line 459.
+ng  used on input line 458.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
-<images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS10.png, id=1715, 481.8pt x 
+<images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS10.png, id=1720, 481.8pt x 
 361.35pt>
 File: images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS10.png Graphic file (t
 ype png)
 <use images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS10.png>
 Package pdftex.def Info: images/resultsStellar/20Epochs2Epochs/2EpochsOtroLS10.
-png  used on input line 464.
+png  used on input line 463.
 (pdftex.def)             Requested size: 213.19627pt x 159.89323pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 448--467
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 447--466
 [][]  []
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 448--467
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 447--466
 []  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--474
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
 
-[99
+[98
 
  <./images/resultsStellar/20Epochs2Epochs/2EpochsOtroDR.png (PNG copy)> <./imag
 es/resultsStellar/20Epochs2Epochs/2EpochsOtroLS1.png (PNG copy)> <./images/resu
 ltsStellar/20Epochs2Epochs/2EpochsOtroLS2.png (PNG copy)> <./images/resultsStel
-lar/20Epochs2Epochs/2EpochsOtroLS10.png (PNG copy)>]) [100]
+lar/20Epochs2Epochs/2EpochsOtroLS10.png (PNG copy)>]) [99]
 \openout2 = `sections/ch15Conclusions.aux'.
 
 
 (./sections/ch15Conclusions.tex
 Chapter 10.
-[101
+[100
 
 
 
@@ -1944,7 +1954,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-) [102] (./main.bbl
+) [101]
+\openout2 = `sections/ch10Annexes.aux'.
+
+ (./sections/ch10Annexes.tex
+Chapter 11.
+) [102
+
+
+
+] (./main.bbl
 Underfull \hbox (badness 2269) in paragraph at lines 4--8
 []\OT1/cmr/m/n/12 (Archived web-site) The Star-link Project.  []$\OT1/cmtt/m/n/
 12 https : / / web . archive . org /
@@ -1974,11 +1993,12 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
 (./sections/ch4SolarFlareAlgorithm.aux) (./sections/ch5BruteForceApproach.aux)
 (./sections/ch6DecreaseRange.aux) (./sections/ch7LeastSquares.aux)
 (./sections/ch8OtherMethods.aux) (./sections/ch9Results.aux)
-(./sections/ch10ResultsStellar.aux) (./sections/ch15Conclusions.aux))
+(./sections/ch10ResultsStellar.aux) (./sections/ch15Conclusions.aux)
+(./sections/ch10Annexes.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 02F79B4C18B5F305FC13C0B8F04C8AD9;6126.
+(rerunfilecheck)             Checksum: EC09813D61EF9722D45CC23148614D39;6170.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1986,11 +2006,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
  ) 
 Here is how much of TeX's memory you used:
- 16718 strings out of 494847
- 249978 string characters out of 6179080
- 575937 words of memory out of 5000000
- 18848 multiletter control sequences out of 15000+600000
- 14324 words of font info for 52 fonts, out of 8000000 for 9000
+ 16733 strings out of 494847
+ 250246 string characters out of 6179080
+ 577588 words of memory out of 5000000
+ 18854 multiletter control sequences out of 15000+600000
+ 14670 words of font info for 53 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  59i,16n,120p,1990b,1500s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -2005,14 +2025,15 @@ ic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on main.pdf (106 pages, 1922482 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/eurosym/feymr10.pfb>
+Output written on main.pdf (106 pages, 1937265 bytes).
 PDF statistics:
- 1987 PDF objects out of 2073 (max. 8388607)
- 1789 compressed objects within 18 object streams
- 792 named destinations out of 1000 (max. 500000)
- 943 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2003 PDF objects out of 2073 (max. 8388607)
+ 1803 compressed objects within 19 object streams
+ 793 named destinations out of 1000 (max. 500000)
+ 951 words of extra memory for PDF output out of 10000 (max. 10000000)
 

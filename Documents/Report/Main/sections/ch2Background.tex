@@ -1,6 +1,6 @@
 \chapter{Background}
 
-As the project has a large background in physics and astronomy, some of the relevant topics that are going to be studied are introduced: Global Navigation Satellite Systems, the Ionosphere, Stellar Flares and Gamma-Ray Bursts.
+As the project requires a certain background in physics and astronomy, some of the relevant topics that are going to be studied are introduced: Global Navigation Satellite Systems, the Ionosphere, Stellar Flares and Gamma-Ray Bursts.
 
 \section{Global Navigation Satellite Systems}
 
@@ -8,23 +8,19 @@ As the project has a large background in physics and astronomy, some of the rele
 
 These two terms may lead to confusion as Global Navigation Satellite Systems (GNSS) is the generic term for all satellite navigation systems. The Global Positioning System (GPS), in particular, is the United States' GNSS system, the world's most used GNSS. Other systems, for example, are the European Galileo or Russian GLONASS \cite{hegarty2008evolution}.
 
-Global Navigation Satellite Systems use satellites to determine the position of a given object or device in terms of latitude, longitude and height. 
+Global Navigation Satellite Systems use satellites to determine the clock error and the position of a given receiver or device in terms of, for instance, latitude, longitude and height. 
 
 \paragraph{Positioning}
 
-In short, GNSS works as follows: out of all the GNSS satellites orbiting Earth, at least four of them are constantly visible from a specific point and transmitting information at a certain frequency. When a device receives a signal from one of them, the distance to the satellite can be calculated by means of the speed of light and the time required to reach it. As many variables might affect the speed of light such as the medium through which it is propagating, this estimation of the distance is called \textbf{pseudo-range}. 
+In short, GNSS works as follows: out of all the GNSS satellites orbiting Earth, at least four of them are constantly visible from a specific point and transmitting information at two or more frequencies. When a device receives a signal from one of them, the distance to the satellite can be calculated by means of the speed of light and the time required to reach it. As many variables might affect the speed of light such as the medium through which it is propagating, this estimation of the distance is called \textbf{pseudo-range}. 
 
-Thus, the location of the receiver can be estimated using a technique called \textbf{trilateration}. Having three spheres around each of the satellites with the pseudo-range as their radius, the intersection of these spheres yields the location of the receiver \cite{hofmann2007gnss}. 
-
-\paragraph{Ionospheric Pierce Points}
-
-Ionospheric Pierce Points (IPP) are going to be very relevant throughout the development of the project. These will be the locations that we are going to use for our measurements, not those of satellites or receivers. A Ionospheric Pierce Point is the point where the line between the satellite and a receiver intersect with the ionosphere, where the Total Electron Content can be estimated. \cite{fu2000satellite}
+Thus, the location of the receiver can be estimated using a technique which can be understood through its simplified version: \textbf{trilateration}. Having three spheres around each of the satellites with the range as their radius, the intersection of these spheres yields the location of the receiver \cite{hofmann2007gnss}. 
 
 \paragraph{The International GNSS Service}
 
 In 1998 the International GNSS Service (IGS) was created as a collaboration of several members of the scientific community: Center for Orbit Determination in Europe (CODE), (European Space Agency) ESA, Jet Propulsion Laboratory (JPL) and Polytechnic University of Catalonia (UPC). This voluntary federation has made available open access GNSS data since its creation \cite{igswebsite} \cite{dow2009international}. 
 
-Its data is provided by more than 300 GPS receivers around the globe and is processed by the previous institutions which compute the global distribution of the Total Electron Content (TEC) \cite{hernandez2009igs}.
+Its data is provided by more than 300 GPS receivers around the globe and is processed by the previous institutions which compute the global distribution of the Vertical Total Electron Content (TEC) \cite{hernandez2009igs}.
 
 GNSS is a key component to this project because, as mentioned before, many variables can affect the speed of light and therefore the time it takes for the transmitter's signal to be intercepted by the receiver. One of these variables is the electron content of the layer of the atmosphere where GNSS satellites operate: the ionosphere.
 
@@ -34,10 +30,14 @@ The ionosphere is a layer of the Earth’s atmosphere that lies 75-1000km above 
 
 High energy from Extreme UltraViolet (EUV) and X-ray radiation can cause its atoms to be ionized and create a layer of electrons \cite{noaa2ionosphere}. Due to these free electrons and ionized molecules, it is capable of affecting radio wave propagation, thus having an effect on Global Navigation Satellite Systems (GNSS) technology, this phenomena allows these satellites to be used as a global scanner for the ionosphere \cite{hernandez2011ionosphere}. 
 
-The main physical quantity used for describing the electron content of the ionosphere is the \textbf{Total Electron Content (TEC)}, the TEC is the total number of electrons between two points $(r1,r2)$ along a cylinder of base $1m^2$. 
+The main physical quantity used for describing the electron content of the ionosphere is the \textbf{Vertical Total Electron Content (TEC)}, the TEC is the total number of free electrons between two points $(r1,r2)$ along a cylinder of base $1m^2$. 
 Slant TEC (STEC), in particular, can be defined as the TEC in which $r1$ and $r2$ are a satellite and a receiver’s positions \cite{singh2015gps}. 
 
 The unique properties of the ionosphere enable us to use the data provided by the GNSS technology to study stellar flares, a powerful phenomena that occurs in many stars across the universe.
+
+\paragraph{Ionospheric Pierce Points}
+
+Ionospheric Pierce Points (IPP) are going to be very relevant throughout the development of the project. These will be the locations that we are going to use for our measurements, not those of satellites or receivers. A Ionospheric Pierce Point is the point where the line between the satellite and a receiver intersect at the ionosphere's effective height, where the Vertical Total Electron Content can be estimated. \cite{fu2000satellite}
 
 \section{Stellar flares}
 

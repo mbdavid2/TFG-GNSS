@@ -118,7 +118,7 @@ As we can see, although a small peak can be seen at the moment of the flare, the
 
 \section{Testing the BGSEES algorithm}
 
-As we have seen detecting stellar flares is a really challenging task. Even when knowing the location of the star and making the algorithm focus on that direction no results have been obtained. The aim of the project was to provide algorithms to detect Solar flares without knowing the location of the Sun so that it could be expanded to try this method without focusing on the direction of the star, but rather studying the available data and trying to find the source.
+As we have seen detecting stellar flares is a really challenging task. Even when knowing the location of the star and making the algorithm focus on that direction no clear results have been obtained. The aim of the project was to provide algorithms to detect Solar flares without knowing the location of the Sun so that it could be expanded to try this method without focusing on the direction of the star, but rather studying the available data and trying to find the source.
 
 For this chapter two stellar flares were studied to test the algorithm and whether it could be possible to detect them using this method.
 
@@ -404,13 +404,13 @@ Using the same parameters as the previous section (discarding the night hemisphe
 	\label{fig:UL1Epoch20}
 \end{figure}
 
-Although there is a lot of variation and spikes, some information can be drawn from this results. The Least Squares method using 2 iterations (figure \ref{fig:proximaCentauri1Epoch20}c) shows a significant decrease in the estimation error with only 8.99495 degrees of error. This could be a coincidence but it is an interesting result because it is from the exact moment of the flare (8.525h). A decrease can be seen too in the results of the Decreasing Range method (figure \ref{fig:UL1Epoch20}a), although the error is still high and far from the correct answer. The others present a lot of variation, because of this, we decided to instead use only the 10 best epochs.
+Although the results obtained present a lot of variation and spikes as with Proxima Centauri, we can notice that there is a significant improvement in the solution for the moment of the flare in all four cases from figure \ref{fig:UL1Epoch20}. However, other epochs present low estimation errors as well, with values as low as 12.5647 degrees.
 
 \clearpage
 
 \subsubsection{Result of the 10 best epochs}
 
-\textit{Because the estimation is not precise there appears a lot of variation if many epochs are used (many possible solutions) and not much information can be obtained from the results and the plot, however, if the number of used epochs is ten, we expected the change in the estimation to be seen more clearly. In this case, the Least Squares method with 3 iterations gave better results than using 10 iterations:}
+With the previous flare we performed the tests by plotting only the 10 best epochs to try to see the results more clearly, which we did in this case as well:
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -436,13 +436,12 @@ Although there is a lot of variation and spikes, some information can be drawn f
 	\label{fig:UL1Epoch10}
 \end{figure}
 
-Although there is less noise in the plots and inverse spikes can be seen more clearly, none of them coincide with the exact moment of the flare and the results of the best epochs (ordered by their mean VTEC) are not the best results of the algorithm (in the previous test with 20 epochs, in fact, we have seen a result of only 8.99495 degrees for the moment of the flare).
+Although there is a high error for the Decreasing Range method (\ref{fig:UL1Epoch10}a), we can see a sort of depression in the plot surrounding the moment of the flare. This depression is more clear in the other three tests using the Least Squares method (\ref{fig:UL1Epoch10}b, \ref{fig:UL1Epoch10}c and \ref{fig:UL1Epoch10}d ), yielding the best results near the moment of the flare.
 
 \clearpage
 \subsubsection{Result of the 20 best epochs using 2 simultaneously}
 
-In the previous chapter the option of using the 2 best epochs was introduced, which yielded improved results for the tests done with the Sun. Using this method provides better results for this case as well. However, 
-because the epochs are not ordered by time, but by their fitness, the 2 used epochs to compute a solution are not consecutive in time. Because of this the results of these tests show two functions: the results of the algorithm using the first of the 2 used epochs (purple) and the results using the second epoch (green).
+So far, the best results (both for solar and stellar flares) have been obtained when using 2 epochs simultaneously, and this method had interesting results for this flare as well.
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -468,11 +467,9 @@ because the epochs are not ordered by time, but by their fitness, the 2 used epo
 	\label{fig:UL1Epoch102Group}
 \end{figure}
 
-In this situation we can also see two epochs that present a significant improvement in terms of estimation error. For this case, the two most significant results are the basic Decreasing Range and Least Squares methods:
+Similarly to the previous flare, the plot of the first used epoch (purple) is the one that presents a clear inverse spike at the moment of the flare, which is very noticeable in the Decreasing Range method (\ref{fig:UL1Epoch102Group}a), in which the error of the estimation remains high (slightly below 100 degrees) surrounding the flare and is greatly reduced at the moment of the peak.\\
 
-Both present a significant reduction in the estimation error at the exact moment of the flare (4:00 UT), which appears to be because the algorithm has been able to estimate a better solution due to the strength of the flare at that moment in time. \\
-
-As with the previous case, it appears that the algorithm might be slightly sensitive to the stellar flare, yielding a lower error for the moment of the flare.
+Both flares present a significant reduction in the estimation error at the exact moment of the flare, which could be due to the algorithm being able to estimate a better solution due to the strength of the flare at that moment in time, leading us to think that the algorithm might be slightly sensitive to these two stellar flares.
 
 
 
