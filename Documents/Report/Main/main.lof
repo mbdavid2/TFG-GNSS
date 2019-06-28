@@ -14,16 +14,16 @@
 \contentsline {figure}{\numberline {6.1}{\ignorespaces VTEC as a function of the solar-zenith angle's cosine\relax }}{57}{figure.caption.62}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {7.1}{\ignorespaces All visited candidates of the solution space\relax }}{69}{figure.caption.65}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{71}{figure.caption.66}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Paths taken by the Hill Climbing algorithm\relax }}{70}{figure.caption.66}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Results of LS method with 10 iterations based on the estimated LS error\relax }}{79}{figure.caption.70}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods\relax }}{82}{figure.caption.73}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Results of LS method with 10 iterations based on the estimated LS error\relax }}{78}{figure.caption.70}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Comparison of the estimation error and execution time for the Least Squares and Decreasing Range methods\relax }}{81}{figure.caption.73}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Result of the GSFLAI algorithm for the 181228A GRB\relax }}{87}{figure.caption.76}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs (Proxima Centauri)\relax }}{90}{figure.caption.78}
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Estimation error surrounding the moment of the flare using 10 epochs (Proxima Centauri)\relax }}{91}{figure.caption.80}
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs in groups of 2 (Proxima Centauri)\relax }}{92}{figure.caption.82}
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs (NGTS)\relax }}{94}{figure.caption.84}
-\contentsline {figure}{\numberline {9.6}{\ignorespaces Estimation error surrounding the moment of the flare using 10 epochs (NGTS)\relax }}{95}{figure.caption.86}
-\contentsline {figure}{\numberline {9.7}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs in groups of 2 (NGTS)\relax }}{96}{figure.caption.88}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Result of the GSFLAI algorithm for the 181228A GRB\relax }}{86}{figure.caption.76}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs (Proxima Centauri)\relax }}{89}{figure.caption.78}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Estimation error surrounding the moment of the flare using 10 epochs (Proxima Centauri)\relax }}{90}{figure.caption.80}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs in groups of 2 (Proxima Centauri)\relax }}{91}{figure.caption.82}
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs (NGTS)\relax }}{93}{figure.caption.84}
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Estimation error surrounding the moment of the flare using 10 epochs (NGTS)\relax }}{94}{figure.caption.86}
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Estimation error surrounding the moment of the flare using 20 epochs in groups of 2 (NGTS)\relax }}{95}{figure.caption.88}
 \addvspace {10\p@ }

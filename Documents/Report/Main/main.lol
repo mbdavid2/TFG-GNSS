@@ -24,5 +24,5 @@
 \contentsline {lstlisting}{\numberline {6.7}One iteration of the Least Squares method}{65}{lstlisting.6.7}
 \contentsline {lstlisting}{\numberline {6.8}Function checkOutlier to discard outliers}{66}{lstlisting.6.8}
 \contentsline {lstlisting}{\numberline {7.1}Hill Climbing}{70}{lstlisting.7.1}
-\contentsline {lstlisting}{\numberline {8.1}Filtering the ti file}{74}{lstlisting.8.1}
-\contentsline {lstlisting}{\numberline {9.1}Discarding the day hemisphere}{88}{lstlisting.9.1}
+\contentsline {lstlisting}{\numberline {8.1}Filtering the ti file}{73}{lstlisting.8.1}
+\contentsline {lstlisting}{\numberline {9.1}Discarding the day hemisphere}{87}{lstlisting.9.1}

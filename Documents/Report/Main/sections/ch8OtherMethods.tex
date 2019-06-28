@@ -26,7 +26,6 @@ The following is the implementation of such test, which checks its surrounding n
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=c, caption=Hill Climbing]
-	// Starting position
 	sourceInfo current;
 	current.ra = 160;
 	current.dec = -20;
@@ -35,12 +34,9 @@ The following is the implementation of such test, which checks its surrounding n
 	while (++i < 100) {
 		vector<sourceInfo> candidates = getNeighbourList(current);
 		sourceInfo newCandidate = getBestCandidate(candidates);
-		if (newCandidate < current) {
-			break;
-		}
+		if (newCandidate < current) break;
 		current = newCandidate;
-	}
-	\end{lstlisting}
+	}\end{lstlisting}
 \end{minipage}
 
 The following figure shows the results of the execution for two different starting states. For both of them, the algorithm ran until no more improvements to the solution could be performed. The plots contain both the possibilities considered by the decrease range method (in purple, the same plot as \ref{fig:solutionSpace}), and the path taken by the greedy algorithm (in green).
@@ -65,15 +61,12 @@ If we take a starting right ascension of 160$^{\circ}$ and a declination of -20$
 
 However, with a starting right ascension of 100$^{\circ}$ and a declination of -60$^{\circ}$, the algorithm finds a local maxima on its way and cannot progress to the real best solution.
 
-As a result, the Hill Climbing approach is not reliable for all cases, considering that local maxima may exist for our type of problem, leading to incorrect estimations in some cases.
+As a result, the Hill Climbing approach is not reliable for all cases, considering that local maxima may exist for our type of problem, leading to incorrect estimations in some cases. 
 
-\section{Simulated Annealing}
 
-Simulated Annealing is an heuristic search algorithm that approximates the optimal solution of a problem, similar to Hill Climbing. The main difference is the use of probability to accept a solution as better than the current one, to be able to explore other areas of the solution space.
+A possible solution to the problem of local maxima would be using the Simulated Annealing algorithm (the main difference is the use of probability to accept a solution as better than the current one, to be able to explore other areas of the solution space) so that other parts of the solution space could be explored, finding other paths that might lead to our desired solution, instead of only focusing on one path that could get stuck in a local maxima.
 
-A possible solution to the problem of local maxima seen in the previous section would be using the Simulated Annealing algorithm so that other parts of the solution space could be explored, finding other paths that might lead to our desired solution, instead of only focusing on one path that could get stuck in a local maxima.
-
-Although it might yield better results, simulated annealing approximates the optimal solution, but does not guarantee finding the global maxima.
+Although it might yield better results, Simulated An approximates the optimal solution, but does not guarantee finding the global maxima.
 
 \section{OpenMP}
 
