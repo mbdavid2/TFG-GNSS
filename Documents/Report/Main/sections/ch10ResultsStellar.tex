@@ -164,7 +164,7 @@ All of the following tests used a direct VTEC filter of 0.7. Furthermore, the da
 
 The first tests consisted of computing the results for the \textbf{20 best epochs} using multiple combinations, the ones that yielded the best results where: Least Squares with 1, 2 and 10 iterations and Decreasing Range without Linear fit. 
 
-Figure \ref{fig:proximaCentauri1Epoch20} shows plots of the results of these tests in which the evolution of the error throughout the time range can be seen.
+Figure \ref{fig:proximaCentauri1Epoch20} shows plots of the results of these tests in which the evolution of the estimation error (in degrees) throughout the time range can be seen.
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -190,7 +190,7 @@ Figure \ref{fig:proximaCentauri1Epoch20} shows plots of the results of these tes
 	\label{fig:proximaCentauri1Epoch20}
 \end{figure}
 
-Although there is a lot of variation and spikes, some information can be drawn from this results. The Least Squares method using 2 iterations (figure \ref{fig:proximaCentauri1Epoch20}c) shows a significant decrease in the estimation error with only 8.99495 degrees of error. This could be a coincidence but it is an interesting result because it is from the exact moment of the flare (8.525h). A decrease (although still yielding a high error) can be seen too in the results of the Decreasing Range method (figure \ref{fig:proximaCentauri1Epoch20}a).
+Although there is a lot of variation and spikes, some information can be drawn from the results. The Least Squares method using 2 iterations (figure \ref{fig:proximaCentauri1Epoch20}c) shows a significant decrease in the estimation error with only 8.99495 degrees of error. This could be a coincidence but it is an interesting result because it is from the exact moment of the flare (8.525h). A decrease (although still yielding a high error) can be seen too in the results of the Decreasing Range method (figure \ref{fig:proximaCentauri1Epoch20}a).
 
 \clearpage
 
@@ -228,7 +228,7 @@ Although there is less noise in the plots and inverse spikes can be seen more cl
 \subsubsection{Result of the 20 best epochs using 2 simultaneously}
 
 In the previous chapter the option of using the 2 best epochs was introduced, which yielded improved results for the tests done with the Sun. Using this method provides better results for this case as well. However, 
-because the epochs are not ordered by time, but by their fitness, the 2 used epochs to compute a solution are not consecutive in time. Because of this the results of these tests show two functions: the results of the algorithm using the first of the 2 used epochs (purple) and the results using the second epoch (green).
+because the epochs are not ordered by time, but by their fitness, the 2 used epochs to compute a solution are not consecutive in time. Because of this the results of these tests show two functions: the estimation error of the algorithm as a function of the first epoch (purple) or the second (green).
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -376,7 +376,7 @@ Although the date was specified in the paper (2016.032), the specific moment of 
 
 Several tests were performed with this flare. Generally speaking, none of the results provided an exact location estimation but we could observe some interesting results as with the previous flare.
 
-Using the same parameters as the previous section (discarding the night hemisphere, using two epochs and using a direct VTEC filter), we proceeded to perform the same tests as the previous flare.
+Using the same parameters as the previous section (discarding the night hemisphere and using a direct VTEC filter), we proceeded to perform the same tests as the previous flare.
 
 \clearpage
 

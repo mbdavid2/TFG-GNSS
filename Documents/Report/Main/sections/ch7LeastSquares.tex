@@ -159,7 +159,7 @@ But we have two operations that involve the declination, $X=\cos\delta_{s} * \co
 \alpha_{s} = \text{atan2}(Y,X)
 \end{equation}
 
-The $\text{arctan2}(Y,X)$ function is a FORTRAN function that computes the tangent but using two numbers. Instead of relying only on one angle (which would cause ambiguity regarding the quadrant of the angle) this function uses both angles to determine the exact value, which suits our situation.
+The $\text{atan2}(Y,X)$ function is a FORTRAN function that computes the tangent but using two numbers. Instead of relying only on one angle (which would cause ambiguity regarding the quadrant of the angle) this function uses both angles to determine the exact value, which suits our situation.
 
 Using these two operations, the algorithm finally yields our solution: the right ascension and declination estimated from using all the IPPs' information as an overdetermined system, with the exception of the aforementioned initial ambiguity.
 
@@ -201,8 +201,8 @@ The following is the pseudocode of the algorithm for a single iteration of the a
 			\State $\textit{Y} \gets b/mod$
 			\State $\textit{Z} \gets g/mod$
 			
-			\State $\textit{dec} \gets arcsin(Z)$
-			\State $\textit{ra} \gets arctan(X,Y)$
+			\State $\textit{dec} \gets asin(Z)$
+			\State $\textit{ra} \gets atan2(Y,X)$
 			
 			\Return $(ra, dec)$
 		\EndProcedure
