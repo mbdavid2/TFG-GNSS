@@ -10,9 +10,11 @@ We want to have the highest precision possible without having to consider all $6
 
 This first method works as follows: the entire possible range is considered with a large starting step (e.g 60). Once the best Sun is found within this range, the precision is increased (the step is decreased) and the search range is reduced. This way the precision is increased but the number of considered possibilities remains similar each iteration of the algorithm.
 
+\clearpage
+
 \section{Pseudocode}
 
-The following is the pseudocode\footnote{The code for the special cases of -90 and 90 degree declinations is not included for more readability. It is included in the implementation, in the following section.} for the algorithm using this method:
+The following is the pseudocode for the algorithm using this method:
 
 \begin{algorithm}
 	\caption{Search range decrease}\label{searchRangeDecrease}
@@ -43,7 +45,7 @@ The following is the pseudocode\footnote{The code for the special cases of -90 a
 
 This first piece of code is the main loop of the method, which starts with a default range of ra=[0, 360], dec=[-90, 90] and is reduced every iteration based on the current best Sun's estimated location.
 
-Furthermore, because an increase in the precision of the tested location does not necessarily imply an improvement in the solution, the new candidate is inserted into a \textit{priorityQueue} ordered by the coefficient to assure that the method returns the best one found throughout the entire execution (it is inserted into a priority queue for debugging purposes, but simply saving the best solution would be more efficient).
+Furthermore, because an increase in the precision of the tested location does not necessarily imply an improvement in the solution, the new candidate is inserted into a \textit{priorityQueue} ordered by the coefficient to assure that the method returns the best one found throughout the entire execution.
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=c, caption=Decreasing the range and increasing the precision]

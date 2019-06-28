@@ -35,7 +35,7 @@ And those listed in \textit{"GPS as a solar observational instrument: Real-time 
 %	\item 2013.310.35970
 \end{itemize}
 
-To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, outputing the \textbf{execution time} of the algorithm and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the Starlink astronomical software developped by the Rutherford Appleton Laboratory, included in two of the many fields the ti files contain} and the estimated location, using the same operations we have used in previous chapters to compute the angle. 
+To perform this study, the best epoch within the given range is found using the mean VTEC, as shown in chapter 5. The data is then filtered using this epoch and the algorithm is executed using the necessary parameters, outputing the \textbf{execution time} and the \textbf{absolute error} of the estimation, obtained by computing the angle between correct Sun position\footnote{The correct Sun position at that moment is obtained from the Starlink astronomical software developped by the Rutherford Appleton Laboratory, included in two of the many fields the ti files contain} and the estimated location.
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=Bash, caption=Filtering the ti file]
@@ -409,9 +409,9 @@ As we can see, the total error increases significantly once the algorithm starts
 
 \section{Using multiple epochs}
 
-Although this change did not come up when testing the data sets from the Sun but those from far-away stars (in the next chapter), using multiple epochs resulted in better estimations with the Sun as well so it is included in this chapter.
+Although this change did not come up when testing the data sets from the Sun but those from far-away stars, using multiple epochs resulted in better estimations with the Sun as well so it is included in this chapter.
 
-As we have seen when reducing the number of samples by discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, but with similar mean DTEC, and then similar expected ionospheric footprint, that is, when filtering by the time of the best found epoch, also filtering by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one, and only using a cutoff filter:
+As we have seen when reducing the number of samples by discarding oultiers with the Least Square method, the results did not improve due to less equations being used for the system. Because of this, we decided to test the algorithm using data from more than one epoch, but with similar mean DTEC, and then similar expected ionospheric footprint, that is, when filtering by the time of the best found epoch, also doing so by the time of the second best one (or third), increasing the number of samples used by the algorithm. These are the results of using the two best epochs rather than just the best one:
 
 \begin{table}[h!]
 	\centering
@@ -474,9 +474,9 @@ As we have seen when reducing the number of samples by discarding oultiers with 
 	\caption{Estimation error and execution time for different data sets using the DR (left) and LS (right) methods with a cutoff filter and using data from two epochs}
 \end{table}
 
-Although using linear fit to discard outliers with the DR method seemed to improve the results in previous sections, using it with multiple epochs does not present any improvement (the total error of the DR with linear fit for two epochs is 400.146). But it is still an improvement in comparison to the DR method using only the cutoff filter. Regarding the LS method, using multiple iterations with two epochs reduces the error, but not iterating at all is again the combination that yields the lowest error values, a total of 260.055 degrees. Although some of the flares are detected with a slightly higher error, the total is significantly lower.
+Although using linear fit to discard outliers with the DR method seemed to improve the results in previous sections, using it with multiple epochs does not present any improvement (the total error of the DR with linear fit for two epochs is 400.146). Regarding the LS method, using multiple iterations with two epochs reduces the error, but not iterating at all is again the combination that yields the lowest error values, a total of 260.055 degrees.
 
-Furthermore, using 3 epochs instead of 2 resulted in a total error of 390.954 for the DR method and 294.689 for the LS method, and there is no improvement beyond using 3 epochs. This change was very important for some tests presented in the next chapter.
+Furthermore, using 3 epochs instead of 2 resulted in a total error of 390.954 for the DR method and 294.689 for the LS method, with no improvement beyond 3 epochs. This change was significant for some tests presented in the next chapter.
 
 \clearpage
 

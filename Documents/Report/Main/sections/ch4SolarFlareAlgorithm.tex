@@ -150,10 +150,6 @@ gnuplot -e "set terminal png; set output 'vtecDistribution.png'; set title 'VTEC
 
 The bash script executes the AWK process with the data as the input and outputs \textit{n} rows with two columns: the \textbf{time of the day} and the \textbf{calculated VTEC}, and finally plots the results using Gnuplot. 
 
-Visually, a spike can be seen between 11 and 11.2 hours. To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill in the ti files), we obtain the plot from figure \ref{fig:vtecDistribution}. At this time of the day around 11:00h the Sun would have a greater effect on the IPPs of this station due to its location close to the zenith, so the spike can be seen more clearly. 
-
-As mentioned before, the flare took place at 11.05, so we could proceed using the studied data range and this epoch in particular.
-
 \begin{figure}[!htb]
 	\begin{centering}
 		\includegraphics[width=0.5\linewidth]{images/ch4/vtecDistributionVill.png}
@@ -161,6 +157,12 @@ As mentioned before, the flare took place at 11.05, so we could proceed using th
 		\label{fig:vtecDistribution}
 	\end{centering}
 \end{figure}
+
+Visually, a spike can be seen between 11 and 11.2 hours. To see the event more clearly, though, we can focus on one specific receiver (which will still yield multiple IPPs, as the receiver works with different satellites). For the particular case of the Villafranca, Spain station (identified as Vill in the ti files), we obtain the plot from figure \ref{fig:vtecDistribution}. At this time of the day around 11:00h the Sun would have a greater effect on the IPPs of this station due to its location close to the zenith, so the spike can be seen more clearly. 
+
+As mentioned before, the flare took place at 11.05, so we could proceed using the studied data range and this epoch in particular.
+
+
 
 %\begin{figure}[!htb]
 %	\begin{subfigure}[b]{0.5\textwidth}
@@ -175,8 +177,6 @@ As mentioned before, the flare took place at 11.05, so we could proceed using th
 %	\caption{VTEC distribution throughout the day for all IPPS (a) and for IPPs that have Vill as the receiver (b)}
 %	\label{fig:vtecDistribution}
 %\end{figure}
-
-\clearpage
 
 \section{Solar-zenith angle}
 

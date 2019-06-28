@@ -134,13 +134,6 @@ double precision function traverseFile (raSunIn, decSunIn)
 	double precision :: rxyPearson
 	integer :: i = 0
 	
-	sumx = 0
-	sumy = 0
-	sumxy = 0
-	sumx2 = 0
-	sumy2 = 0
-	i = 0
-	
 	raSun = raSunIn
 	decSun = decSunIn
 	raSun = toRadian(raSun)
@@ -239,9 +232,7 @@ The following loop traverses the data and computes the mean VTEC of each epoch, 
 
 \begin{minipage}{\linewidth}
 	\begin{lstlisting}[language=c, caption=Finding a VTEC spike]
-	double epochIn, vtecIn, raIPPIn, latIPPIn;
 	int n = 0;
-	
 	data >> epochIn >> vtecIn >> raIPPIn >> latIPPIn;
 	double totalEpochVTEC = vtecIn;
 	double previousEpoch = epochIn;
@@ -257,7 +248,7 @@ The following loop traverses the data and computes the mean VTEC of each epoch, 
 	}\end{lstlisting}
 \end{minipage}
 
-The following table presents the 10 best epochs from best to worst and their results. Figure \ref{fig:differentEpochs} shows a visual representation of the evolution of the correlation coefficient and its total error (right ascension error + declination error) as the mean VTEC of the epoch decreases (using 15 different epochs).
+The following table presents the 5 best epochs from best to worst and their results. Figure \ref{fig:differentEpochs} shows a visual representation of the evolution of the correlation coefficient and its total error (right ascension error + declination error) as the mean VTEC of the epoch decreases (using 15 different epochs).
 
 \begin{table}[h!]
 	\centering
@@ -274,23 +265,11 @@ The following table presents the 10 best epochs from best to worst and their res
 		\hline
 		11.1167 & 211.875 & -19.6875 & 0.463 & 6.6275 & 0.669265 \\ 
 		\hline
-		11.0333 & 225.938 & -18.75 & 13.5995 & 5.69 & 0.564307 \\ 
-		\hline
-		11.025 & 219.375 & -16.875 & 7.037 & 3.815 & 0.49188 \\ 
-		\hline
-		11.0917 & 216.562 & -21.5625 & 4.2245 & 8.5025 & 0.48441 \\ 
-		\hline
-		11.1333 & 214.688 & -23.4375 & 2.3495 & 10.3775 & 0.397166 \\ 
-		\hline
-		11.1917 & 211.875 & -11.25 & 0.463 & 1.81 & 0.355636 \\ 
-		\hline
-		11.3667 & 185.625 & -76.875 & 26.713 & 63.815 & 0.23138 \\ 
+		11.0333 & 225.938 & -18.75 & 13.5995 & 5.69 & 0.564307 \\  
 		\hline
 	\end{tabular}
 	\caption{Results for different epochs}
 \end{table}
-
-\clearpage
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{0.5\textwidth}
@@ -326,9 +305,11 @@ Executing the algorithm with a STEP of 10$^{\circ}$, this is the output of the e
 \end{lstlisting}
 \end{minipage}
 
-As we can see, the possible Sun with the highest correlation coefficient (0.9269) has a location with a right ascension of 210$^{\circ}$ and a declination of -10$^{\circ}$. Considering that for the epoch the Sun position was $212.338^{\circ}$ and $-13.060^{\circ}$ as the right ascension and declination, respectively, we can see that the estimated Sun's location returned by the algorithm is close to the real one, using a step of 10$^{\circ}$.
+The possible Sun with the highest correlation coefficient (0.9269) has a location with a right ascension of 210$^{\circ}$ and a declination of -10$^{\circ}$. Considering that for the epoch the Sun position was $212.338^{\circ}$ and $-13.060^{\circ}$ as the right ascension and declination, respectively, we can see that the estimated Sun's location returned by the algorithm is close to the real one, using a step of 10$^{\circ}$.
 
 It can be interesting to see how the computation time grows as more precision is demanded from the algorithm, and if the precision of the results does as well. The following table shows this relation for some input cases:
+
+\clearpage
 
 \begin{table}[h!]
 	\centering

@@ -171,6 +171,7 @@ The main advantage of this method over the one introduced in the previous chapte
 
 The following is the pseudocode of the algorithm for a single iteration of the algorithm:
 
+\clearpage
 \begin{algorithm}
 	\caption{Least Squares method}\label{leastSquaresPseudo}
 	\begin{algorithmic}[1]
@@ -209,8 +210,6 @@ The following is the pseudocode of the algorithm for a single iteration of the a
 \end{algorithm}
 
 The algorithm first stores the necessary data in the arrays and uses them to compute the system solution. The estimated location of the source is then obtained from the system solution by means of the equations presented in the previous section.
-
-\clearpage
 
 \section{Implementation}
 
@@ -286,6 +285,8 @@ The following is the main function of the algorithm, which stores the data in th
 	
 	end subroutine leastSquares\end{lstlisting}
 \end{minipage}
+
+\clearpage
 
 The static storeMatrixData function traverses the file and stores the information, if the method is working with multiple iterations, it also checks using the past iteration's estimation whether the IPP point is valid or not. If it is, the components are computed with function computeComponentsIPP() (listing \ref{lst:computeComponents}), otherwise, 0s are stored for that row.
 
@@ -420,13 +421,13 @@ As mentioned before, a possibility to improve the result could be iterating usin
 \begin{minipage}{\linewidth}
 	\label{lst:checkOutlier}
 	\begin{lstlisting}[style=myFortranStyle, caption=Function checkOutlier to discard outliers]
-	integer function checkOutlier(solutionRa, solutionDec, raIPP, decIPP)
+	integer function checkOutlier(solRa, solDec, raIPP, decIPP)
 		implicit none
-		double precision, intent(in) :: solutionRa, solutionDec, raIPP, decIPP
+		double precision, intent(in) :: solRa, solDec, raIPP, decIPP
 		double precision :: sourceZenithAngle
 		integer :: validSample, returnValue
 
-		sourceZenithAngle = computeSourceZenithAngle (solutionRa, solutionDec, raIPP, decIPP)
+		sourceZenithAngle = computeSourceZenithAngle (solRa, solDec, raIPP, decIPP)
 		if (sourceZenithAngle >= COSINE_THRESHOLD) then
 			validSample = 1
 		else
@@ -473,6 +474,8 @@ The following table shows the results of using 10 iterations with this method:
 As we can see, multiple iterations do not present an improvement in the estimation. This is caused because in each iteration IPPs are discarded and therefore the system of equations has less information to compute the estimation.
 
 Because there does not appear to be any improvement, another option could be to use the estimation error obtained from the covariance matrix as an indicator of how precise the estimation is. This is obtained by adding the covariances of the the components of the system's solution. These covariances are the elements of the diagonal from the matrix $(A^{T}A)^{-1}$ from equation \ref{eq:mainEq}. This option using the \textit{LS estimation error} (not the actual error, obtained from comparing our estimation to the real position of the source) will be tested with more data sets in the results chapter.
+
+
 
 \subsection{Multiple iterations: residual sum}
 
